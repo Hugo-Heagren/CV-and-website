@@ -5,8 +5,17 @@
 % Packages {{{2
 \usepackage{xstring}
 \usepackage{hyperref}
+%Change the margins to fit your CV/resume content
+\usepackage{geometry}
 % }}}2
 
+% Page Layout {{{2
+\geometry{left=1in,
+	right=1in,
+	bottom=1.25in,
+	top=1.25in
+}
+% }}}2
 
 % Commands {{{2
 
@@ -46,7 +55,7 @@
 
 \begin{document}
 
-\begin{tabular}{l l l}
+\noindent\begin{tabular}{l l l}
 \section{Contact Details}
 \email{academic} \\
 \phone \\
@@ -61,7 +70,7 @@
 }
 % A History of Aesthetics in Western Philosophy and an Examination of whether Aesthetics is Properly Considered a Discipline or an Application of Philosophy
 \entry{from 2018}{BA Philosophy, Universty of Southampton}
-& \indent\textit{(module marks/100)} & \\
+& \indent\textit{(module marks/100)}\noindent & \\
             \etem{Ancient Greek Philosophy        }{77}
             \etem{Ethics                          }{72}
             \etem{Existentialism and its Origins  }{72}
