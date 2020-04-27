@@ -1,0 +1,40 @@
+% Preamble {{{1
+
+\documentclass{article}
+
+% Packages {{{2
+% }}}2
+
+% Commands {{{2
+
+% Section {{{3
+\renewcommand{\section}[1]{\multicolumn{2}{l}{\bfseries{\Large{#1}}}\\}
+% }}}3
+
+% Entry {{{3
+\newcommand{\entry}[3]{#1 & #2 \\
+			  & #3 \\}
+% }}}3
+
+% }}}2
+
+% Attributes / information {{{2
+% Email (commands) {{{3
+\newcommand{\email}[1]{%
+    \IfEqCase{#1}{%
+        {personal}{hugo@heagen.com}%
+        {academic}{hbh1g18@soton.ac.uk}%
+    }[\PackageError{email}{Undefined option to email: #1}{}]%
+}
+% }}}3
+
+\newcommand{\phone}{07958997156}
+%}}}2
+
+% }}}1
+
+\begin{document}
+\begin{tabular}{l l}
+
+\end{tabular}
+\end{document}
