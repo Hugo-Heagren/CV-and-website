@@ -24,7 +24,7 @@
 % Commands {{{2
 
 % Email (commands) {{{3
-\newcommand{\email}[1]{%
+\newcommand{\email}[1]{&%
     \IfEqCase{#1}{%
 	    {personal}{\href{mailto:\personal}{\personal} \textit{(institution)}\\}
 	    {academic}{\href{mailto:\academic}{\academic} \textit{(institution)}\\}
@@ -51,7 +51,7 @@
 \newcommand{\personal}{hugo@heagen.com}
 % }}}3
 
-\newcommand{\phone}{07958997156 \\}
+\newcommand{\phone}{&07958997156 \\}
 
 % }}}2
 
