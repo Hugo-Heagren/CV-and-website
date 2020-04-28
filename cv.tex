@@ -6,7 +6,7 @@
 \usepackage{xstring}
 \usepackage{hyperref}
 \usepackage{geometry}
-% \usepackage{fontspec}
+\usepackage{fontspec}
 % }}}2
 
 % Page Layout and style {{{2
@@ -17,7 +17,7 @@
 }
 
 % Get a good font!!
-% \setmainfont[Ligatures=TeX]{Georgia}
+% \setmainfont{Hoefler Text}
 
 \hypersetup{
     colorlinks=true,   % false: boxed links; true: colored links
@@ -37,11 +37,15 @@
 % }}}3
 
 % Section {{{3
-\renewcommand{\section}[1]{& \multicolumn{2}{l}{\bfseries{\Large{#1}}}\vspace{0.7ex}\\}
+\renewcommand{\section}[1]{\\& \multicolumn{2}{l}{\bfseries{\Large{#1}}}\\}
 % }}}3
 
 % Entry {{{3
 \newcommand{\entry}[3]{\scriptsize{\textsc{#1}} & \multicolumn{2}{l}{#2} \\ #3}
+% }}}3
+
+% E(ntry )Head(ing) {{{3
+\newcommand{\ehead}[3]{\scriptsize{\textsc{#1}} & \multicolumn{2}{l}{\bfseries{#2}} \\ #3}
 % }}}3
 
 % E(ntry i)tem {{{3
@@ -69,14 +73,14 @@
 \phone
 
 \section{Education} 
-\entry{2016--2018}{\bfseries{King Edward IV Five Ways}}{
+\ehead{2016--2018}{King Edward IV Five Ways}{
               \etem{A-level Politics \& Government}{B}
               \etem{A-level Mathematics}           {B}
               \etem{A-level Economics}             {B}
 	      \etem{EPQ}                           {A* (52 / 54)}
 }
 % A History of Aesthetics in Western Philosophy and an Examination of whether Aesthetics is Properly Considered a Discipline or an Application of Philosophy
-\entry{from 2018}{\bfseries{BA Philosophy, Universty of Southampton}}
+\ehead{from 2018}{BA Philosophy, Universty of Southampton}
 & \indent\textit{(module marks/100)}\noindent & \\
             \etem{Ancient Greek Philosophy        }{77}
             \etem{Ethics                          }{72}
