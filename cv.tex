@@ -16,8 +16,8 @@
 	hmargin=0.5in, % 0.5" margins all round
 }
 
-% Get a good font!!
-% \setmainfont{Hoefler Text}
+% Get a good font
+% \setmainfont{Libre Baskervill}
 
 \hypersetup{
     colorlinks=true,   % false: boxed links; true: colored links
@@ -49,6 +49,9 @@
 % E(ntry i)tem {{{3
 \newcommand{\etem}[2]{& #1 & \hspace{5em}#2 \\}
 % }}}3
+
+% Title
+\renewcommand{\title}[1]{&\LARGE{\bfseries{#1}}&\\[6ex]}
 % }}}2
 
 % Attributes / information {{{2
@@ -64,8 +67,9 @@
 % }}}1
 
 \begin{document}
-
 \noindent\begin{tabular}{p{6em} l l}
+\title{Hugo Heagren}
+
 \section{Contact Details}
 \email{academic}
 \phone
