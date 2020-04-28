@@ -16,13 +16,11 @@
 	hmargin=0.5in, % 0.5" margins all round
 }
 
-% Get a good font
-% \setmainfont{Libre Baskervill}
-
 \hypersetup{
     colorlinks=true,   % false: boxed links; true: colored links
     urlcolor=blue      % color of external links
 }
+
 % }}}2
 
 % Commands {{{2
@@ -30,7 +28,7 @@
 % Email (commands) {{{3
 \newcommand{\email}[1]{&%
     \IfEqCase{#1}{%
-	    {personal}{\href{mailto:\personal}{\personal} \textit{(institution)}\\}
+	    {personal}{\href{mailto:\personal}{\personal} \textit{(personal)}\\}
 	    {academic}{\href{mailto:\academic}{\academic} \textit{(institution)}\\}
     }[\PackageError{email}{Undefined option to email: #1}{}]%
 }
@@ -50,8 +48,9 @@
 \newcommand{\etem}[2]{& #1 & \hspace{5em}#2 \\}
 % }}}3
 
-% Title
+% Title {{{3
 \renewcommand{\title}[1]{&\LARGE{\bfseries{#1}}&\\[6ex]}
+ % }}}3
 % }}}2
 
 % Attributes / information {{{2
@@ -72,6 +71,7 @@
 
 \section{Contact Details}
 \email{academic}
+\email{personal}
 \phone
 
 \section{Education} 
@@ -81,7 +81,6 @@
               \etem{A-level Economics}             {B}
 	      \etem{EPQ}                           {A* (52 / 54)}
 }
-% A History of Aesthetics in Western Philosophy and an Examination of whether Aesthetics is Properly Considered a Discipline or an Application of Philosophy
 \entry{from 2018}{\bfseries{BA Philosophy, Universty of Southampton}}
 & \textit{(module marks/100)}\noindent & \\
             \etem{Ancient Greek Philosophy        }{77}
