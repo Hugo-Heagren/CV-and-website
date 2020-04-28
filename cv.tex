@@ -37,7 +37,7 @@
 % }}}3
 
 % Section {{{3
-\renewcommand{\section}[1]{\\& \multicolumn{2}{l}{\bfseries{\Large{#1}}}\\}
+\renewcommand{\section}[1]{\\[-1.0ex]& \multicolumn{2}{l}{\bfseries{\Large{#1}}}\vspace{0.5ex}\\}
 % }}}3
 
 % Entry {{{3
@@ -45,7 +45,7 @@
 % }}}3
 
 % E(ntry )Head(ing) {{{3
-\newcommand{\ehead}[3]{\scriptsize{\textsc{#1}} & \multicolumn{2}{l}{\bfseries{#2}} \\ #3}
+\newcommand{\ehead}[3]{\scriptsize{\textsc{#1}} & \multicolumn{2}{l}{\bfseries{#2}} \\[0.2ex] #3}
 % }}}3
 
 % E(ntry i)tem {{{3
@@ -100,8 +100,10 @@
             \etem{Philosophy of Language          }{$^\dag$}
 & \dag\ \textit{Provisional} & \\
 \section{Awards}
-% \entry{2019}{Philosophy Alumni Prize for Best Performance by a 1st year Single Honours Student, Southampton University}{}
+\entry{2019}{Philosophy Alumni Prize for Best Performance by a 1st year Single Honours Student}{}% Southampton University}{}
 
 \section{Events Attended}
+\entry{2019}{Modal Logic workshop}{}
+
 \end{tabular}
 \end{document}
