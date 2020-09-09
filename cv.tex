@@ -6,6 +6,7 @@
 \usepackage{xstring}
 \usepackage{hyperref}
 \usepackage{geometry}
+\usepackage{tabularx}
 % }}}2
 
 % Page Layout and style {{{2
@@ -39,16 +40,21 @@
 
 % Section {{{3
 \renewcommand{\section}[1]{\\[-1.0ex]& \multicolumn{2}{l}{\bfseries{\Large{#1}}}\vspace{0.5ex}\\}
+% \renewcommand{\section}[1]{\\[-1.0ex]& \bfseries{\Large{#1}} & \\ \vspace{0.5ex}}
 % }}}3
 
 % Entry {{{3
-\newcommand{\entry}[3]{\scriptsize{\textsc{#1}} & \multicolumn{2}{l}{#2} \\ #3}
+\newcommand{\entry}[3]{\scriptsize{\textsc{#1}} & #2 & #3 \\}
 % }}}3
 
 % }}}3
+
+% List( )Entry {{{3
+\newcommand{\listentry}[3]{\entry{#1}{\bfseries{#2}}{#3} \\}
+%}}}3
 
 % E(ntry i)tem {{{3
-\newcommand{\etem}[2]{& #1 & \hspace{5em}#2 \\}
+\newcommand{\etem}[2]{\\ & #1 & #2}
 % }}}3
 
 % Title {{{3
@@ -62,14 +68,14 @@
 \newcommand{\personal}{hugo@heagen.com}
 % }}}3
 
-\newcommand{\phone}{&07958997156 \\}
+\newcommand{\phone}{&07958997156\\}
 
 % }}}2
 
 % }}}1
 
 \begin{document}
-\noindent\begin{tabular}{p{6em} l l}
+\begin{tabularx}{\textwidth}{ p{6em} X p{6em} }
 \title{Hugo Heagren}
 
 \section{Contact Details}
@@ -78,37 +84,39 @@
 \phone
 
 \section{Education} 
-\entry{2016--2018}{\bfseries{King Edward VI Five Ways}}{
-              \etem{A-level Politics \& Government}{B}
-              \etem{A-level Mathematics}           {B}
-              \etem{A-level Economics}             {B}
-	      \etem{EPQ}                           {A* (52 / 54)}
+\listentry{2016--2018}{King Edward VI Five Ways}{
+                 \etem{A-level Politics \& Government}{B}
+                 \etem{A-level Mathematics}           {B}
+                 \etem{A-level Economics}             {B}
+                 \etem{EPQ}                           {A* (52 / 54)}
+}                
+\listentry{from 2018}{BA Philosophy, University of Southampton}{
+\\ & \textit{(module marks/100)}\noindent &
+            \etem{Aesthetics}                      {73}
+            \etem{Ancient Greek Philosophy}        {77}
+            \etem{Appearance and Reality}          {81}
+            \etem{Ethics}                          {72}
+            \etem{Existentialism and its Origins}  {72}
+            \etem{Faith and Reason}                {83}
+            \etem{Freedom and Responsibility}      {77}
+            \etem{Kant}                            {75}
+            \etem{Knowledge \& Mind}               {76}
+            \etem{Logic}                           {97}
+            \etem{Metaethics}                      {74}
+            \etem{Metaphysics}                     {68}
+            \etem{Philosophy of Language}          {72}
+            \etem{Philosophy of Mind}              {76}
+            \etem{Puzzles about Art \& Literature} {75}
+            \etem{Reason and Argument}             {88}
 }
-\entry{from 2018}{\bfseries{BA Philosophy, University of Southampton}}
-& \textit{(module marks/100)}\noindent & \\
-            \etem{Aesthetics                      }{73}
-            \etem{Ancient Greek Philosophy        }{77}
-            \etem{Appearance and Reality          }{81}
-            \etem{Ethics                          }{72}
-            \etem{Existentialism and its Origins  }{72}
-            \etem{Faith and Reason                }{83}
-            \etem{Freedom and Responsibility      }{77}
-            \etem{Kant                            }{75}
-            \etem{Knowledge \& Mind               }{76}
-            \etem{Logic                           }{97}
-            \etem{Metaethics                      }{74}
-            \etem{Metaphysics                     }{68}
-            \etem{Philosophy of Language          }{72}
-            \etem{Philosophy of Mind              }{76}
-            \etem{Puzzles about Art \& Literature }{75}
-            \etem{Reason and Argument             }{88}
-\section{Awards}
-\entry{2019}{Philosophy Alumni Prize for Best Performance by a 1st year Single Honours Student}{}
+\section{Awards and Scholarships}
+\entry{2019}{Southampton University Philosophy Alumni Prize for Best Performance by a 1st year Single Honours Student}{}
+\entry{2020}{Southampton University Virtual Opportunities Scholarship}{}
 
 \section{Events Attended}
 \entry{2020}{Glasgow University Mini Workshop on Philosophical Applications of Modal Logic}{}
-\entry{2020}{University of Urbino Summer School in Philosophy of Physics--Philosophy of Quantum Computation}{}
-\entry{2020}{University of Hamburg Summer School--The Hyperintensional Revolution}{}
+\entry{2020}{University of Urbino Summer School in Philosophy of Physics---Philosophy of Quantum Computation}{}
+\entry{2020}{University of Hamburg Summer School---The Hyperintensional Revolution}{}
 
-\end{tabular}
+\end{tabularx}
 \end{document}
