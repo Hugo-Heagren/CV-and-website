@@ -49,6 +49,17 @@
 
 % }}}3
 
+% Pub(lication) {{{3
+% In future, it would be good to:
+% - maintain a bib file of all my publications
+% - define \pub{} with bibtex / biblatex as a reference
+% - define the publications section just as \pub references to EVERYTHING in
+%   the bib file.
+\newcommand{\pub}[3]{\entry{#1}{\textit{#2}, #3}{}}
+% }}}3
+
+% }}}3
+
 % List( )Entry {{{3
 \newcommand{\listentry}[3]{\entry{#1}{\bfseries{#2}}{#3} \\}
 %}}}3
@@ -88,7 +99,7 @@
                  \etem{A-level Politics \& Government}{B}
                  \etem{A-level Mathematics}           {B}
                  \etem{A-level Economics}             {B}
-                 \etem{EPQ}                           {A* (52 / 54)}
+                 \etem{EPQ}                           {A*}
 }                
 \listentry{from 2018}{BA Philosophy, University of Southampton}{
 \\ & \textit{(module marks/100)}\noindent &
@@ -102,7 +113,7 @@
             \etem{Kant}                            {75}
             \etem{Knowledge \& Mind}               {76}
             \etem{Logic}                           {97}
-            \etem{Metaethics}                      {74}
+            \etem{Metaethics}                      {74} (52/54)
             \etem{Metaphysics}                     {68}
             \etem{Philosophy of Language}          {72}
             \etem{Philosophy of Mind}              {76}
@@ -113,10 +124,18 @@
 \entry{2019}{Southampton University Philosophy Alumni Prize for Best Performance by a 1st year Single Honours Student}{}
 \entry{2020}{Southampton University Virtual Opportunities Scholarship}{}
 
+\section{Publications and Submissions}
+\pub{2020}{On Why Philosophers Can Never Run Out of Questions for Angels: A Solution to the Real Paradox of the Question}{submitted to \href{https://ojs.st-andrews.ac.uk/index.php/aporia/index}{Aporia} 21/11/2020}
+\pub{2020}{A General Defence of Correspondence Theory Against Slingshot Arguments}{submitted to \href{https://prokopton.bilkent.edu.tr/}{Prokopton} 19/11/2020}
+
 \section{Events Attended}
 \entry{2020}{Glasgow University Mini Workshop on Philosophical Applications of Modal Logic}{}
 \entry{2020}{University of Urbino Summer School in Philosophy of Physics---Philosophy of Quantum Computation}{}
 \entry{2020}{University of Hamburg Summer School---The Hyperintensional Revolution}{}
+
+\section{Extracurricular}
+\entry{from 2017}{Volunteer staff for the \href{https://www.fsc.org.uk/}{Forest School Camps}}{}
+\entry{from 2018}{Keen sailor. RYA Yachtmaster Coastal, have sailed over 5,000 miles around Europe, introduced lots of students to yachting and have raced offshore with the \href{https://www.rorc.org}{RORC} and \href{https://jog.org.uk}{JOG}}{}
 
 \end{tabularx}
 \end{document}
