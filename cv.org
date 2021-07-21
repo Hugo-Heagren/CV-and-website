@@ -4,8 +4,8 @@
 #+OPTIONS: num:nil
 
 * Contact Details
-- [[mailto:hbh1g18@soton.ac.uk]] /(institution)/
-- [[mailto:hugo@heagren.com]] /(personal)/
+- [[mailto:hbh1g18@soton.ac.uk][hbh1g18@soton.ac.uk]] /(institution)/
+- [[mailto:hugo@heagren.com][hugo@heagren.com]] /(personal)/
 - 07958997156
 
 * Education
