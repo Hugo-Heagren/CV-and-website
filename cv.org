@@ -9,97 +9,23 @@
 - 07958997156
 
 * Education
-** King Edward VI Five Ways
-:PROPERTIES:
-:DATE:     [2016]--[2018]
-:END:
-- A-level Politics \& Government :: B
-- A-level Mathematics :: B
-- A-level Economics :: B
-- EPQ :: A*
-
-** BA Philosophy, University of Southampton
-:PROPERTIES:
-:DATE:     [2018]--[2021]
-:END:
-/(module marks/100)/
-*** First Year
-:PROPERTIES:
-:DATE: [2018]--[2019]
-:END:
-- Ancient Greek Philosophy :: 77
-- Ethics :: 72
-- Existentialism and its Origins :: 72
-- Faith and Reason :: 83
-- Freedom and Responsibility :: 77
-- Knowledge \& Mind :: 76
-- Puzzles about Art \& Literature :: 75
-- Reason and Argument :: 88
-
-*** Second Year
-:PROPERTIES:
-:DATE: [2019]--[2020]
-:END:
-- Aesthetics :: 73
-- Appearance and Reality :: 81
-- Kant :: 75
-- Logic :: 97
-- Metaethics :: 74
-- Metaphysics :: 68
-- Philosophy of Language :: 72
-- Philosophy of Mind :: 76
-
-*** Third Year
-:PROPERTIES:
-:DATE: [2019]--[2020]
-:END:
-- Classical Indian Philosophy :: 80
-- Nietzsche :: 74
-- Puzzles and Paradoxes :: 74
-
+- 2016--2018 :: King Edward VI Five Ways School
+- 2018--2021 :: BA Philosophy, University of Southampton
+  
 * Awards and Scholarships
-** Southampton University Philosophy Alumni Prize for Best Performance by a 1st year Single Honours Student
-:PROPERTIES:
-:DATE: [2019]
-:END:
-
-** Southampton University Virtual Opportunities Scholarship
-:PROPERTIES:
-:DATE: [2020]
-:END:
+- 2019 :: Southampton University Philosophy Alumni Prize for Best Performance by a 1st year Single Honours Student
+- 2019 :: Southampton University Virtual Opportunities Scholarship
 
 * Publications and Submissions :noexport:
 \pub{2020}{A General Defence of Correspondence Theory Against Slingshot Arguments}{forthcoming in \href{https://prokopton.bilkent.edu.tr/}{Prokopton}}
 \pub{2020}{On Why Philosophers Can Never Run Out of Questions for Angels: A Solution to the Real Paradox of the Question}{submitted to \href{https://ojs.st-andrews.ac.uk/index.php/aporia/index}{Aporia} 21/11/2020}
 
 * Events Attended
-** Glasgow University Mini Workshop on Philosophical Applications of Modal Logic
-:PROPERTIES:
-:DATE: [2020]
-:END:
-
-** University of Urbino Summer School in Philosophy of Physics---Philosophy of Quantum Computation
-:PROPERTIES:
-:DATE: [2020]
-:END:
-
-** University of Hamburg Summer School---The Hyperintensional Revolution
-:PROPERTIES:
-:DATE: [2020]
-:END:
+- 2020 :: Glasgow University Mini Workshop on Philosophical Applications of Modal Logic
+- 2020 :: University of Urbino Summer School in Philosophy of Physics---Philosophy of Quantum Computation
+- 2020 :: University of Hamburg Summer School---The Hyperintensional Revolution
 
 * Extracurricular
-** Volunteer staff for the \href{https://www.fsc.org.uk/}{Forest School Camps}
-:PROPERTIES:
-:FROM: [2017]
-:END:
-
-** I am a keen sailor. I have completed my RYA Yachtmaster Coastal, sailed over 5,000 miles around Europe, introduced many Southampton students to yachting and have raced offshore with the \href{https://www.rorc.org}{RORC} and \href{https://jog.org.uk}{JOG}
-:PROPERTIES:
-:FROM: [2018]
-:END:
-
-** I am an advocate of free and open source software, and occasionally develop programs in line with this. My recent work is \href{https://github.com/Hugo-Heagren?tab=repositories\&q=\&type=public\&language=}{here}
-:PROPERTIES:
-:FROM: [2016]
-:END:
+- from 2017 :: Volunteer staff for the \href{https://www.fsc.org.uk/}{Forest School Camps}
+- from 2018 :: I am a keen sailor. I have completed my RYA Yachtmaster Coastal, sailed over 5,000 miles around Europe, introduced many Southampton students to yachting and have raced offshore with the \href{https://www.rorc.org}{RORC} and \href{https://jog.org.uk}{JOG}
+- from 2016 :: I am an advocate of free and open source software, and occasionally develop programs in line with this. My recent work is \href{https://github.com/Hugo-Heagren?tab=repositories\&q=\&type=public\&language=}{here}
