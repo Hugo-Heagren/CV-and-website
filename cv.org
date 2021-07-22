@@ -2,6 +2,8 @@
 #+AUTHOR: Hugo Heagren
 #+OPTIONS: toc:nil
 #+OPTIONS: num:nil
+#+LATEX_CLASS: cv
+
 
 * Contact Details
 - [[mailto:hbh1g18@soton.ac.uk][hbh1g18@soton.ac.uk]] /(institution)/
