@@ -11,9 +11,7 @@
 \RequirePackage{titlesec}
 \RequirePackage{titling}
 
-%% * Page Layout and style
-
-%% ** Layout
+%% * Layout
 \geometry{
 	a4paper,       % paper size a4
 	vmargin=1in,   % 0.5" margins all round
@@ -26,7 +24,7 @@
 %% Size of the of the left-hand margin with dates in it
 \newcommand{\dategutter}{6em}
 
-%% ** Style
+%% * Style
 
 % Hyperlinks are blue (but not TOO blue!)
 \hypersetup{
@@ -37,7 +35,7 @@
 % No page numbers
 \pagenumbering{gobble}
 
-%% *** Titles
+%% ** Titles
 
 %% Manually redefine titling's maketitle command to ONLY print the
 %% title (not the author or the date)
@@ -61,13 +59,13 @@
 \pretitle{\hspace{\dategutter}\LARGE\bfseries}
 \posttitle{\normalfont}
 
-%% *** Sections
+%% ** Sections
 
 \titlespacing{\section}{6em}{1ex}{0.5ex}
 \titlespacing{\subsection}{6em}{1ex}{0.5ex}
 \titlespacing{\subsubsection}{6em}{1ex}{0.5ex}
 
-%% *** Lists
+%% ** Lists
 
 \setlist[]{
   nosep,
