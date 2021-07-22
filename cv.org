@@ -19,8 +19,8 @@
 - 2019 :: Southampton University Virtual Opportunities Scholarship
 
 * Publications and Submissions :noexport:
-\pub{2020}{A General Defence of Correspondence Theory Against Slingshot Arguments}{forthcoming in \href{https://prokopton.bilkent.edu.tr/}{Prokopton}}
-\pub{2020}{On Why Philosophers Can Never Run Out of Questions for Angels: A Solution to the Real Paradox of the Question}{submitted to \href{https://ojs.st-andrews.ac.uk/index.php/aporia/index}{Aporia} 21/11/2020}
+\pub{2020}{A General Defence of Correspondence Theory Against Slingshot Arguments}{forthcoming in [[https://prokopton.bilkent.edu.tr/][Prokopton]]}
+\pub{2020}{On Why Philosophers Can Never Run Out of Questions for Angels: A Solution to the Real Paradox of the Question}{submitted to [[https://ojs.st-andrews.ac.uk/index.php/aporia/index][Aporia]] 21/11/2020}
 
 * Events Attended
 - 2020 :: Glasgow University Mini Workshop on Philosophical Applications of Modal Logic
@@ -28,6 +28,6 @@
 - 2020 :: University of Hamburg Summer School---The Hyperintensional Revolution
 
 * Extracurricular
-- from 2017 :: Volunteer staff for the \href{https://www.fsc.org.uk/}{Forest School Camps}
-- from 2018 :: I am a keen sailor. I have completed my RYA Yachtmaster Coastal, sailed over 5,000 miles around Europe, introduced many Southampton students to yachting and have raced offshore with the \href{https://www.rorc.org}{RORC} and \href{https://jog.org.uk}{JOG}
-- from 2016 :: I am an advocate of free and open source software, and occasionally develop programs in line with this. My recent work is \href{https://github.com/Hugo-Heagren?tab=repositories\&q=\&type=public\&language=}{here}
+- from 2017 :: Volunteer staff for the [[https://www.fsc.org.uk/][Forest School Camps]]
+- from 2018 :: I am a keen sailor. I have completed my RYA Yachtmaster Coastal, sailed over 5,000 miles around Europe, introduced many Southampton students to yachting and have raced offshore with the [[https://www.rorc.org][RORC]] and [[https://jog.org.uk][JOG]]
+- from 2016 :: I am an advocate of free and open source software, and occasionally develop programs in line with this. My recent work is [[https://github.com/Hugo-Heagren?tab=repositories\&q=\&type=public\&language=][here]]
