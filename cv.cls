@@ -22,7 +22,7 @@
 \setlength{\parindent}{0em}
 
 %% Size of the of the left-hand margin with dates in it
-\newcommand{\dategutter}{6em}
+\newcommand{\dategutter}{7em}
 
 %% * Style
 
