@@ -1,5 +1,6 @@
 #+TITLE: Hugo Heagren
 #+AUTHOR: Hugo Heagren
+#+KEYWORDS: philosophy,academic,academia,university,cv,resume,curriculum vitae
 #+OPTIONS: toc:nil
 #+OPTIONS: num:nil
 #+LATEX_CLASS: cv
