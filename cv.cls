@@ -50,8 +50,7 @@
       \maketitlehookb
           \maketitlehookc
               \maketitlehookd
-              \par
-              \vskip 1.5em}
+              \vskip\parskip}
 \fi
 \makeatother
 
