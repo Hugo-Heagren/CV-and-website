@@ -60,9 +60,9 @@
 
 %% ** Sections
 
-\titlespacing{\section}{6em}{1ex}{0.5ex}
-\titlespacing{\subsection}{6em}{1ex}{0.5ex}
-\titlespacing{\subsubsection}{6em}{1ex}{0.5ex}
+\titlespacing{\section}{\dategutter}{1ex}{0.5ex}
+\titlespacing{\subsection}{\dategutter}{1ex}{0.5ex}
+\titlespacing{\subsubsection}{\dategutter}{1ex}{0.5ex}
 
 %% ** Lists
 
