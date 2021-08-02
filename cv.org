@@ -18,6 +18,8 @@
 * Awards and Scholarships
 - 2019 :: Southampton University Philosophy Alumni Prize for Best Performance by a 1st year Single Honours Student
 - 2019 :: Southampton University Virtual Opportunities Scholarship
+- 2021 :: Southampton University Humanities Final Year Best Single Honours
+- 2021 :: Southampton University Humanities Best Dissertation
 
 * Publications and Submissions :noexport:
 \pub{2020}{A General Defence of Correspondence Theory Against Slingshot Arguments}{forthcoming in [[https://prokopton.bilkent.edu.tr/][Prokopton]]}
