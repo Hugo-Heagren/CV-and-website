@@ -29,6 +29,7 @@
 - 2020 :: Glasgow University Mini Workshop on Philosophical Applications of Modal Logic
 - 2020 :: University of Urbino Summer School in Philosophy of Physics---Philosophy of Quantum Computation
 - 2020 :: University of Hamburg Summer School---The Hyperintensional Revolution
+- 2021 :: European Summer School in Logic, Language and Computation
 
 * Extracurricular
 - from 2017 :: Volunteer staff for the [[https://www.fsc.org.uk/][Forest School Camps]]
