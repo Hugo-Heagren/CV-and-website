@@ -7,13 +7,13 @@
 
 
 * Contact Details
-- [[mailto:hbh1g18@soton.ac.uk][hbh1g18@soton.ac.uk]] /(institution)/
-- [[mailto:hugo@heagren.com][hugo@heagren.com]] /(personal)/
+- [[mailto:hbh29@cam.ac.uk][hbh29@cam.ac.uk]]
 - 07958997156
 
 * Education
 - 2016--2018 :: King Edward VI Five Ways School
 - 2018--2021 :: BA Philosophy First Class, University of Southampton
+- from 2021 :: MPhil Philosophy, University of Cambridge
   
 * Awards and Scholarships
 - 2019 :: Southampton University Philosophy Alumni Prize for Best Performance by a 1st year Single Honours Student
