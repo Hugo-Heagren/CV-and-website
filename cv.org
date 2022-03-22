@@ -23,9 +23,9 @@
   Honours
 - 2021 :: Southampton University Philosophy Best Dissertation
 
-* Publications and Submissions :noexport:
-\pub{2020}{A General Defence of Correspondence Theory Against Slingshot Arguments}{forthcoming in [[https://prokopton.bilkent.edu.tr/][Prokopton]]}                                                               
-\pub{2020}{On Why Philosophers Can Never Run Out of Questions for Angels: A Solution to the Real Paradox of the Question}{submitted to [[https://ojs.st-andrews.ac.uk/index.php/aporia/index][Aporia]] 21/11/2020}
+* Publications and Submissions
+- 2022 :: What makes thoughts about specific things? /Aporia/
+  (forthcoming)
 
 * Events Attended
 - 2020 :: Glasgow University Mini Workshop on Philosophical
