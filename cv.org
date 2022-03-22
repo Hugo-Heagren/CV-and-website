@@ -5,7 +5,6 @@
 #+OPTIONS: num:nil
 #+LATEX_CLASS: cv
 
-
 * Contact Details
 - [[mailto:hbh29@cam.ac.uk][hbh29@cam.ac.uk]]
 - 07958997156
