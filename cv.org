@@ -42,4 +42,5 @@
   [[https://www.rorc.org][RORC]] and [[https://jog.org.uk][JOG]]
 - from 2016 :: I am an advocate of free and open source software, and
   occasionally develop programs in line with this. My recent work is
-  [[https://github.com/Hugo-Heagren][here]]
+  [[https://github.com/Hugo-Heagren][here]]. I am especially proud of contributions to the bibliography
+  manager [[https://joostkremers.github.io/ebib/][ebib]]
