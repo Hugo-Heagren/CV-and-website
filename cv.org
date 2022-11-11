@@ -6,7 +6,7 @@
 #+LATEX_CLASS: cv
 
 * Contact Details
-- [[mailto:hbh29@cam.ac.uk][hbh29@cam.ac.uk]]
+- [[mailto:hugo.heagren@kcl.ac.uk][hugo.heagren@kcl.ac.uk]]
 - 07958997156
 
 * Education
