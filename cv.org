@@ -24,6 +24,8 @@
 
 * Publications and Talks
 - 2022 :: What makes thoughts about specific things? /Aporia/
+- 2023 :: Supervaluationism about names cannot account for statement
+  about those names /PhiLang2023/
 
 * Teaching & Academic Service
 - 2022 :: Outreach teaching for Gonville & Caius college---lectures on
