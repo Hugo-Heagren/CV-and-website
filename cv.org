@@ -38,7 +38,8 @@
   Australasia
 
 * Extra-academic
-- from 2017 :: Member of board of directors, [[https://www.fsc.org.uk/][Forest School Camps]]
+- from 2017 :: Volunteer staff and member of board of directors,
+  [[https://www.fsc.org.uk/][Forest School Camps]]
 - from 2016 :: I am an advocate of free and open source software, and
   occasionally develop programs in line with this. My recent work is
   [[https://github.com/Hugo-Heagren][here]]. I am especially proud of contributions to the bibliography
