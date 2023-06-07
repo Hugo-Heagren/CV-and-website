@@ -7,7 +7,6 @@
 
 * Contact Details
 - [[mailto:hugo.heagren@kcl.ac.uk][hugo.heagren@kcl.ac.uk]]
-- 07958997156
 
 * Education
 - 2018--2021 :: BA Philosophy First Class, University of Southampton
