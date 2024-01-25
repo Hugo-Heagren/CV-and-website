@@ -15,10 +15,29 @@
   
 * Publications and Talks
 - 2022 :: What makes thoughts about specific things? /Aporia/
-- 2023--2024 :: Supervaluationism about names cannot account for statement
-  about those names /(talk given at PhiLang2023, paper forthcoming in
-  Forum Philosophicum 2024)/
+- 2023--2024 :: Supervaluationism about names cannot account for
+  statement about those names /(talk given at London Graduate WIP
+  group and PhiLang2023, paper forthcoming in Forum Philosophicum
+  2024)/
 - 2023 :: /Respondant at Berkeley-London Graduate Philosophy Conference/
+- 2023 :: Two problems with Veridicality /(talk given at Philosophy of
+  Perception WIP group, London)/
+- 2024 :: The Conditions of Rigidity /(talk given at
+  Sign-Language-Reality seminar)/
+
+* Teaching & Academic Service
+- 2022 :: Outreach teaching for Gonville & Caius college---lectures on
+  history of philosophy of language and my own research
+- 2023 :: Submission review for London Undergraduate Philosophy
+  conference
+- 2023,24 :: Submission review for Undergraduate Philosophy Journal of
+  Australasia 
+- from 2023 :: Organizer for [[https://www.lemm-london.co.uk/][Language, Epistemology, Metaphysics and Mind]]
+- from 2023 :: Administrator for the [[https://philosophyarts.co.uk/][Centre for Philosophy and Art]]
+- from 2023 :: Graduate Teaching Assistant at King's College London
+  (Introduction to Logic, Neuroscience and the mind, Introduction to
+  Metaphysics, Introduction to Epistemology, Advanced Topics in
+  Philosophy of Mind)
 
 * Awards and Scholarships
 - 2019 :: Southampton University Philosophy Alumni Prize for Best
@@ -27,18 +46,6 @@
 - 2021 :: Southampton University Final Year Philosophy Best Single
   Honours
 - 2021 :: Southampton University Philosophy Best Dissertation
-
-* Teaching & Academic Service
-- 2022 :: Outreach teaching for Gonville & Caius college---lectures on
-  history of philosophy of language and my own research
-- 2022 :: Session chair at /15th Annual Cambridge Graduate Conference
-  in the Philosophy of Mathematics and Logic/
-- 2023 :: Submission review for London Undergraduate Philosophy
-  conference
-- 2023 :: Submission review for Undergraduate Philosophy Journal of
-  Australasia
-- 2023--24 :: Organizer for [[https://www.lemm-london.co.uk/][Language, Epistemology, Metaphysics and Mind]]
-- 2023--24 :: Administrator for the [[https://philosophyarts.co.uk/][Centre for Philosophy and Art]]
 
 * Extra-academic
 - from 2017 :: Volunteer staff and member of board of directors,
