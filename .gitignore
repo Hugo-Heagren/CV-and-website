@@ -1,0 +1,14 @@
+# Exports
+**/*.pdf
+**/*.tex
+
+# Auctex artifacts
+**/auto/**
+
+# Exports
+*.log
+*.out
+
+# Admin
+todo.org
+/presentations/
