@@ -84,3 +84,15 @@
 \setlist[itemize]{
   label={}
 }
+
+% * ORCID
+
+% This implements the ORCID compact id format:
+% https://info.orcid.org/brand-guidelines/#h-compact-orcid-id The
+% image was downloaded from:
+% https://orcid.figshare.com/articles/figure/ORCID_iD_icon_graphics/5008697?file=8439035
+% Technically, the full id would be more appropriate here, but I
+% didn't like how it looked. How daring of me!
+\DeclareRobustCommand{\orcidcompactlink}[1]{%
+  \href{https://orcid.org/#1}%
+  {\includegraphics[height=8px]{ORCIDiD_icon24x24.png} #1}}
