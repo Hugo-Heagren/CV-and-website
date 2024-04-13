@@ -35,6 +35,11 @@
 % No page numbers
 \pagenumbering{gobble}
 
+% ** Fonts
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage{kpfonts}
+
 % ** Titles
 
 %% Manually redefine titling's maketitle command to ONLY print the
