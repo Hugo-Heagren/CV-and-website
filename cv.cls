@@ -3,7 +3,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{cv}
 
-%% * Packages
+% * Packages
 
 \RequirePackage{hyperref}
 \RequirePackage{enumitem}
@@ -11,7 +11,7 @@
 \RequirePackage{titlesec}
 \RequirePackage{titling}
 
-%% * Layout
+% * Layout
 \geometry{
 	a4paper,       % paper size a4
 	vmargin=1in,   % 0.5" margins all round
@@ -24,7 +24,7 @@
 %% Size of the of the left-hand margin with dates in it
 \newcommand{\dategutter}{7em}
 
-%% * Style
+% * Style
 
 % Hyperlinks are blue (but not TOO blue!)
 \hypersetup{
@@ -35,7 +35,7 @@
 % No page numbers
 \pagenumbering{gobble}
 
-%% ** Titles
+% ** Titles
 
 %% Manually redefine titling's maketitle command to ONLY print the
 %% title (not the author or the date)
@@ -58,13 +58,13 @@
 \pretitle{\hspace{\dategutter}\LARGE\bfseries}
 \posttitle{\normalfont}
 
-%% ** Sections
+% ** Sections
 
 \titlespacing{\section}{\dategutter}{1ex}{0.5ex}
 \titlespacing{\subsection}{\dategutter}{1ex}{0.5ex}
 \titlespacing{\subsubsection}{\dategutter}{1ex}{0.5ex}
 
-%% ** Lists
+% ** Lists
 
 \setlist[]{
   nosep,
