@@ -10,52 +10,52 @@
 - \orcidcompactlink{0009-0005-6052-3369}
 
 * Education
-- 2018--2021 :: BA Philosophy First Class, University of Southampton
-- 2021--2022 :: MPhil Philosophy, University of Cambridge
 - from 2022 :: PhD Philosophy, King's College London
+- 2021--2022 :: MPhil Philosophy, University of Cambridge
+- 2018--2021 :: BA Philosophy First Class, University of Southampton
   
 * Publications and Talks
-- 2022 :: What makes thoughts about specific things? /Aporia/
+- 2024 :: Bad Practices /(Talk given at KCL Advanced Research Seminar)/
+- 2024 :: What counts as being seen /(talk given at KCL Rationality,
+  Action and Mind seminar)/
+- 2024 :: The Conditions of Rigidity /(talk given at
+  Sign-Language-Reality seminar)/
+- 2023 :: Two problems with Veridicality /(talk given at Philosophy of
+  Perception WIP group, London)/
+- 2023 :: /Respondant at Berkeley-London Graduate Philosophy Conference/
 - 2023--2024 :: Supervaluationism about vague names cannot account for
   statement about those names /(talk given at KCL Rationality, Action
   and Mind seminar, London Graduate WIP group and PhiLang2023; paper
   forthcoming in Forum Philosophicum 2024)/
-- 2023 :: /Respondant at Berkeley-London Graduate Philosophy Conference/
-- 2023 :: Two problems with Veridicality /(talk given at Philosophy of
-  Perception WIP group, London)/
-- 2024 :: The Conditions of Rigidity /(talk given at
-  Sign-Language-Reality seminar)/
-- 2024 :: What counts as being seen /(talk given at KCL Rationality,
-  Action and Mind seminar)/
-- 2024 :: Bad Practices /(Talk given at KCL Advanced Research Seminar)/
+- 2022 :: What makes thoughts about specific things? /Aporia/
 
-* Teaching & Academic Service
-- 2022 :: Outreach teaching for Gonville & Caius college---lectures on
-  history of philosophy of language and my own research
-- 2023 :: Submission review for London Undergraduate Philosophy
-  conference
-- 2023,24 :: Submission review for Undergraduate Philosophy Journal of
-  Australasia 
-- from 2023 :: Organizer for [[https://www.lemm-london.co.uk/][Language, Epistemology, Metaphysics and Mind]]
-- from 2023 :: Administrator for the [[https://philosophyarts.co.uk/][Centre for Philosophy and Art]]
-- from 2023 :: Technical manager for the [[https://www.ai-humanity-london.com/][London AI and Humanity Project]]
-- from 2024 :: Technical manager for the [[https://www.philosophyandmedicine.org/][Sowerby Philosophy and
-  Medicine Project]]
-- from 2024 :: Volunteer with [[https://www.philosophyinprison.com/][Philosohy in Prison]]
+** Teaching & Academic Service
 - from 2023 :: Graduate Teaching Assistant at King's College London
   (Introduction to Logic, Neuroscience and the mind, Introduction to
   Metaphysics, Introduction to Epistemology, Advanced Topics in
   Philosophy of Mind)
+- from 2024 :: Volunteer with [[https://www.philosophyinprison.com/][Philosophy in Prison]]
+- from 2024 :: Technical manager for the [[https://www.philosophyandmedicine.org/][Sowerby Philosophy and
+  Medicine Project]]
+- from 2023 :: Organizer for [[https://www.lemm-london.co.uk/][Language, Epistemology, Metaphysics and Mind]]
+- from 2023 :: Administrator for the [[https://philosophyarts.co.uk/][Centre for Philosophy and Art]]
+- from 2023 :: Technical manager for the [[https://www.ai-humanity-london.com/][London AI and Humanity Project]]
+- 2023,24 :: Submission review for Undergraduate Philosophy Journal of
+  Australasia 
+- 2023 :: Submission review for London Undergraduate Philosophy
+  conference
+- 2022 :: Outreach teaching for Gonville & Caius college---lectures on
+  history of philosophy of language and my own research
 
 * Awards & Scholarships
-- 2019 :: Southampton University Philosophy Alumni Prize for Best
-  Performance by a 1st year Single Honours Philosophy Student
-- 2019 :: Southampton University Virtual Opportunities Scholarship
-- 2021 :: Southampton University Final Year Philosophy Best Single
-  Honours
-- 2021 :: Southampton University Philosophy Best Dissertation
 - 2024 :: KCL Arts and Humanities Small Grants, funding for visit to
   University of Texas at Austin
+- 2021 :: Southampton University Philosophy Best Dissertation
+- 2021 :: Southampton University Final Year Philosophy Best Single
+  Honours
+- 2019 :: Southampton University Virtual Opportunities Scholarship
+- 2019 :: Southampton University Philosophy Alumni Prize for Best
+  Performance by a 1st year Single Honours Philosophy Student
 
 * Extra-academic
 - from 2017 :: Volunteer staff and member of board of directors,
