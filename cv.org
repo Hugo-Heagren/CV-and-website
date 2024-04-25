@@ -23,10 +23,13 @@
 - 2023 :: Two problems with Veridicality /(talk given at Philosophy of
   Perception WIP group, London)/
 - 2023 :: /Respondant at Berkeley-London Graduate Philosophy Conference/
-- 2023--2024 :: Supervaluationism about vague names cannot account for
+- 2023 :: Supervaluationism about vague names cannot account for
   statement about those names /(talk given at KCL Rationality, Action
-  and Mind seminar, London Graduate WIP group and PhiLang2023; paper
-  forthcoming in Forum Philosophicum 2024)/
+  and Mind seminar)/
+- 2023 :: Supervaluationism about vague names cannot account for
+  statement about those names /(London Graduate WIP group)/
+- 2023 :: Supervaluationism about vague names cannot account for
+  statement about those names /( PhiLang2023)/
 - 2022 :: What makes thoughts about specific things? /Aporia/
 
 ** Teaching & Academic Service
