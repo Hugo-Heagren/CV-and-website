@@ -77,7 +77,7 @@
 }
 
 \setlist[description]{
-  font=\normalfont\scriptsize\textsc
+  font=\normalfont\bfseries\scriptsize\textsc
 }
 
 \setlist[itemize]{
