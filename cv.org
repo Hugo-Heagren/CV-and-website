@@ -8,6 +8,10 @@
 * Contact Details
 - [[mailto:hugo.heagren@kcl.ac.uk][hugo.heagren@kcl.ac.uk]]
 - \orcidcompactlink{0009-0005-6052-3369}
+# Separate from above
+#+ATTR_LATEX: :environment areas
+- AOS :: Philosophy of Language, Philosophy of Mind
+- AOC :: Epistemology, Logic, Metaphysics
 
 * Education
 - 2024 :: Visiting studentship, University of Texas at Austin
