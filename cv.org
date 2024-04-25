@@ -39,7 +39,7 @@
   statement about those names /( PhiLang2023)/
 - 2022 :: What makes thoughts about specific things? /Aporia/
 
-** Teaching & Academic Service
+* Teaching & Academic Service
 - from 2023 :: Graduate Teaching Assistant at King's College London
   (Introduction to Logic, Neuroscience and the mind, Introduction to
   Metaphysics, Introduction to Epistemology, Advanced Topics in
