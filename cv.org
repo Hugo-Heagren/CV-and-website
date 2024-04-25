@@ -16,7 +16,7 @@
 - 2018--2021 :: BA Philosophy First Class, University of Southampton
   
 * Publications
-- 2022 :: What makes thoughts about specific things? /Aporia/
+- 2022 :: [[https://ojs.st-andrews.ac.uk/index.php/aporia/article/view/2451][What makes thoughts about specific things?]] /Aporia/
 
 * Talks
 - 2024 :: The Conditions of Rigidity /(Annual KCL-UNC Graduate
