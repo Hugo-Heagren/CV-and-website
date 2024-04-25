@@ -96,3 +96,8 @@
 \DeclareRobustCommand{\orcidcompactlink}[1]{%
   \href{https://orcid.org/#1}%
   {\includegraphics[height=8px]{ORCIDiD_icon24x24.png} #1}}
+
+
+% Local Variables:
+% TeX-master: "cv.tex"
+% End:
