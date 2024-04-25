@@ -72,13 +72,12 @@
 % ** Lists
 
 \setlist[]{
-  nosep,
-  leftmargin=\dategutter
+  leftmargin=\dategutter,
+  labelwidth=!
 }
 
 \setlist[description]{
-  style=nextline,
-  font=\normalfont\scriptsize\textsc,
+  font=\normalfont\scriptsize\textsc
 }
 
 \setlist[itemize]{
