@@ -84,6 +84,12 @@
   label={}
 }
 
+\newlist{areas}{description}{1}
+\setlist[areas]{
+  style=multiline,
+  align=right
+}
+
 % * ORCID
 
 % This implements the ORCID compact id format:
