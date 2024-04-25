@@ -25,21 +25,20 @@
   Analytic Philosophy)/
 - 2024 :: What counts as being seen /(31st Conference of the European
   Society for Philosophy and Psychology)/
-- 2024 :: Bad Practices /(Talk given at KCL Advanced Research Seminar)/
-- 2024 :: What counts as being seen /(talk given at KCL Rationality,
-  Action and Mind seminar)/
-- 2024 :: The Conditions of Rigidity /(talk given at
-  Sign-Language-Reality seminar)/
-- 2023 :: Two problems with Veridicality /(talk given at Philosophy of
-  Perception WIP group, London)/
+- 2024 :: Bad Practices /(KCL Advanced Research Seminar)/
+- 2024 :: What counts as being seen /(KCL Rationality, Action and Mind
+  seminar)/
+- 2024 :: The Conditions of Rigidity /(Sign-Language-Reality seminar)/
+- 2023 :: Two problems with Veridicality /(Philosophy of Perception
+  WIP group, London)/
 - 2023 :: /Respondant at Berkeley-London Graduate Philosophy Conference/
 - 2023 :: Supervaluationism about vague names cannot account for
-  statement about those names /(talk given at KCL Rationality, Action
-  and Mind seminar)/
+  statement about those names /(PhiLang2023)/
 - 2023 :: Supervaluationism about vague names cannot account for
   statement about those names /(London Graduate WIP group)/
 - 2023 :: Supervaluationism about vague names cannot account for
-  statement about those names /( PhiLang2023)/
+  statement about those names /(KCL Rationality, Action and Mind
+  seminar)/
 
 * Teaching & Academic Service
 - from 2023 :: Graduate Teaching Assistant at King's College London
