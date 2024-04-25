@@ -38,7 +38,7 @@
 % ** Fonts
 
 \RequirePackage[T1]{fontenc}
-\RequirePackage{kpfonts}
+\RequirePackage[oldstylenums]{kpfonts}
 
 % ** Titles
 
