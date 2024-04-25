@@ -15,7 +15,10 @@
 - 2021--2022 :: MPhil Philosophy, University of Cambridge
 - 2018--2021 :: BA Philosophy First Class, University of Southampton
   
-* Publications and Talks
+* Publications
+- 2022 :: What makes thoughts about specific things? /Aporia/
+
+* Talks
 - 2024 :: The Conditions of Rigidity /(Annual KCL-UNC Graduate
   Conference)/
 - 2024 :: The Conditions of Rigidity /(ENFA9, Portuguese Society for
@@ -37,7 +40,6 @@
   statement about those names /(London Graduate WIP group)/
 - 2023 :: Supervaluationism about vague names cannot account for
   statement about those names /( PhiLang2023)/
-- 2022 :: What makes thoughts about specific things? /Aporia/
 
 * Teaching & Academic Service
 - from 2023 :: Graduate Teaching Assistant at King's College London
