@@ -12,6 +12,13 @@
  pdfcreator={Emacs 30.0.50 (Org mode 9.5.5)}, 
  pdflang={English}}
 
+\usepackage[%
+  bibstyle=cv,
+  datamodel=biblatex-cv,
+]{biblatex}
+
+\addbibresource{./cv.bib}
+
 \author{Hugo Heagren}
 \date{\today}
 \title{Hugo Heagren}
@@ -19,6 +26,7 @@
 \begin{document}
 
 \maketitle
+\nocite{*}
 
 \section*{Contact Details}
 \label{sec:org45a0ec5}
@@ -61,29 +69,7 @@ Performance by a 1st year Single Honours Philosophy Student
 \end{description}
 
 \section*{Talks}
-\label{sec:org2c71130}
-\begin{description}
-\item[{2024}] The Conditions of Rigidity \emph{(Annual KCL-UNC Graduate
-Conference)}
-\item[{2024}] The Conditions of Rigidity \emph{(ENFA9, Portuguese Society for
-Analytic Philosophy)}
-\item[{2024}] What counts as being seen \emph{(31st Conference of the European
-Society for Philosophy and Psychology)}
-\item[{2024}] Bad Practices \emph{(KCL Advanced Research Seminar)}
-\item[{2024}] What counts as being seen \emph{(KCL Rationality, Action and Mind
-seminar)}
-\item[{2024}] The Conditions of Rigidity \emph{(Sign-Language-Reality seminar)}
-\item[{2023}] Two problems with Veridicality \emph{(Philosophy of Perception
-WIP group, London)}
-\item[{2023}] \emph{Respondant at Berkeley-London Graduate Philosophy Conference}
-\item[{2023}] Supervaluationism about vague names cannot account for
-statements about those names \emph{(PhiLang2023)}
-\item[{2023}] Supervaluationism about vague names cannot account for
-statements about those names \emph{(London Graduate WIP group)}
-\item[{2023}] Supervaluationism about vague names cannot account for
-statements about those names \emph{(KCL Rationality, Action and Mind
-seminar)}
-\end{description}
+\printbibliography[check=Presentation]{}
 
 \section*{Teaching \& Academic Service}
 \label{sec:orgaf05ee3}
