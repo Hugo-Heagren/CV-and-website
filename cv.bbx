@@ -4,6 +4,32 @@
 \RequireBibliographyStyle{biblatex-cv}
 \ExecuteBibliographyOptions{date=year}
 
+% * Descending Date Sorting Template
+
+% Sort with reverse chronologically.
+
+% Mostly cribbed from https://tex.stackexchange.com/a/46879/238079
+\DeclareSortingTemplate{dd}{
+  \sort{\field{presort}}
+  \sort[final=true]{\field{sortkey}}
+  % Year
+  \sort[direction=descending]{
+    \field{sortyear}
+    \field{year}
+    \literal{9999}
+  }
+  % Month
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{month}
+    \literal{12}
+  }
+  % Day
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{day}
+    \literal{31}
+  }
+}
+
 % * end input
 
 \endinput
