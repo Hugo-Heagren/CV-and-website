@@ -7,6 +7,55 @@
   sorting=dd
 }
 
+% * Custom Drivers
+
+% Useful because my style doesn't print much info.
+\renewcommand{\finentrypunct}{}
+\renewcommand{\newunitpunct}{;\addspace}
+
+% This uses my `description' env from cv.cls
+\defbibenvironment{cv}{\begin{description}}{\end{description}}{\item[\printdate]}
+
+\newbibmacro{institution}{%
+  \iflistundef{savedinstitution}{%
+      \printlist[default]{institution}%
+      \setunit{\addcomma\addspace}%
+	}{}%
+}
+
+\newbibmacro*{event}{%
+  \printfield{eventtitle}%
+  \newunit%
+  \printfield{eventtitleaddon}%
+}
+
+\newbibmacro{event+institution}{%
+  \printtext[presentation-event]{%
+    \usebibmacro{event}%
+    \newunit%
+    \usebibmacro{institution}%
+  }%
+}
+
+\DeclareFieldFormat{title}{#1}
+\DeclareFieldFormat{presentation-event}{%
+  \mkbibparens{%
+    \mkbibitalic{#1}%
+  }%
+}
+
+% TODO Account for other speakers (for co-given presentations)
+\DeclareBibliographyDriver{presentation}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printfield[title]{title}%
+  % Using `setunit' means that we get the semantics of a new unit,
+  % without printing `\newunitpunct'.
+  \setunit*{\addspace}
+  \usebibmacro{event+institution}%
+  \usebibmacro{finentry}%
+}
+
 % * Descending Date Sorting Template
 
 % Sort with reverse chronologically.
