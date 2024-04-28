@@ -82,6 +82,15 @@
   }
 }
 
+% * Custom Checks
+
+% Cribbed from
+% /usr/local/texlive/2024/texmf-dist/tex/latex/biblatex-cv/biblatex-cv.sty
+
+\defbibcheck{Presentation}{%
+	\ifentrytype{presentation}{}{\skipentry}%
+}
+
 % * end input
 
 \endinput
