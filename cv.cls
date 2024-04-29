@@ -26,6 +26,10 @@
 
 % * Style
 
+% No hyphenation. This makes sense because there are no (well, few)
+% continuous paragraphs, and hyphenation in lists looks weird.
+\raggedright{}
+
 % Hyperlinks are blue (but not TOO blue!)
 \hypersetup{
 	colorlinks=true, % Colored links
