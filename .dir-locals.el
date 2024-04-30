@@ -2,4 +2,5 @@
 ;;; For more information see (info "(emacs) Directory Variables")
 
 ((nil . ((TeX-master . "cv.tex")
-	 (ebib-preload-bib-files . ("~/CV/cv.bib")))))
+	 (ebib-preload-bib-files . ("~/CV/cv.bib"))
+	 (citar-bibliography . ("~/CV/cv.bib")))))
