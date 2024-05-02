@@ -44,14 +44,25 @@
   }%
 }
 
+\DeclareNameFormat[presentation]{respondee}{\namepartfamily}
+
+\newbibmacro{respondeename}{%
+  \iffieldequalstr{entrysubtype}{response}{%
+      \printtext{Response to%
+        \addspace%
+        \printnames[respondee]{author}}%
+    }{}
+    \setunit*{\addcolon\addspace}}
+
 % TODO Account for other speakers (for co-given presentations)
 \DeclareBibliographyDriver{presentation}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
+  \usebibmacro{respondeename}%
   \printfield[title]{title}%
   % Using `setunit' means that we get the semantics of a new unit,
   % without printing `\newunitpunct'.
-  \setunit*{\addspace}
+  \setunit*{\addspace}%
   \usebibmacro{event+institution}%
   \usebibmacro{finentry}%
 }
