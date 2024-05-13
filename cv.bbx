@@ -7,6 +7,45 @@
   sorting=dd
 }
 
+% * Custom date style
+
+% All credit to moewe: https://tex.stackexchange.com/a/717831/238079
+\renewrobustcmd*{\mkdaterangefull}[2]{%
+  \begingroup
+    \blx@metadateinfo{#2}%
+    \iffieldundef{#2year}
+      {\blx@nounit}
+      {\printtext[{#2date}]{%
+         \iffieldundef{#2endyear}
+           {}
+           {\iffieldequalstr{#2endyear}{}
+              {from\addspace}
+              {}}%
+         \datecircaprint
+         % Such a year division component can only come from an ISO8601 year division which replaces
+         % a normal month so if it exists, we know that a normal date print is ruled out
+         \iffieldundef{#2yeardivision}
+           {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}%
+            % Optionally print the time after the date
+            \blx@printtime{#2}{}}
+           {\csuse{mkbibyeardivisiondate#1}{#2year}{#2yeardivision}}%
+         \dateuncertainprint
+         \dateeraprint{#2year}%
+         \iffieldundef{#2endyear}
+           {}
+           {\iffieldequalstr{#2endyear}{}
+              {}
+              {\bibdaterangesep
+               \enddatecircaprint
+               \iffieldundef{#2endyeardivision}
+                 {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}%
+                  % Optionally print the time after the date
+                  \blx@printtime{#2}{end}}
+                 {\csuse{mkbibyeardivisiondate#1}{#2endyear}{#2endyeardivision}}%
+               \enddateuncertainprint
+               \dateeraprint{#2endyear}}}}}%
+  \endgroup}
+
 % * Custom Drivers
 
 % Useful because my style doesn't print much info.
@@ -67,6 +106,23 @@
   \usebibmacro{finentry}%
 }
 
+\DeclareNameWrapperFormat{advisor}{%
+  \mkbibitalic{#1}}
+
+\renewbibmacro{advisor}{%
+  \printnames{advisor}}
+
+\DeclareBibliographyDriver{degree}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printfield{degree}% TODO
+  \setunit{\addcomma\addspace}%
+  \usebibmacro{institution}%
+  \setunit{\\}\newblock{}
+  \usebibmacro{advisor}%
+  \usebibmacro{finentry}%
+}
+
 % * Descending Date Sorting Template
 
 % Sort with reverse chronologically.
@@ -97,9 +153,12 @@
 
 % Cribbed from
 % /usr/local/texlive/2024/texmf-dist/tex/latex/biblatex-cv/biblatex-cv.sty
-
 \defbibcheck{Presentation}{%
 	\ifentrytype{presentation}{}{\skipentry}%
+}
+
+\defbibcheck{Education}{%
+	\ifentrytype{degree}{}{\skipentry}%
 }
 
 % * `printbibliography' defaults
