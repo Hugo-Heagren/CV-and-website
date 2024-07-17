@@ -106,11 +106,33 @@
   \usebibmacro{finentry}%
 }
 
+% An extended version of the given-family format, but with roles from
+% literal annotations. This takes literal annotations with name `role'
+% and prints them in parens after the advisor's name.
+\DeclareNameFormat{advisor}{%
+  \ifgiveninits
+    {\usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiveni}
+      {\namepartprefix}
+      {\namepartsuffix}}
+    {\usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}}%
+    \usebibmacro{name:andothers}%
+    \addspace{}%
+    \hasitemannotation[][role]{%
+      \mkbibparens{\getitemannotation[][role]}%
+    }{}% (do nothing when no annotation)
+}
+
 \DeclareNameWrapperFormat{advisor}{%
   \mkbibitalic{#1}}
 
 \renewbibmacro{advisor}{%
-  \printnames{advisor}}
+  \printnames[advisor]{advisor}}
 
 \DeclareBibliographyDriver{degree}{%
   \usebibmacro{bibindex}%
