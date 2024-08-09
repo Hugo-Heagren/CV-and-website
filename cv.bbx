@@ -22,8 +22,9 @@
               {from\addspace}
               {}}%
          \datecircaprint
-         % Such a year division component can only come from an ISO8601 year division which replaces
-         % a normal month so if it exists, we know that a normal date print is ruled out
+         % Such a year division component can only come from an
+         % ISO8601 year division which replaces a normal month so if
+         % it exists, we know that a normal date print is ruled out
          \iffieldundef{#2yeardivision}
            {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}%
             % Optionally print the time after the date
