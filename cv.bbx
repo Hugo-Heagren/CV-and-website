@@ -94,6 +94,12 @@
       \setunit*{\addcolon\addspace}}{}%
   }
 
+\newcommand{\invited}{\textdagger{}}
+
+\newbibmacro{invited}{%
+  \iffieldequalstr{presentationtype}{invited}{\invited}{}%
+}
+
 % TODO Account for other speakers (for co-given presentations)
 \DeclareBibliographyDriver{presentation}{%
   \usebibmacro{bibindex}%
@@ -104,6 +110,8 @@
   % without printing `\newunitpunct'.
   \setunit*{\addspace}%
   \usebibmacro{event+institution}%
+  \setunit*{}%
+  \usebibmacro{invited}
   \usebibmacro{finentry}%
 }
 
