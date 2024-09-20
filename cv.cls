@@ -6,7 +6,7 @@
 % * Packages
 
 \RequirePackage{hyperref}
-\RequirePackage{enumitem}
+\RequirePackage[inline]{enumitem}
 \RequirePackage{geometry}
 \RequirePackage{titlesec}
 \RequirePackage{titling}
@@ -92,4 +92,11 @@
 \setlist[areas]{
   style=multiline,
   align=right
+}
+
+\newlist{area}{itemize*}{1}
+\setlist[area]{
+  itemjoin={,\ },
+  afterlabel={},
+  label={}
 }
