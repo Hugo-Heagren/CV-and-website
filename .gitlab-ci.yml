@@ -1,0 +1,13 @@
+image: registry.gitlab.com/islandoftex/images/texlive:latest
+
+compile-pdf:
+  stage: build
+  script:
+    - lualatex cv.tex
+    - biber cv
+    - lualatex cv.tex
+    - lualatex cv.TeX
+  artifacts:
+    paths:
+      - cv.pdf
+  
