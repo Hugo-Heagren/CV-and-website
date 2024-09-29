@@ -2,6 +2,15 @@ image: registry.gitlab.com/islandoftex/images/texlive:latest
 
 compile-pdf:
   stage: build
+  rules:
+    - changes:
+        paths:
+          - *.tex
+          - *.bib
+          - *.cls
+          - *.bbx
+          - *.cbx
+          - *.dbx
   script:
     - lualatex cv.tex
     - biber cv
