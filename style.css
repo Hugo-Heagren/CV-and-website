@@ -15,7 +15,7 @@
       }
 
       /* Picture on the left */
-      .left {
+      .portrait {
 	  padding-right: 20px;
 	  float: left;
 	  width: 50%;
@@ -35,7 +35,7 @@
       /* Use a media query to add a break point at 800px:
        And override the defaults from above*/
       @media screen and (max-width: 800px) {
-	  .left, .right {
+	  .portrait, .right {
 	       /* The width is 100%, when the viewport is 800px or smaller */
 	      width: 100%;
 	      padding: 0px;
