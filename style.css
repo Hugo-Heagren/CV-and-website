@@ -25,7 +25,8 @@ header {
 }
 
 a:hover {
-    color: grey;
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;
 }
 
 * {
