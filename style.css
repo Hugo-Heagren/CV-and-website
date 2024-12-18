@@ -19,12 +19,17 @@ header {
 .title {font-size: 2.5em;}
 .nav-bar {font-size: 1.5em;}
 
-.nav-item {
+a {
+    /* Ensure they're still blue after clicking */
+    color: blue;
     text-decoration: none;
+}
+
+.nav-item {
     color: inherit;
 }
 
-a:hover {
+.nav-item:hover  {
     text-decoration-line: underline;
     text-decoration-thickness: 3px;
 }
