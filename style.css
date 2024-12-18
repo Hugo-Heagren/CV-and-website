@@ -12,10 +12,9 @@ header {
     display: inline;
 }
 
-.title {
-    /* This is 'about right' */
-    font-size: 2.5em;
-}
+/* These are 'about right' */
+.title {font-size: 2.5em;}
+nav {font-size: 1.5em;}
 
 nav {
     /* This is 'about right' */
