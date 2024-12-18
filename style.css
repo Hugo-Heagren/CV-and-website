@@ -1,7 +1,6 @@
 html {
-    /* TODO Is absolute positioning the right call here? */
-    margin-right: 450px;
-    margin-left: 450px;
+    margin-right: 25%;
+    margin-left: 25%;
 }
 
 header {
@@ -53,7 +52,7 @@ a:hover {
 
 /* Use a media query to add a break point at 800px:
        And override the defaults from above*/
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1050px) {
     .portrait, .bio {
 	/* The width is 100%, when the viewport is 800px or smaller */
 	width: 100%;
