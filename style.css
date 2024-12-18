@@ -17,8 +17,8 @@ header {
 }
 
 /* These are 'about right' */
-.title {font-size: 2.5em;}
-.nav-bar {font-size: 1.5em;}
+.title { font-size: 2.5em; }
+.nav-bar { font-size: 1.5em; }
 
 a {
     /* Ensure they're still blue after clicking */
