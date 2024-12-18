@@ -11,13 +11,13 @@ header {
     align-items: flex-end;
 }
 
-.title, nav {
+.title, .nav-bar {
     display: inline;
 }
 
 /* These are 'about right' */
 .title {font-size: 2.5em;}
-nav {font-size: 1.5em;}
+.nav-bar {font-size: 1.5em;}
 
 .nav-item {
     text-decoration: none;
@@ -64,4 +64,9 @@ a:hover {
 	margin-right: 10px;
 	margin-left: 10px;
     }
+
+    .nav-bar {
+	display: none;
+    }
+
 }
