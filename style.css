@@ -16,9 +16,13 @@ header {
 .title {font-size: 2.5em;}
 nav {font-size: 1.5em;}
 
-nav {
-    /* This is 'about right' */
-    font-size: 1.5em;
+.nav-item {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: grey;
 }
 
 * {
