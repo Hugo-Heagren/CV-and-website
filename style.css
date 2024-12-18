@@ -22,7 +22,7 @@
       }
 
       /* Paragraph on the right */
-      .right {
+      .bio {
 	  /* No padding on the right */
 	  padding-left: 20px;
 	  float: left;
@@ -35,13 +35,10 @@
       /* Use a media query to add a break point at 800px:
        And override the defaults from above*/
       @media screen and (max-width: 800px) {
-	  .portrait, .right {
+	  .portrait, .bio {
 	       /* The width is 100%, when the viewport is 800px or smaller */
 	      width: 100%;
 	      padding: 0px;
-	  }
-
-	  .right {
 	  }
 
 	  html { 
