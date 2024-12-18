@@ -4,13 +4,22 @@
 	  margin-left: 450px;
       } 
 
-      .nav-bar {
+      header {
 	  padding-bottom: 20px;
+      }
+
+      .title, nav {
+	  display: inline;
       }
 
       .title {
 	  /* This is 'about right' */
 	  font-size: 2.5em;
+      }
+
+      nav {
+	  /* This is 'about right' */
+	  font-size: 1.5em;
       }
 
       * {
