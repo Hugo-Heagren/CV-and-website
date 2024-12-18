@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <title>Hugo Heagren</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      html { 
+	  /* TODO Is absolute positioning the right call here? */
+	  margin-right: 450px;
+	  margin-left: 450px;
+      } 
+
+      * {
+	  /* https://www.w3schools.com/html/html_responsive.asp */
+	  box-sizing: border-box;
+      }
+
+      /* Picture on the left */
+      .left {
+	  padding-right: 20px;
+	  float: left;
+	  width: 50%;
+      }
+
+      /* Paragraph on the right */
+      .right {
+	  /* No padding on the right */
+	  padding-left: 20px;
+	  float: left;
+	  width: 50%;
+	  text-align: justify;
+	  /* This seems to work the best */
+	  text-justify: initial;
+      }
+
+      /* Use a media query to add a break point at 800px:
+       And override the defaults from above*/
+      @media screen and (max-width: 800px) {
+	  .left, .right {
+	       /* The width is 100%, when the viewport is 800px or smaller */
+	      width: 100%;
+	      padding: 0px;			       
+	  }
+
+	  .right {
+	  }
+
+	  html { 
+	      margin-right: 10px;
+	      margin-left: 10px;
+	  } 
+
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <div class="title">
+      Hugo Heagren
+    </div>
+
+    <img class="left"
+	 src="hugo-heagren.jpeg"
+	 alt="Hugo Heagren (credit Isobel Heagren)">
+
+    <p class="right">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+      minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Duis aute irure dolor in
+      reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+      pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+      culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+
+  </body>
+</html>
