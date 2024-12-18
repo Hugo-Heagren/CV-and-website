@@ -1,61 +1,61 @@
-      html { 
-	  /* TODO Is absolute positioning the right call here? */
-	  margin-right: 450px;
-	  margin-left: 450px;
-      } 
+html {
+    /* TODO Is absolute positioning the right call here? */
+    margin-right: 450px;
+    margin-left: 450px;
+}
 
-      header {
-	  padding-bottom: 20px;
-      }
+header {
+    padding-bottom: 20px;
+}
 
-      .title, nav {
-	  display: inline;
-      }
+.title, nav {
+    display: inline;
+}
 
-      .title {
-	  /* This is 'about right' */
-	  font-size: 2.5em;
-      }
+.title {
+    /* This is 'about right' */
+    font-size: 2.5em;
+}
 
-      nav {
-	  /* This is 'about right' */
-	  font-size: 1.5em;
-      }
+nav {
+    /* This is 'about right' */
+    font-size: 1.5em;
+}
 
-      * {
-	  /* https://www.w3schools.com/html/html_responsive.asp */
-	  box-sizing: border-box;
-      }
+* {
+    /* https://www.w3schools.com/html/html_responsive.asp */
+    box-sizing: border-box;
+}
 
-      /* Picture on the left */
-      .portrait {
-	  padding-right: 20px;
-	  float: left;
-	  width: 50%;
-      }
+/* Picture on the left */
+.portrait {
+    padding-right: 20px;
+    float: left;
+    width: 50%;
+}
 
-      /* Paragraph on the right */
-      .bio {
-	  /* No padding on the right */
-	  padding-left: 20px;
-	  float: left;
-	  width: 50%;
-	  text-align: justify;
-	  /* This seems to work the best */
-	  text-justify: initial;
-      }
+/* Paragraph on the right */
+.bio {
+    /* No padding on the right */
+    padding-left: 20px;
+    float: left;
+    width: 50%;
+    text-align: justify;
+    /* This seems to work the best */
+    text-justify: initial;
+}
 
-      /* Use a media query to add a break point at 800px:
+/* Use a media query to add a break point at 800px:
        And override the defaults from above*/
-      @media screen and (max-width: 800px) {
-	  .portrait, .bio {
-	       /* The width is 100%, when the viewport is 800px or smaller */
-	      width: 100%;
-	      padding: 0px;
-	  }
+@media screen and (max-width: 800px) {
+    .portrait, .bio {
+	/* The width is 100%, when the viewport is 800px or smaller */
+	width: 100%;
+	padding: 0px;
+    }
 
-	  html { 
-	      margin-right: 10px;
-	      margin-left: 10px;
-	  }
-      }
+    html {
+	margin-right: 10px;
+	margin-left: 10px;
+    }
+}
