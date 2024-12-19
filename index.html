@@ -7,15 +7,7 @@
   </head>
   <body>
 
-    <header>
-      <span class="title">Hugo Heagren</span>
-      <!-- Navigation bar, for larger screens -->
-      <nav class="nav-bar">	
-	<a class="nav-item" href="">CV</a>
-	<a class="nav-item" href="https://en.wikipedia.org/wiki/Main_Page">Research</a>
-	<a class="nav-item" href="https://heagren.com">Contact</a>
-      </nav>
-    </header>
+    <div include="header.html"></div>
 
     <img class="portrait"
 	 src="hugo-heagren.jpeg"
@@ -40,5 +32,12 @@
       the <a href="https://www.fsc.org.uk/">Forest School Camps</a>.
     </p>
 
+    <script>
+      $(document).ready(function () {
+          $("div[include]").each(function () {                
+              $(this).load($(this). attr("include"));
+          });
+      });
+    </script>
   </body>
 </html>
