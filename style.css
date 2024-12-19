@@ -72,6 +72,11 @@ br {
 	padding: 0px;
     }
 
+    /* This is the vertical/stacked equivalent of the left/right/ 20px
+   padding above. */
+    .portrait { padding-bottom: 10px }
+    .bio { padding-top: 10px }
+
     html {
 	margin-right: 10px;
 	margin-left: 10px;
@@ -82,8 +87,8 @@ br {
     }
 
     header {
-	padding-top: 20px;
-	padding-bottom: 20px
+	padding-top: 10px;
+	padding-bottom: 10px
     }
 
 }
