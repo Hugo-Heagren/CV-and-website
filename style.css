@@ -49,6 +49,13 @@ a {
     width: 50%;
 }
 
+p { margin: 0px; }
+
+br {
+    margin-top: 1.2ex;
+    margin-bottom: 1.2ex;
+}
+
 /* Paragraph on the right */
 .bio {
     /* No padding on the right */
