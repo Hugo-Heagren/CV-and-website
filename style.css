@@ -3,6 +3,7 @@ html {
     margin-left: 25%;
     font-size: 14pt;
     font-family: serif, sans-serif;
+    hyphens: auto;
 }
 
 header {
