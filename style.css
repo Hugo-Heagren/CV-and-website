@@ -67,6 +67,10 @@ br {
     text-justify: initial;
 }
 
+.email {
+    font-family: monospace;
+}
+
 @media screen and (max-width: 1050px) {
     .portrait, .bio {
 	width: 100%;
