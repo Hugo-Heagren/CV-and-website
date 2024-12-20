@@ -67,8 +67,16 @@ br {
     text-justify: initial;
 }
 
-.email {
+#orcid-id, .email {
     font-family: monospace;
+}
+
+/* This is an attempt to conform to
+ https://info.orcid.org/documentation/integration-guide/orcid-id-display-guidelines/#h-compact-orcid-i d*/
+#orcid-logo {
+    vertical-align: middle;
+    height: 24px;
+    width: px;
 }
 
 @media screen and (max-width: 1050px) {
