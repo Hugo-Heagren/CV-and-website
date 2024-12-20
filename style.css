@@ -28,7 +28,7 @@ a {
     text-decoration: none;
 }
 
-.nav-item {
+.title, .nav-item {
     color: inherit;
 }
 
