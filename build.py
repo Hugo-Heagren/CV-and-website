@@ -23,6 +23,5 @@ for file in files:
         output.write(content)
 
 # Copy all the assets
-# TODO This is brittle. I'm making assumptions about slashes. There
 # should be a way of not doing that.
 copytree("assets", out_dir / "assets", dirs_exist_ok=True)
