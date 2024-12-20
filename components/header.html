@@ -6,7 +6,11 @@
   <!-- Navigation bar, for larger screens -->
   <nav class="nav-bar">	
     <a class="nav-item" href="">CV</a>
-    <a class="nav-item" href="./research.html">Research</a>
-    <a class="nav-item" href="./contact.html">Contact</a>
+    {% for page in [ 'research', 'contact' ] %}
+    <a class="nav-item{% if page == title|lower %} current{% endif %}"
+       href="./{{ page }}.html">{{ page|capitalize }}</a>
+    {% endfor %}
+    <!-- <a class="nav-item" href="./research.html">Research</a> -->
+    <!-- <a class="nav-item" href="./contact.html">Contact</a> -->
   </nav>
 </header>
