@@ -1,24 +1,12 @@
 <html lang="en-GB">
-  <head>
-    <title>Hugo Heagren</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="me" href="https://scholar.social/@HugoHeagren">
-  </head>
+  {% include 'components/head.html' %}
   <body>
 
-    <header>
-      <span class="title">Hugo Heagren</span>
-      <!-- Navigation bar, for larger screens -->
-      <nav class="nav-bar">	
-	<a class="nav-item" href="">CV</a>
-	<a class="nav-item" href="https://en.wikipedia.org/wiki/Main_Page">Research</a>
-	<a class="nav-item" href="https://heagren.com">Contact</a>
-      </nav>
-    </header>
+    <!-- TODO Parametize nav -- highlight current page -->
+    {% include 'components/header.html' %}
 
     <img class="portrait"
-	 src="hugo-heagren.jpeg"
+	 src="assets/hugo-heagren.jpeg"
 	 alt="Hugo Heagren (credit Isobel Heagren)">
 
     <p class="bio"> 
