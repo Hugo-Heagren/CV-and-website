@@ -6,6 +6,8 @@ html {
     hyphens: auto;
 }
 
+/* * Structure & Navigation */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -37,6 +39,8 @@ a {
     text-decoration-thickness: 3px;
 }
 
+/* * Page layout */
+
 * {
     /* https://www.w3schools.com/html/html_responsive.asp */
     box-sizing: border-box;
@@ -67,17 +71,21 @@ br {
     text-justify: initial;
 }
 
+/* * Contact and ORCID */
+
 #orcid-id, .email {
     font-family: monospace;
 }
 
 /* This is an attempt to conform to
- https://info.orcid.org/documentation/integration-guide/orcid-id-display-guidelines/#h-compact-orcid-i d*/
+   https://info.orcid.org/documentation/integration-guide/orcid-id-display-guidelines/#h-compact-orcid-i d*/
 #orcid-logo {
     vertical-align: middle;
     height: 24px;
     width: px;
 }
+
+/* * Responsive design */
 
 @media screen and (max-width: 1050px) {
     .portrait, .bio {
@@ -86,7 +94,7 @@ br {
     }
 
     /* This is the vertical/stacked equivalent of the left/right/ 20px
-   padding above. */
+       padding above. */
     .portrait { padding-bottom: 10px }
     .bio { padding-top: 10px }
 
