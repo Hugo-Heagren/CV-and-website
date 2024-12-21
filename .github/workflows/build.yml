@@ -27,10 +27,12 @@ jobs:
         run: 'biber cv'
       - name: Second LaTeX run
         run: 'lualatex cv.tex'
+      - name: Final LaTeX run
+        run: 'lualatex cv.tex'
       - name: Create output director
         run: 'mkdir ./outdir'
-      - name: Final LaTeX run
-        run: 'lualatex cv.tex -output-directory ./outdir'
+      - name: Create output director
+        run: "mv cv.pdf outdir/Hugo-Heagren-CV-$(date +'%Y')"
       - name: Upload output pdf as artefact
         uses: actions/upload-pages-artifact@v3
         with:
