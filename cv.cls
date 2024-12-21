@@ -6,6 +6,9 @@
 % * Packages
 
 \RequirePackage{hyperref}
+% I don't know why this has to be in the .cls instead of just the .tex
+% file, but the GitHub integration will only work if it is.
+\RequirePackage{orcidlink}
 \RequirePackage[inline]{enumitem}
 \RequirePackage{geometry}
 \RequirePackage{titlesec}
