@@ -5,7 +5,7 @@
   </a>
   <!-- Navigation bar, for larger screens -->
   <nav class="nav-bar">	
-    <a class="nav-item" href="">CV</a>
+    <a class="nav-item" href="cv.hugoheagren.com">CV</a>
     {% for page in [ 'research', 'contact' ] %}
     <a class="nav-item{% if page == title|lower %} current{% endif %}"
        href="./{{ page }}.html">{{ page|capitalize }}</a>
