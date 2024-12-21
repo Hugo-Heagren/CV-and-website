@@ -1,7 +1,10 @@
 # My Academic CV
 
-Simple academic CV in LaTeX, with GitLab CI.
+Simple academic CV in LaTeX, with BibLaTeX for automatically laying
+out my talks. One day I'll have enough publications for it to be worth
+writing the code for them too.
 
-The permanent link for downloading the most recent artifact from the
-`build` project is
-[here](https://gitlab.com/api/v4/projects/62112260/jobs/artifacts/master/raw/cv.pdf?job=compile-pdf).
+It's automatically built and deployed with a GitHub action to
+[cv.hugoheagren.com/Hugo-Heagren-CV.pdf](https://cv.hugoheagren.com/Hugo-Heagren-CV.pdf).
+
+See also my [website](https://github.com/Hugo-Heagren/website).
