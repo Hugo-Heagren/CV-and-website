@@ -22,17 +22,17 @@ jobs:
             scheme-full
             orcidlink
       - name: First LaTeX run
-        run: 'lualatex --jobname=cv -halt-on-error -file-line-error   --synctex=1 -interaction=nonstopmode cv.tex'
+        run: 'lualatex cv.tex'
       - name: Biber run
         run: 'biber cv'
       - name: Second LaTeX run
         run: 'lualatex cv.tex'
       - name: Final LaTeX run
-        run: 'lualatex cv.tex'
+        run: 'lualatex cv.tex -output-directory ./outdir'
       - name: Upload output pdf as artefact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'cv.pdf'  
+          path: './outdir'  
   deploy:
     needs: build
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
