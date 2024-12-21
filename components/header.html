@@ -1,9 +1,16 @@
 <header>
+<div class="title-bar">
   <a href="https://hugoheagren.com"
      class="title">
     Hugo Heagren
   </a>
-  <!-- Navigation bar, for larger screens -->
+  <label for='menu' tabindex="0"  class="menu-toggle"></label>
+</div>
+
+<!-- Toggle-switch for mobile menu (Think this has to be a sibling of
+     the checkbox, even though its hidden) -->
+<input id='menu' type='checkbox' />
+<!-- Navigation bar, for larger screens -->
   <nav class="nav-bar">	
     <a class="nav-item" 
        href="https://cv.hugoheagren.com/Hugo-Heagren-CV.pdf">

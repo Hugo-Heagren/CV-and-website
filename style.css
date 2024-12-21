@@ -20,6 +20,12 @@ header {
     display: inline;
 }
 
+/* On big screens, hide the checkbox and label used for the mobile
+   menu */
+.menu-toggle, input[type='checkbox'] {
+    display: none;
+}
+
 /* These are 'about right' */
 .title { font-size: 2.5em; }
 .nav-bar { font-size: 1.5em; }
@@ -103,13 +109,69 @@ br {
 	margin-left: 10px;
     }
 
-    .nav-bar {
+    /* (Show and) style the toggle switch */
+    .menu-toggle {
+	display: inline-block;
+	
+    }
+
+    /* Hide nav-bar when checkbox not ticked */
+    input[id='menu']:not(:checked)+.nav-bar {
 	display: none;
+    }
+    
+    .nav-item {
+        /* Display vertically because mobile */
+	display: block;
+        margin-bottom: 0;
+        width: 100%;
+        text-align: right;
+        padding: 0.5em;
     }
 
     header {
 	padding-top: 10px;
-	padding-bottom: 10px
+	padding-bottom: 10px;
+	/* Keep the .title-bar block above the list navigation list */
+	display: block;
+    }
+
+/* ** Burger Menu */
+
+    .title-bar {
+	position: relative;
+    }
+
+    .menu-toggle {
+        position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+        aspect-ratio: 1 / 1;
+        /* margin-top: 25%; */
+        border-radius: 0%;
+        background-color: black;
+    }
+    
+    .menu-toggle:before, .menu-toggle:after {
+        content: "";
+        position: absolute;
+        top: 34%;
+	/* This works because 2*left + width  =100 */
+        left: 20%;
+        width: 60%;
+        height: 25%;
+        border-top: 4px solid white;
+    }
+
+    .menu-toggle:before{
+        top: 34%;
+        border-bottom: 4px solid white;
+    }
+
+    .menu-toggle:after{
+        top: 50%;
     }
 
 }
+
