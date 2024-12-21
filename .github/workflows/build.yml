@@ -9,6 +9,10 @@ on:
       - "*.cbx"
       # Always run when the actions change!
       - ".github/workflows/*.yml"
+  schedule:
+    # Run on the first January every year (so the year number in the
+    # name updates properly)
+    - cron: '1 0 1 1 *'
 jobs:
   build:
     runs-on: ubuntu-latest
