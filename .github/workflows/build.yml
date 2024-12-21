@@ -35,7 +35,7 @@ jobs:
         run: 'lualatex cv.tex'
       - name: Create output director
         run: 'mkdir ./outdir'
-      - name: Create output director
+      - name: Move PDF to output dir
         run: "mv cv.pdf outdir/Hugo-Heagren-CV-$(date +'%Y')"
       - name: Upload output pdf as artefact
         uses: actions/upload-pages-artifact@v3
