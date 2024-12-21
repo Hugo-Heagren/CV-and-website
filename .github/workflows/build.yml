@@ -18,8 +18,9 @@ jobs:
       - name: First LaTeX run
         uses: dante-ev/latex-action@latest
         with:
-          args: ""
+          compiler: lualatex
           root_file: cv.tex
+          args: ""
       - name: Biber run
         uses: dante-ev/latex-action@latest
         with:
