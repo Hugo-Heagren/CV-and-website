@@ -32,6 +32,7 @@ jobs:
             realscripts
             unicode-math
             lualatex-math
+            tikz
       - name: First LaTeX run
         run: 'lualatex cv.tex'
       - name: Biber run
