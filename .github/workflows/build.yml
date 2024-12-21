@@ -23,6 +23,12 @@ jobs:
             orcidlink
             hyperref
             etoolbox
+            enumitem
+            titlesec
+            titling
+            kpfonts
+            kpfonts-otf
+            fontspec
       - name: First LaTeX run
         run: 'lualatex cv.tex'
       - name: Biber run
