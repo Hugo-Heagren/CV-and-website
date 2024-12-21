@@ -22,6 +22,7 @@ jobs:
             scheme-basic
             orcidlink
             hyperref
+            etoolbox
       - name: First LaTeX run
         run: 'lualatex cv.tex'
       - name: Biber run
