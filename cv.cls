@@ -5,8 +5,6 @@
 
 % * Packages
 
-\RequirePackage{orcidlink}
-\RequirePackage{biblatex}
 \RequirePackage{hyperref}
 \RequirePackage[inline]{enumitem}
 \RequirePackage{geometry}
