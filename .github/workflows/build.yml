@@ -20,7 +20,7 @@ jobs:
         with:
           packages: |
             scheme-basic
-            # orcidlink
+            orcidlink
             hyperref
             etoolbox
             enumitem
