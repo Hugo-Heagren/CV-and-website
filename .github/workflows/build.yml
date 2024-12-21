@@ -37,6 +37,7 @@ jobs:
             biblatex-cv
             fp
             datenumber
+            xpatch
       - name: First LaTeX run
         run: 'lualatex --jobname=cv  -file-line-error   --synctex=1 -interaction=nonstopmode cv.tex'
       - name: Biber run
