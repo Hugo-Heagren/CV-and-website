@@ -34,7 +34,7 @@ jobs:
             lualatex-math
             tikz
       - name: First LaTeX run
-        run: 'lualatex cv.tex'
+        run: 'lualatex --jobname=cv  -file-line-error   --synctex=1 -interaction=nonstopmode cv.tex'
       - name: Biber run
         run: 'biber cv'
       - name: Second LaTeX run
