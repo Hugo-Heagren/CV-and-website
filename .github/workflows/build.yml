@@ -27,6 +27,8 @@ jobs:
         run: 'biber cv'
       - name: Second LaTeX run
         run: 'lualatex cv.tex'
+      - name: Create output director
+        run: 'mkdir ./outdir'
       - name: Final LaTeX run
         run: 'lualatex cv.tex -output-directory ./outdir'
       - name: Upload output pdf as artefact
