@@ -60,7 +60,6 @@
           \maketitlehookc
               \maketitlehookd
               \vskip\parskip}
-\fi
 \makeatother
 
 %% Format title
