@@ -19,17 +19,19 @@ jobs:
         uses: teatimeguest/setup-texlive-action@v3
         with:
           packages: |
-            scheme-full
-            # orcidlink
-            # hyperref
-            # etoolbox
-            # enumitem
-            # titlesec
-            # titling
-            # kpfonts
-            # kpfonts-otf
-            # fontspec
-            # realscripts
+            scheme-basic
+            orcidlink
+            hyperref
+            etoolbox
+            enumitem
+            titlesec
+            titling
+            kpfonts
+            kpfonts-otf
+            fontspec
+            realscripts
+            unicode-math
+            lualatex-math
       - name: First LaTeX run
         run: 'lualatex cv.tex'
       - name: Biber run
