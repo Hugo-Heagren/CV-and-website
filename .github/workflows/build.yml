@@ -17,9 +17,9 @@ jobs:
         uses: actions/checkout@v4
       - name: First LaTeX run
         uses: dante-ev/latex-action@latest
-        with: 
-          args: -lualatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
-          root-file: cv.tex
+        with:
+          args: ""
+          root_file: cv.tex
       - name: Biber run
         uses: dante-ev/latex-action@latest
         with:
@@ -31,12 +31,12 @@ jobs:
         with: 
           args: -lualatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
           # Remember that we don't run `biber cv.tex' but `biber cv'
-          root-file: cv
+          root_file: cv
       - name: Last LaTeX run
         uses: dante-ev/latex-action@latest
         with: 
           args: -lualatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
-          root-file: cv.TeX
+          root_file: cv.TeX
       - name: Upload output pdf as artefact
         uses: actions/upload-pages-artifact@v3
         with:
