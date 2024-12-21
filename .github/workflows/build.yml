@@ -33,6 +33,7 @@ jobs:
             unicode-math
             lualatex-math
             tikz
+            biblatex
       - name: First LaTeX run
         run: 'lualatex --jobname=cv  -file-line-error   --synctex=1 -interaction=nonstopmode cv.tex'
       - name: Biber run
