@@ -15,29 +15,21 @@ jobs:
     steps:
       - name: Setup Git repo
         uses: actions/checkout@v4
+      - name: Setup TeX Live
+        uses: teatimeguest/setup-texlive-action@v3
+        with:
+          packages: |
+            scheme-basic
+            orcidlink
+            hyperref
       - name: First LaTeX run
-        uses: dante-ev/latex-action@latest
-        with:
-          compiler: lualatex
-          root_file: cv.tex
-          args: ""
+        run: 'lualatex cv.tex'
       - name: Biber run
-        uses: dante-ev/latex-action@latest
-        with:
-          compiler: biber
-          # No extra args
-          args: ""
+        run: 'biber cv'
       - name: Second LaTeX run
-        uses: dante-ev/latex-action@latest
-        with: 
-          args: -lualatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
-          # Remember that we don't run `biber cv.tex' but `biber cv'
-          root_file: cv
-      - name: Last LaTeX run
-        uses: dante-ev/latex-action@latest
-        with: 
-          args: -lualatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
-          root_file: cv.TeX
+        run: 'lualatex cv.tex'
+      - name: Final LaTeX run
+        run: 'lualatex cv.tex'
       - name: Upload output pdf as artefact
         uses: actions/upload-pages-artifact@v3
         with:
