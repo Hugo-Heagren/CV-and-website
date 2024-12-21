@@ -18,6 +18,7 @@ jobs:
       - name: Setup TeX Live
         uses: teatimeguest/setup-texlive-action@v3
         with:
+          cache: false
           packages: |
             scheme-basic
             orcidlink
