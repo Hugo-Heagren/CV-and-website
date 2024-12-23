@@ -26,8 +26,10 @@ header {
     display: none;
 }
 
+/* Variable is useful for calling to inside the media query later */
+:root { --default-title-size: 2.5em; }
 /* These are 'about right' */
-.title { font-size: 2.5em; }
+.title { font-size: var(--default-title-size); }
 .nav-bar { font-size: 1.5em; }
 
 a {
@@ -175,6 +177,9 @@ footer {
     .title-bar {
 	position: relative;
     }
+
+    /* Responsive sizing. Not perfect, but close enough */
+    .title { font-size: min(var(--default-title-size), 10vw) ;}
 
     .menu-toggle {
         position: absolute;
