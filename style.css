@@ -190,26 +190,20 @@ footer {
         /* margin-top: 25%; */
         border-radius: 0%;
         background-color: black;
-    }
-    
-    .menu-toggle:before, .menu-toggle:after {
-        content: "";
-        position: absolute;
-        top: 34%;
-	/* This works because 2*left + width  =100 */
-        left: 20%;
-        width: 60%;
-        height: 25%;
-        border-top: 4px solid white;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	align-items: center;
+	container-type: size;
     }
 
-    .menu-toggle:before{
-        top: 34%;
-        border-bottom: 4px solid white;
-    }
+    .top { margin-top: calc(2 * 8cqh); }
+    .bot { margin-bottom: calc(2 * 8cqh); }
 
-    .menu-toggle:after{
-        top: 50%;
+    .burger {
+	width: 70cqw;
+	height: 8cqh;
+	background-color: white;
     }
 
 }
