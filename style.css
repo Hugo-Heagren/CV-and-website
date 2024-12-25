@@ -152,8 +152,8 @@ footer {
 /* ** Landscape */
 @media screen and (max-height: 1050px) and (orientation: landscape) {
     html {
-	margin-right: 10vw;
-	margin-left: 10vw;
+	margin-right: 10%;
+	margin-left: 10%;
     }
 
 }
