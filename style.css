@@ -130,7 +130,7 @@ footer {
 /* * Responsive design */
 
 /* ** Portrait */
-@media screen and (max-width: 1050px) and (orientation: portrait) {
+@media screen and (max-width: 900px) and (orientation: portrait) {
     .portrait, .bio {
 	width: 100%;
 	/* Remove previous padding */
@@ -150,7 +150,7 @@ footer {
 
 
 /* ** Landscape */
-@media screen and (max-height: 1050px) and (orientation: landscape) {
+@media screen and (max-height: 900px) and (orientation: landscape) {
     html {
 	margin-right: 10%;
 	margin-left: 10%;
@@ -159,7 +159,7 @@ footer {
 }
 
 /* ** General mobile things */
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 900px) {
 
     /* (Show and) style the toggle switch */
     .menu-toggle {
