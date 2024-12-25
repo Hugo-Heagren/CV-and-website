@@ -133,7 +133,12 @@ footer {
 @media screen and (max-width: 1050px) and (orientation: portrait) {
     .portrait, .bio {
 	width: 100%;
+	/* Remove previous padding */
 	padding: 0px;
+    }
+
+    .portrait {
+	padding-bottom: 10px;
     }
 
     html {
