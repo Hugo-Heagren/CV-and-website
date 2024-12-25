@@ -129,21 +129,32 @@ footer {
 
 /* * Responsive design */
 
-@media screen and (max-width: 1050px) {
+/* ** Portrait */
+@media screen and (max-width: 1050px) and (orientation: portrait) {
     .portrait, .bio {
 	width: 100%;
 	padding: 0px;
     }
 
-    /* This is the vertical/stacked equivalent of the left/right/ 20px
-       padding above. */
-    .portrait { padding-bottom: 10px }
-    .bio { padding-top: 10px }
-
     html {
 	margin-right: 10px;
 	margin-left: 10px;
     }
+
+}
+
+
+/* ** Landscape */
+@media screen and (max-height: 1050px) and (orientation: landscape) {
+    html {
+	margin-right: 10vw;
+	margin-left: 10vw;
+    }
+
+}
+
+/* ** General mobile things */
+@media screen and (max-width: 1050px) {
 
     /* (Show and) style the toggle switch */
     .menu-toggle {
@@ -206,4 +217,3 @@ footer {
     }
 
 }
-
