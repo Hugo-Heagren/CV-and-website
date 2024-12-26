@@ -127,6 +127,15 @@ footer {
     width: px;
 }
 
+/* * 404 */
+
+.warning-container {
+    text-align: center;
+}
+
+/* REALLY BIG */
+#four-oh-four { font-size: 15em; }
+
 /* * Responsive design */
 
 /* ** Portrait */
@@ -187,6 +196,8 @@ footer {
 	/* Keep the .title-bar block above the list navigation list */
 	display: block;
     }
+
+    #four-oh-four { font-size: 30vw; }
 
 /* ** Burger Menu */
 
