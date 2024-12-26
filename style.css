@@ -131,6 +131,7 @@ footer {
 
 .warning-container {
     text-align: center;
+    hyphens: none;
 }
 
 /* REALLY BIG */
