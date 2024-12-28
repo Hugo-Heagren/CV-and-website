@@ -4,7 +4,27 @@ import os
 import glob
 from shutil import copytree
 
+# Jinja environment
 env = Environment(loader=FileSystemLoader("."))
+
+# * HTML Munging
+
+# Create and populate a dictionary mapping code points to HTML entity
+# strings
+codepoint_ent_map = {}
+# I'm assuming I'll only ever really need the standard ASCII
+# characters (i.e. code points 32-126), though this isn't
+# technically true: https://www.netmeister.org/blog/email.html
+for c in range(32, 126):
+    codepoint_ent_map[c] = f'&#{c};'
+
+def html_mung(value):
+    return value.translate(codepoint_ent_map)
+
+# Make available
+env.filters["html_mung"] = html_mung
+
+# * Build
 
 # Define output dir and make sure it exists
 out_dir = Path("/tmp/site")
