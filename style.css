@@ -116,6 +116,7 @@ footer {
 
 #orcid-id, .email {
     font-family: monospace;
+    white-space: nowrap;
 }
 
 /* This is an attempt to conform to
