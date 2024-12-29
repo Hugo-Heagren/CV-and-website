@@ -87,7 +87,7 @@ br {
 body {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
     justify-content: space-between;
 }
 
@@ -104,6 +104,8 @@ footer {
     font-size: 75%;
     text-align: center;
     hyphens: none;
+    width: 40%;
+    align-self: center;
 }
 
 .cc-image {
@@ -197,6 +199,8 @@ footer {
 	/* Keep the .title-bar block above the list navigation list */
 	display: block;
     }
+
+    footer { width: 100%; }
 
     #four-oh-four { font-size: 30vw; }
 
