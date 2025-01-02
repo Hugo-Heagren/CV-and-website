@@ -11,6 +11,7 @@ jobs:
           cache: 'pip'
       - run: 'pip install jinja2'
       - run: 'pip install sitemap'
+      - run: 'pip install GitPython'
       - run: 'python build.py'
       # Upload artifacts using actions/upload-pages-artifact
       - name: Upload static files as artifact
