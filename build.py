@@ -79,9 +79,15 @@ for file in files:
         urls.add_url(url)
 
 
-# ** Write sitemap
+# ** Write sitemap and robots.txt
 
-urls.write_xml(out_dir / 'sitemap.xml')
+sitemap_name = 'sitemap.xml'
+
+urls.write_xml(out_dir / sitemap_name)
+
+# Declare sitemap in robots.txt
+with open(out_dir / 'robots.txt', "w") as robots:
+    robots.write(f"sitemap: {urljoin(domain, sitemap_name)}")
 
 # ** Copy all the assets
 
