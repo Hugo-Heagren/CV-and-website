@@ -72,6 +72,8 @@
 \titlespacing{\subsection}{\dategutter}{1ex}{0.5ex}
 \titlespacing{\subsubsection}{\dategutter}{1ex}{0.5ex}
 
+\newcommand{\secnote}[1]{\textsc{\textnormal{\normalsize{(#1)}}}}
+
 % ** Lists
 
 \setlist[]{
