@@ -7,23 +7,30 @@ from sitemap import Url, Urlset
 from urllib.parse import urljoin
 import git
 import datetime
+import unicodedata
 
 # Jinja environment
 env = Environment(loader=FileSystemLoader("."))
 
 # * HTML Munging
 
-# Create and populate a dictionary mapping code points to HTML entity
-# strings
-codepoint_ent_map = {}
-# I'm assuming I'll only ever really need the standard ASCII
-# characters (i.e. code points 32-126), though this isn't
-# technically true: https://www.netmeister.org/blog/email.html
-for c in range(32, 126):
-    codepoint_ent_map[c] = f'&#{c};'
+class HTMLMunger:
+    """
+    Functional map for getting HTML entity strings.
+    """
+
+    # `c' is a unicode point -- i.e. an int
+    def __getitem__(self, c: int):
+        # Only allow for valid unicode characters.
+        # Attribution: https://stackoverflow.com/a/69780841
+        if (unicodedata.category(chr(c)) not in ('Cn', 'Cs', 'Co')):
+            return f'&#{c};'
+        else:
+            raise IndexError(f"""{123} is not a valid unicode code
+            point, and thus cannot be translated""")
 
 def html_mung(value):
-    return value.translate(codepoint_ent_map)
+    return value.translate(HTMLMunger())
 
 # Make available
 env.filters["html_mung"] = html_mung
