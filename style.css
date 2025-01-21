@@ -221,4 +221,14 @@ footer {
         aspect-ratio: 1 / 1;
     }
 
+    .burgerbox {
+	fill: inherit;
+    }
+
+    /* This is a slightly pretentious hack, but it's very pleasing */
+    .burgerbar {
+	fill: inherit;
+	filter: invert(100%);
+    }
+
 }
