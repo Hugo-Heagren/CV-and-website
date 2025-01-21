@@ -219,22 +219,6 @@ footer {
 	bottom: 0;
 	right: 0;
         aspect-ratio: 1 / 1;
-        border-radius: 0%;
-        background-color: black;
-	display: flex;
-	justify-content: space-around;
-	flex-direction: column;
-	align-items: center;
-	container-type: size;
-    }
-
-    .top { margin-top: calc(2 * 8cqh); }
-    .bot { margin-bottom: calc(2 * 8cqh); }
-
-    .burger {
-	width: 70cqw;
-	height: 8cqh;
-	background-color: white;
     }
 
 }
