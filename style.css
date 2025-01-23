@@ -176,6 +176,18 @@ footer {
 	margin-left: 10%;
     }
 
+    /* This *additional* 20px account for the loss of the 20px
+       padding-left in the bio (which has to have padding-left=0px
+       so that the left edge of the text is flush with the left
+       edge of the picture. */
+    .portrait { margin-right: 20px; }
+    .bio {
+	/* No padding on the right */
+	padding-left: 0px;
+	float: none;
+	width: auto;
+    }
+
 }
 
 /* ** General mobile things */
