@@ -154,6 +154,43 @@
   \usebibmacro{finentry}%
 }
 
+% ** Teaching
+
+% Use short bibstring when printing season in teaching fields
+\DeclareFieldFormat[teaching]{season}{\bibsstring{#1}}
+
+% This uses my `description' env from cv.cls
+\defbibenvironment{teaching}%
+  {\begin{description}}%
+  {\end{description}}%
+  {\item[\printdate{} \printfield{season}]}
+
+\DeclareFieldFormat[teaching]{description}{%
+  \mkbibitalic{%
+    \mkbibparens{#1}%
+  }%
+}
+
+% Because it's a new field it prints weirdly unless we do this
+\DeclareFieldFormat{part}{#1}
+
+\newbibmacro{title+part}{%
+  \printfield{title}%
+  \iffieldundef{part}{}{%
+      \setunit*{\addcolon\addspace}%
+      \printfield{part}%
+    }%
+}
+
+\DeclareBibliographyDriver{teaching}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{title+part}%
+  \setunit{\addspace}%
+  \printfield{description}
+  \usebibmacro{finentry}%
+}
+
 %% * Descending Date Sorting Template
 
 % Sort with reverse chronologically.
@@ -190,6 +227,10 @@
 
 \defbibcheck{Education}{%
 	\ifentrytype{degree}{}{\skipentry}%
+}
+
+\defbibcheck{Teaching}{%
+	\ifentrytype{teaching}{}{\skipentry}%
 }
 
 %% * `printbibliography' defaults
