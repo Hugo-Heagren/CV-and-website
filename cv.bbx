@@ -233,6 +233,29 @@
 	\ifentrytype{teaching}{}{\skipentry}%
 }
 
+% Credit: https://tex.stackexchange.com/a/737151/238079
+\ExplSyntaxOn
+% Guest Lecturer
+\defbibcheck{Teaching+GuestLecturer}{
+  \ifentrytype{teaching}{
+    \tl_set:Ne \l_tmpa_clist { \thelist{role} }
+    \exp_args:NV \clist_if_in:NnF \l_tmpa_clist { guest } {
+      \skipentry
+    }
+  }{\skipentry}
+}
+
+% Teaching Assistant
+\defbibcheck{Teaching+TA}{
+  \ifentrytype{teaching}{
+    \tl_set:Ne \l_tmpa_clist { \thelist{role} }
+    \exp_args:NV \clist_if_in:NnF \l_tmpa_clist { ta } {
+      \skipentry
+    }
+  }{\skipentry}
+}
+\ExplSyntaxOff
+
 %% * `printbibliography' defaults
 
 \DeclarePrintbibliographyDefaults{
