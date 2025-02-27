@@ -95,10 +95,12 @@
   }
 
 \newcommand{\invited}{\textdagger{}}
+\newcommand{\departmental}{\textasteriskcentered}
 
-\newbibmacro{invited}{%
-  \iffieldequalstr{presentationtype}{invited}{\invited}{}%
-}
+\newbibmacro{status}{%
+  \iffieldequalstr{presentationtype}{invited}{\invited}{%
+      \iffieldequalstr{presentationtype}{departmental}{\departmental}{}%
+    }}
 
 % TODO Account for other speakers (for co-given presentations)
 \DeclareBibliographyDriver{presentation}{%
@@ -111,7 +113,7 @@
   \setunit*{\addspace}%
   \usebibmacro{event+institution}%
   \setunit*{}%
-  \usebibmacro{invited}
+  \usebibmacro{status}%
   \usebibmacro{finentry}%
 }
 
