@@ -14,6 +14,7 @@ env = Environment(loader=FileSystemLoader("."))
 
 # * HTML Munging
 
+# https://dr0.ch/email-munging/
 class HTMLMunger:
     """
     Functional map for getting HTML entity strings.
