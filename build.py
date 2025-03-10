@@ -27,7 +27,7 @@ class HTMLMunger:
         if (unicodedata.category(chr(c)) not in ('Cn', 'Cs', 'Co')):
             return f'&#{c};'
         else:
-            raise IndexError(f"""{123} is not a valid unicode code
+            raise IndexError(f"""{c} is not a valid unicode code
             point, and thus cannot be translated""")
 
 def html_mung(value):
