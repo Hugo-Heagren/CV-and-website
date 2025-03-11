@@ -8,8 +8,33 @@ from urllib.parse import urljoin
 import git
 import datetime
 import unicodedata
+import argparse
 
-# Jinja environment
+# * Arguments
+
+arg_parser = argparse.ArgumentParser()
+
+class PathAction(argparse.Action):
+    """
+    Action for storing a string argument as a Path object.
+    """
+    def __init__ (self, option_strings, dest, nargs=None, **kwargs):
+        if nargs is not None:
+            raise ValueError("nargs not allowed")
+        super().__init__(option_strings, dest, **kwargs)
+    def __call__(self, parser, namespace, values, option_string=None):
+        setattr(namespace, self.dest, Path(values))
+
+
+arg_parser.add_argument("out_dir",
+                        help="Output directory for site artifacts",
+                        action=PathAction)
+
+# Parse the args!
+args = arg_parser.parse_args()
+
+# * Jinja environment
+
 env = Environment(loader=FileSystemLoader("."))
 
 # * HTML Munging
@@ -52,7 +77,7 @@ def get_git_mod_time(file):
 # * Build
 
 # Define output dir and make sure it exists
-out_dir = Path("/tmp/site")
+out_dir = args.out_dir
 out_dir.mkdir(parents=True, exist_ok=True)
 
 # I don't really need template expansion in my CSS file, but it's
