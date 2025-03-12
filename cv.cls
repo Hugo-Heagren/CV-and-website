@@ -42,7 +42,7 @@
 % ** Fonts
 
 \RequirePackage[T1]{fontenc}
-\RequirePackage[oldstylenums]{kpfonts}
+\RequirePackage{libertine}
 
 % ** Titles
 
