@@ -9,6 +9,7 @@ import git
 import datetime
 import unicodedata
 import argparse
+import lxml.objectify
 
 # * Arguments
 
@@ -36,6 +37,29 @@ args = arg_parser.parse_args()
 # * Jinja environment
 
 env = Environment(loader=FileSystemLoader("."))
+
+# * Research data
+
+env.globals['research'] = {'papers':[], 'presentations': []}
+
+# TODO This assumes that the file exists. Is that good?
+# TODO This makes the filename a magic string!
+bib_tree = lxml.objectify.parse('./cv_bibertool.bltxml')
+entries = bib_tree.getroot()
+
+# Invited, departmental, etc.?
+for e in entries.entry:
+    match e.get('entrytype'):
+        case 'presentation':
+            presentations = env.globals['research']['presentations']
+            # TODO Account for ranges in dates
+            presentations.append({'date': e.date,
+                                  'title': e.title,
+                                  'eventtitle': e.eventtitle,
+                                  # 'institution': e.institution.list.item
+                                                 })
+        # case 'presentation':
+        #     # Push to presentations
 
 # * HTML Munging
 

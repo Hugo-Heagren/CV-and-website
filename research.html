@@ -8,6 +8,7 @@
 
     {% include 'components/header.html' %}
 
+    <h1>Papers</h1>
     <p>
       My article <a class="article"
 		    href="https://forumphilosophicum.ignatianum.edu.pl/index.html?id=7535">
@@ -21,19 +22,16 @@
       <a class="article"
 	 href="https://ojs.st-andrews.ac.uk/index.php/aporia/article/view/2451">What
 	Makes Thoughts about Specific Things?</a> was published in 2022 by Aporia.
-
-      <br><br>
-
-      I also give a lot of talks (which you can see on my CV), and
-      have various things in preparation or under review. At some
-      point, I will automate the build process for this site to
-      display them all, perfectly up to date, automatically. Just as
-      soon as I have both enough publications for it to be worth
-      doing, <em>and</em> enough time to make it work properly. One
-      day...
-
+      
+      <h1>Presentations</h1>
+      <dl>  
+	{% for p in research.presentations %}
+	<!-- TODO use a <time> tag  -->
+	<dt>{{ p.date }}</dt><dd>{{ p.title }} </dd>
+	{% endfor %}
+      </dl>
     </p>
-
+    
     {% include 'components/footer.html' %}
 
   </body>
