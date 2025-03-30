@@ -98,7 +98,7 @@ class BibLateXMLParser:
             case 'item':
                 list_field = self.current_field[-2]
                 self.current_entry[list_field].append(data)
-            # TODO handle names and lists
+            # TODO handle names
             case _:
                 if self.current_entry is not None:
                     # Only write if we haven't written already...
