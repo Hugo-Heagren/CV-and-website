@@ -72,6 +72,8 @@ class BibLateXMLParser:
         # TODO Use pattern matching here
         field = self.current_field[-1]
         match field:
+            case 'entries':
+                pass
             case 'date':
                 str = data.strip()
                 # String date
