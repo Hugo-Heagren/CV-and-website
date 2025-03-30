@@ -41,8 +41,8 @@ class DateRange:
     def __repr__(self):
         return f"DateRange({self.start}, {self.end})"
 
-# TODO Ignore namespacing
-# https://stackoverflow.com/questions/18159221/remove-namespace-and-prefix-from-xml-in-python-using-lxml
+data_structure_fields = {'list'}
+
 class BibLateXMLParser:
     def __init__(self):
         self.entries = []
@@ -56,16 +56,16 @@ class BibLateXMLParser:
             # Default to `misc'
             self.current_entry["type"] = attrib.get("entrytype", "misc")
             self.current_entry["id"] = attrib.get("id")
-        else:
+        elif tag_name == 'list':
+            self.current_entry[self.current_field[-1]] = []
+        elif tag_name not in data_structure_fields:
             self.current_field.append(tag_name)
-            if tag_name == 'list':
-                self.current_entry[self.current_field[-2]] = []
     def end(self, tag):
         tag_name = etree.QName(tag).localname
         if tag_name == 'entry' and self.current_entry:
             self.entries.append(self.current_entry)
             self.current_entry = None
-        else:
+        elif tag_name not in data_structure_fields:
             # Leaving a field
             self.current_field.pop()
     def data(self, data):
@@ -96,7 +96,7 @@ class BibLateXMLParser:
             case 'list':
                 pass
             case 'item':
-                list_field = self.current_field[-3]
+                list_field = self.current_field[-2]
                 self.current_entry[list_field].append(data)
             # TODO handle names and lists
             case _:
