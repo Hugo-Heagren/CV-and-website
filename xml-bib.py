@@ -58,6 +58,8 @@ class BibLateXMLParser:
             self.current_entry["id"] = attrib.get("id")
         else:
             self.current_field.append(tag_name)
+            if tag_name == 'list':
+                self.current_entry[self.current_field[-2]] = []
     def end(self, tag):
         tag_name = etree.QName(tag).localname
         if tag_name == 'entry' and self.current_entry:
@@ -91,11 +93,17 @@ class BibLateXMLParser:
                 str = data.strip()
                 end_date = iso.parse_date(str)
                 self.current_entry['date'].end = end_date
-                
+            case 'list':
+                pass
+            case 'item':
+                list_field = self.current_field[-3]
+                self.current_entry[list_field].append(data)
             # TODO handle names and lists
             case _:
                 if self.current_entry is not None:
-                    self.current_entry[field] = data
+                    # Only write if we haven't written already...
+                    if not(hasattr(self.current_entry, field)):
+                        self.current_entry[field] = data
     def close(self):
         # Reset parser
         entries = self.entries
