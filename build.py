@@ -42,7 +42,13 @@ env = Environment(loader=FileSystemLoader("."))
 # * Research data
 # ** BibLaTeX data parser
 
-bib_date_components = {'day', 'month', 'year', 'hour', 'minute', 'second', 'timezone'}
+bib_date_components = {'day',
+                       'month',
+                       'year',
+                       'hour',
+                       'minute',
+                       'second',
+                       'timezone'}
 
 class BibEntry(dict):
     def __getitem__(self, key):
