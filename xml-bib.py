@@ -58,6 +58,7 @@ class BibLateXMLParser:
         # Use a stack for the current field
         self.current_field = []
         self.current_entry = None
+        self.namepart_type = None
     def start(self, tag, attrib):
         tag_name = etree.QName(tag).localname
         if tag_name == 'entry':
