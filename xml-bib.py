@@ -41,7 +41,16 @@ class DateRange:
     def __repr__(self):
         return f"DateRange({self.start}, {self.end})"
 
-data_structure_fields = {'list'}
+class BibName:
+    def __init__(self, prefix=None, given=None, family=None, suffix=None):
+        self.prefix = prefix
+        self.given = given
+        self.family = family
+        self.suffix = suffix
+    def __repr__(self):
+        return f"BibName(p={self.prefix} g={self.given} f={self.family} s={self.suffix})"
+
+data_structure_fields = {'list', 'names', 'name', 'namepart'}
 
 class BibLateXMLParser:
     def __init__(self):
