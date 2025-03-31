@@ -14,7 +14,7 @@
 		    href="https://forumphilosophicum.ignatianum.edu.pl/index.html?id=7535">
 	Supervaluationism about vague names cannot account for
 	statements about those names</a> was published in 2024 by
-	Forum Philosophicum.
+      Forum Philosophicum.
 
       <br>
 
@@ -26,10 +26,10 @@
       <h1>Presentations</h1>
       <dl>  
 	{% for p in research | select('bibfilter', type='presentation') | sort(attribute='date', reverse=true) %}
-	  <dt><time datetime="{{ p.date }}">{{ p.year }}</time></dt><dd>{{ p.title }}
-	    <i>({{ p.eventtitle }}{% if p.institution | first %}; {{ p.institution | first }}{% endif%})</i>
-	  </dd>
-	  {% endfor %}
+	<dt><time datetime="{{ p.date }}">{{ p.year }}</time></dt><dd>{{ p.title }}
+	  <i>({{ p.eventtitle }}{% if p.institution | first %}; {{ p.institution | first }}{% endif%})</i>
+	</dd>
+	{% endfor %}
       </dl>
     </p>
     
