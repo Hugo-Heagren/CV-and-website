@@ -76,7 +76,7 @@ class BibLateXMLParser:
             self.entries.append(self.current_entry)
             self.current_entry = None
         elif tag_name not in data_structure_fields:
-            # Leaving a field
+        # Leaving a field
             self.current_field.pop()
     def data(self, data):
         # Handle dates
