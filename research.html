@@ -27,7 +27,7 @@
       <dl>  
 	{% for p in research | select('bibfilter', type='presentation') %}
 	  <dt><time datetime="{{ p.date }}">{{ p.year }}</time></dt><dd>{{ p.title }}
-	    <i>({{ p.eventtitle }}; {{ p.institution | first  }})</i>
+	    <i>({{ p.eventtitle }}{% if p.institution | first %}; {{ p.institution | first }}{% endif%})</i>
 	  </dd>
 	  {% endfor %}
       </dl>
