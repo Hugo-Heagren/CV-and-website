@@ -77,6 +77,8 @@ class BibLateXMLParser:
             # Faaaaairly sure names only ever occur as part of
             # namelists?
             self.current_entry[self.current_field[-1]].append(BibName())
+        elif tag_name == 'namepart':
+            self.namepart_type = attrib.get("type")
         elif tag_name not in data_structure_fields:
             self.current_field.append(tag_name)
     def end(self, tag):
@@ -91,11 +93,18 @@ class BibLateXMLParser:
             # the actual *field* is, but we record them in the python
             # data structure with that field, not with 'names'
             self.current_field.pop()
+        # Reset the name part type tracker when necessary
+        if tag_name == 'namepart':
+            self.namepart_type = None
     def data(self, data):
         # Handle dates
         # TODO handle other date types
         # TODO Use pattern matching here
-        field = self.current_field[-1]
+        if self.namepart_type is not None:
+            # This is only true when we're in a namepart tag
+            field = 'namepart'
+        else:
+            field = self.current_field[-1]
         match field:
             case 'entries':
                 pass
@@ -121,11 +130,14 @@ class BibLateXMLParser:
             case 'item':
                 list_field = self.current_field[-2]
                 self.current_entry[list_field].append(data)
-            # TODO handle names
             case 'names':
                 pass
             case 'name':
                 pass
+            case 'namepart':
+                str = data.strip()
+                namelist_field = self.current_field[-1]
+                setattr(self.current_entry[namelist_field][-1], self.namepart_type, str)
             case _:
                 if self.current_entry is not None:
                     # Only write if we haven't written already...
