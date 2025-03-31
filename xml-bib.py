@@ -68,6 +68,11 @@ class BibLateXMLParser:
             self.current_entry["id"] = attrib.get("id")
         elif tag_name == 'list':
             self.current_entry[self.current_field[-1]] = []
+        elif tag_name == 'names':
+            # List of names
+            name_field = attrib.get("type")
+            self.current_field.append(name_field)
+            self.current_entry[name_field] = []
         elif tag_name not in data_structure_fields:
             self.current_field.append(tag_name)
     def end(self, tag):
@@ -75,8 +80,12 @@ class BibLateXMLParser:
         if tag_name == 'entry' and self.current_entry:
             self.entries.append(self.current_entry)
             self.current_entry = None
-        elif tag_name not in data_structure_fields:
         # Leaving a field
+        elif tag_name not in data_structure_fields or tag_name == 'names':
+            # The 'names' case is because namelist fields appear in
+            # the XML as 'names' tags, with a type attrib saying what
+            # the actual *field* is, but we record them in the python
+            # data structure with that field, not with 'names'
             self.current_field.pop()
     def data(self, data):
         # Handle dates
@@ -109,6 +118,8 @@ class BibLateXMLParser:
                 list_field = self.current_field[-2]
                 self.current_entry[list_field].append(data)
             # TODO handle names
+            case 'names':
+                pass
             case _:
                 if self.current_entry is not None:
                     # Only write if we haven't written already...
