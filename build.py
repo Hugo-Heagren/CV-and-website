@@ -10,7 +10,7 @@ import datetime
 import unicodedata
 import argparse
 from lxml import etree
-import isodate as iso
+from edtf import parse_edtf
 
 # * Arguments
 
