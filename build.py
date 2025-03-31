@@ -138,7 +138,6 @@ class BibLateXMLParser:
         elif tag_name == 'date':
             self.date_type = None
     def data(self, data):
-        # Handle dates
         if self.namepart_type is not None:
             # This is only true when we're in a namepart tag
             field = 'namepart'
