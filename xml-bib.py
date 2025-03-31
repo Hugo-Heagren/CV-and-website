@@ -73,6 +73,10 @@ class BibLateXMLParser:
             name_field = attrib.get("type")
             self.current_field.append(name_field)
             self.current_entry[name_field] = []
+        elif tag_name == 'name':
+            # Faaaaairly sure names only ever occur as part of
+            # namelists?
+            self.current_entry[self.current_field[-1]].append(BibName())
         elif tag_name not in data_structure_fields:
             self.current_field.append(tag_name)
     def end(self, tag):
@@ -119,6 +123,8 @@ class BibLateXMLParser:
                 self.current_entry[list_field].append(data)
             # TODO handle names
             case 'names':
+                pass
+            case 'name':
                 pass
             case _:
                 if self.current_entry is not None:
