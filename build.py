@@ -6,11 +6,11 @@ from shutil import copytree
 from sitemap import Url, Urlset
 from urllib.parse import urljoin
 import git
-import datetime
+import datetime # For lastmod times in sitemap URLs
 import unicodedata
 import argparse
 from lxml import etree
-from edtf import parse_edtf
+from edtf import parse_edtf, Interval, EDTFObject
 
 # * Arguments
 
@@ -46,13 +46,15 @@ bib_date_components = {'day', 'month', 'year', 'hour', 'minute', 'second', 'time
 
 class BibEntry(dict):
     def __getitem__(self, key):
-        # TODO Use python-edtf to support partial dates...
         if key in bib_date_components:
             date = self.get('date')
-            if isinstance(date, datetime):
+            # This isn't strictly right, but it'll do fine until I
+            # need to handle time properly (i.e. if I ever give two
+            # separate talks on one day...)
+            if isinstance(date, EDTFObject):
                 return getattr(date, key)
             else:
-                raise KeyError(f"Cannot get '{key}' because 'date' is not set or is not a datetime object")
+                raise KeyError(f"Cannot get '{key}' because 'date' is not set or is not an EDTFObject")
         # Fallback to standard dict behaviour
         else:
             return super().__getitem__(key)
@@ -60,7 +62,7 @@ class BibEntry(dict):
         # TODO I'm going to need something here for moving between
         # strings and dates when setting the date slot...
         if key in bib_date_components:
-            raise KeyError(f"Cannot set '{key}' because 'date' is not set or is not a datetime object")
+            raise KeyError(f"Cannot set '{key}' because 'date' is not set or is not an EDTFObject")
         # Fallback to standard dict behaviour
         else:
             super().__setitem__(key, value)
@@ -149,7 +151,7 @@ class BibLateXMLParser:
                 str = data.strip()
                 # String date (not a range)
                 if str != '':
-                    date = iso.parse_date(str)
+                    date = parse_edtf(str)
                     # Account for other kinds of date
                     tag = f"{self.date_type or ''}date"
                     self.current_entry[tag] = date
@@ -157,15 +159,14 @@ class BibLateXMLParser:
             # Date ranges...
             case 'start':
                 str = data.strip()
-                start_date = iso.parse_date(str)
+                start_date = parse_edtf(str)
                 tag = f"{self.date_type or ''}date"
-                self.current_entry[tag] = DateRange()
-                self.current_entry[tag].start = start_date
+                self.current_entry[tag] = Interval(lower=start_date,upper=None)
             case 'end':
                 str = data.strip()
-                end_date = iso.parse_date(str)
+                end_date = parse_edtf(str)
                 tag = f"{self.date_type or ''}date"
-                self.current_entry[tag].end = end_date
+                self.current_entry[tag].upper = end_date
             case 'list':
                 pass
             case 'item':
@@ -197,7 +198,7 @@ biblatex_parser = etree.XMLParser(target=BibLateXMLParser(),
 
 # TODO This makes the file a magic string!
 # Parse the data into the environment
-env.globals['research'] = etree.parse("/home/hugo/site/cv_bibertool.bltxml",
+env.globals['research'] = etree.parse("/home/hugo/CV/cv_bibertool.bltxml",
                                       biblatex_parser)
 
 # ** Jinja filters
