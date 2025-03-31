@@ -71,15 +71,6 @@ class BibEntry(dict):
         except KeyError:
             raise AttributeError(f"'{self.__class__.__name__}' object has no attribute '{key}'")
 
-class DateRange:
-    def __init__(self, start=None, end=None):
-        if start != None and isinstance(start, datetime):
-            self.start = start
-        if end != None and isinstance(end, datetime):
-            self.end = end
-    def __repr__(self):
-        return f"DateRange({self.start}, {self.end})"
-
 class BibName:
     def __init__(self, prefix=None, given=None, family=None, suffix=None):
         self.prefix = prefix
