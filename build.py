@@ -104,7 +104,6 @@ class BibLateXMLParser:
         # For accumulating data
     def start(self, tag, attrib):
         tag_name = etree.QName(tag).localname
-        # TODO use pattern matching here?
         if tag_name == 'entry':
             self.current_entry = BibEntry()
             # Default to `misc'
