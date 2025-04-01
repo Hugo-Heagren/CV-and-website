@@ -99,7 +99,6 @@ class BibLateXMLParser:
         # Accumulating data
         # https://stackoverflow.com/a/79547360/14915848
         self.current_data = ''
-        # TODO Can I use a single type tracker?
         self.date_type = None
         self.namepart_type = None
         # For accumulating data
@@ -197,7 +196,6 @@ class BibLateXMLParser:
             self.current_field.pop()
         # Reset state
         self.current_data = ''
-        # TODO Do these need to be here? Can I use a single tracker?
         if tag_name == 'namepart':
             self.namepart_type = None
         elif tag_name == 'date':
