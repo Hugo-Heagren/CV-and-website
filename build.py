@@ -174,8 +174,16 @@ class BibLateXMLParser:
                         string)
             case _:
                 if self.current_entry is not None:
-                    # TODO Is this really necessary anymore?
-                    # Only write if we haven't written already...
+                    # Only write if we haven't written already. This
+                    # is because the (entirely whitespace) string
+                    # between the end of one end-tag string and the
+                    # beginning of the following end-tag is recorded
+                    # as 'data, e.g. between these:
+                    #   </bltx:date>
+                    # </bltx:entry>
+                    # In some XML docs, this would be real data, but
+                    # it NEVER is in BibLaTeXML, so (luckily!) we can
+                    # ignore it, with this test.
                     if not(hasattr(self.current_entry, tag_name)):
                         self.current_entry[tag_name] = string
         # Maintain the stack of fields
