@@ -101,15 +101,15 @@ data_structure_fields = {'list',
 class BibLateXMLParser:
     def __init__(self):
         self.entries = []
-        # Use a stack for the current field
         self.current_field = None
         self.current_entry = None
+        # Trackers for fields where the bib field name is (at least
+        # partly) specified by an attrib of a tag, not the tag itself.
+        self.date_type = None
+        self.namepart_type = None
         # Accumulating data
         # https://stackoverflow.com/a/79547360/14915848
         self.current_data = ''
-        self.date_type = None
-        self.namepart_type = None
-        # For accumulating data
     def start(self, tag, attrib):
         tag_name = etree.QName(tag).localname
         if tag_name == 'entry':
