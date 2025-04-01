@@ -210,8 +210,6 @@ biblatex_parser = etree.XMLParser(target=BibLateXMLParser(),
 # Parse the data into the environment
 env.globals['research'] = etree.parse("/home/hugo/CV/cv_bibertool.bltxml",
                                       biblatex_parser)
-# env.globals['research'] = etree.parse("/home/hugo/site/simple.xml",
-#                                       biblatex_parser)
 
 # ** Jinja filters
 
