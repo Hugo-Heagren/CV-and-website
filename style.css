@@ -86,6 +86,30 @@ br {
     text-justify: initial;
 }
 
+/* * Research list */
+
+dd {
+    padding-left: 40px;
+}
+
+/* Don't add an unnecessary margin to the last element
+   https://stackoverflow.com/a/19254469/14915848 */
+dd:not(:last-child) {
+    /* Slightly larger than the linebreak size, I think this is good for
+       readability */
+    margin-bottom: 1.5ex;
+}
+
+dt {
+    float: left;
+    clear: left;
+    font-weight: bold;
+    font-size: small;
+    /* This (nearly) aligns the baseline of dt with that of dl. Not
+       perfect, but it'll do for now */
+    line-height: 4ex;
+}
+
 /* * Licensing */
 
 /* Mostly taken from
@@ -166,8 +190,11 @@ footer {
 	margin-left: 10px;
     }
 
-}
+    dd {
+	padding-left: 20px;
+    }
 
+}
 
 /* ** Landscape */
 @media screen and (max-height: 900px) and (orientation: landscape) {
