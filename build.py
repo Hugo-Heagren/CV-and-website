@@ -171,7 +171,7 @@ class BibLateXMLParser:
                         self.namepart_type,
                         string)
             case _:
-                if self.current_entry is not None:
+                if self.current_entry is not None and tag_name not in data_structure_fields:
                     # Only write if we haven't written already. This
                     # is because the (entirely whitespace) string
                     # between the end of one end-tag string and the
