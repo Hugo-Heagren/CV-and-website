@@ -88,7 +88,7 @@ class BibName:
     def __repr__(self):
         return f"BibName(p={self.prefix} g={self.given} f={self.family} s={self.suffix})"
 
-data_structure_fields = {'list', 'names', 'name', 'namepart'}
+data_structure_fields = {'list', 'names', 'name', 'namepart', 'item', 'entry', 'entries'}
 
 class BibLateXMLParser:
     def __init__(self):
@@ -96,8 +96,13 @@ class BibLateXMLParser:
         # Use a stack for the current field
         self.current_field = []
         self.current_entry = None
+        # Accumulating data
+        # https://stackoverflow.com/a/79547360/14915848
+        self.current_data = ''
+        # TODO Can I use a single type tracker?
         self.date_type = None
         self.namepart_type = None
+        # For accumulating data
     def start(self, tag, attrib):
         tag_name = etree.QName(tag).localname
         # TODO use pattern matching here?
@@ -114,8 +119,7 @@ class BibLateXMLParser:
             self.current_field.append(name_field)
             self.current_entry[name_field] = []
         elif tag_name == 'name':
-            # Faaaaairly sure names only ever occur as part of
-            # namelists?
+            # Fairly sure names only ever occur as part of namelists.
             self.current_entry[self.current_field[-1]].append(BibName())
         elif tag_name == 'namepart':
             self.namepart_type = attrib.get("type")
@@ -128,68 +132,73 @@ class BibLateXMLParser:
             self.current_field.append(tag_name)
     def end(self, tag):
         tag_name = etree.QName(tag).localname
-        if tag_name == 'entry' and self.current_entry:
-            self.entries.append(self.current_entry)
-            self.current_entry = None
-        # Leaving a field
-        elif tag_name not in data_structure_fields or tag_name == 'names':
+        string = self.current_data.strip()
+        match tag_name:
+            case 'entry':
+                if self.current_entry is not None:
+                    self.entries.append(self.current_entry)
+                    self.current_entry = None
+            case 'date':
+                date = None
+                # String date
+                if string != '':
+                    date = parse_edtf(string)
+                    field = f"{self.date_type or ''}date"
+                    self.current_entry[field] = date
+                    # Otherwise a range, handled already by
+                    # start/end...
+            # Date ranges
+            case 'start':
+                if string == '':
+                    # Special case to cope with open intervals
+                    start_date = None
+                else:
+                    start_date = parse_edtf(string)
+                field = f"{self.date_type or ''}date"
+                self.current_entry[field] = Interval(lower=start_date,upper=None)
+            case 'end':
+                if string == '':
+                    # Special case to cope with open intervals
+                    end_date = None
+                else:
+                    end_date = parse_edtf(string)
+                field = f"{self.date_type or ''}date"
+                self.current_entry[field].upper = end_date
+            case 'item':
+                list_field = self.current_field[-1]
+                self.current_entry[list_field].append(string)
+            case 'namepart':
+                namelist_field = self.current_field[-1]
+                setattr(self.current_entry[namelist_field][-1],
+                        self.namepart_type,
+                        string)
+            case _:
+                if self.current_entry is not None:
+                    # TODO Is this really necessary anymore?
+                    # Only write if we haven't written already...
+                    if not(hasattr(self.current_entry, tag_name)):
+                        self.current_entry[tag_name] = string
+        # Maintain the stack of fields
+        if (tag_name not in data_structure_fields) or (tag_name in {'names', 'date'}):
             # The 'names' case is because namelist fields appear in
             # the XML as 'names' tags, with a type attrib saying what
             # the actual *field* is, but we record them in the python
-            # data structure with that field, not with 'names'
+            # data structure with that field, not with 'names'.
+            # Similarly the 'date' tag sometimes stores 'eventdate' or
+            # something
             self.current_field.pop()
-        # Reset the namepart/date type tracker when necessary
+        # Reset state
+        self.current_data = ''
+        # TODO Do these need to be here? Can I use a single tracker?
         if tag_name == 'namepart':
             self.namepart_type = None
         elif tag_name == 'date':
             self.date_type = None
     def data(self, data):
-        if self.namepart_type is not None:
-            # This is only true when we're in a namepart tag
-            field = 'namepart'
-        else:
-            field = self.current_field[-1]
-        match field:
-            case 'entries':
-                pass
-            case 'date':
-                str = data.strip()
-                # String date (not a range)
-                if str != '':
-                    date = parse_edtf(str)
-                    # Account for other kinds of date
-                    tag = f"{self.date_type or ''}date"
-                    self.current_entry[tag] = date
-                    # Otherwise we're in a range, so do nothing yet
-            # Date ranges...
-            case 'start':
-                str = data.strip()
-                start_date = parse_edtf(str)
-                tag = f"{self.date_type or ''}date"
-                self.current_entry[tag] = Interval(lower=start_date,upper=None)
-            case 'end':
-                str = data.strip()
-                end_date = parse_edtf(str)
-                tag = f"{self.date_type or ''}date"
-                self.current_entry[tag].upper = end_date
-            case 'list':
-                pass
-            case 'item':
-                list_field = self.current_field[-2]
-                self.current_entry[list_field].append(data)
-            case 'names':
-                pass
-            case 'name':
-                pass
-            case 'namepart':
-                str = data.strip()
-                namelist_field = self.current_field[-1]
-                setattr(self.current_entry[namelist_field][-1], self.namepart_type, str)
-            case _:
-                if self.current_entry is not None:
-                    # Only write if we haven't written already...
-                    if not(hasattr(self.current_entry, field)):
-                        self.current_entry[field] = data
+         # Ignore completely empty segments but keep spaces
+        if data.strip():
+            # Append raw data, preserving spaces
+            self.current_data += data
     def close(self):
         # Reset parser
         entries = self.entries
@@ -205,6 +214,8 @@ biblatex_parser = etree.XMLParser(target=BibLateXMLParser(),
 # Parse the data into the environment
 env.globals['research'] = etree.parse("/home/hugo/CV/cv_bibertool.bltxml",
                                       biblatex_parser)
+# env.globals['research'] = etree.parse("/home/hugo/site/simple.xml",
+#                                       biblatex_parser)
 
 # ** Jinja filters
 
