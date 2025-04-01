@@ -103,9 +103,7 @@ class BibLateXMLParser:
         self.entries = []
         self.current_field = None
         self.current_entry = None
-        # Trackers for fields where the bib field name is (at least
-        # partly) specified by an attrib of a tag, not the tag itself.
-        self.date_type = None
+        # For tracking which part of a name we are recording
         self.namepart_type = None
         # Accumulating data
         # https://stackoverflow.com/a/79547360/14915848
@@ -132,7 +130,6 @@ class BibLateXMLParser:
         elif tag_name == 'date' and attrib.get("type", False):
             # If there's a type, use that
             type = attrib.get("type")
-            self.date_type = type
             self.current_field = f"{type}date"
         elif tag_name not in data_structure_fields:
             self.current_field = tag_name
@@ -149,8 +146,7 @@ class BibLateXMLParser:
                 # String date
                 if string != '':
                     date = parse_edtf(string)
-                    field = f"{self.date_type or ''}date"
-                    self.current_entry[field] = date
+                    self.current_entry[self.current_field] = date
                     # Otherwise a range, handled already by
                     # start/end...
             # Date ranges
@@ -160,16 +156,14 @@ class BibLateXMLParser:
                     start_date = None
                 else:
                     start_date = parse_edtf(string)
-                field = f"{self.date_type or ''}date"
-                self.current_entry[field] = Interval(lower=start_date,upper=None)
+                self.current_entry[self.current_field] = Interval(lower=start_date,upper=None)
             case 'end':
                 if string == '':
                     # Special case to cope with open intervals
                     end_date = None
                 else:
                     end_date = parse_edtf(string)
-                field = f"{self.date_type or ''}date"
-                self.current_entry[field].upper = end_date
+                self.current_entry[self.current_field].upper = end_date
             case 'item':
                 list_field = self.current_field
                 self.current_entry[list_field].append(string)
@@ -196,8 +190,6 @@ class BibLateXMLParser:
         self.current_data = ''
         if tag_name == 'namepart':
             self.namepart_type = None
-        elif tag_name == 'date':
-            self.date_type = None
     def data(self, data):
          # Ignore completely empty segments but keep spaces
         if data.strip():
