@@ -88,7 +88,15 @@ class BibName:
     def __repr__(self):
         return f"BibName(p={self.prefix} g={self.given} f={self.family} s={self.suffix})"
 
-data_structure_fields = {'list', 'names', 'name', 'namepart', 'item', 'entry', 'entries',  'start', 'end'}
+data_structure_fields = {'list',
+                         'names',
+                         'name',
+                         'namepart',
+                         'item',
+                         'entry',
+                         'entries',
+                         'start',
+                         'end'}
 
 class BibLateXMLParser:
     def __init__(self):
