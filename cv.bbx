@@ -1,0 +1,263 @@
+\ProvidesFile{cv.bbx}
+[\abx@bbxid]
+
+\RequireBibliographyStyle{biblatex-cv}
+\ExecuteBibliographyOptions{
+  date=year,
+  sorting=dd
+}
+
+%% * Custom date style
+
+% All credit to moewe: https://tex.stackexchange.com/a/717831/238079
+\renewrobustcmd*{\mkdaterangefull}[2]{%
+  \begingroup
+    \blx@metadateinfo{#2}%
+    \iffieldundef{#2year}
+      {\blx@nounit}
+      {\printtext[{#2date}]{%
+         \iffieldundef{#2endyear}
+           {}
+           {\iffieldequalstr{#2endyear}{}
+              {from\addspace}
+              {}}%
+         \datecircaprint
+         % Such a year division component can only come from an
+         % ISO8601 year division which replaces a normal month so if
+         % it exists, we know that a normal date print is ruled out
+         \iffieldundef{#2yeardivision}
+           {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}%
+            % Optionally print the time after the date
+            \blx@printtime{#2}{}}
+           {\csuse{mkbibyeardivisiondate#1}{#2year}{#2yeardivision}}%
+         \dateuncertainprint
+         \dateeraprint{#2year}%
+         \iffieldundef{#2endyear}
+           {}
+           {\iffieldequalstr{#2endyear}{}
+              {}
+              {\bibdaterangesep
+               \enddatecircaprint
+               \iffieldundef{#2endyeardivision}
+                 {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}%
+                  % Optionally print the time after the date
+                  \blx@printtime{#2}{end}}
+                 {\csuse{mkbibyeardivisiondate#1}{#2endyear}{#2endyeardivision}}%
+               \enddateuncertainprint
+               \dateeraprint{#2endyear}}}}}%
+  \endgroup}
+
+%% * Custom Drivers
+
+% Useful because my style doesn't print much info.
+\renewcommand{\finentrypunct}{}
+\renewcommand{\newunitpunct}{;\addspace}
+
+% This uses my `description' env from cv.cls
+\defbibenvironment{cv}{\begin{description}}{\end{description}}{\item[\printdate]}
+
+\newbibmacro{institution}{%
+  \iflistundef{savedinstitution}{%
+      \printlist[default]{institution}%
+      \setunit{\addcomma\addspace}%
+	}{}%
+}
+
+\newbibmacro*{event}{%
+  \printfield{eventtitle}%
+  \newunit%
+  \printfield{eventtitleaddon}%
+}
+
+\newbibmacro{event+institution}{%
+  \printtext[presentation-event]{%
+    \usebibmacro{event}%
+    \newunit%
+    \usebibmacro{institution}%
+  }%
+}
+
+\DeclareFieldFormat{title}{#1}
+\DeclareFieldFormat{presentation-event}{%
+  \mkbibitalic{%
+    \mkbibparens{#1}%
+  }%
+}
+
+\DeclareNameFormat[presentation]{respondee}{\namepartfamily}
+
+\newbibmacro{respondeename}{%
+  \iffieldequalstr{entrysubtype}{response}{%
+      \printtext{Response to%
+        \addspace%
+        \printnames[respondee]{author}}%
+      \setunit*{\addcolon\addspace}}{}%
+  }
+
+\newcommand{\invited}{\textdagger{}}
+\newcommand{\departmental}{\textasteriskcentered}
+
+\newbibmacro{status}{%
+  \iffieldequalstr{presentationtype}{invited}{\invited}{%
+      \iffieldequalstr{presentationtype}{departmental}{\departmental}{}%
+    }}
+
+% TODO Account for other speakers (for co-given presentations)
+\DeclareBibliographyDriver{presentation}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{respondeename}%
+  \printfield[title]{title}%
+  % Using `setunit' means that we get the semantics of a new unit,
+  % without printing `\newunitpunct'.
+  \setunit*{\addspace}%
+  \usebibmacro{event+institution}%
+  \setunit*{}%
+  \usebibmacro{status}%
+  \usebibmacro{finentry}%
+}
+
+% An extended version of the given-family format, but with roles from
+% literal annotations. This takes literal annotations with name `role'
+% and prints them in parens after the advisor's name.
+\DeclareNameFormat{advisor}{%
+  \ifgiveninits
+    {\usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiveni}
+      {\namepartprefix}
+      {\namepartsuffix}}
+    {\usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}}%
+    \usebibmacro{name:andothers}%
+    \addspace{}%
+    \hasitemannotation[][role]{%
+      \mkbibparens{\getitemannotation[][role]}%
+    }{}% (do nothing when no annotation)
+}
+
+\DeclareNameWrapperFormat{advisor}{%
+  \mkbibitalic{#1}}
+
+\renewbibmacro{advisor}{%
+  \printnames[advisor]{advisor}}
+
+\DeclareBibliographyDriver{degree}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printfield{degree}% TODO
+  \setunit{\addcomma\addspace}%
+  \usebibmacro{institution}%
+  \setunit{\\}\newblock{}
+  \usebibmacro{advisor}%
+  \usebibmacro{finentry}%
+}
+
+% ** Teaching
+
+% Use short bibstring when printing season in teaching fields
+\DeclareFieldFormat[teaching]{season}{\bibsstring{#1}}
+
+% This uses my `description' env from cv.cls
+\defbibenvironment{teaching}%
+  {\begin{description}}%
+  {\end{description}}%
+  {\item[\printdate{} \printfield{season}]}
+
+% Because it's a new field it prints weirdly unless we do this
+\DeclareFieldFormat{part}{#1}
+
+\newbibmacro{title+part}{%
+  \printfield{title}%
+  \iffieldundef{part}{}{%
+      \setunit*{\addcolon\addspace}%
+      \printfield{part}%
+    }%
+}
+
+\DeclareBibliographyDriver{teaching}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{title+part}%
+  \setunit{\addspace}%
+  \usebibmacro{finentry}%
+}
+
+%% * Descending Date Sorting Template
+
+% Sort with reverse chronologically.
+
+% Mostly cribbed from https://tex.stackexchange.com/a/46879/238079
+\DeclareSortingTemplate{dd}{
+  \sort{\field{presort}}
+  \sort[final=true]{\field{sortkey}}
+  % Year
+  \sort[direction=descending]{
+    \field{sortyear}
+    \field{year}
+    \literal{9999}
+  }
+  % Month
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{month}
+    \literal{12}
+  }
+  % Day
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{day}
+    \literal{31}
+  }
+}
+
+%% * Custom Checks
+
+% Cribbed from
+% /usr/local/texlive/2024/texmf-dist/tex/latex/biblatex-cv/biblatex-cv.sty
+\defbibcheck{Presentation}{%
+	\ifentrytype{presentation}{}{\skipentry}%
+}
+
+\defbibcheck{Education}{%
+	\ifentrytype{degree}{}{\skipentry}%
+}
+
+\defbibcheck{Teaching}{%
+	\ifentrytype{teaching}{}{\skipentry}%
+}
+
+% Credit: https://tex.stackexchange.com/a/737151/238079
+\ExplSyntaxOn
+% Guest Lecturer
+\defbibcheck{Teaching+GuestLecturer}{
+  \ifentrytype{teaching}{
+    \tl_set:Ne \l_tmpa_clist { \thelist{role} }
+    \exp_args:NV \clist_if_in:NnF \l_tmpa_clist { guest } {
+      \skipentry
+    }
+  }{\skipentry}
+}
+
+% Teaching Assistant
+\defbibcheck{Teaching+TA}{
+  \ifentrytype{teaching}{
+    \tl_set:Ne \l_tmpa_clist { \thelist{role} }
+    \exp_args:NV \clist_if_in:NnF \l_tmpa_clist { ta } {
+      \skipentry
+    }
+  }{\skipentry}
+}
+\ExplSyntaxOff
+
+%% * `printbibliography' defaults
+
+\DeclarePrintbibliographyDefaults{
+  heading=none,
+  env=cv
+}
+
+%% * end input
+
+\endinput

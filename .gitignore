@@ -1,2 +1,12 @@
+# Python stuff
 __pycache__
 venv
+
+# Exports
+*.pdf
+*.log
+*.out
+*.dvi
+
+# Auctex artifacts
+**/auto/**

@@ -1,0 +1,38 @@
+\ProvidesFile{cv.dbx}
+[\abx@bbxid]
+
+% * Inherit from biblatex-cv.dbx
+% This is like doing \RequireCitationStyle or something, but
+% \RequireDatabaseFile doesn't exist
+\blx@inputonce{biblatex-cv.dbx}{database file '#1'}{}{}{}
+    {\blx@error
+       {Database file 'biblatex-cv' not found}
+       {The database file 'biblatex-cv' could not be found}}
+
+% * Descriptions for modules
+\DeclareDatamodelFields[type=field,datatype=literal]{description}
+
+\DeclareDatamodelEntryfields[teaching]{%
+  description
+}
+
+% * Parts of Modules
+% Some modules contain several different parts, and I have taught some
+% but not all.
+\DeclareDatamodelFields[type=field,datatype=literal]{part}
+
+\DeclareDatamodelEntryfields[teaching]{%
+  part
+}
+
+% * Roles for modules
+% A list of keys, each of which is a role in a module
+\DeclareDatamodelFields[type=list,datatype=key]{role}
+
+\DeclareDatamodelEntryfields[teaching]{%
+  role
+}
+
+% * End input
+
+\endinput

@@ -1,0 +1,110 @@
+\documentclass{cv}
+\usepackage{orcidlink}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+
+\hypersetup{
+ pdfauthor={Hugo Heagren},
+ pdftitle={Hugo Heagren},
+ pdfkeywords={philosophy,academic,academia,university,cv,resume,curriculum vitae},
+ pdfsubject={Hugo Heagren, curriculum vitae},
+ pdflang={English}}
+
+\usepackage[%
+  bibstyle=cv,
+  datamodel=cv,
+]{biblatex}
+
+\addbibresource{./cv.bib}
+
+\author{Hugo Heagren}
+\date{\today}
+\title{Hugo Heagren}
+
+\begin{document}
+
+\maketitle
+\nocite{*}
+
+\section*{Contact Details}
+\begin{itemize}
+\item \href{mailto:hugo.heagren@kcl.ac.uk}{hugo.heagren@kcl.ac.uk}
+\item \href{https://hugoheagren.com}{hugoheagren.com}
+\item \orcidlinkc{0009-0005-6052-3369}
+\end{itemize}
+
+% ** Areas
+\begin{areas}
+\item[{AOS}]%
+  \begin{area}
+  \item Philosophy of Language
+  \item Philosophy of Mind
+  \end{area}
+\item[{AOC}]%
+  \begin{area}
+  \item Epistemology
+  \item Logic
+  \item Metaphysics
+  \item Philosophy of Psychology
+\end{area}
+\end{areas}
+
+\section*{Education}
+\printbibliography[check=Education]{}
+
+\section*{Research}
+\subsection*{Publications}
+\begin{description}
+\item[{2024}] \href{https://dx.doi.org/10.35765/forphil.2024.2902.05}{Supervaluationism about vague names cannot account for statements about those names} \textit{Forum Philosophicum}
+\item[{2022}] \href{https://ojs.st-andrews.ac.uk/index.php/aporia/article/view/2451}{What makes thoughts about specific things?} \textit{Aporia}
+\end{description}
+
+\subsection*{In Progress}
+\begin{description}
+\item[under review] A paper on the nature of baptisms as speech acts
+\item[under review] A paper on name-reference and conventions
+\item[preparation] A paper on lexical semantics for classical logic
+\end{description}
+
+\section*{Awards \& Scholarships}
+\begin{description}
+\item[{2024}] KCL Arts and Humanities Small Grants, funding for visit to
+  University of Texas at Austin
+\item[{2021}] Southampton University Philosophy Best Dissertation
+\item[{2021}] Southampton University Final Year Philosophy Best Single
+  Honours
+\item[{2019}] Southampton University Virtual Opportunities Scholarship
+\item[{2019}] Southampton University Philosophy Alumni Prize for Best
+  Performance by a 1st year Single Honours Philosophy Student
+\end{description}
+
+\section*{Talks \secnote{\invited{} invited, \departmental{} departmental, otherwise refereed}}
+\printbibliography[check=Presentation]{}
+
+\section*{Teaching}
+\subsection*{As Guest Lecturer}
+\printbibliography[env=teaching,check=Teaching+GuestLecturer]{}
+
+\subsection*{As Teaching Assistant}
+\printbibliography[env=teaching,check=Teaching+TA]{}
+
+\section*{Academic Service}
+\begin{description}
+\item[{2024}] Submission review for Forum Philosophicum
+\item[{from 2024}] Volunteer with \href{https://www.philosophyinprison.com/}{Philosophy in Prison}
+\item[{from 2024}] Technical manager for the \href{https://www.philosophyandmedicine.org/}{Sowerby Philosophy and
+Medicine Project}
+\item[{2023--2024}] Organizer for \href{https://www.lemm-london.co.uk/}{Language, Epistemology, Metaphysics and Mind}
+\item[{from 2023}] Administrator for the \href{https://philosophyarts.co.uk/}{Centre for Philosophy and Art}
+\item[{from 2023}] Technical manager for the \href{https://www.ai-humanity-london.com/}{London AI and Humanity Project}
+% Pretty sure this what December of 2023
+\item[{2023}] Undergraduate workshop of philosophical writing (co-run with other graduate students)
+\item[{2023,24}] Submission review for Undergraduate Philosophy
+  Journal of Australasia
+\item[{2023}] Submission review for London Undergraduate Philosophy
+conference
+\item[{2022}] Outreach teaching for Gonville \& Caius college---lectures on
+history of philosophy of language and my own research
+\end{description}
+
+\end{document}
