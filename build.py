@@ -88,13 +88,13 @@ class BibName:
     def __repr__(self):
         return f"BibName(p={self.prefix} g={self.given} f={self.family} s={self.suffix})"
 
-data_structure_fields = {'list', 'names', 'name', 'namepart', 'item', 'entry', 'entries'}
+data_structure_fields = {'list', 'names', 'name', 'namepart', 'item', 'entry', 'entries',  'start', 'end'}
 
 class BibLateXMLParser:
     def __init__(self):
         self.entries = []
         # Use a stack for the current field
-        self.current_field = []
+        self.current_field = None
         self.current_entry = None
         # Accumulating data
         # https://stackoverflow.com/a/79547360/14915848
@@ -110,24 +110,24 @@ class BibLateXMLParser:
             self.current_entry["type"] = attrib.get("entrytype", "misc")
             self.current_entry["id"] = attrib.get("id")
         elif tag_name == 'list':
-            self.current_entry[self.current_field[-1]] = []
+            self.current_entry[self.current_field] = []
         elif tag_name == 'names':
             # List of names
             name_field = attrib.get("type")
-            self.current_field.append(name_field)
+            self.current_field = name_field
             self.current_entry[name_field] = []
         elif tag_name == 'name':
             # Fairly sure names only ever occur as part of namelists.
-            self.current_entry[self.current_field[-1]].append(BibName())
+            self.current_entry[self.current_field].append(BibName())
         elif tag_name == 'namepart':
             self.namepart_type = attrib.get("type")
         elif tag_name == 'date' and attrib.get("type", False):
             # If there's a type, use that
             type = attrib.get("type")
             self.date_type = type
-            self.current_field.append(f"{type}date")
+            self.current_field = f"{type}date"
         elif tag_name not in data_structure_fields:
-            self.current_field.append(tag_name)
+            self.current_field = tag_name
     def end(self, tag):
         tag_name = etree.QName(tag).localname
         string = self.current_data.strip()
@@ -163,10 +163,10 @@ class BibLateXMLParser:
                 field = f"{self.date_type or ''}date"
                 self.current_entry[field].upper = end_date
             case 'item':
-                list_field = self.current_field[-1]
+                list_field = self.current_field
                 self.current_entry[list_field].append(string)
             case 'namepart':
-                namelist_field = self.current_field[-1]
+                namelist_field = self.current_field
                 setattr(self.current_entry[namelist_field][-1],
                         self.namepart_type,
                         string)
@@ -184,15 +184,6 @@ class BibLateXMLParser:
                     # ignore it, with this test.
                     if not(hasattr(self.current_entry, tag_name)):
                         self.current_entry[tag_name] = string
-        # Maintain the stack of fields
-        if (tag_name not in data_structure_fields) or (tag_name in {'names', 'date'}):
-            # The 'names' case is because namelist fields appear in
-            # the XML as 'names' tags, with a type attrib saying what
-            # the actual *field* is, but we record them in the python
-            # data structure with that field, not with 'names'.
-            # Similarly the 'date' tag sometimes stores 'eventdate' or
-            # something
-            self.current_field.pop()
         # Reset state
         self.current_data = ''
         if tag_name == 'namepart':
