@@ -1,4 +1,4 @@
-name: build and deploy
+name: build and deploy website
 on: push
 env:
   OUT_DIR: '/tmp/site/'
