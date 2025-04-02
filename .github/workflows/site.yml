@@ -1,5 +1,6 @@
 name: build and deploy website
 on:
+  workflow_dispatch:
   push:
     paths:
       - "*.bib"
