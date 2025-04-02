@@ -23,7 +23,7 @@
 	 href="https://ojs.st-andrews.ac.uk/index.php/aporia/article/view/2451">What
 	Makes Thoughts about Specific Things?</a> was published in 2022 by Aporia.
       
-      <h1>Presentations</h1>
+      <h1>Talks</h1>
       <dl>  
 	{% for p in research | select('bibfilter', type='presentation') | sort(attribute='date', reverse=true) %}
 	<dt><time datetime="{{ p.date }}">{{ p.year }}</time></dt><dd>{{ p.title }}
