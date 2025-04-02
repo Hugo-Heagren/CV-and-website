@@ -7,8 +7,8 @@ on:
       - "*.cls"
       - "*.bbx"
       - "*.cbx"
-      # Always run when the actions change!
-      - ".github/workflows/*.yml"
+      # Always run when this action changes
+      - ".github/workflows/cv.yml"
 jobs:
   build:
     runs-on: ubuntu-latest

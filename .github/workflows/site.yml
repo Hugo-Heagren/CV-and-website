@@ -8,6 +8,8 @@ on:
       - "*.css"
       # TODO is this right?
       - "assets/**"
+      # Always run when this action changes
+      - ".github/workflows/site.yml"
 env:
   OUT_DIR: '/tmp/site/'
   BIB_XML_FILE: '/tmp/cv.bltxml'
