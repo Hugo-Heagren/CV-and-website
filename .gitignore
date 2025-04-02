@@ -7,6 +7,8 @@ venv
 *.log
 *.out
 *.dvi
+*.btlxml
+*.rng
 
 # Auctex artifacts
 **/auto/**
