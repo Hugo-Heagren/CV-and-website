@@ -31,7 +31,7 @@ jobs:
           python-version: "3.11.2"
           cache: 'pip'
       - run: "pip install -r requirements.txt"
-      - run: "python build.py ${{ env.OUT_DIR }}"
+      - run: "python build.py ${{ env.OUT_DIR }} ${{ env.BIB_XML_FILE }}"
       # Upload artifacts using actions/upload-pages-artifact
       - name: Upload static files as artifact
         uses: actions/upload-pages-artifact@v3
