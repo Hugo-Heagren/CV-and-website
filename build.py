@@ -255,7 +255,7 @@ urls = Urlset()
 domain = "https://hugoheagren.com"
 
 repo = git.Repo()
-tree = repo.heads.master.commit.tree
+tree = repo.active_branch.commit.tree
 def get_git_mod_time(file):
     gen = repo.iter_commits(paths=tree[file].path, max_count=1)
     commit = next(gen)
