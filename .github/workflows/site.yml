@@ -1,12 +1,28 @@
 name: build and deploy website
-on: push
+on:
+  push:
+    paths:
+      - "*.bib"
+      - "*.py"
+      - "*.html"
+      - "*.css"
+      # TODO is this right?
+      - "assets/**"
 env:
   OUT_DIR: '/tmp/site/'
+  BIB_XML_FILE: '/tmp/cv.bltxml'
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Install biber
+        uses: teatimeguest/setup-texlive-action@v3
+        with:
+          packages: |
+            biber
+      - name: Generate BibLaTeX XML
+        run: "biber --tool --output-format=biblatexml --output-file=${{ env.BIB_XML_FILE }} cv.bib"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11.2"
