@@ -32,6 +32,9 @@ arg_parser.add_argument("out_dir",
                         help="Output directory for site artifacts",
                         action=PathAction)
 
+arg_parser.add_argument("bib_xml_file",
+                        help="BibLaTeXML file with bibliography data")
+
 # Parse the args!
 args = arg_parser.parse_args()
 
@@ -206,9 +209,9 @@ class BibLateXMLParser:
 biblatex_parser = etree.XMLParser(target=BibLateXMLParser(),
                                   remove_blank_text=True)
 
-# TODO This makes the file a magic string!
 # Parse the data into the environment
-env.globals['research'] = etree.parse("/home/hugo/CV/cv_bibertool.bltxml",
+bib_xml_file = args.bib_xml_file
+env.globals['research'] = etree.parse(bib_xml_file,
                                       biblatex_parser)
 
 # ** Jinja filters
