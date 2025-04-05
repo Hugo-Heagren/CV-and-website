@@ -11,6 +11,7 @@ import unicodedata
 import argparse
 from lxml import etree
 from edtf import parse_edtf, Interval, EDTFObject
+import rcssmin
 
 # * Arguments
 
@@ -270,12 +271,10 @@ def get_git_mod_time(file):
 out_dir = args.out_dir
 out_dir.mkdir(parents=True, exist_ok=True)
 
-# I don't really need template expansion in my CSS file, but it's
-# there if I ever do, and this makes the build script simpler.
-files = glob.glob(r'*.html') + glob.glob(r'*.css')
+html_files = glob.glob(r'*.html')
 
-for file in files:
-    # Render the file
+for file in html_files:
+    # render the file
     filename = out_dir / file
     template = env.get_template(file)
     content = template.render()
@@ -301,6 +300,17 @@ for file in files:
         url = Url(urljoin(domain, file), lastmod=time)
         urls.add_url(url)
 
+
+# Minify CSS
+css_files = glob.glob(r'*.css')
+for file in css_files:
+    with open(file, mode="r", encoding="utf-8") as input:
+        original_css = input.read()
+        minified_css = rcssmin.cssmin(original_css)
+        input.close()
+        output_path = out_dir / file
+        with open(output_path, mode="w", encoding="utf-8") as output:
+            output.write(minified_css)
 
 # ** Write sitemap and robots.txt
 

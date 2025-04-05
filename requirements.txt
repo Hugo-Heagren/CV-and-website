@@ -3,3 +3,4 @@ sitemap
 GitPython
 lxml
 edtf
+rcssmin
