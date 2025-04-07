@@ -110,6 +110,38 @@ dt {
     line-height: 4ex;
 }
 
+.abstract-label, .abstract-label:after {
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size:small;
+    hyphens: none;
+    whitespace: preserve nowrap;
+}
+
+.abstract-label:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+}
+
+/* ** Collapsible abstracts */
+input[class='abstract-toggle']:not(:checked)~.abstract {
+    display: none;
+}
+
+input[class='abstract-toggle']:not(:checked)~.abstract-label::after {
+    content: "▸";
+}
+
+input[class='abstract-toggle']:checked~.abstract-label::after {
+    content: "▾";
+}
+
+.abstract {
+    margin-top: 15px;
+    text-align: justify;
+}
+
 /* * Licensing */
 
 /* Mostly taken from
