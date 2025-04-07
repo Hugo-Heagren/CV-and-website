@@ -92,6 +92,11 @@ class BibName:
     def __repr__(self):
         return f"BibName(p={self.prefix} g={self.given} f={self.family} s={self.suffix})"
 
+class PageRange:
+    def __init__(self, lower=None, upper=None):
+        self.lower = lower
+        self.upper = upper
+
 data_structure_fields = {'list',
                          'names',
                          'name',
@@ -155,19 +160,25 @@ class BibLateXMLParser:
                     # start/end...
             # Date ranges
             case 'start':
-                if string == '':
-                    # Special case to cope with open intervals
-                    start_date = None
-                else:
-                    start_date = parse_edtf(string)
-                self.current_entry[self.current_field] = Interval(lower=start_date,upper=None)
+                if self.current_field.endswith('date'):
+                    if string == '':
+                        # Special case to cope with open intervals
+                        start_date = None
+                    else:
+                        start_date = parse_edtf(string)
+                    self.current_entry[self.current_field] = Interval(lower=start_date,upper=None)
+                elif self.current_field == 'pages':
+                    self.current_entry[self.current_field].append(PageRange(lower=string))
             case 'end':
-                if string == '':
-                    # Special case to cope with open intervals
-                    end_date = None
-                else:
-                    end_date = parse_edtf(string)
-                self.current_entry[self.current_field].upper = end_date
+                if self.current_field.endswith('date'):
+                    if string == '':
+                        # Special case to cope with open intervals
+                        end_date = None
+                    else:
+                        end_date = parse_edtf(string)
+                    self.current_entry[self.current_field].upper = end_date
+                elif self.current_field == 'pages':
+                    self.current_entry[self.current_field][-1].upper = string
             case 'item':
                 list_field = self.current_field
                 self.current_entry[list_field].append(string)
