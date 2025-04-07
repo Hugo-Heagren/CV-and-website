@@ -10,11 +10,19 @@
 
     <h1>Papers</h1>
     <p>
-      <!-- <dl> -->
-      <!-- 	{% for p in research | select('bibfilter', type='article') | sort(attribute='date', reverse=true) %} -->
-      <!-- 	<dt><time datetime="{{ p.date }}">{{ p.year }}</time></dt><dd>{{ p.title }}</dd> -->
-      <!-- 	{% endfor %} -->
-      <!-- </dl> -->
+      <dl>
+	{% for p in research | select('bibfilter', type='article') | sort(attribute='date', reverse=true) %}
+	{% set link = (p.url or p.doi) %}
+	<dt><time datetime="{{ p.date }}">{{ p.year }}</time></dt>
+	<dd class='article'>{% if link %}<a href={{ link }}>{% endif %}{{ p.title }}{% if link %}</a>{% endif %}
+	  <i> {{ p.journaltitle or p.journal }}</i>
+	  <!-- Abstract toggle switch -->
+	  <input id='{{ p.id }}' type='checkbox' class='abstract-toggle'>
+	  <label for='{{ p.id }}' class='abstract-label'>abstract</label>
+	  <p class='abstract'>{{ p.abstract }}</p>	    
+	</dd>
+	{% endfor %}
+      </dl>
 
       <h1>Talks</h1>
       <dl>  
