@@ -69,8 +69,6 @@ class BibEntry(dict):
         else:
             return super().__getitem__(key)
     def __setitem__(self, key, value):
-        # TODO I'm going to need something here for moving between
-        # strings and dates when setting the date slot...
         if key in bib_date_components:
             raise KeyError(f"Cannot set '{key}' because 'date' is not set or is not an EDTFObject")
         # Fallback to standard dict behaviour
