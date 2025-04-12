@@ -7,7 +7,6 @@ on:
       - "*.py"
       - "*.html"
       - "*.css"
-      # TODO is this right?
       - "assets/**"
       # Always run when this action changes
       - ".github/workflows/site.yml"
