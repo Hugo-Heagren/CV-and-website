@@ -129,8 +129,6 @@ input[class='abstract-toggle']:not(:checked)~.abstract {
     display: none;
 }
 
-
-
 /* HACK Use EN SPACE U+002002 before the arrow indicator. This is NOT
    consumed by CSS (as a normal space would be), but is also separate
    from the text of the element, which is a bit cleaner, and because
