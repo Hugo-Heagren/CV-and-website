@@ -1,20 +1,28 @@
-name: build and deploy website
+name: build and deploy
 on:
   workflow_dispatch:
   push:
     paths:
+      # Site
       - "*.bib"
       - "*.py"
       - "*.html"
       - "*.css"
       - "assets/**"
+      # CV/TeX
+      - "*.tex"
+      - "*.bib"
+      - "*.cls"
+      - "*.bbx"
+      - "*.cbx"
       # Always run when this action changes
-      - ".github/workflows/site.yml"
+      - ".github/workflows/cv-site.yml"
 env:
   OUT_DIR: '/tmp/site/'
   BIB_XML_FILE: '/tmp/cv.bltxml'
 jobs:
   build:
+    # Build site
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -31,12 +39,31 @@ jobs:
           cache: 'pip'
       - run: "pip install -r requirements.txt"
       - run: "python build.py ${{ env.OUT_DIR }} ${{ env.BIB_XML_FILE }}"
-      # Upload artifacts using actions/upload-pages-artifact
-      - name: Upload static files as artifact
+      # Build CV
+      - name: Setup TeX Live
+        uses: teatimeguest/setup-texlive-action@v3
+        with:
+          packages: |
+            scheme-full
+            orcidlink
+      - name: First LaTeX run
+        run: 'lualatex cv.tex'
+      - name: Biber run
+        run: 'biber cv'
+      - name: Second LaTeX run
+        run: 'lualatex cv.tex'
+      - name: Final LaTeX run
+        run: 'lualatex cv.tex'
+      - name: Create output directory
+        run: "mkdir ${{ env.OUT_DIR }}"
+      - name: Move CV PDF to output dir
+        run: "mv cv.pdf ${{ env.OUT_DIR }}/Hugo-Heagren-CV.pdf"
+      # Upload everything so it can be deployed
+      - name: Upload outputs as artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ${{ env.OUT_DIR }}
-  deploy:
+  deploy-both:
     needs: build
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
@@ -49,4 +76,6 @@ jobs:
     # Specify runner + deployment step
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/deploy-pages@v4
+      - name: deploy
+        uses: actions/deploy-pages@v4
+    
