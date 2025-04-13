@@ -33,6 +33,14 @@
   role
 }
 
+% * Licenses
+
+\DeclareDatamodelFields[type=field,datatype=key]{license}
+
+% Valid for all entry types (there are actually a few it doesn't make
+% sense for, but there's no point writing it all out here...)
+\DeclareDatamodelEntryfields{license}
+
 % * End input
 
 \endinput
