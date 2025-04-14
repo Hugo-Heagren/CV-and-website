@@ -7,7 +7,7 @@
   sorting=dd
 }
 
-%% * Custom date style
+% * Custom date style
 
 % All credit to moewe: https://tex.stackexchange.com/a/717831/238079
 \renewrobustcmd*{\mkdaterangefull}[2]{%
@@ -47,7 +47,7 @@
                \dateeraprint{#2endyear}}}}}%
   \endgroup}
 
-%% * Custom Drivers
+% * Custom Drivers
 
 % Useful because my style doesn't print much info.
 \renewcommand{\finentrypunct}{}
@@ -186,7 +186,7 @@
   \usebibmacro{finentry}%
 }
 
-%% * Descending Date Sorting Template
+% * Descending Date Sorting Template
 
 % Sort with reverse chronologically.
 
@@ -212,7 +212,7 @@
   }
 }
 
-%% * Custom Checks
+% * Custom Checks
 
 \defbibcheck{Article}{%
 	\ifentrytype{article}{}{\skipentry}%
@@ -255,13 +255,13 @@
 }
 \ExplSyntaxOff
 
-%% * `printbibliography' defaults
+% * `printbibliography' defaults
 
 \DeclarePrintbibliographyDefaults{
   heading=none,
   env=cv
 }
 
-%% * end input
+% * end input
 
 \endinput
