@@ -72,12 +72,12 @@
 
 \DeclareBibliographyDriver{article}{%
   \usebibmacro{bibindex}%
-  \usebibmacro{begentry}
-  \usebibmacro{title+url}
+  \usebibmacro{begentry}%
+  \usebibmacro{title+url}%
   % Using `setunit' means that we get the semantics of a new unit,
   % without printing `\newunitpunct'.
   \setunit*{\addspace}%
-  \printfield{journaltitle}
+  \printfield{journaltitle}%
   \setunit*{}%
   \usebibmacro{finentry}%
 }
