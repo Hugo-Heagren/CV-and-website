@@ -56,6 +56,32 @@
 % This uses my `description' env from cv.cls
 \defbibenvironment{cv}{\begin{description}}{\end{description}}{\item[\printdate]}
 
+% ** Article
+
+\DeclareFieldFormat[article]{title}{#1}
+
+\newbibmacro{title+url}{%
+  \iffieldundef{url}%
+    {\printfield{title}}%
+    {\href{\thefield{url}}{\printfield{title}}}%
+}
+
+\DeclareFieldFormat[article]{journaltitle}{%
+  \mkbibitalic{#1}%
+}
+
+\DeclareBibliographyDriver{article}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}
+  \usebibmacro{title+url}
+  % Using `setunit' means that we get the semantics of a new unit,
+  % without printing `\newunitpunct'.
+  \setunit*{\addspace}%
+  \printfield{journaltitle}
+  \setunit*{}%
+  \usebibmacro{finentry}%
+}
+
 % ** Presentation
 
 \newbibmacro{institution}{%
