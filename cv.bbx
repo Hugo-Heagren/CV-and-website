@@ -214,6 +214,10 @@
 
 %% * Custom Checks
 
+\defbibcheck{Article}{%
+	\ifentrytype{article}{}{\skipentry}%
+}
+
 % Cribbed from
 % /usr/local/texlive/2024/texmf-dist/tex/latex/biblatex-cv/biblatex-cv.sty
 \defbibcheck{Presentation}{%
