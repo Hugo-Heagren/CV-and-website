@@ -56,6 +56,8 @@
 % This uses my `description' env from cv.cls
 \defbibenvironment{cv}{\begin{description}}{\end{description}}{\item[\printdate]}
 
+% ** Presentation
+
 \newbibmacro{institution}{%
   \iflistundef{savedinstitution}{%
       \printlist[default]{institution}%
@@ -116,6 +118,8 @@
   \usebibmacro{status}%
   \usebibmacro{finentry}%
 }
+
+% ** Degree
 
 % An extended version of the given-family format, but with roles from
 % literal annotations. This takes literal annotations with name `role'
