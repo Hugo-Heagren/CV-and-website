@@ -26,6 +26,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      # This has to come first because the BibLaTeX XML is needed by
+      # the site as well as the CV.
+      - name: Setup TeX Live (with biber)
+        uses: teatimeguest/setup-texlive-action@v3
+        with:
+          packages: |
+            biber
+            scheme-full
+            orcidlink
+      - name: Generate BibLaTeX XML
+        run: "biber --tool --output-format=biblatexml --output-file=${{ env.BIB_XML_FILE }} cv.bib"
 
       # Build site
       - name: Setup Python
@@ -39,15 +50,6 @@ jobs:
         run: "python build.py ${{ env.OUT_DIR }} ${{ env.BIB_XML_FILE }}"
 
       # Build CV
-      - name: Setup TeX Live (with biber)
-        uses: teatimeguest/setup-texlive-action@v3
-        with:
-          packages: |
-            biber
-            scheme-full
-            orcidlink
-      - name: Generate BibLaTeX XML
-        run: "biber --tool --output-format=biblatexml --output-file=${{ env.BIB_XML_FILE }} cv.bib"
       - name: First LaTeX run
         run: 'lualatex cv.tex'
       - name: Biber run
