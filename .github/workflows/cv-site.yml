@@ -21,7 +21,8 @@ env:
   OUT_DIR: '/tmp/site/'
   BIB_XML_FILE: '/tmp/cv.bltxml'
 jobs:
-  build-site:
+  build:
+    # Build site
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -38,17 +39,7 @@ jobs:
           cache: 'pip'
       - run: "pip install -r requirements.txt"
       - run: "python build.py ${{ env.OUT_DIR }} ${{ env.BIB_XML_FILE }}"
-      # Upload artifacts using actions/upload-pages-artifact
-      - name: Upload static files as artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          name: "site-artifact"
-          path: ${{ env.OUT_DIR }}
-  build-cv:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup Git repo
-        uses: actions/checkout@v4
+      # Build CV
       - name: Setup TeX Live
         uses: teatimeguest/setup-texlive-action@v3
         with:
@@ -64,18 +55,16 @@ jobs:
       - name: Final LaTeX run
         run: 'lualatex cv.tex'
       - name: Create output directory
-        # This doesn't complain, because the runner environment is
-        # created afresh for each job
         run: "mkdir ${{ env.OUT_DIR }}"
-      - name: Move PDF to output dir
+      - name: Move CV PDF to output dir
         run: "mv cv.pdf ${{ env.OUT_DIR }}/Hugo-Heagren-CV.pdf"
-      - name: Upload output pdf as artifact
+      # Upload everything so it can be deployed
+      - name: Upload outputs as artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          name: "cv-artifact"
           path: ${{ env.OUT_DIR }}
   deploy-both:
-    needs: [build-site, build-cv]
+    needs: build
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
       pages: write      # to deploy to Pages
@@ -87,12 +76,6 @@ jobs:
     # Specify runner + deployment step
     runs-on: ubuntu-latest
     steps:
-      - name: deploy CV
+      - name: deploy
         uses: actions/deploy-pages@v4
-        with:
-          artifact_name: cv-artifact
-      - name: deploy site
-        uses: actions/deploy-pages@v4
-        with:
-          artifact_name: site-artifact
     
