@@ -85,7 +85,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     with:
-      artifact_name: "site-artifact"
+      artifact_name: site-artifact
     # Specify runner + deployment step
     runs-on: ubuntu-latest
     steps:
