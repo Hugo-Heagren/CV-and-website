@@ -1,20 +1,27 @@
-name: build and deploy website
+name: build and deploy
 on:
   workflow_dispatch:
   push:
     paths:
+      # Site
       - "*.bib"
       - "*.py"
       - "*.html"
       - "*.css"
       - "assets/**"
+      # CV/TeX
+      - "*.tex"
+      - "*.bib"
+      - "*.cls"
+      - "*.bbx"
+      - "*.cbx"
       # Always run when this action changes
-      - ".github/workflows/site.yml"
+      - ".github/workflows/cv-site.yml"
 env:
   OUT_DIR: '/tmp/site/'
   BIB_XML_FILE: '/tmp/cv.bltxml'
 jobs:
-  build:
+  build-site:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -36,8 +43,37 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ${{ env.OUT_DIR }}
-  deploy:
-    needs: build
+  build-cv:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Git repo
+        uses: actions/checkout@v4
+      - name: Setup TeX Live
+        uses: teatimeguest/setup-texlive-action@v3
+        with:
+          packages: |
+            scheme-full
+            orcidlink
+      - name: First LaTeX run
+        run: 'lualatex cv.tex'
+      - name: Biber run
+        run: 'biber cv'
+      - name: Second LaTeX run
+        run: 'lualatex cv.tex'
+      - name: Final LaTeX run
+        run: 'lualatex cv.tex'
+      - name: Create output directory
+        # This doesn't complain, because the runner environment is
+        # created afresh for each job
+        run: "mkdir ${{ env.OUT_DIR }}"
+      - name: Move PDF to output dir
+        run: "mv cv.pdf ${{ env.OUT_DIR }}/Hugo-Heagren-CV.pdf"
+      - name: Upload output pdf as artefact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.OUT_DIR }}
+  deploy-both:
+    needs: [build-site, build-cv]
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
       pages: write      # to deploy to Pages
