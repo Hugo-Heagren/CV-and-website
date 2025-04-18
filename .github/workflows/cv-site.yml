@@ -87,9 +87,12 @@ jobs:
     # Specify runner + deployment step
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/deploy-pages@v4
+      - name: deploy CV
+        uses: actions/deploy-pages@v4
         with:
-          artifact_name:
-	    - cv-artifact
-	    - site-artifact
+          artifact_name: cv-artifact
+      - name: deploy site
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: site-artifact
     
