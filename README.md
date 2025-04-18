@@ -1,11 +1,8 @@
 # My Academic CV and website
 
-The CV is in LaTeX, with BibLaTeX for automatically laying out my
-talks. One day I'll have enough publications for it to be worth
-writing the code for them too.
-
-It's built with LuaLaTeX and deployed with a GitHub action to
-[cv.hugoheagren.com/Hugo-Heagren-CV.pdf](https://cv.hugoheagren.com/Hugo-Heagren-CV.pdf).
+The CV is in LaTeX, with BibLaTeX for automatically laying out all the
+lists. It's built with LuaLaTeX and deployed with a GitHub action to
+[hugoheagren.com/Hugo-Heagren-CV.pdf](https://hugoheagren.com/Hugo-Heagren-CV.pdf).
 
 The website tries to strike a reasonable balance between being simple
 enough to stay out of my way and clever enough that I shouldn't have
