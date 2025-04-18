@@ -55,7 +55,8 @@ jobs:
       - name: Final LaTeX run
         run: 'lualatex cv.tex'
       - name: Create output directory
-        run: "mkdir ${{ env.OUT_DIR }}"
+        # `-p` so its ok if the dir already exists
+        run: "mkdir -p ${{ env.OUT_DIR }}"
       - name: Move CV PDF to output dir
         run: "mv cv.pdf ${{ env.OUT_DIR }}/Hugo-Heagren-CV.pdf"
       # Upload everything so it can be deployed
