@@ -1,0 +1,83 @@
+name: build and deploy
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      # Site
+      - "*.bib"
+      - "*.py"
+      - "*.html"
+      - "*.css"
+      - "assets/**"
+      # CV/TeX
+      - "*.tex"
+      - "*.bib"
+      - "*.cls"
+      - "*.bbx"
+      - "*.cbx"
+      # Always run when this action changes
+      - ".github/workflows/cv-site.yml"
+env:
+  OUT_DIR: '/tmp/out_dir/'
+  BIB_XML_FILE: '/tmp/cv.bltxml'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Build site
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11.2"
+          cache: 'pip'
+      - name: Install requirements
+        run: "pip install -r requirements.txt"
+      - name: Build site (build.py)
+        run: "python build.py ${{ env.OUT_DIR }} ${{ env.BIB_XML_FILE }}"
+
+      # Build CV
+      - name: Setup TeX Live (with biber)
+        uses: teatimeguest/setup-texlive-action@v3
+        with:
+          packages: |
+            biber
+            scheme-full
+            orcidlink
+      - name: Generate BibLaTeX XML
+        run: "biber --tool --output-format=biblatexml --output-file=${{ env.BIB_XML_FILE }} cv.bib"
+      - name: First LaTeX run
+        run: 'lualatex cv.tex'
+      - name: Biber run
+        run: 'biber cv'
+      - name: Second LaTeX run
+        run: 'lualatex cv.tex'
+      - name: Final LaTeX run
+        run: 'lualatex cv.tex'
+      - name: Create output directory
+        # `-p` so its ok if the dir already exists
+        run: "mkdir -p ${{ env.OUT_DIR }}"
+      - name: Move CV PDF to output dir
+        run: "mv cv.pdf ${{ env.OUT_DIR }}/Hugo-Heagren-CV.pdf"
+      - name: Upload outputs as artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.OUT_DIR }}
+  deploy:
+    needs: build
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy
+        uses: actions/deploy-pages@v4
+    
