@@ -28,7 +28,6 @@ class PathAction(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         setattr(namespace, self.dest, Path(values))
 
-
 arg_parser.add_argument("out_dir",
                         help="Output directory for site artifacts",
                         action=PathAction)
