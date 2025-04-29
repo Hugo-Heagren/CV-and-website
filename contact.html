@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-GB">
-  <head>
-    {% set title = "Contact" %}
-    {% include 'components/head.html' %}
-  </head>
-  <body>
-
-    {% include 'components/header.html' %}
-
-    <p>
-      <!-- This is an advanced, standards compliant, method for
+    <head>
+        {% set title = "Contact" %}
+        {% include 'components/head.html' %}
+    </head>
+    <body>
+        {% include 'components/header.html' %}
+        <p>
+            <!-- This is an advanced, standards compliant, method for
 	   munging email addresses. I'm not sure how important munging is
 	   these days, but it's good to be sure. Other academics do it
 	   sometimes on their sites (generally the more technically
@@ -22,34 +20,28 @@
 
 	   If you have made it to the bottom of this comment then, like
 	   me, you should probably get out more. -->
-      The best way to contact me is by email:
-      <a class="email"
-	 href="mailto:{{ 'hugo.heagren@kcl.ac.uk' | html_mung }}">
-	{{ 'hugo.heagren@kcl.ac.uk' | html_mung }}</a>.
-
-    <br>
-
-    You can also find me on
-    <a href="https://philpeople.org/profiles/hugo-heagren">PhilPeople</a>,
-    <a href="https://github.com/Hugo-Heagren">GitHub</a>,
-    <a href="https://scholar.social/@HugoHeagren">Mastodon</a> and
-    <a href="https://scholar.google.com/citations?user=PfEED4kAAAAJ">Google
-      Scholar</a>.
-    <!-- Yes, this is the correct way to display this. See
+            The best way to contact me is by email:
+            <a class="email"
+               href="mailto:{{ 'hugo.heagren@kcl.ac.uk' | html_mung }}">{{ 'hugo.heagren@kcl.ac.uk' | html_mung }}</a>.
+            <br>
+            You can also find me on
+            <a href="https://philpeople.org/profiles/hugo-heagren">PhilPeople</a>,
+            <a href="https://github.com/Hugo-Heagren">GitHub</a>,
+            <a href="https://scholar.social/@HugoHeagren">Mastodon</a> and
+            <a href="https://scholar.google.com/citations?user=PfEED4kAAAAJ">Google
+                Scholar</a>.
+                <!-- Yes, this is the correct way to display this. See
 	 https://info.orcid.org/documentation/integration-guide/orcid-id-display-guidelines/#h-compact-orcid-id
       -->
-    My ORCID iD is
-    <a id="orcid-id"
-       href="https://orcid.org/0009-0005-6052-3369">
-      <img id="orcid-logo"
-	   src="./assets/orcid-logo.svg"
-	   alt="">
-
-      0009-0005-6052-3369</a>.
-    
-    </p>
-
-    {% include 'components/footer.html' %}
-
-  </body>
-</html>
+                My ORCID iD is
+                <a id="orcid-id" href="https://orcid.org/0009-0005-6052-3369">
+                    <img id="orcid-logo"
+                         src="./assets/orcid-logo.svg"
+                         alt=""
+                         height="24"
+                         width="24">
+                    0009-0005-6052-3369</a>.
+                </p>
+                {% include 'components/footer.html' %}
+            </body>
+        </html>
