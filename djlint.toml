@@ -1,0 +1,2 @@
+# Turn off for most things, because template inheritance meses it up
+ignore="H016,H030,H031"
