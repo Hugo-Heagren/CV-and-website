@@ -62,6 +62,14 @@ a {
     box-sizing: border-box;
 }
 
+/*
+   https://www.smashingmagazine.com/2020/03/setting-height-width-images-important-again/#how-css-interacts-with-element-widths-and-heights
+   */
+img {
+    height: auto;
+    width: auto;
+}
+
 /* Picture on the left */
 .portrait {
     padding-right: 20px;
