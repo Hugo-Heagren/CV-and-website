@@ -34,9 +34,9 @@
                     </dt>
                     <dd>
                         {{ p.title }}
-                        <i>({{ p.eventtitle }}
-                            {% if p.institution | first %}; {{ p.institution | first }}{% endif %}
-                        )</i>
+                        <i>
+			  ({{ p.eventtitle }}{% if p.institution | first %};
+			  {{ p.institution | first }}{% endif %})</i>
                     </dd>
                 {% endfor %}
             </dl>
