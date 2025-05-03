@@ -14,6 +14,26 @@ html, body {
     padding-bottom: 0;
 }
 
+/* * General styling */
+p {
+    text-align: justify;
+    /* This seems to work the best */
+    text-justify: initial;
+}
+
+/*
+   https://www.smashingmagazine.com/2020/03/setting-height-width-images-important-again/#how-css-interacts-with-element-widths-and-heights
+   */
+img {
+    height: auto;
+    width: auto;
+}
+
+ul {
+    list-style-type: "- ";
+    padding-left: 15px;
+}
+
 /* * Structure & Navigation */
 
 header {
@@ -62,14 +82,6 @@ a {
     box-sizing: border-box;
 }
 
-/*
-   https://www.smashingmagazine.com/2020/03/setting-height-width-images-important-again/#how-css-interacts-with-element-widths-and-heights
-   */
-img {
-    height: auto;
-    width: auto;
-}
-
 /* Picture on the left */
 .portrait {
     padding-right: 20px;
@@ -89,10 +101,7 @@ br {
     padding-left: 20px;
     float: left;
     width: 50%;
-    text-align: justify;
-    /* This seems to work the best */
-    text-justify: initial;
-}
+ }
 
 /* * Research list */
 
@@ -102,7 +111,7 @@ dd {
 
 /* Don't add an unnecessary margin to the last element
    https://stackoverflow.com/a/19254469/14915848 */
-dd:not(:last-child) {
+dd:not(:last-child), li {
     /* Slightly larger than the linebreak size, I think this is good for
        readability */
     margin-bottom: 1.5ex;
@@ -172,6 +181,10 @@ body {
 
 p {
     flex: 1 0 auto;
+}
+
+.license {
+    text-align: center;
 }
 
 footer {
