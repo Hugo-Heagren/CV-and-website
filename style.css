@@ -164,6 +164,10 @@ input[class='abstract-toggle']:checked~.abstract-label::after {
 .abstract {
     margin-top: 15px;
     text-align: justify;
+    /* On desktop the textblock is wide enough that small differences in
+       tracking/kerning are not noticeable, so it's nice to just not
+       have any hyphenated text. */
+    hyphens: none;
 }
 
 /* * Licensing */
@@ -310,6 +314,14 @@ footer {
     footer { width: 100%; }
 
     #four-oh-four { font-size: 30vw; }
+
+    .abstract {
+	text-align: justify;
+	/* On mobile, the text block is small enough that the kerning/tracking
+           differences introduced by hyphens: none; are too much, so
+           we use hyphens here.*/
+	hyphens: auto;
+    }
 
 /* ** Burger Menu */
 
