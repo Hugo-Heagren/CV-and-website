@@ -5,4 +5,4 @@
 	 (compilation-read-command . nil)
 	 (ebib-index-default-sort . ("date" . descend))
 	 (TeX-master . "cv.tex")
-	 (ebib-preload-bib-files . ("~/CV/cv.bib")))))
+	 (ebib-preload-bib-files . ("~/CV-site/cv.bib")))))
