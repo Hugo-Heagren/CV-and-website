@@ -12,7 +12,9 @@
                 {% for p in research | select('bibfilter', type="article") | sort(attribute="date", reverse=true) %}
                     {% set link = (p.url or p.doi) %}
                     <dt>
-                        <time datetime="{{ p.date }}">{{ p.year }}</time>
+                      <time datetime="{{ p.date }}">
+			{% if p.pubstate == "forthcoming" %}forth.{% else %}{{ p.year }}{% endif %}
+		      </time>
                     </dt>
                     <dd class="article">
                         {% if link %}<a href={{ link }}>{% endif %}
