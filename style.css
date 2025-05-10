@@ -34,6 +34,15 @@ ul {
     padding-left: 15px;
 }
 
+/* Class for bits of text which give information about other bits of
+   text. (definitions titles, etc.) */
+.decoration {
+    display: inline-block;
+    font-weight: bold;
+    font-size:small;
+    hyphens: none;
+}
+
 /* * Structure & Navigation */
 
 header {
@@ -120,19 +129,13 @@ dd:not(:last-child), li {
 dt {
     float: left;
     clear: left;
-    font-weight: bold;
-    font-size: small;
     /* This (nearly) aligns the baseline of dt with that of dl. Not
        perfect, but it'll do for now */
     line-height: 4ex;
 }
 
 .abstract-label, .abstract-label:after {
-    display: inline-block;
-    font-weight: bold;
     text-transform: uppercase;
-    font-size:small;
-    hyphens: none;
     whitespace: preserve nowrap;
 }
 
