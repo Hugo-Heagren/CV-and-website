@@ -47,6 +47,19 @@
                \dateeraprint{#2endyear}}}}}%
   \endgroup}
 
+% If pubstate field is declared, use it instead of date (since I only
+% really use pubstate for forthcoming/inpress). This is useful for
+% listing works which are accepted but not printed yet, but for which
+% I have a rough print date in the .bib file (e.g. just the year)
+\DeclareLabeldate{%
+  \field{pubstate}
+  \field{date}
+  \field{eventdate}
+  \field{origdate}
+  \field{urldate}
+  \literal{nodate}
+}
+
 % * Custom Drivers
 
 % Useful because my style doesn't print much info.
@@ -54,7 +67,7 @@
 \renewcommand{\newunitpunct}{;\addspace}
 
 % This uses my `description' env from cv.cls
-\defbibenvironment{cv}{\begin{description}}{\end{description}}{\item[\printdate]}
+\defbibenvironment{cv}{\begin{description}}{\end{description}}{\item[\printlabeldate]}
 
 % ** Article
 
