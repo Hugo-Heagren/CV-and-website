@@ -20,7 +20,7 @@
         <a class="nav-item" href="https://hugoheagren.com/Hugo-Heagren-CV.pdf">CV</a>
         {% for page in [ 'research', 'contact' ] %}
             <a class="nav-item{% if page == title|lower %} current{% endif %}"
-               href="./{{ page }}.html">{{ page|capitalize }}</a>
+               href="./{{ page }}">{{ page|capitalize }}</a>
         {% endfor %}
     </nav>
 </header>
