@@ -2,6 +2,7 @@
 \usepackage{orcidlink}
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}
+\usepackage{jsonparse}
 
 \hypersetup{
  pdfauthor={Hugo Heagren},
@@ -17,6 +18,8 @@
 
 \addbibresource{./cv.bib}
 
+\JSONParseFromFile{\info}{./info.json}
+
 \author{Hugo Heagren}
 \date{\today}
 \title{Hugo Heagren}
@@ -28,9 +31,9 @@
 
 \section*{Contact Details}
 \begin{itemize}
-\item \href{mailto:hugo.heagren@kcl.ac.uk}{hugo.heagren@kcl.ac.uk}
+\item \href{mailto:\JSONParseExpandableValue{\info}{email}}{\JSONParseExpandableValue{\info}{email}}
 \item \href{https://hugoheagren.com}{hugoheagren.com}
-\item \orcidlinkc{0009-0005-6052-3369}
+\item \orcidlinkc{\JSONParseExpandableValue{\info}{orcid}}
 \end{itemize}
 
 % ** Areas
