@@ -11,6 +11,7 @@ import argparse
 from lxml import etree
 from edtf import parse_edtf, Interval, EDTFObject
 import rcssmin
+import json
 
 # * Arguments
 
@@ -37,12 +38,20 @@ arg_parser.add_argument(
 
 arg_parser.add_argument("bib_xml_file", help="BibLaTeXML file with bibliography data")
 
+arg_parser.add_argument(
+    "info_json_file", help="JSON file containing general information on me"
+)
+
 # Parse the args!
 args = arg_parser.parse_args()
 
 # * Jinja environment
 
 env = Environment(loader=FileSystemLoader("."))
+
+# Load general info into the global environment
+with open(args.info_json_file) as f:
+    env.globals["info"] = json.load(f)
 
 # * Research data
 # ** BibLaTeX data parser
