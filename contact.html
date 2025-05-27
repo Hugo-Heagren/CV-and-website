@@ -22,7 +22,7 @@
 	   me, you should probably get out more. -->
             The best way to contact me is by email:
             <a class="email"
-               href="mailto:{{ 'hugo.heagren@kcl.ac.uk' | html_mung }}">{{ 'hugo.heagren@kcl.ac.uk' | html_mung }}</a>.
+               href="mailto:{{ info.email | html_mung }}">{{ info.email | html_mung }}</a>.
             <br>
             You can also find me on
             <a href="https://philpeople.org/profiles/hugo-heagren">PhilPeople</a>,
@@ -34,7 +34,7 @@
 	 https://info.orcid.org/documentation/integration-guide/orcid-id-display-guidelines/#h-compact-orcid-id
       -->
                 My ORCID iD is
-                <a id="orcid-id" href="https://orcid.org/0009-0005-6052-3369">
+                <a id="orcid-id" href="https://orcid.org/{{ info.orcid }}">
                     <img id="orcid-logo"
                          src="./assets/orcid-logo.svg"
                          alt=""
