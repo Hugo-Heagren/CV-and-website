@@ -20,6 +20,7 @@ on:
 env:
   OUT_DIR: '/tmp/out_dir/'
   BIB_XML_FILE: '/tmp/cv.bltxml'
+  INFO_JSON_FILE: './info.json'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -47,7 +48,7 @@ jobs:
       - name: Install requirements
         run: "pip install -r requirements.txt"
       - name: Build site (build.py)
-        run: "python build.py ${{ env.OUT_DIR }} ${{ env.BIB_XML_FILE }}"
+        run: "python build.py ${{ env.OUT_DIR }} ${{ env.BIB_XML_FILE }} ${{ env.INFO_JSON_FILE }}"
 
       # Build CV
       - name: First LaTeX run
