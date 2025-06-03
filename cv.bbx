@@ -135,8 +135,9 @@
       \setunit*{\addcolon\addspace}}{}%
   }
 
-\newcommand{\invited}{\textdagger{}}
-\newcommand{\departmental}{\textasteriskcentered}
+
+\newcommand{\invited}{\JSONParseValue{\info}{symbols.invited}}
+\newcommand{\departmental}{\JSONParseValue{\info}{symbols.departmental}}
 
 \newbibmacro{status}{%
   \iffieldequalstr{presentationtype}{invited}{\invited}{%
