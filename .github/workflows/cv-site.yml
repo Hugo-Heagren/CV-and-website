@@ -21,6 +21,8 @@ env:
   OUT_DIR: '/tmp/out_dir/'
   BIB_XML_FILE: '/tmp/cv.bltxml'
   INFO_JSON_FILE: './info.json'
+  CV_BCF_FILE: './cv.bcf'
+  BIBER_TOOL_CONF_FILE: './biber-tool.conf'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -36,10 +38,6 @@ jobs:
             biber
             scheme-full
             orcidlink
-      - name: Generate BibLaTeX XML
-        run: "biber --tool --output-format=biblatexml --output-file=${{ env.BIB_XML_FILE }} cv.bib"
-
-      # Build site
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -47,8 +45,6 @@ jobs:
           cache: 'pip'
       - name: Install requirements
         run: "pip install -r requirements.txt"
-      - name: Build site (build.py)
-        run: "python build.py ${{ env.OUT_DIR }} ${{ env.BIB_XML_FILE }} ${{ env.INFO_JSON_FILE }}"
 
       # Build CV
       - name: First LaTeX run
@@ -64,10 +60,23 @@ jobs:
         run: "mkdir -p ${{ env.OUT_DIR }}"
       - name: Move CV PDF to output dir
         run: "mv cv.pdf ${{ env.OUT_DIR }}/Hugo-Heagren-CV.pdf"
+
+      # This *must* come after the biber run, because that is what
+      # generates the bcf file, which is necessary for this step.
+      - name: Setup biber tool mode config
+        run: "python generate-biber-datamodel.py ${{ env.CV_BCF_FILE }} ${{ env.BIBER_TOOL_CONF_FILE }}"
+      - name: Generate BibLaTeX XML
+        run: "biber --tool --configfile ${{ env.BIBER_TOOL_CONF_FILE }} --output-format=biblatexml --output-file=${{ env.BIB_XML_FILE }} cv.bib"
+
+      # Build site
+      - name: Build site (build.py)
+        run: "python build.py ${{ env.OUT_DIR }} ${{ env.BIB_XML_FILE }} ${{ env.INFO_JSON_FILE }}"
+
       - name: Upload outputs as artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ${{ env.OUT_DIR }}
+
   deploy:
     needs: build
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
