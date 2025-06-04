@@ -185,6 +185,32 @@ input[class='abstract-toggle']:checked~.abstract-label::after {
     hyphens: none;
 }
 
+/* * Teaching eval tables */
+
+.bar {
+    tr {
+	--labels-size: 300px;
+    }
+
+    th {
+	font-size: 80%;
+	line-height: 0.8;
+	text-align: left;
+	font-weight: normal;
+	hyphens: none;
+    }
+
+    caption {
+	font-style: italic;
+    }
+
+    .data {
+	font-style: italic;
+	padding-left: 3px;
+	font-size: 90%
+    }
+}
+
 /* * Licensing */
 
 /* Mostly taken from
