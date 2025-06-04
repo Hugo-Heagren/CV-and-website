@@ -12,9 +12,13 @@
                 {% for p in research | select('bibfilter', type="article") | sort(attribute="date", reverse=true) %}
                     {% set link = (p.url or p.doi) %}
                     <dt class="decoration">
-                      <time datetime="{{ p.date }}">
-			{% if p.pubstate == "forthcoming" %}Forth.{% else %}{{ p.year }}{% endif %}
-		      </time>
+                        <time datetime="{{ p.date }}">
+                            {% if p.pubstate == "forthcoming" %}
+                                Forth.
+                            {% else %}
+                                {{ p.year }}
+                            {% endif %}
+                        </time>
                     </dt>
                     <dd class="article">
                         {% if link %}<a href={{ link }}>{% endif %}
@@ -29,22 +33,21 @@
                 {% endfor %}
             </dl>
             <h1>Talks</h1>
-	    
-	    <span>({{ info.symbols.invited}} invited, {{
-	      info.symbols.departmental}} departmental, otherwise
-	      refereed)</span>
-	    
+            <span>({{ info.symbols.invited }} invited, {{
+                info.symbols.departmental}} departmental, otherwise
+            refereed)</span>
             <dl>
                 {% for p in research | select('bibfilter', type='presentation') | sort(attribute='date', reverse=true) %}
-		    {% set type_symbol = (info[p.presentationtype] or "") %}
+                    {% set type_symbol = (info[p.presentationtype] or "") %}
                     <dt class="decoration">
                         <time datetime="{{ p.date }}">{{ p.year }}</time>
                     </dt>
                     <dd>
                         {{ p.title }}
                         <i>
-			  ({{ p.eventtitle }}{% if p.institution | first %};
-			  {{ p.institution | first }}{% endif %}){{ info.symbols[p.presentationtype] }}</i>
+                            ({{ p.eventtitle }}
+                            {%- if p.institution | first %}; {{ p.institution | first }}{% endif %}
+                        ){{ info.symbols[p.presentationtype] }}</i>
                     </dd>
                 {% endfor %}
             </dl>

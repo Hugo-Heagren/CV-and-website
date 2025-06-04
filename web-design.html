@@ -1,187 +1,173 @@
 <!DOCTYPE html>
 <html lang="en-GB">
-  <head>
-    {% set title = "Web Design" %}
-    {% include 'components/head.html' %}
-  </head>
-  <body>
-
-    {% include 'components/header.html' %}
-
-    <p>
-      I build academic websites! If you want one, <a href="mailto:{{
-      'hugo.heagren@kcl.ac.uk' | html_mung }}">get in touch</a>!
-
-      <br>
-
-      Lots of academics and postgrad student need a website,
-      especially as they (you) set out on the job market. I have
-      significant experience with building such sites, and I can help
-      you with more or less of the process, however best fits. I also
-      have lots of experience with the process and mechanics of buying
-      and administering domain names, setting up email addresses and
-      linking social media accounts to your site, embedding displays
-      of your work, etc.
-
-      <br>
-
-      If you want to know more, email me (<a class="email"
-               href="mailto:{{ 'hugo.heagren@kcl.ac.uk' | html_mung
-               }}">{{ 'hugo.heagren@kcl.ac.uk' | html_mung }}</a>) or
-               fill out
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjIFwvcJmHYzrEr_CBdRBeBLkH5ZJVHllFbqoQUaIFaQgRCQ/viewform?usp=dialog">this
-               form</a>.
-      
-      <br>
-
-      There are more details below about the <a href="#services">sites
-	themselves</a>, the <a href="#process">process</a>
-	and <a href="#prices">how much I charge</a>. There is also a
-	list of my <a href="#portfolio">previous work</a>.
-
-    </p>
-
-    <h1 id="services">Services</h1>
-    
-    <span>There are basically two ways to build a website:</span>
-
-    <h3>Platform (Squarespace/Wix/etc.)</h3>
-
-    <p>
-      First, I can build a site (or improve an existing site) in one
-      of the popular website-building platforms like Wix or
-      Squarespace. There are two major advantages to this setup: it's
-      easier for you to maintain after I've built it (because it
-      doesn't require any real programming skills) and these platforms
-      include tools for buying and administering web addresses
-      (otherwise you have to do this manually). I
-      built <a href="https://philosophyarts.co.uk/">philosophyarts.co.uk</a>
-      like this.
-
-      <br>
-
-      The downside of this way is that there is less flexibility in
-      the design, and often things which seem like they should be easy
-      can end up being surprisingly difficult (the changing pictures
-      on the front page of the CPA site do work, but they're a bit of
-      a hack and it's hard to maintain behind the scenes). In
-      particular, these platforms are <em>not</em> aimed at academics,
-      they're aimed at people starting small businesses, so there's no
-      way to easily add automation for academic things like a list of
-      publications. You also (often) have to pay for the platform
-      itself, as well as paying for your domain name.
-    </p>
-
-    <h3>Scratch build (this site)</h3>
-
-    <p>
-      Second: I can build the whole site from scratch, doing the
-      programming myself. This has complete flexibility, and I can do
-      absolutely whatever you want. The downside is that maintaining
-      it, adding extra features, and even simple updates require some
-      programming skills. If you host through GitHub pages (as I would
-      recommend) then you don't pay for the platform. This is useful
-      if you want something unusual, and especially if you want any
-      complicated automation. For example, on my own site I have a
-      list of publication and talks, and I have the same lists on my
-      CV, and these are both automatically generated from a central
-      bibliography file so that the two are always in sync. If you
-      host through GitHub pages (as I would recommend) then you don't
-      pay for the platform.
-    </p>
-
-    <h1 id="process">Process</h1>
-
-    <p>
-      Here's how it works: first we do an initial consultation where
-      we talk about what you want and look at examples of other sites,
-      and work out the prices for things like web addresses and
-      platforms. This usually takes about an hour, and I'll only
-      charge you for it if you decide you want to take it further.
-      (It's easiest to do this in person.)
-
-    <br>
-
-      After that, I go away and do everything I can on my own, and
-      check in which you as we go. Generally the only thing we need
-      significant coordination for is setting up payment for a web
-      address.
-
-    </p>
-
-    <h1 id="prices">Prices and payment</h1>
-
-    <p>
-      I charge £35/hour to anyone with a regular income, and £25/hour
-      to anyone without (for anyone outside the UK, we'd jointly agree
-      some reasonable international rate before I did any work). I
-      track my own time and just stack it as I go. A simple site would
-      take something between 4 and 10 hours, including consultation
-      and administration (buying domain names, etc.).
-
-    <br>
-
-      Usually I'll just invoice you once we're done, but if you want
-      lots of complicated features or whatever, then I'd probably want
-      part of the total in advance, part way (e.g. once I'd done 10
-      hours of work).
-    
-    <br>
-
-      You can pay however you like—paypal and direct bank
-      transfer are probably simplest.
-    </p>
-    
-    <h1 id="portfolio">Previous work</h1>
-    Some examples of things I've done:
-
-    <ul>
-      <li>I built this, my own site, entirely from scratch. You can
-	see the source code in
-	<a href="https://github.com/Hugo-Heagren/CV-and-website">the
-	  repo on GitHub.</a>
-	<input id="see-more" type="checkbox" class="abstract-toggle">
-	<label for="see-more" class="abstract-label">Click to expand a
-	list of cool things this site does</label>
-	<ul class="abstract">
-	  <li>It works really well on desktop and mobile platforms of
-	  all sizes (in portrait and landscape).</li>
-	  <li>It has all the right metadata built into it for Google
-	  search to recognise it easily (Google me and I show up
-	  immediately—lots of academic sites don't). </li>
-	  <li>It automatically displays all the talks and publications
-	    listed
-	    in <a href="https://github.com/Hugo-Heagren/CV-and-website/blob/master/cv.bib">this
-	    file on GitHub</a> (and automatically updates whenever I
-	    add to the
-	    file—my <a href="https://hugoheagren.com/Hugo-Heagren-CV.pdf">CV</a>
-	    also does this and the CV and site stay in sync
-	    automatically). This is useful as your CV gets bigger and
-	    more complex, and keeping everything up to date by hand
-	    gets more of a task.</li>
-	  <li>It loads <em>really fast</em>, because it doesn't use
-	  any JavaScript or external assets (not even for these clever
-	    little collapsible sections!).</li>
-	  <li> It
-	      implements <a href="https://dr0.ch/email-munging/">advanced,
-	      standards-compliant email address munging</a>.</li>
-	  <li>It has a funny <a href="./404.html">custom 404 page</a>
-	  (well I think it's funny—its pretty niche).</li>
-	  <li>All this could be yours!</li>
-	</ul>
-      </li>
-      <li>I built a <a href="https://philosophyarts.co.uk">site in
-	  Squarespace for the Centre for Philosophy and
-	  Arts</a>.</li>
-      <li>I built <a href="https://www.ai-humanity-london.com/">a site
-      in Wix for the London AI and Humanity Partnership</a>.</li>
-
-      <li> I also did quite a lot of work on
-	the <a href="https://www.aiglossary.co.uk/">Philosophical AI
-	glossary</a>.</li>
-    </ul>
-
-    {% include 'components/footer.html' %}
-
-  </body>
-</html>
+    <head>
+        {% set title = "Web Design" %}
+        {% include 'components/head.html' %}
+    </head>
+    <body>
+        {% include 'components/header.html' %}
+        <p>
+            I build academic websites! If you want one, <a href="mailto:{{ 'hugo.heagren@kcl.ac.uk' | html_mung }}">get in touch</a>!
+            <br>
+            Lots of academics and postgrad student need a website,
+            especially as they (you) set out on the job market. I have
+            significant experience with building such sites, and I can help
+            you with more or less of the process, however best fits. I also
+            have lots of experience with the process and mechanics of buying
+            and administering domain names, setting up email addresses and
+            linking social media accounts to your site, embedding displays
+            of your work, etc.
+            <br>
+            If you want to know more, email me (<a class="email"
+   href="mailto:{{ 'hugo.heagren@kcl.ac.uk' | html_mung }}">{{ 'hugo.heagren@kcl.ac.uk' | html_mung }}</a>) or
+            fill out
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjIFwvcJmHYzrEr_CBdRBeBLkH5ZJVHllFbqoQUaIFaQgRCQ/viewform?usp=dialog">this
+                form</a>.
+                <br>
+                There are more details below about the <a href="#services">sites
+                themselves</a>, the <a href="#process">process</a>
+                and <a href="#prices">how much I charge</a>. There is also a
+                list of my <a href="#portfolio">previous work</a>.
+            </p>
+            <h1 id="services">Services</h1>
+            <span>There are basically two ways to build a website:</span>
+            <h3>Platform (Squarespace/Wix/etc.)</h3>
+            <p>
+                First, I can build a site (or improve an existing site) in one
+                of the popular website-building platforms like Wix or
+                Squarespace. There are two major advantages to this setup: it's
+                easier for you to maintain after I've built it (because it
+                doesn't require any real programming skills) and these platforms
+                include tools for buying and administering web addresses
+                (otherwise you have to do this manually). I
+                built <a href="https://philosophyarts.co.uk/">philosophyarts.co.uk</a>
+                like this.
+                <br>
+                The downside of this way is that there is less flexibility in
+                the design, and often things which seem like they should be easy
+                can end up being surprisingly difficult (the changing pictures
+                on the front page of the CPA site do work, but they're a bit of
+                a hack and it's hard to maintain behind the scenes). In
+                particular, these platforms are <em>not</em> aimed at academics,
+                they're aimed at people starting small businesses, so there's no
+                way to easily add automation for academic things like a list of
+                publications. You also (often) have to pay for the platform
+                itself, as well as paying for your domain name.
+            </p>
+            <h3>Scratch build (this site)</h3>
+            <p>
+                Second: I can build the whole site from scratch, doing the
+                programming myself. This has complete flexibility, and I can do
+                absolutely whatever you want. The downside is that maintaining
+                it, adding extra features, and even simple updates require some
+                programming skills. If you host through GitHub pages (as I would
+                recommend) then you don't pay for the platform. This is useful
+                if you want something unusual, and especially if you want any
+                complicated automation. For example, on my own site I have a
+                list of publication and talks, and I have the same lists on my
+                CV, and these are both automatically generated from a central
+                bibliography file so that the two are always in sync. If you
+                host through GitHub pages (as I would recommend) then you don't
+                pay for the platform.
+            </p>
+            <h1 id="process">Process</h1>
+            <p>
+                Here's how it works: first we do an initial consultation where
+                we talk about what you want and look at examples of other sites,
+                and work out the prices for things like web addresses and
+                platforms. This usually takes about an hour, and I'll only
+                charge you for it if you decide you want to take it further.
+                (It's easiest to do this in person.)
+                <br>
+                After that, I go away and do everything I can on my own, and
+                check in which you as we go. Generally the only thing we need
+                significant coordination for is setting up payment for a web
+                address.
+            </p>
+            <h1 id="prices">Prices and payment</h1>
+            <p>
+                I charge £35/hour to anyone with a regular income, and £25/hour
+                to anyone without (for anyone outside the UK, we'd jointly agree
+                some reasonable international rate before I did any work). I
+                track my own time and just stack it as I go. A simple site would
+                take something between 4 and 10 hours, including consultation
+                and administration (buying domain names, etc.).
+                <br>
+                Usually I'll just invoice you once we're done, but if you want
+                lots of complicated features or whatever, then I'd probably want
+                part of the total in advance, part way (e.g. once I'd done 10
+                hours of work).
+                <br>
+                You can pay however you like—paypal and direct bank
+                transfer are probably simplest.
+            </p>
+            <h1 id="portfolio">Previous work</h1>
+            Some examples of things I've done:
+            <ul>
+                <li>
+                    I built this, my own site, entirely from scratch. You can
+                    see the source code in
+                    <a href="https://github.com/Hugo-Heagren/CV-and-website">the
+                    repo on GitHub.</a>
+                    <input id="see-more" type="checkbox" class="abstract-toggle">
+                    <label for="see-more" class="abstract-label">
+                        Click to expand a
+                        list of cool things this site does
+                    </label>
+                    <ul class="abstract">
+                        <li>
+                            It works really well on desktop and mobile platforms of
+                            all sizes (in portrait and landscape).
+                        </li>
+                        <li>
+                            It has all the right metadata built into it for Google
+                            search to recognise it easily (Google me and I show up
+                            immediately—lots of academic sites don't).
+                        </li>
+                        <li>
+                            It automatically displays all the talks and publications
+                            listed
+                            in <a href="https://github.com/Hugo-Heagren/CV-and-website/blob/master/cv.bib">this
+                            file on GitHub</a> (and automatically updates whenever I
+                            add to the
+                            file—my <a href="https://hugoheagren.com/Hugo-Heagren-CV.pdf">CV</a>
+                            also does this and the CV and site stay in sync
+                            automatically). This is useful as your CV gets bigger and
+                            more complex, and keeping everything up to date by hand
+                            gets more of a task.
+                        </li>
+                        <li>
+                            It loads <em>really fast</em>, because it doesn't use
+                            any JavaScript or external assets (not even for these clever
+                            little collapsible sections!).
+                        </li>
+                        <li>
+                            It
+                            implements <a href="https://dr0.ch/email-munging/">advanced,
+                            standards-compliant email address munging</a>.
+                        </li>
+                        <li>
+                            It has a funny <a href="./404.html">custom 404 page</a>
+                            (well I think it's funny—its pretty niche).
+                        </li>
+                        <li>All this could be yours!</li>
+                    </ul>
+                </li>
+                <li>
+                    I built a <a href="https://philosophyarts.co.uk">site in
+                    Squarespace for the Centre for Philosophy and
+                    Arts</a>.
+                </li>
+                <li>
+                    I built <a href="https://www.ai-humanity-london.com/">a site
+                    in Wix for the London AI and Humanity Partnership</a>.
+                </li>
+                <li>
+                    I also did quite a lot of work on
+                    the <a href="https://www.aiglossary.co.uk/">Philosophical AI
+                    glossary</a>.
+                </li>
+            </ul>
+            {% include 'components/footer.html' %}
+        </body>
+    </html>

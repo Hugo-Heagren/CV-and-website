@@ -49,7 +49,7 @@ args = arg_parser.parse_args()
 
 # * Jinja environment
 
-env = Environment(loader=FileSystemLoader("."))
+env = Environment(loader=FileSystemLoader("."), trim_blocks=True, lstrip_blocks=True)
 
 # Load general info into the global environment
 with open(args.info_json_file) as f:
