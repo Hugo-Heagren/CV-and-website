@@ -3,12 +3,31 @@
   <head>
     {% set title = "Teaching Evaluations" %}
     {% include 'components/head.html' %}
+    <!-- CSS Charts -->
+    <link rel="stylesheet"
+	  href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
   </head>
   <body>
     
     {% include 'components/header.html' %}
 
-    
+    {% for t in research | select('bibfilter', type='teaching') | selectattr("eval_data") %}
+      {% set tbl = t.eval_data %}
+      <table class="charts-css bar">
+        {% for q in tbl.names %}
+        {% set mean = tbl[q].mean()[0,0] %}
+        <!-- This is a very quick-n-dirty fix, but it's a start. Might
+              be better to use a schema?-->
+        {% if mean != None %}
+          <tr>
+	    <td style="--size: {{ mean / 5 }}">
+	      <span class="data">{{ mean | round(1) }}</span>
+	    </td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+      </table>
+    {% endfor %}
 
     {% include 'components/footer.html' %}
     
