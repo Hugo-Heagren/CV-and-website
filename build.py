@@ -55,7 +55,7 @@ env = Environment(loader=FileSystemLoader("."))
 with open(args.info_json_file) as f:
     env.globals["info"] = json.load(f)
 
-# * Research data
+# * Research and teaching data
 # ** BibLaTeX data parser
 
 bib_date_components = {"day", "month", "year", "hour", "minute", "second", "timezone"}
