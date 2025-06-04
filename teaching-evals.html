@@ -58,7 +58,7 @@
 		  data-spacing-5 data-outside
 		  show-heading
 		  show-labels">
-        <caption>Mean score for quantitative questions (n={{ tbl | length }})</caption>
+        <caption>Mean score for quantitative questions (n={{ tbl.nrows }})</caption>
         {% for q in tbl.names %}
         {% set mean = tbl[q].mean()[0,0] %}
         {# This is a very quick-n-dirty fix, but it's a start. Might
