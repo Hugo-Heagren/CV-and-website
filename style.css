@@ -15,6 +15,11 @@ html, body {
 }
 
 /* * General styling */
+
+h2 {
+    font-size: large;
+}
+
 p {
     text-align: justify;
     /* This seems to work the best */
