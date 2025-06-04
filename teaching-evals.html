@@ -11,6 +11,46 @@
     
     {% include 'components/header.html' %}
 
+    <p>
+      This page displays the quantitative and qualitative evaluations
+      on all my teaching to date (except those for which the module
+      leader forgot to perform evaluation). Each module was evaluated
+      with a questionnaire, consisting mostly of questions scored from
+      1 (worst) to 5 (best), with a couple of qualitative comments at
+      the end. For each module, there's a bar chart of the mean score
+      on each quantitative question, and then a subheading for each
+      qualitative question with <em>all</em> of the comments quoted
+      underneath. <i>n</i> is the number of students who filled out
+      the survey.
+    </p>
+
+    <br>
+
+    <p>
+      Before all that, here are two comments left anonymously by
+      students outside of the official evaluation process. The second
+      student nominated me for an award:
+    </p>
+
+    <blockquote>
+      {# From the email Jess sent me. Pretty sure this was Ollie. #}
+      The most positive aspect was my experience in seminars. Some
+      recognition needs to be given to Hugo Heagren. He has been by
+      far the best teacher I have had to date at King's. He has made
+      the work understandable but also academically challenging
+      through always providing detailed, specific and tailored
+      feedback.
+    </blockquote>
+
+    <blockquote>
+      {# From the GTA award nomination. Pretty sure this was Yaaseen. #}
+      Hugo has been an amazing teacher. Always prioritising his
+      students and going above and beyond during his seminars. He has
+      provided me with tailored advice to improve my essay skills and
+      philosophy knowledge and has someone who has never studied
+      philosophy before, this is something I much appreciate.
+    </blockquote>
+
     {% for t in research | select('bibfilter', type='teaching') | selectattr("eval_data") %}
       {% set tbl = t.eval_data %}
       <table class="charts-css bar">
