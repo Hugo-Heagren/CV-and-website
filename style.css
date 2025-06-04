@@ -26,6 +26,13 @@ p {
     text-justify: initial;
 }
 
+blockquote {
+    font-style: italic;
+    border-left: 3px solid;
+    padding-left: 0.5em;
+    hyphens: none;
+}
+
 /*
    https://www.smashingmagazine.com/2020/03/setting-height-width-images-important-again/#how-css-interacts-with-element-widths-and-heights
    */
