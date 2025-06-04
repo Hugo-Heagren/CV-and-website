@@ -27,12 +27,12 @@ Each file has columns:
     What aspects of the module might be improved?
 13. Any other comments
 
-Columns-10 have numerical values, which represent these responses:
+Columns 1-10 have numerical values, which represent these responses:
 - 5: Strongly agree
 - 4: Agree
 - 3: Neutral/No Opinion
 - 2: Disagree
 - 1: Strongly disagree
-- 0: Not applicable/no opinion
+- no value: Not applicable/no opinion
 
 The other columns are text.
