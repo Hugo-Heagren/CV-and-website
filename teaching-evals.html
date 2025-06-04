@@ -52,7 +52,7 @@
     </blockquote>
 
     {% for t in research | select('bibfilter', type='teaching') | selectattr("eval_data") %}
-    <h1>{{ t.title }}</h1>
+    <h1>{{ t.title }}{% if t.part%}: {{ t.part }}{% endif %}</h1>
     {% set tbl = t.eval_data %}
     <table class="charts-css bar
 		  data-spacing-5 data-outside
