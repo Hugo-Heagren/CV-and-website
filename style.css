@@ -199,11 +199,11 @@ input[class='abstract-toggle']:checked~.abstract-label::after {
 /* * Teaching eval tables */
 
 .bar {
-    tr {
+    & tr {
 	--labels-size: 300px;
     }
 
-    th {
+    & th {
 	font-size: 80%;
 	line-height: 0.8;
 	text-align: left;
@@ -211,11 +211,11 @@ input[class='abstract-toggle']:checked~.abstract-label::after {
 	hyphens: none;
     }
 
-    caption {
+    & caption {
 	font-style: italic;
     }
 
-    .data {
+    & .data {
 	font-style: italic;
 	padding-left: 3px;
 	font-size: 90%
