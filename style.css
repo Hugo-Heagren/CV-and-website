@@ -103,6 +103,10 @@ a {
     text-decoration-thickness: 3px;
 }
 
+.nav-item:not(:last-child) {
+    padding-right: 20px;
+}
+
 /* * Page layout */
 
 * {
