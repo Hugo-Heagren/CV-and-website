@@ -46,7 +46,8 @@
                         {{ p.title }}
                         <i>
                             ({{ p.eventtitle }}
-                            {%- if p.institution | first %}; {{ p.institution | first }}{% endif %}
+                            {%- if p.institution | first %}; {{ p.institution | first -}}
+                            {% endif -%}
                         ){{ info.symbols[p.presentationtype] }}</i>
                     </dd>
                 {% endfor %}
