@@ -15,10 +15,29 @@ html, body {
 }
 
 /* * General styling */
+
+h2 {
+    font-size: large;
+}
+
 p {
     text-align: justify;
     /* This seems to work the best */
     text-justify: initial;
+}
+
+blockquote {
+    font-style: italic;
+    border-left: 3px solid;
+    padding-left: 0.5em;
+    hyphens: none;
+    margin: 5px;
+    &.display {
+	margin-left: 30px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+    }
+
 }
 
 /*
@@ -82,6 +101,10 @@ a {
 .nav-item:hover, .current  {
     text-decoration-line: underline;
     text-decoration-thickness: 3px;
+}
+
+.nav-item:not(:last-child) {
+    padding-right: 20px;
 }
 
 /* * Page layout */
@@ -171,6 +194,32 @@ input[class='abstract-toggle']:checked~.abstract-label::after {
        tracking/kerning are not noticeable, so it's nice to just not
        have any hyphenated text. */
     hyphens: none;
+}
+
+/* * Teaching eval tables */
+
+.bar {
+    tr {
+	--labels-size: 300px;
+    }
+
+    th {
+	font-size: 80%;
+	line-height: 0.8;
+	text-align: left;
+	font-weight: normal;
+	hyphens: none;
+    }
+
+    caption {
+	font-style: italic;
+    }
+
+    .data {
+	font-style: italic;
+	padding-left: 3px;
+	font-size: 90%
+    }
 }
 
 /* * Licensing */

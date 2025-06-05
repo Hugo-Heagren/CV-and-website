@@ -12,6 +12,8 @@ from lxml import etree
 from edtf import parse_edtf, Interval, EDTFObject
 import rcssmin
 import json
+import datatable
+
 
 # * Arguments
 
@@ -47,19 +49,32 @@ args = arg_parser.parse_args()
 
 # * Jinja environment
 
-env = Environment(loader=FileSystemLoader("."))
+env = Environment(loader=FileSystemLoader("."), trim_blocks=True, lstrip_blocks=True)
 
 # Load general info into the global environment
 with open(args.info_json_file) as f:
     env.globals["info"] = json.load(f)
 
-# * Research data
+# * Research and teaching data
 # ** BibLaTeX data parser
 
 bib_date_components = {"day", "month", "year", "hour", "minute", "second", "timezone"}
 
 
 class BibEntry(dict):
+    """
+    Class representing a single BibLaTeX entry.
+
+    Mostly works just like a dict.
+
+    Dates are stored as EDTFObjects. Getting or setting Keys which
+    correspond with BibLaTeX's date componenets (i.e. day, month,
+    year, etc.) will affect this central date object
+
+    The special key eval_data returns a datatable containing data read
+    in from the file found in the file field (if non-null).
+    """
+
     def __getitem__(self, key):
         if key in bib_date_components:
             date = self.get("date")
@@ -71,6 +86,19 @@ class BibEntry(dict):
             else:
                 raise KeyError(
                     f"Cannot get '{key}' because 'date' is not set or is not an EDTFObject"
+                )
+        elif key == "eval_data":
+            val = self.get("eval_data")
+            data_file = self.get("file")
+            if val:
+                return val
+            elif data_file:
+                dt = datatable.fread(data_file)
+                self.eval_data = dt
+                return dt
+            else:
+                raise KeyError(
+                    f"Cannot get '{key}' because entry {self.id} has no data file"
                 )
         # Fallback to standard dict behaviour
         else:
