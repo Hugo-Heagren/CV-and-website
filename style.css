@@ -205,7 +205,7 @@ input[class='abstract-toggle']:checked~.abstract-label::after {
 
     & th {
 	font-size: 80%;
-	line-height: 0.8;
+	line-height: 0.9;
 	text-align: left;
 	font-weight: normal;
 	hyphens: none;
