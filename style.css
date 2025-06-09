@@ -339,7 +339,6 @@ footer {
     /* (Show and) style the toggle switch */
     .menu-toggle {
 	display: inline-block;
-	
     }
 
     /* Hide nav-bar when checkbox not ticked */
