@@ -1,0 +1,145 @@
+{
+    "name": "Teaching Evaluation CSV data",
+    "description": null,
+    "filename": {
+	"regex": "[a-z-]+\\d{4}-2[1-4]\\.csv"
+    },
+    "columns": [
+	{
+	    "type": "integer",
+	    "regex": null,
+	    "name": "The seminar leader was well prepared",
+	    "shortname": "was well prepared",
+	    "required": true,
+	    "null_or_empty": false,
+	    "max": 5,
+	    "min": 1
+	},
+	{
+	    "type": "integer",
+	    "regex": null,
+	    "name": "The seminar leader gave interesting and informative classes",
+	    "shortname": "gave interesting/informative classes",
+	    "required": true,
+	    "null_or_empty": false,
+	    "max": 5,
+	    "min": 1
+	},
+	{
+	    "type": "integer",
+	    "regex": null,
+	    "name": "The seminar leader explained the subject clearly",
+	    "shortname": "explained things clearly",
+	    "required": true,
+	    "null_or_empty": false,
+	    "max": 5,
+	    "min": 1
+	},
+	{
+	    "type": "integer",
+	    "regex": null,
+	    "name": "The seminar leader was effective in leading the class or seminar",
+	    "shortname": "led the class effectively",
+	    "required": true,
+	    "null_or_empty": false,
+	    "max": 5,
+	    "min": 1
+	},
+	{
+	    "type": "integer",
+	    "regex": null,
+	    "name": "The seminar leader is receptive to students' questions",
+	    "shortname": "is receptive to questions",
+	    "required": true,
+	    "null_or_empty": false,
+	    "max": 5,
+	    "min": 1
+	},
+	{
+	    "type": "integer",
+	    "regex": null,
+	    "name": "The seminar leader stimulates interest in the subject",
+	    "shortname": "stimulates interest",
+	    "required": true,
+	    "null_or_empty": false,
+	    "max": 5,
+	    "min": 1
+	},
+	{
+	    "type": "integer",
+	    "regex": null,
+	    "name": "The seminar leader stimulates discussion on the subject",
+	    "shortname": "stimulates discussion",
+	    "required": true,
+	    "null_or_empty": false,
+	    "max": 5,
+	    "min": 1
+	},
+	{
+	    "type": "integer",
+	    "regex": null,
+	    "name": "The seminar leader stimulates me to think and learn",
+	    "shortname": "stimulates me to think and learn",
+	    "required": true,
+	    "null_or_empty": false,
+	    "max": 5,
+	    "min": 1
+	},
+	{
+	    "type": "integer",
+	    "regex": null,
+	    "name": "The seminar leader has a good rapport with the class",
+	    "shortname": "has a good class rapport",
+	    "required": true,
+	    "null_or_empty": false,
+	    "max": 5,
+	    "min": 1
+	},
+	{
+	    "type": "integer",
+	    "regex": null,
+	    "name": "The seminar leader is available to answer questions during office hours",
+	    "shortname": "is available during office hours",
+	    "required": true,
+	    "null_or_empty": true,
+	    "max": 5,
+	    "min": 1
+	},
+	{
+	    "type": "string",
+	    "name": "What have been the positive features of this module up to this point?",
+	    "required": false,
+	    "null_or_empty": true,
+	    "regex": null,
+	    "min": null,
+	    "max": null
+	},
+	{
+	    "type": "string",
+	    "name": "Were there any negative features of this module up to this point?",
+	    "required": false,
+	    "null_or_empty": true,
+	    "regex": null,
+	    "min": null,
+	    "max": null
+	},
+	{
+	    "type": "string",
+	    "name": "What aspects of the module might be improved?",
+	    "required": false,
+	    "null_or_empty": true,
+	    "regex": null,
+	    "min": null,
+	    "max": null
+	},
+	{
+	    "type": "string",
+	    "name": "Any other comments",
+	    "required": false,
+	    "null_or_empty": true,
+	    "regex": null,
+	    "min": null,
+	    "max": null
+	}	
+    ]
+}
