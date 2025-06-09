@@ -63,7 +63,6 @@
                     {% set mean = tbl[q].mean()[0,0] %}
                     {% if mean != None %}
                         <tr>
-                            {# Get the short name for each question (follows 'the seminar leader...') #}
                             <th scope="row">
                                 {{ eval_schema['columns']
                                 | selectattr('name', 'eq', q) 

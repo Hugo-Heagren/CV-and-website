@@ -276,6 +276,13 @@ class BibLateXMLParser:
         return entries
 
 
+# ** Eval data schema
+
+# TODO This makes the schema file path a magic string -- that a good
+# idea? (there are already quite a lot of arguments lol)
+with open("./teaching-evals/schema.json") as f:
+    env.globals["eval_schema"] = json.load(f)
+
 # ** Get the data
 
 biblatex_parser = etree.XMLParser(target=BibLateXMLParser(), remove_blank_text=True)
