@@ -215,11 +215,24 @@ input[class='abstract-toggle']:checked~.abstract-label::after {
 	font-style: italic;
     }
 
-    & .data {
+    /* table- leader is only visible on mobile, but I wanted it styled in
+       the same way as the data labels, so that's declared here too.*/
+    & .data, .table-leader {
 	font-style: italic;
 	padding-left: 3px;
 	font-size: 90%
     }
+
+    & .table-leader {
+	text-align: left;
+	/* Align the 'caption' leader with the labels */
+	padding-left: 0pt;
+    }
+
+    & .data {
+	font-style: italic;
+    }
+
 }
 
 /* * Licensing */
@@ -336,6 +349,10 @@ footer {
 /* ** General mobile things */
 @media screen and (max-width: 900px) {
 
+    .mobile-only {
+	display: initial;
+    }
+
     /* (Show and) style the toggle switch */
     .menu-toggle {
 	display: inline-block;
@@ -373,6 +390,23 @@ footer {
            we use hyphens here.*/
 	hyphens: auto;
     }
+
+/* ** Charts  */
+
+    .bar {
+	/* make the labels a reasonable size */
+	& tr {
+	    --labels-size: 150px;
+	}
+
+	/* Turn numbers around (and make them slightly smaller) */
+	& .data {
+	    font-size: 60%;
+	    transform: rotate(90deg) !important;
+	    transform-origin: bottom right;
+	}	
+    }
+
 
 /* ** Burger Menu */
 
