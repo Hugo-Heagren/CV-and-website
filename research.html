@@ -25,10 +25,10 @@
                             {{ p.title }}
                             {% if link %}</a>{% endif %}
                         <i> {{ p.journaltitle or p.journal }}</i>
-                        <!-- Abstract toggle switch -->
-                        <input id="{{ p.id }}" type="checkbox" class="abstract-toggle">
-                        <label for="{{ p.id }}" class="decoration abstract-label">abstract</label>
-                        <p class="abstract">{{ p.abstract }}</p>
+                        <details class="abstract">
+                            <summary class="decoration abstract-label">abstract</summary>
+                            <p>{{ p.abstract }}</p>
+                        </details>
                     </dd>
                 {% endfor %}
             </dl>

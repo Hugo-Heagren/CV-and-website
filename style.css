@@ -165,30 +165,23 @@ dt {
 .abstract-label:hover {
     text-decoration-line: underline;
     text-decoration-thickness: 2px;
+    cursor: pointer;
 }
 
 /* ** Collapsible abstracts */
-input[class='abstract-toggle']:not(:checked)~.abstract {
-    display: none;
-}
 
-/* HACK Use EN SPACE U+002002 before the arrow indicator. This is NOT
-   consumed by CSS (as a normal space would be), but is also separate
-   from the text of the element, which is a bit cleaner, and because
-   its declaraed separately from the original content (in the HTML),
-   only the original content is underlined on hover, which I think
-   looks better.
+/* NOTE We 'should' use the :open pseudo class here, but it isn't as
+   widely supported as the [open] attribute selector 
 */
-input[class='abstract-toggle']:not(:checked)~.abstract-label::after {
-    content: " ▸";
+details:not([open]) .abstract-label::after {
+    content: " ▸";
 }
 
-input[class='abstract-toggle']:checked~.abstract-label::after {
-    content: " ▾";
+details[open] .abstract-label::after {
+    content: " ▾";
 }
 
 .abstract {
-    margin-top: 15px;
     text-align: justify;
     /* On desktop the textblock is wide enough that small differences in
        tracking/kerning are not noticeable, so it's nice to just not
