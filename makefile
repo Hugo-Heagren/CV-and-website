@@ -2,7 +2,7 @@
 
 # Definitions
 OUT_DIR		     := /tmp/site/
-BIB_XML_FILE	     := cv.bltxml
+BIB_XML_FILE	     := ./cv.bltxml
 INFO_JSON_FILE	     := ./info.json
 CV_BIB_FILE          := ./cv.bib
 CV_BCF_FILE	     := ./cv.bcf
