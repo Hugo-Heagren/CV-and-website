@@ -4,6 +4,7 @@
 OUT_DIR		     := /tmp/site/
 BIB_XML_FILE	     := cv.bltxml
 INFO_JSON_FILE	     := ./info.json
+CV_BIB_FILE          := ./cv.bib
 CV_BCF_FILE	     := ./cv.bcf
 BIBER_TOOL_CONF_FILE := ./biber-tool.conf
 PYTHON		     := ./venv/bin/python3
@@ -19,12 +20,12 @@ ${BIBER_TOOL_CONF_FILE}: ${CV_BCF_FILE}
 		${CV_BCF_FILE} \
 		${BIBER_TOOL_CONF_FILE}
 
-${BIB_XML_FILE}: cv.bib ${BIBER_TOOL_CONF_FILE}
+${BIB_XML_FILE}: ${CV_BIB_FILE} ${BIBER_TOOL_CONF_FILE}
 	biber --tool \
 		--configfile ${BIBER_TOOL_CONF_FILE} \
 		--output-format=biblatexml \
 		--output-file=${BIB_XML_FILE} \
-		cv.bib
+		${CV_BIB_FILE}
 
 site: ${BIB_XML_FILE} ${INFO_JSON_FILE}
 	${PYTHON} build.py ${OUT_DIR} ${BIB_XML_FILE} ${INFO_JSON_FILE}
