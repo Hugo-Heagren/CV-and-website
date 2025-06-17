@@ -15,3 +15,6 @@ biber-tool.conf
 
 # Auctex artifacts
 **/auto/**
+
+# Papers
+!assets/**/*.pdf
