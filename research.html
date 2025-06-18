@@ -21,38 +21,49 @@
                         </time>
                     </dt>
                     <dd class="article">
-                        {% if link %}<a href={{ link }}>{% endif %}
-                            {{ p.title }}
-                            {% if link %}</a>{% endif %}
-                        <i> {{ p.journaltitle or p.journal }}</i>
-                        <details class="abstract">
-                            <summary class="decoration abstract-label">abstract</summary>
-                            <p>{{ p.abstract }}</p>
-                        </details>
-                    </dd>
-                {% endfor %}
-            </dl>
-            <h1>Talks</h1>
-            <span>({{ info.symbols.invited }} invited, {{
-                info.symbols.departmental}} departmental, otherwise
-            refereed)</span>
-            <dl>
-                {% for p in research | select('bibfilter', type='presentation') | sort(attribute='date', reverse=true) %}
-                    {% set type_symbol = (info[p.presentationtype] or "") %}
-                    <dt class="decoration">
-                        <time datetime="{{ p.date }}">{{ p.year }}</time>
-                    </dt>
-                    <dd>
-                        {{ p.title }}
-                        <i>
-                            ({{ p.eventtitle }}
-                            {%- if p.institution | first %}; {{ p.institution | first -}}
+                        <a href="{{ p.file }}">
+                            <img src="./assets/pdf-icon.svg"
+                                 class="file-icon"
+                                 alt="Download PDF"
+                                 height="42"
+                                 width="42">
+                        </a>
+                        <div class="article-text">
+                            {%- if link %}<a href={{ link }}>
                             {% endif -%}
-                        ){{ info.symbols[p.presentationtype] }}</i>
-                    </dd>
-                {% endfor %}
-            </dl>
-        </p>
-        {% include 'components/footer.html' %}
-    </body>
+                            {{- p.title -}}
+                        {%- if link %}</a>
+                    {% endif -%}
+                    <i> {{ p.journaltitle or p.journal }}</i>
+                    <details class="abstract">
+                        <summary class="decoration abstract-label">abstract</summary>
+                        <p>{{ p.abstract }}</p>
+                    </details>
+                </div>
+            </dd>
+        {% endfor %}
+    </dl>
+    <h1>Talks</h1>
+    <span>({{ info.symbols.invited }} invited, {{
+        info.symbols.departmental}} departmental, otherwise
+    refereed)</span>
+    <dl>
+        {% for p in research | select('bibfilter', type='presentation') | sort(attribute='date', reverse=true) %}
+            {% set type_symbol = (info[p.presentationtype] or "") %}
+            <dt class="decoration">
+                <time datetime="{{ p.date }}">{{ p.year }}</time>
+            </dt>
+            <dd>
+                {{ p.title }}
+                <i>
+                    ({{ p.eventtitle }}
+                    {%- if p.institution | first %}; {{ p.institution | first -}}
+                    {% endif -%}
+                ){{ info.symbols[p.presentationtype] }}</i>
+            </dd>
+        {% endfor %}
+    </dl>
+</p>
+{% include 'components/footer.html' %}
+</body>
 </html>

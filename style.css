@@ -137,8 +137,13 @@ br {
 
 /* * Research list */
 
+.article {
+    display: flex;
+}
+
+
 dd {
-    padding-left: 40px;
+    padding-left: 10px;
 }
 
 /* Don't add an unnecessary margin to the last element
@@ -157,6 +162,10 @@ dt {
     line-height: 4ex;
 }
 
+dt.decoration {
+    width: 45px;
+}
+
 .abstract-label, .abstract-label:after {
     text-transform: uppercase;
     whitespace: preserve nowrap;
@@ -171,14 +180,18 @@ dt {
 /* ** Collapsible abstracts */
 
 /* NOTE We 'should' use the :open pseudo class here, but it isn't as
-   widely supported as the [open] attribute selector 
+   widely supported as the [open] attribute selector. The "/" in the
+   content marks alternative text, read out by a screenreader --
+   effectively hiding the arrows in that case.
 */
+/* TODO Maybe this needs some more looking at? Do the abstract buttons
+   need better support? */
 details:not([open]) .abstract-label::after {
-    content: " ▸";
+    content: " ▸" / " closed";
 }
 
 details[open] .abstract-label::after {
-    content: " ▾";
+    content: " ▾" / " open";
 }
 
 .abstract {
@@ -187,6 +200,17 @@ details[open] .abstract-label::after {
        tracking/kerning are not noticeable, so it's nice to just not
        have any hyphenated text. */
     hyphens: none;
+}
+
+/* ** File icons */
+
+.file-icon {
+    display: inline-block;
+    /* This is a magic number which corresponds pretty much exactly to the
+       distance between the top of one line of text, and the baseline
+       of the following line. */
+    height: 4.5ex;
+    padding-right: 5px;
 }
 
 /* * Teaching eval tables */
@@ -313,7 +337,7 @@ footer {
     }
 
     dd {
-	padding-left: 20px;
+	padding-left: 5px;
     }
 
 }
