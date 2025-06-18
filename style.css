@@ -399,12 +399,27 @@ footer {
 
     #four-oh-four { font-size: 30vw; }
 
+/* ** Research list  */
+
+    /* These two rules give what seems to me like 'correct' wrapping */
+    .article-text {
+	display: inline;
+    }
+
+    .article {
+	display: block;
+    }
+
     .abstract {
 	text-align: justify;
 	/* On mobile, the text block is small enough that the kerning/tracking
            differences introduced by hyphens: none; are too much, so
            we use hyphens here.*/
 	hyphens: auto;
+    }
+
+    .file-icon {
+	float: left;
     }
 
 /* ** Charts  */
