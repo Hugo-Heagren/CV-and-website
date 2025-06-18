@@ -29,6 +29,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          lfs: true
       # This has to come first because the BibLaTeX XML is needed by
       # the site as well as the CV.
       - name: Setup TeX Live (with biber)
