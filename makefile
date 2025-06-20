@@ -30,7 +30,7 @@ ${BIB_XML_FILE}: ${CV_BIB_FILE} ${BIBER_TOOL_CONF_FILE}
 
 .PHONY: site
 site: ${BIB_XML_FILE} ${INFO_JSON_FILE}
-	${PYTHON} build.py ${OUT_DIR} ${BIB_XML_FILE} ${INFO_JSON_FILE}
+	${PYTHON} ./site/build.py ${OUT_DIR} ${BIB_XML_FILE} ${INFO_JSON_FILE}
 
 .PHONY: clean
 clean:

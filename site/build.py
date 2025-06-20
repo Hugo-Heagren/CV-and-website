@@ -1,6 +1,5 @@
 from jinja2 import Environment, FileSystemLoader, meta
 from pathlib import Path
-import glob
 from shutil import copytree
 from sitemap import Url, Urlset
 from urllib.parse import urljoin
@@ -47,9 +46,20 @@ arg_parser.add_argument(
 # Parse the args!
 args = arg_parser.parse_args()
 
+# * Useful variables (git, dirs, etc.)
+
+repo = git.Repo()
+tree = repo.active_branch.commit.tree
+
+repo_dir = Path(repo.common_dir).parent
+
+site_dir = repo_dir / "site"
+
 # * Jinja environment
 
-env = Environment(loader=FileSystemLoader("."), trim_blocks=True, lstrip_blocks=True)
+env = Environment(
+    loader=FileSystemLoader(site_dir), trim_blocks=True, lstrip_blocks=True
+)
 
 # Load general info into the global environment
 with open(args.info_json_file) as f:
@@ -339,12 +349,11 @@ env.filters["html_mung"] = html_mung
 urls = Urlset()
 domain = "https://hugoheagren.com"
 
-repo = git.Repo()
-tree = repo.active_branch.commit.tree
-
 
 def get_git_mod_time(file):
-    gen = repo.iter_commits(paths=tree[file].path, max_count=1)
+    relative_file = file.relative_to(repo_dir)
+
+    gen = repo.iter_commits(paths=tree[str(relative_file)].path, max_count=1)
     commit = next(gen)
     return commit.committed_date
 
@@ -355,14 +364,16 @@ def get_git_mod_time(file):
 out_dir = args.out_dir
 out_dir.mkdir(parents=True, exist_ok=True)
 
-html_files = glob.glob(r"*.html")
+template_dir = site_dir / "pages"
 
-for file in html_files:
+template_files = template_dir.glob("*.html")
+
+for file in template_files:
     # render the file
-    filename = out_dir / file
-    template = env.get_template(file)
+    out_file = out_dir / file.relative_to(template_dir)
+    template = env.get_template(str(file.relative_to(env.loader.searchpath[0])))
     content = template.render()
-    with open(filename, mode="w", encoding="utf-8") as output:
+    with open(out_file, mode="w", encoding="utf-8") as output:
         output.write(content)
 
     # Populate times for sitemap (doing this here so I don't have to
@@ -386,7 +397,7 @@ for file in html_files:
 
 
 # Minify CSS
-css_files = glob.glob(r"*.css")
+css_files = site_dir.glob("*.css")
 for file in css_files:
     with open(file, mode="r", encoding="utf-8") as input:
         original_css = input.read()
@@ -408,4 +419,4 @@ with open(out_dir / "robots.txt", "w") as robots:
 
 # ** Copy all the assets
 
-copytree("assets", out_dir / "assets", dirs_exist_ok=True)
+copytree(repo_dir / "assets", out_dir / "assets", dirs_exist_ok=True)
