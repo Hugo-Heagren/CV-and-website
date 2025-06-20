@@ -32,6 +32,7 @@ ${BIB_XML_FILE}: ${CV_BIB_FILE} ${BIBER_TOOL_CONF_FILE}
 site: ${BIB_XML_FILE} ${INFO_JSON_FILE}
 	${PYTHON} build.py ${OUT_DIR} ${BIB_XML_FILE} ${INFO_JSON_FILE}
 
+.PHONY: clean
 clean:
 	rm -rf ${OUT_DIR} ${BIB_XML_FILE} ${CV_BCF_FILE} ${BIBER_TOOL_CONF_FILE} \
 		*.{aux,bbl,bcf,blg,bltxml,dvi,fdb_latexmk,fls,log,out,pdf,rng,run.xml,synctex.gz}
