@@ -351,8 +351,7 @@ domain = "https://hugoheagren.com"
 
 
 def get_git_mod_time(file):
-    relative_file = file.relative_to(repo_dir)
-
+    relative_file = Path(file).relative_to(repo_dir)
     gen = repo.iter_commits(paths=tree[str(relative_file)].path, max_count=1)
     commit = next(gen)
     return commit.committed_date
@@ -385,14 +384,15 @@ for file in template_files:
         # each other.
         ast = env.parse(input.read())
         input.close()
-        templates = list(meta.find_referenced_templates(ast))
+        template_rel_paths = list(meta.find_referenced_templates(ast))
+        template_abs_paths = [str(site_dir / f) for f in template_rel_paths]
         times = []
-        for t in list(map(get_git_mod_time, [file, *templates])):
+        for t in list(map(get_git_mod_time, [file, *template_abs_paths])):
             times.append(t)
         time = datetime.datetime.fromtimestamp(max(times))
 
         # Populate metadata for sitemap
-        url = Url(urljoin(domain, file), lastmod=time)
+        url = Url(urljoin(domain, str(file)), lastmod=time)
         urls.add_url(url)
 
 
@@ -403,7 +403,7 @@ for file in css_files:
         original_css = input.read()
         minified_css = rcssmin.cssmin(original_css)
         input.close()
-        output_path = out_dir / file
+        output_path = out_dir / file.relative_to(site_dir)
         with open(output_path, mode="w", encoding="utf-8") as output:
             output.write(minified_css)
 
