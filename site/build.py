@@ -291,6 +291,8 @@ class BibLateXMLParser:
 
 # ** Eval data schema
 
+# This is useful for getting the shortnames of columns, or filtering
+# columns by type, etc. in jinja templates.
 with open(repo_dir / "teaching-evals/schema.json") as f:
     env.globals["eval_schema"] = json.load(f)
 
