@@ -78,8 +78,7 @@ with open(repo_dir / "teaching-evals/schema.json") as f:
 biblatex_parser = etree.XMLParser(target=bp.BibLateXMLParser(), remove_blank_text=True)
 
 # Parse the data into the environment
-bib_xml_file = args.bib_xml_file
-env.globals["research"] = etree.parse(bib_xml_file, biblatex_parser)
+env.globals["research"] = etree.parse(args.bib_xml_file, biblatex_parser)
 
 # * Jinja filters
 # ** Bib data
