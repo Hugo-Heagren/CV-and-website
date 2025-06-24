@@ -304,7 +304,8 @@ biblatex_parser = etree.XMLParser(target=BibLateXMLParser(), remove_blank_text=T
 bib_xml_file = args.bib_xml_file
 env.globals["research"] = etree.parse(bib_xml_file, biblatex_parser)
 
-# ** Jinja filters
+# * Jinja filters
+# ** Bib data
 
 
 def bib_filter(entry, **kwargs):
@@ -319,7 +320,7 @@ def bib_filter(entry, **kwargs):
 
 env.tests["bibfilter"] = bib_filter
 
-# * HTML Munging
+# ** HTML Munging
 
 
 # https://dr0.ch/email-munging/
