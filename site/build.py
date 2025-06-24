@@ -61,11 +61,14 @@ env = Environment(
     loader=FileSystemLoader(site_dir), trim_blocks=True, lstrip_blocks=True
 )
 
+# * Environment data
+# ** General info
+
 # Load general info into the global environment
 with open(args.info_json_file) as f:
     env.globals["info"] = json.load(f)
 
-# * Research and teaching data
+
 # ** BibLaTeX data parser
 
 bib_date_components = {"day", "month", "year", "hour", "minute", "second", "timezone"}
