@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+    <head>
+        <title>Hugo Heagren |
+            {% block title %}{% endblock %}
+            <!-- {%- if title %}{{" "}}| {{ title }}{% endif %} -->
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification"
+              content="HWb3eDGlLnJ9WEpB-iiTtu8p0H5dvY5jUJYwraQdBz0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="me" href="https://scholar.social/@HugoHeagren">
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        {% include 'components/header.html' %}
+        {% block content %}{% endblock %}
+        {% include 'components/footer.html' %}
+    </body>
+</html>
