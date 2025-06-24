@@ -7,26 +7,13 @@
            target="_blank"
            rel="license noopener noreferrer">
             CC BY-NC-SA 4.0
-            <img class="cc-image"
-                 src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"
-                 height="64"
-                 width="64"
-                 alt="">
-            <img class="cc-image"
-                 src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"
-                 height="64"
-                 width="64"
-                 alt="">
-            <img class="cc-image"
-                 src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"
-                 height="64"
-                 width="64"
-                 alt="">
-            <img class="cc-image"
-                 src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"
-                 height="64"
-                 width="64"
-                 alt="">
+            {% for clause in ["cc", "by", "nc", "sa"] %}
+                <img class="cc-image"
+                     src="https://mirrors.creativecommons.org/presskit/icons/{{ clause }}.svg?ref=chooser-v1"
+                     height="64"
+                     width="64"
+                     alt="">
+            {% endfor %}
         </a>
         My publications are often licensed separately.
     </p>
