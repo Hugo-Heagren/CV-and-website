@@ -288,9 +288,7 @@ class BibLateXMLParser:
 
 # ** Eval data schema
 
-# TODO This makes the schema file path a magic string -- that a good
-# idea? (there are already quite a lot of arguments lol)
-with open("./teaching-evals/schema.json") as f:
+with open(repo_dir / "teaching-evals/schema.json") as f:
     env.globals["eval_schema"] = json.load(f)
 
 # ** Get the data
