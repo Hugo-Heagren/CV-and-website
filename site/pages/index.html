@@ -1,49 +1,42 @@
-<!DOCTYPE html>
-<html lang="en-GB">
-    <head>
-        {% include 'components/head.html' %}
-        <link rel="canonical" href="https://hugoheagren.com" />
-    </head>
-    <body>
-        {% include 'components/header.html' %}
-        <main>
-            <img class="portrait"
-                 src="assets/hugo-heagren.jpeg"
-                 width="849"
-                 height="1075"
-                 alt="Me, drinking a coffee at my kitchen table, staring into the middle distance"
-                 title="Credit: Isobel Heagren">
-            <p class="bio">
-                I am a PhD philosophy student at King's College London. I also
-                spent a few wonderful months researching at UT Austin with Mark
-                Sainsbury. I mostly work on foundational issues with intentional
-                phenomena like language, perception and thought about objects.
-                <br>
-                My PhD project seeks to
-                provide a unified theory of object-directed intentionality in
-                these three domains, to vindicate the wide-spread intuition that
-                they work in similar ways.
-                <br>
-                For a while I helped to run
-                the <a href="https://www.lemm-london.co.uk/">Language,
-                Epistemology, Metaphysics and Mind</a> group in London. I also
-                work as an administrator/technical person for
-                the <a href="https://philosophyarts.co.uk/">Centre for
-                Philosophy and Art</a>,
-                the <a href="https://www.philosophyandmedicine.org/">Sowerby
-                Philosophy and Medicine Project</a> and
-                the <a href="https://www.ai-humanity-london.com/">London AI and
-                Humanity Partnership</a>.
-                <br>
-                I curate a
-                <a href="https://bookwyrm.social/list/3425/s/non-philosophy-books-about-language">list of works of fiction</a> which approach questions about
-                language, such as might be approached by philosophy, but not in
-                the way that academic philosophy does.
-                Outside academia, I sometimes write free open-source software,
-                and I volunteer with
-                the <a href="https://www.fsc.org.uk/">Forest School Camps</a>.
-            </p>
-        </main>
-        {% include 'components/footer.html' %}
-    </body>
-</html>
+{% extends 'base.html' %}
+{% block head %}<link rel="canonical" href="https://hugoheagren.com" />{% endblock %}
+{% block content %}
+    <main>
+        <img class="portrait"
+             src="assets/hugo-heagren.jpeg"
+             width="849"
+             height="1075"
+             alt="Me, drinking a coffee at my kitchen table, staring into the middle distance"
+             title="Credit: Isobel Heagren">
+        <p class="bio">
+            I am a PhD philosophy student at King's College London. I also
+            spent a few wonderful months researching at UT Austin with Mark
+            Sainsbury. I mostly work on foundational issues with intentional
+            phenomena like language, perception and thought about objects.
+            <br>
+            My PhD project seeks to
+            provide a unified theory of object-directed intentionality in
+            these three domains, to vindicate the wide-spread intuition that
+            they work in similar ways.
+            <br>
+            For a while I helped to run
+            the <a href="https://www.lemm-london.co.uk/">Language,
+            Epistemology, Metaphysics and Mind</a> group in London. I also
+            work as an administrator/technical person for
+            the <a href="https://philosophyarts.co.uk/">Centre for
+            Philosophy and Art</a>,
+            the <a href="https://www.philosophyandmedicine.org/">Sowerby
+            Philosophy and Medicine Project</a> and
+            the <a href="https://www.ai-humanity-london.com/">London AI and
+            Humanity Partnership</a>.
+            <br>
+            I curate a
+            <a href="https://bookwyrm.social/list/3425/s/non-philosophy-books-about-language">list of works of fiction</a> which approach questions about
+            language, such as might be approached by philosophy, but not in
+            the way that academic philosophy does.
+            Outside academia, I sometimes write free open-source software,
+            and I volunteer with
+            the <a href="https://www.fsc.org.uk/">Forest School Camps</a>.
+        </p>
+    </main>
+{% endblock %}
