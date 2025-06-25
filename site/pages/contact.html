@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}{{ super() }} | Contact{% endblock %}
+{% block content %}
+    <p>
+        <!-- This is an advanced, standards compliant, method for
+       munging email addresses. I'm not sure how important munging is
+       these days, but it's good to be sure. Other academics do it
+       sometimes on their sites (generally the more technically
+       inclined ones) and doing it like this in an interesting little
+       flex, for the few (any?) who see it.
+
+       (if you are reading this comment in a modern web browser,
+       the munging won't be visible. Try viewing the source on
+       GitHub instead)
+
+       If you have made it to the bottom of this comment then, like
+       me, you should probably get out more. -->
+        The best way to contact me is by email:
+        <a class="email" href="mailto:{{ info.email | html_mung }}">{{ info.email | html_mung }}</a>.
+        <br>
+        You can also find me on
+        <a href="https://philpeople.org/profiles/hugo-heagren">PhilPeople</a>,
+        <a href="https://github.com/Hugo-Heagren">GitHub</a>,
+        <a href="https://scholar.social/@HugoHeagren">Mastodon</a> and
+        <a href="https://scholar.google.com/citations?user=PfEED4kAAAAJ">Google
+            Scholar</a>.
+            <!-- Yes, this is the correct way to display this. See
+       https://info.orcid.org/documentation/integration-guide/orcid-id-display-guidelines/#h-compact-orcid-id
+    -->
+            My ORCID iD is
+            <a id="orcid-id" href="https://orcid.org/{{ info.orcid }}">
+                <img id="orcid-logo"
+                     src="./assets/orcid-logo.svg"
+                     alt=""
+                     height="24"
+                     width="24">
+                {{ info.orcid }}</a>.
+            </p>
+        {% endblock %}

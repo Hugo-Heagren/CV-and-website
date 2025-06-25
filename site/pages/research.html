@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}{{ super() }} | Research{% endblock %}
+{% block content %}
+    <h1>Papers</h1>
+    <p>
+        <dl>
+            {% for p in research | select('bibfilter', type="article") | sort(attribute="date", reverse=true) %}
+                {% set link = (p.url or p.doi) %}
+                <dt class="decoration">
+                    <time datetime="{{ p.date }}">
+                        {% if p.pubstate == "forthcoming" %}
+                            Forth.
+                        {% else %}
+                            {{ p.year }}
+                        {% endif %}
+                    </time>
+                </dt>
+                <dd class="article">
+                    <a href="{{ p.file }}"
+                       download="Hugo-Heagren-{{ p.shorttitle }}-{{ p.year }}.pdf">
+                        <img src="./assets/pdf-icon.svg"
+                             class="file-icon"
+                             alt="Download PDF"
+                             height="800"
+                             width="800">
+                    </a>
+                    <div class="article-text">
+                        {%- if link %}<a href={{ link }}>
+                        {% endif -%}
+                        {{- p.title -}}
+                    {%- if link %}</a>
+                {% endif -%}
+                <i> {{ p.journaltitle or p.journal }}</i>
+                <details class="abstract">
+                    <summary class="decoration abstract-label">abstract</summary>
+                    <p>{{ p.abstract }}</p>
+                </details>
+            </div>
+        </dd>
+    {% endfor %}
+</dl>
+<h1>Talks</h1>
+<span>({{ info.symbols.invited }} invited, {{
+    info.symbols.departmental}} departmental, otherwise
+refereed)</span>
+<dl>
+    {% for p in research | select('bibfilter', type='presentation') | sort(attribute='date', reverse=true) %}
+        <dt class="decoration">
+            <time datetime="{{ p.date }}">{{ p.year }}</time>
+        </dt>
+        <dd>
+            {{ p.title }}
+            <i>
+                ({{ p.eventtitle }}
+                {%- if p.institution | first %}; {{ p.institution | first -}}
+                {% endif -%}
+            ){{ info.symbols[p.presentationtype] }}</i>
+        </dd>
+    {% endfor %}
+</dl>
+</p>
+{% endblock %}
