@@ -4,10 +4,10 @@ on:
   push:
     paths:
       # Site
-      - "*.bib"
-      - "*.py"
-      - "*.html"
-      - "*.css"
+      - "**.bib"
+      - "**.py"
+      - "**.html"
+      - "**.css"
       - "assets/**"
       # CV/TeX
       - "*.tex"
