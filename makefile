@@ -17,7 +17,7 @@ ${CV_BCF_FILE}:
 	biber cv
 
 ${BIBER_TOOL_CONF_FILE}: ${CV_BCF_FILE}
-	 ${PYTHON} ./generate-biber-datamodel.py \
+	${PYTHON} ./generate-biber-datamodel.py \
 		${CV_BCF_FILE} \
 		${BIBER_TOOL_CONF_FILE}
 
