@@ -72,7 +72,7 @@ jobs:
 
       # Build site
       - name: Build site (build.py)
-        run: "python build.py ${{ env.OUT_DIR }} ${{ env.BIB_XML_FILE }} ${{ env.INFO_JSON_FILE }}"
+        run: "python site/build.py ${{ env.OUT_DIR }} ${{ env.BIB_XML_FILE }} ${{ env.INFO_JSON_FILE }}"
 
       - name: Upload outputs as artifact
         uses: actions/upload-pages-artifact@v3
