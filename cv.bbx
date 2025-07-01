@@ -230,6 +230,31 @@
   \usebibmacro{finentry}%
 }
 
+% ** Funding
+
+\newbibmacro{title+funder}{%
+  \printfield{funder}%
+  \setunit{\addspace}%
+  \printfield{title}%
+}
+
+\DeclareFieldFormat{note}{%
+  \mkbibparens{#1}%
+}
+
+\newbibmacro{note}{%
+  \setunit{\addspace}%
+  \printfield{note}%
+}
+
+\DeclareBibliographyDriver{funding}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{title+funder}%
+  \usebibmacro{note}%
+  \usebibmacro{finentry}%
+}
+
 % * Descending Date Sorting Template
 
 % Sort with reverse chronologically.
