@@ -34,7 +34,7 @@ jobs:
       # This has to come first because the BibLaTeX XML is needed by
       # the site as well as the CV.
       - name: Setup TeX Live (with biber)
-        uses: paolobrasolin/setup-texlive-action@latest
+        uses: paolobrasolin/setup-texlive-action@main
         with:
           packages-path: ${{ github.workspace }}/.github/texlive.packages
       - name: Setup Python
