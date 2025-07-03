@@ -3,12 +3,14 @@
 #=[ Schemes ]===================================================================
 # You can pick your scheme.  Availability depends upon the package repository,
 # but common ones are: infraonly, minimal, basic, small, medium and full.
-selected_scheme scheme-infraonly
+selected_scheme scheme-custom
 
 #=[ Collections ]===============================================================
 # For finer control, select `scheme-custom` above and pick your collections.
 # You can list them, one per line, as follows:
-#   collection-<COLLECTION_NAME> 1
+collection-latexextra
+collection-bibtexextra
+collection-LaTeX
 
 #=[ Paths ]=====================================================================
 # These paths are the defaults in portable mode, which the action enforces.
