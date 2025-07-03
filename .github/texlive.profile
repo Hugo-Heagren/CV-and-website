@@ -8,9 +8,8 @@ selected_scheme scheme-custom
 #=[ Collections ]===============================================================
 # For finer control, select `scheme-custom` above and pick your collections.
 # You can list them, one per line, as follows:
-collection-latexextra 1 
-collection-bibtexextra 1
-collection-latex 1
+collection-collection-latexextra
+collection-collection-bibtexextra
 
 #=[ Paths ]=====================================================================
 # These paths are the defaults in portable mode, which the action enforces.
