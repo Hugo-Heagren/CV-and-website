@@ -37,6 +37,7 @@ jobs:
         uses: paolobrasolin/setup-texlive-action@main
         with:
           packages-path: ${{ github.workspace }}/.github/texlive.packages
+          profile-path: ${{ github.workspace }}/.github/texlive.profile
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
