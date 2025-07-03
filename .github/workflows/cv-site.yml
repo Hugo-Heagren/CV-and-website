@@ -36,7 +36,7 @@ jobs:
       - name: Setup TeX Live (with biber)
         uses: paolobrasolin/setup-texlive-action@main
         with:
-          profile-path: ${{ github.workspace }}/.github/texlive.profile
+          profile-path: ${{ github.workspace }}/texlive.profile
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
