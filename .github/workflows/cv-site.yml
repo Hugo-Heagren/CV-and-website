@@ -48,13 +48,13 @@ jobs:
 
       # Build CV
       - name: First LaTeX run
-        run: 'lualatex cv.tex'
+        run: 'pdflatex cv.tex'
       - name: Biber run
         run: 'biber cv'
       - name: Second LaTeX run
-        run: 'lualatex cv.tex'
+        run: 'pdflatex cv.tex'
       - name: Final LaTeX run
-        run: 'lualatex cv.tex'
+        run: 'pdflatex cv.tex'
       - name: Create output directory
         # `-p` so its ok if the dir already exists
         run: "mkdir -p ${{ env.OUT_DIR }}"
