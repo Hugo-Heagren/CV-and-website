@@ -1,3 +1,5 @@
+# This is the default profile recommended by the action author, but
+# with custom collections.
 # Reference: https://www.tug.org/texlive/doc/install-tl.html#PROFILES
 
 #=[ Schemes ]===================================================================

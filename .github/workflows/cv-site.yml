@@ -36,7 +36,6 @@ jobs:
       - name: Setup TeX Live (with biber)
         uses: paolobrasolin/setup-texlive-action@main
         with:
-          packages-path: ${{ github.workspace }}/.github/texlive.packages
           profile-path: ${{ github.workspace }}/.github/texlive.profile
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -48,13 +47,13 @@ jobs:
 
       # Build CV
       - name: First LaTeX run
-        run: 'pdflatex cv.tex'
+        run: 'lualatex cv.tex'
       - name: Biber run
         run: 'biber cv'
       - name: Second LaTeX run
-        run: 'pdflatex cv.tex'
+        run: 'lualatex cv.tex'
       - name: Final LaTeX run
-        run: 'pdflatex cv.tex'
+        run: 'lualatex cv.tex'
       - name: Create output directory
         # `-p` so its ok if the dir already exists
         run: "mkdir -p ${{ env.OUT_DIR }}"
