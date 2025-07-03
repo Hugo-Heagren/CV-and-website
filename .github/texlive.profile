@@ -10,7 +10,7 @@ selected_scheme scheme-custom
 # You can list them, one per line, as follows:
 collection-collection-latexextra
 collection-collection-bibtexextra
-collection-collection-LaTeX
+collection-collection-latex
 
 #=[ Paths ]=====================================================================
 # These paths are the defaults in portable mode, which the action enforces.
