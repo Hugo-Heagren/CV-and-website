@@ -121,9 +121,8 @@ a {
     width: 50%;
 }
 
-p { margin: 0px; }
-
-br {
+p {
+    margin: 0px;
     margin-bottom: 1.2ex;
 }
 
