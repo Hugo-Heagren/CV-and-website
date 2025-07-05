@@ -126,14 +126,6 @@ p {
     margin-bottom: 1.2ex;
 }
 
-/* Paragraph on the right */
-.bio {
-    /* No padding on the right */
-    padding-left: 20px;
-    float: left;
-    width: 50%;
- }
-
 /* * Research list */
 
 .article {
