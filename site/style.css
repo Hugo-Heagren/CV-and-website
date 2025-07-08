@@ -127,17 +127,16 @@ p {
 
 /* Paragraph on the right */
 .bio {
-    /* No padding on the right */
-    padding-left: 20px;
+    margin-left: var(--default-spacing-unit);
     float: left;
-    width: 50%;
+    width: calc(50% - var(--default-spacing-unit));
  }
 
 /* Picture on the left */
 .portrait {
-    padding-right: 20px;
+    margin-right: var(--default-spacing-unit);
     float: left;
-    width: 50%;
+    width: calc(50% - var(--default-spacing-unit));
 }
 
 /* * Navigation */
