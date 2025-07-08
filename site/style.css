@@ -266,7 +266,7 @@ details[open] .abstract-label::after {
 	font-style: italic;
     }
 
-    /* table- leader is only visible on mobile, but I wanted it styled in
+    /* table-leader is only visible on mobile, but I wanted it styled in
        the same way as the data labels, so that's declared here too.*/
     & .data, .table-leader {
 	font-style: italic;
