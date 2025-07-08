@@ -11,6 +11,7 @@ html {
 /* Variable is useful for calling to inside the media query later */
 :root {
     --default-title-size: 2.5em;
+    --default-spacing-unit: 10px;
 }
 
 /* * General styling */
@@ -49,7 +50,7 @@ img {
 
 ul {
     list-style-type: "- ";
-    padding-left: 15px;
+    padding-left: var(--default-spacing-unit);
 }
 
 /* Class for bits of text which give information about other bits of
@@ -107,8 +108,8 @@ header {
 }
 
 footer {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: var(--default-spacing-unit);
+    margin-bottom: var(--default-spacing-unit);
     /* Positioning */
     flex-shrink: 0;
     /* Typography */
@@ -151,8 +152,6 @@ p {
     display: none;
 }
 
-/* Variable is useful for calling to inside the media query later */
-:root { --default-title-size: 2.5em; }
 /* These are 'about right' */
 .title { font-size: var(--default-title-size); }
 .nav-bar { font-size: 1.5em; }
@@ -183,7 +182,7 @@ a {
 }
 
 dd {
-    padding-left: 10px;
+    padding-left: var(--default-spacing-unit);
 }
 
 /* Don't add an unnecessary margin to the last element
@@ -344,12 +343,12 @@ details[open] .abstract-label::after {
     }
 
     .portrait {
-	padding-bottom: 10px;
+	padding-bottom: var(--default-spacing-unit);
     }
 
     html {
-	margin-right: 10px;
-	margin-left: 10px;
+	margin-right: var(--default-spacing-unit);
+	margin-left: var(--default-spacing-unit);
     }
 
     dd {
@@ -406,8 +405,8 @@ details[open] .abstract-label::after {
     }
 
     header {
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: var(--default-spacing-unit);
+	padding-bottom: var(--default-spacing-unit);
 	/* Keep the .title-bar block above the list navigation list */
 	display: block;
     }
