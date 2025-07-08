@@ -6,13 +6,6 @@ html {
     hyphens: auto;
 }
 
-/* Fix for minor scrolling issue */
-html, body {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-}
 
 /* * General styling */
 
@@ -62,7 +55,42 @@ ul {
     hyphens: none;
 }
 
-/* * Structure & Navigation */
+/* * Structure & page Layout */
+
+* {
+    /* https://www.w3schools.com/html/html_responsive.asp */
+    box-sizing: border-box;
+}
+
+/* Fix for minor scrolling issue */
+html, body {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+body {
+    /* This is so that the footer stays *right* at the bottom.*/
+    display: flex;
+    flex-direction: column;
+    /* Make the body take up the whole screen */
+    height: 100vh;
+    justify-content: space-between;
+}
+
+main {
+    display: initial;
+    /* Equivalent to:
+       flex-grow: 1;
+       flex-shrink: 0;
+       flex-basis: auto;
+
+       The effect is that the <main> element fills all the spare
+       screen between the nav/header and the footer.
+   */
+    flex: 1 0 auto;
+}
 
 header {
     display: flex;
@@ -71,6 +99,41 @@ header {
     padding-top: 40px;
     padding-bottom: 40px
 }
+
+footer {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    /* Positioning */
+    flex-shrink: 0;
+    /* Typography */
+    font-size: 75%;
+    text-align: center;
+    hyphens: none;
+    width: 40%;
+    align-self: center;
+}
+
+p {
+    margin: 0px;
+    margin-bottom: 1.2ex;
+}
+
+/* Paragraph on the right */
+.bio {
+    /* No padding on the right */
+    padding-left: 20px;
+    float: left;
+    width: 50%;
+ }
+
+/* Picture on the left */
+.portrait {
+    padding-right: 20px;
+    float: left;
+    width: 50%;
+}
+
+/* * Navigation */
 
 .title, .nav-bar {
     display: inline;
@@ -106,33 +169,6 @@ a {
 .nav-item:not(:last-child) {
     padding-right: 20px;
 }
-
-/* * Page layout */
-
-* {
-    /* https://www.w3schools.com/html/html_responsive.asp */
-    box-sizing: border-box;
-}
-
-/* Picture on the left */
-.portrait {
-    padding-right: 20px;
-    float: left;
-    width: 50%;
-}
-
-p {
-    margin: 0px;
-    margin-bottom: 1.2ex;
-}
-
-/* Paragraph on the right */
-.bio {
-    /* No padding on the right */
-    padding-left: 20px;
-    float: left;
-    width: 50%;
- }
 
 /* * Research list */
 
@@ -256,43 +292,8 @@ details[open] .abstract-label::after {
    https://css-tricks.com/couple-takes-sticky-footer/#aa-there-is-flexbox
 */
 
-body {
-    /* This is so that the footer stays *right* at the bottom.*/
-    display: flex;
-    flex-direction: column;
-    /* Make the body take up the whole screen */
-    height: 100vh;
-    justify-content: space-between;
-}
-
-main {
-    display: initial;
-    /* Equivalent to:
-       flex-grow: 1;
-       flex-shrink: 0;
-       flex-basis: auto;
-
-       The effect is that the <main> element fills all the spare
-       screen between the nav/header and the footer.
-   */
-    flex: 1 0 auto;
-}
-
 .license {
     text-align: center;
-}
-
-footer {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    /* Positioning */
-    flex-shrink: 0;
-    /* Typography */
-    font-size: 75%;
-    text-align: center;
-    hyphens: none;
-    width: 40%;
-    align-self: center;
 }
 
 .cc-image {
