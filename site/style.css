@@ -24,6 +24,8 @@ p {
     text-align: justify;
     /* This seems to work the best */
     text-justify: initial;
+    margin: 0px;
+    margin-bottom: 1.2ex;
 }
 
 blockquote {
@@ -118,11 +120,6 @@ footer {
     hyphens: none;
     width: 40%;
     align-self: center;
-}
-
-p {
-    margin: 0px;
-    margin-bottom: 1.2ex;
 }
 
 /* Paragraph on the right */
