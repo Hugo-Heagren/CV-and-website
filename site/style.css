@@ -6,6 +6,12 @@ html {
     hyphens: auto;
 }
 
+/* * Variables */
+
+/* Variable is useful for calling to inside the media query later */
+:root {
+    --default-title-size: 2.5em;
+}
 
 /* * General styling */
 
