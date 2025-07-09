@@ -6,12 +6,12 @@ html {
     hyphens: auto;
 }
 
-/* Fix for minor scrolling issue */
-html, body {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+/* * Variables */
+
+/* Variable is useful for calling to inside the media query later */
+:root {
+    --default-title-size: 2.5em;
+    --default-spacing-unit: 10px;
 }
 
 /* * General styling */
@@ -24,11 +24,17 @@ p {
     text-align: justify;
     /* This seems to work the best */
     text-justify: initial;
+    margin: 0px;
+    /* All paragraphs which are preceded by another paragraph. */
+    &:has(+ p) {
+	margin-bottom: 1.2ex;
+    }
 }
 
 blockquote {
     font-style: italic;
     border-left: 3px solid;
+    /* Space between content and border */
     padding-left: 0.5em;
     hyphens: none;
     margin: 5px;
@@ -50,7 +56,8 @@ img {
 
 ul {
     list-style-type: "- ";
-    padding-left: 15px;
+    margin-left: var(--default-spacing-unit);
+    padding-left: 0;
 }
 
 /* Class for bits of text which give information about other bits of
@@ -58,19 +65,83 @@ ul {
 .decoration {
     display: inline-block;
     font-weight: bold;
-    font-size:small;
+    font-size: small;
     hyphens: none;
 }
 
-/* * Structure & Navigation */
+/* * Structure & page Layout */
+
+* {
+    /* https://www.w3schools.com/html/html_responsive.asp */
+    box-sizing: border-box;
+}
+
+/* Fix for minor scrolling issue */
+html, body {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+body {
+    /* This is so that the footer stays *right* at the bottom.*/
+    display: flex;
+    flex-direction: column;
+    /* Make the body take up the whole screen */
+    height: 100vh;
+    justify-content: space-between;
+}
+
+main {
+    display: initial;
+    /* Equivalent to:
+       flex-grow: 1;
+       flex-shrink: 0;
+       flex-basis: auto;
+
+       The effect is that the <main> element fills all the spare
+       screen between the nav/header and the footer.
+   */
+    flex: 1 0 auto;
+}
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding-top: 40px;
-    padding-bottom: 40px
+    margin-top: 40px;
+    margin-bottom: 40px
 }
+
+footer {
+    margin-top: var(--default-spacing-unit);
+    margin-bottom: var(--default-spacing-unit);
+    /* Positioning */
+    flex-shrink: 0;
+    /* Typography */
+    font-size: 75%;
+    text-align: center;
+    hyphens: none;
+    width: 40%;
+    align-self: center;
+}
+
+/* Paragraph on the right */
+.bio {
+    margin-left: var(--default-spacing-unit);
+    float: left;
+    width: calc(50% - var(--default-spacing-unit));
+ }
+
+/* Picture on the left */
+.portrait {
+    margin-right: var(--default-spacing-unit);
+    float: left;
+    width: calc(50% - var(--default-spacing-unit));
+}
+
+/* * Navigation */
 
 .title, .nav-bar {
     display: inline;
@@ -82,8 +153,6 @@ header {
     display: none;
 }
 
-/* Variable is useful for calling to inside the media query later */
-:root { --default-title-size: 2.5em; }
 /* These are 'about right' */
 .title { font-size: var(--default-title-size); }
 .nav-bar { font-size: 1.5em; }
@@ -104,35 +173,8 @@ a {
 }
 
 .nav-item:not(:last-child) {
-    padding-right: 20px;
+    margin-right: 20px;
 }
-
-/* * Page layout */
-
-* {
-    /* https://www.w3schools.com/html/html_responsive.asp */
-    box-sizing: border-box;
-}
-
-/* Picture on the left */
-.portrait {
-    padding-right: 20px;
-    float: left;
-    width: 50%;
-}
-
-p {
-    margin: 0px;
-    margin-bottom: 1.2ex;
-}
-
-/* Paragraph on the right */
-.bio {
-    /* No padding on the right */
-    padding-left: 20px;
-    float: left;
-    width: 50%;
- }
 
 /* * Research list */
 
@@ -141,7 +183,7 @@ p {
 }
 
 dd {
-    padding-left: 10px;
+    padding-left: var(--default-spacing-unit);
 }
 
 /* Don't add an unnecessary margin to the last element
@@ -208,7 +250,7 @@ details[open] .abstract-label::after {
        distance between the top of one line of text, and the baseline
        of the following line. */
     height: 4.5ex;
-    padding-right: 5px;
+    margin-right: 5px;
 }
 
 /* * Teaching eval tables */
@@ -230,7 +272,7 @@ details[open] .abstract-label::after {
 	font-style: italic;
     }
 
-    /* table- leader is only visible on mobile, but I wanted it styled in
+    /* table-leader is only visible on mobile, but I wanted it styled in
        the same way as the data labels, so that's declared here too.*/
     & .data, .table-leader {
 	font-style: italic;
@@ -256,32 +298,8 @@ details[open] .abstract-label::after {
    https://css-tricks.com/couple-takes-sticky-footer/#aa-there-is-flexbox
 */
 
-body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: space-between;
-}
-
-p {
-    flex: 1 0 auto;
-}
-
 .license {
     text-align: center;
-}
-
-footer {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    /* Positioning */
-    flex-shrink: 0;
-    /* Typography */
-    font-size: 75%;
-    text-align: center;
-    hyphens: none;
-    width: 40%;
-    align-self: center;
 }
 
 .cc-image {
@@ -321,17 +339,17 @@ footer {
 @media screen and (max-width: 900px) and (orientation: portrait) {
     .portrait, .bio {
 	width: 100%;
-	/* Remove previous padding */
-	padding: 0px;
+	/* Remove previous margins */
+	margin: 0px;
     }
 
     .portrait {
-	padding-bottom: 10px;
+	margin-bottom: var(--default-spacing-unit);
     }
 
     html {
-	margin-right: 10px;
-	margin-left: 10px;
+	margin-right: var(--default-spacing-unit);
+	margin-left: var(--default-spacing-unit);
     }
 
     dd {
@@ -347,14 +365,25 @@ footer {
 	margin-left: 10%;
     }
 
-    /* This *additional* 20px account for the loss of the 20px
-       padding-left in the bio (which has to have padding-left=0px
-       so that the left edge of the text is flush with the left
-       edge of the picture. */
-    .portrait { margin-right: 20px; }
+    /* README!! The following rules might look a bit odd, but they are
+       correct The point is to fix it so that the portrait displays on
+       the left, the bio on the right, and all such that the bio text
+       wraps under the portrait if it's long enough (rather than
+       continuing in a column). This is achieved by making the bio
+       full-width, then floating the portrait inside the text of the
+       bio, and the recalculating the values of the margins. */
+
+    /* This *additional* 20px account for the loss of the 20px margin-left
+       in the bio (which has to have margin-left=0px, below, so that
+       the left edge of the text is flush with the left edge of the
+       picture. */
+    .portrait {
+	margin-right: calc(2 * var(--default-spacing-unit));
+	margin-bottom: var(--default-spacing-unit);
+    }
+    
     .bio {
-	/* No padding on the right */
-	padding-left: 0px;
+	margin-left: 0px;
 	float: none;
 	width: auto;
     }
@@ -381,15 +410,23 @@ footer {
     .nav-item {
         /* Display vertically because mobile */
 	display: block;
-        margin-bottom: 0;
         width: 100%;
         text-align: right;
-        padding: 0.5em;
+	/* We don't have to select just the ones which are followed by others,
+	   because we also want to separate the top one from the
+	   button above it. */
+        margin-top: 1em;
+	&:first-child {
+	    margin-top: 0.5em;   
+	}
+	/* HACK I feel like this should 'really' be a margin, but I can't make
+	   it work, so we're having this instead. */
+	padding-right: 20px;
     }
 
     header {
-	padding-top: 10px;
-	padding-bottom: 10px;
+	margin-top: var(--default-spacing-unit);
+	margin-bottom: var(--default-spacing-unit);
 	/* Keep the .title-bar block above the list navigation list */
 	display: block;
     }
