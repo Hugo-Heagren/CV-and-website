@@ -56,7 +56,8 @@ img {
 
 ul {
     list-style-type: "- ";
-    padding-left: var(--default-spacing-unit);
+    margin-left: var(--default-spacing-unit);
+    padding-left: 0;
 }
 
 /* Class for bits of text which give information about other bits of
