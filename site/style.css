@@ -373,10 +373,10 @@ details[open] .abstract-label::after {
        full-width, then floating the portrait inside the text of the
        bio, and the recalculating the values of the margins. */
 
-    /* This *additional* 20px account for the loss of the 20px
-       padding-left in the bio (which has to have padding-left=0px
-       so that the left edge of the text is flush with the left
-       edge of the picture. */
+    /* This *additional* 20px account for the loss of the 20px margin-left
+       in the bio (which has to have margin-left=0px, below, so that
+       the left edge of the text is flush with the left edge of the
+       picture. */
     .portrait {
 	margin-right: calc(2 * var(--default-spacing-unit));
 	margin-bottom: var(--default-spacing-unit);
