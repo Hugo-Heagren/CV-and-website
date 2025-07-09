@@ -25,12 +25,16 @@ p {
     /* This seems to work the best */
     text-justify: initial;
     margin: 0px;
-    margin-bottom: 1.2ex;
+    /* All paragraphs which are preceded by another paragraph. */
+    &:has(+ p) {
+	margin-bottom: 1.2ex;
+    }
 }
 
 blockquote {
     font-style: italic;
     border-left: 3px solid;
+    /* Space between content and border */
     padding-left: 0.5em;
     hyphens: none;
     margin: 5px;
@@ -105,8 +109,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding-top: 40px;
-    padding-bottom: 40px
+    margin-top: 40px;
+    margin-bottom: 40px
 }
 
 footer {
@@ -168,7 +172,7 @@ a {
 }
 
 .nav-item:not(:last-child) {
-    padding-right: 20px;
+    margin-right: 20px;
 }
 
 /* * Research list */
@@ -334,12 +338,12 @@ details[open] .abstract-label::after {
 @media screen and (max-width: 900px) and (orientation: portrait) {
     .portrait, .bio {
 	width: 100%;
-	/* Remove previous padding */
-	padding: 0px;
+	/* Remove previous margins */
+	margin: 0px;
     }
 
     .portrait {
-	padding-bottom: var(--default-spacing-unit);
+	margin-bottom: var(--default-spacing-unit);
     }
 
     html {
@@ -360,14 +364,25 @@ details[open] .abstract-label::after {
 	margin-left: 10%;
     }
 
+    /* README!! The following rules might look a bit odd, but they are
+       correct The point is to fix it so that the portrait displays on
+       the left, the bio on the right, and all such that the bio text
+       wraps under the portrait if it's long enough (rather than
+       continuing in a column). This is achieved by making the bio
+       full-width, then floating the portrait inside the text of the
+       bio, and the recalculating the values of the margins. */
+
     /* This *additional* 20px account for the loss of the 20px
        padding-left in the bio (which has to have padding-left=0px
        so that the left edge of the text is flush with the left
        edge of the picture. */
-    .portrait { margin-right: 20px; }
+    .portrait {
+	margin-right: calc(2 * var(--default-spacing-unit));
+	margin-bottom: var(--default-spacing-unit);
+    }
+    
     .bio {
-	/* No padding on the right */
-	padding-left: 0px;
+	margin-left: 0px;
 	float: none;
 	width: auto;
     }
