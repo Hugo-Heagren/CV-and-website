@@ -410,15 +410,23 @@ details[open] .abstract-label::after {
     .nav-item {
         /* Display vertically because mobile */
 	display: block;
-        margin-bottom: 0;
         width: 100%;
         text-align: right;
-        padding: 0.5em;
+	/* We don't have to select just the ones which are followed by others,
+	   because we also want to separate the top one from the
+	   button above it. */
+        margin-top: 1em;
+	&:first-child {
+	    margin-top: 0.5em;   
+	}
+	/* HACK I feel like this should 'really' be a margin, but I can't make
+	   it work, so we're having this instead. */
+	padding-right: 20px;
     }
 
     header {
-	padding-top: var(--default-spacing-unit);
-	padding-bottom: var(--default-spacing-unit);
+	margin-top: var(--default-spacing-unit);
+	margin-bottom: var(--default-spacing-unit);
 	/* Keep the .title-bar block above the list navigation list */
 	display: block;
     }
