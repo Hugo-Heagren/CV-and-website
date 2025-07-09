@@ -250,7 +250,7 @@ details[open] .abstract-label::after {
        distance between the top of one line of text, and the baseline
        of the following line. */
     height: 4.5ex;
-    padding-right: 5px;
+    margin-right: 5px;
 }
 
 /* * Teaching eval tables */
