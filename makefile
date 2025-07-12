@@ -1,8 +1,6 @@
 .DELETE_ON_ERROR:
 SHELL=/bin/bash
 
-# Remember how make works -- this is only run if we need a .bcf file,
-# and there isn't already an up-to-date-enough one.
 ${CV_BCF_FILE}:
 	lualatex cv.tex
 	biber cv
