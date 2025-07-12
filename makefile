@@ -2,7 +2,10 @@
 SHELL=/bin/bash
 
 ${CV_BCF_FILE}:
-	lualatex cv.tex
+	${LATEX} cv.tex
+
+${CV_BBL_FILE}: ${CV_BCF_FILE}
+	biber cv
 
 ${BIBER_TOOL_CONF_FILE}: ${CV_BCF_FILE}
 	${PYTHON} ./generate-biber-datamodel.py \
@@ -23,6 +26,11 @@ ${OUT_DIR}:
 .PHONY: site
 site: ${BIB_XML_FILE} ${INFO_JSON_FILE} ${OUT_DIR}
 	${PYTHON} ./site/build.py ${OUT_DIR} ${BIB_XML_FILE} ${INFO_JSON_FILE}
+
+.PHONY: cv
+cv: ${CV_BBL_FILE}
+	${LATEX} cv.tex
+	${LATEX} cv.tex
 
 .PHONY: clean
 clean:
