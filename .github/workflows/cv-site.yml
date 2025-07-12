@@ -56,8 +56,6 @@ jobs:
       - name: Move CV PDF to output dir
         run: "mv cv.pdf ${{ env.OUT_DIR }}/Hugo-Heagren-CV.pdf"
 
-      # This *must* come after the biber run, because that is what
-      # generates the bcf file, which is necessary for this step.
       # Build site
       - name: Build site
         run: "make site PYTHON=python"
