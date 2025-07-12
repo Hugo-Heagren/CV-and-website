@@ -1,15 +1,6 @@
 .DELETE_ON_ERROR:
 SHELL=/bin/bash
 
-# Definitions
-OUT_DIR		     := /tmp/site/
-BIB_XML_FILE	     := ./cv.bltxml
-INFO_JSON_FILE	     := ./info.json
-CV_BIB_FILE          := ./cv.bib
-CV_BCF_FILE	     := ./cv.bcf
-BIBER_TOOL_CONF_FILE := ./biber-tool.conf
-PYTHON		     := ./venv/bin/python3
-
 # Remember how make works -- this is only run if we need a .bcf file,
 # and there isn't already an up-to-date-enough one.
 ${CV_BCF_FILE}:
