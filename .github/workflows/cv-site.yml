@@ -25,8 +25,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: true
-      # This has to come first because the BibLaTeX XML is needed by
-      # the site as well as the CV.
       - name: Setup TeX Live (with biber)
         uses: paolobrasolin/setup-texlive-action@main
         with:
@@ -41,31 +39,20 @@ jobs:
       - name: Setup direnv
         uses: HatsuneMiku3939/direnv-action@master
 
-      # Build CV
-      - name: First LaTeX run
-        run: 'lualatex cv.tex'
-      - name: Biber run
-        run: 'biber cv'
-      - name: Second LaTeX run
-        run: 'lualatex cv.tex'
-      - name: Final LaTeX run
-        run: 'lualatex cv.tex'
-      - name: Create output directory
-        # `-p` so its ok if the dir already exists
-        run: "mkdir -p ${{ env.OUT_DIR }}"
+      - name: Ensure output directory exists, and store its path
+        run: |
+          out_dir="$(mktemp -d)"
+          mkdir --parents "$out_dir"
+          echo "OUT_DIR=$out_dir" >> "$GITHUB_ENV"
+
+      - name: build CV
+        run: "make cv"
+
       - name: Move CV PDF to output dir
         run: "mv cv.pdf ${{ env.OUT_DIR }}/Hugo-Heagren-CV.pdf"
 
-      # This *must* come after the biber run, because that is what
-      # generates the bcf file, which is necessary for this step.
-      - name: Setup biber tool mode config
-        run: "python generate-biber-datamodel.py ${{ env.CV_BCF_FILE }} ${{ env.BIBER_TOOL_CONF_FILE }}"
-      - name: Generate BibLaTeX XML
-        run: "biber --tool --configfile ${{ env.BIBER_TOOL_CONF_FILE }} --output-format=biblatexml --output-file=${{ env.BIB_XML_FILE }} cv.bib"
-
-      # Build site
-      - name: Build site (build.py)
-        run: "python site/build.py ${{ env.OUT_DIR }} ${{ env.BIB_XML_FILE }} ${{ env.INFO_JSON_FILE }}"
+      - name: Build site
+        run: "make site PYTHON=python OUT_DIR=${{ env.OUT_DIR }}"
 
       - name: Upload outputs as artifact
         uses: actions/upload-pages-artifact@v3
