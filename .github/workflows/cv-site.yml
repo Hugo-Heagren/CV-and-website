@@ -17,6 +17,8 @@ on:
       - "*.cbx"
       # Always run when this action changes
       - ".github/workflows/cv-site.yml"
+env:
+  OUT_DIR: "$(mktemp -d)"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -50,7 +52,7 @@ jobs:
         run: "mv cv.pdf ${{ env.OUT_DIR }}/Hugo-Heagren-CV.pdf"
 
       - name: Build site
-        run: "make site PYTHON=python"
+        run: "make site PYTHON=python OUT_DIR=${{ env.OUT_DIR }}"
 
       - name: Upload outputs as artifact
         uses: actions/upload-pages-artifact@v3

@@ -1,6 +1,16 @@
 .DELETE_ON_ERROR:
 SHELL=/bin/bash
 
+# Definitions
+export OUT_DIR=/tmp/site/
+export INFO_JSON_FILE=./info.json
+export BIB_XML_FILE=./cv.bltxml
+export CV_BIB_FILE=./cv.bib
+export CV_BCF_FILE=./cv.bcf
+export CV_BBL_FILE=./cv.bbl
+export BIBER_TOOL_CONF_FILE=./biber-tool.conf
+export LATEX=lualatex
+
 ${CV_BCF_FILE}:
 	${LATEX} cv.tex
 
