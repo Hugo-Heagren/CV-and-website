@@ -58,14 +58,9 @@ jobs:
 
       # This *must* come after the biber run, because that is what
       # generates the bcf file, which is necessary for this step.
-      - name: Setup biber tool mode config
-        run: "python generate-biber-datamodel.py ${{ env.CV_BCF_FILE }} ${{ env.BIBER_TOOL_CONF_FILE }}"
-      - name: Generate BibLaTeX XML
-        run: "biber --tool --configfile ${{ env.BIBER_TOOL_CONF_FILE }} --output-format=biblatexml --output-file=${{ env.BIB_XML_FILE }} cv.bib"
-
       # Build site
-      - name: Build site (build.py)
-        run: "python site/build.py ${{ env.OUT_DIR }} ${{ env.BIB_XML_FILE }} ${{ env.INFO_JSON_FILE }}"
+      - name: Build site
+        run: "make site"
 
       - name: Upload outputs as artifact
         uses: actions/upload-pages-artifact@v3

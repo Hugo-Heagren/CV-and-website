@@ -139,9 +139,7 @@ def get_git_mod_time(file):
 
 # * Build
 
-# Define output dir and make sure it exists
 out_dir = args.out_dir
-out_dir.mkdir(parents=True, exist_ok=True)
 
 template_dir = site_dir / "pages"
 
