@@ -17,12 +17,6 @@ on:
       - "*.cbx"
       # Always run when this action changes
       - ".github/workflows/cv-site.yml"
-env:
-  OUT_DIR: '/tmp/out_dir/'
-  BIB_XML_FILE: '/tmp/cv.bltxml'
-  INFO_JSON_FILE: './info.json'
-  CV_BCF_FILE: './cv.bcf'
-  BIBER_TOOL_CONF_FILE: './biber-tool.conf'
 jobs:
   build:
     runs-on: ubuntu-latest
