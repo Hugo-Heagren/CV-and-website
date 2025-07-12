@@ -60,7 +60,7 @@ jobs:
       # generates the bcf file, which is necessary for this step.
       # Build site
       - name: Build site
-        run: "make site"
+        run: "make site PYTHON=python"
 
       - name: Upload outputs as artifact
         uses: actions/upload-pages-artifact@v3
