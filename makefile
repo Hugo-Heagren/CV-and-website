@@ -3,7 +3,6 @@ SHELL=/bin/bash
 
 ${CV_BCF_FILE}:
 	lualatex cv.tex
-	biber cv
 
 ${BIBER_TOOL_CONF_FILE}: ${CV_BCF_FILE}
 	${PYTHON} ./generate-biber-datamodel.py \
