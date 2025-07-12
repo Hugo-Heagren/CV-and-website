@@ -41,18 +41,14 @@ jobs:
       - name: Setup direnv
         uses: HatsuneMiku3939/direnv-action@master
 
-      # Build CV
-      - name: First LaTeX run
-        run: 'lualatex cv.tex'
-      - name: Biber run
-        run: 'biber cv'
-      - name: Second LaTeX run
-        run: 'lualatex cv.tex'
-      - name: Final LaTeX run
-        run: 'lualatex cv.tex'
-      - name: Create output directory
+      - name: Ensure output directory exists
         # `-p` so its ok if the dir already exists
         run: "mkdir -p ${{ env.OUT_DIR }}"
+
+      # Build CV
+      - name: build CV
+        run: "make cv"
+
       - name: Move CV PDF to output dir
         run: "mv cv.pdf ${{ env.OUT_DIR }}/Hugo-Heagren-CV.pdf"
 
