@@ -17,8 +17,6 @@ on:
       - "*.cbx"
       # Always run when this action changes
       - ".github/workflows/cv-site.yml"
-env:
-  OUT_DIR: "$(mktemp -d)"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -41,9 +39,11 @@ jobs:
       - name: Setup direnv
         uses: HatsuneMiku3939/direnv-action@master
 
-      - name: Ensure output directory exists
-        # `-p` so its ok if the dir already exists
-        run: "mkdir -p ${{ env.OUT_DIR }}"
+      - name: Ensure output directory exists, and store its path
+        run: |
+          out_dir="$(mktemp -d)"
+          mkdir --parents "$out_dir"
+          echo "OUT_DIR=$out_dir" >> "$GITHUB_ENV"
 
       - name: build CV
         run: "make cv"
