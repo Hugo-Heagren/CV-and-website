@@ -393,10 +393,6 @@ details[open] .abstract-label::after {
 /* ** General mobile things */
 @media screen and (max-width: 900px) {
 
-    .mobile-only {
-	display: initial;
-    }
-
     /* (Show and) style the toggle switch */
     .menu-toggle {
 	display: inline-block;
