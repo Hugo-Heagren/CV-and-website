@@ -36,8 +36,6 @@ jobs:
           cache: 'pip'
       - name: Install requirements
         run: "pip install -r requirements.txt"
-      - name: Setup direnv
-        uses: HatsuneMiku3939/direnv-action@master
 
       - name: Ensure output directory exists, and store its path
         run: |
