@@ -36,9 +36,6 @@
 	urlcolor=blue    % Color of external links
 }
 
-% No page numbers
-\pagenumbering{gobble}
-
 % ** Fonts
 
 \RequirePackage[T1]{fontenc}
