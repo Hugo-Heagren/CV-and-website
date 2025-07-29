@@ -1,3 +1,4 @@
-name,title,note,affiliation,email
-Mark Textor,Professor,Primary Doctoral Supervisor,"King's College London","mark.textor@kcl.ac.uk"
-Eliot Michaelson,Professor,Secondary Doctoral Supervisor,"King's College London","eliot.michaelson@kcl.ac.uk"
+name,title,position,note,affiliation,email
+Mark Textor,Professor,,Primary Doctoral Supervisor,"King's College London","mark.textor@kcl.ac.uk"
+Eliot Michaelson,Professor,,Secondary Doctoral Supervisor,"King's College London","eliot.michaelson@kcl.ac.uk"
+Bill Brewer,Professor,Susan Stebbing Chair of Philosophy,Tertiary Doctoral Supervisor,"King's College London","bill.brewer@kcl.ac.uk"
