@@ -3,6 +3,7 @@
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage{jsonparse}
+\usepackage{datatool}
 
 \hypersetup{
  pdfauthor={Hugo Heagren},
@@ -19,6 +20,8 @@
 \addbibresource{./cv.bib}
 
 \JSONParseFromFile{\info}{./info.json}
+
+\DTLloaddb{references}{./references.csv}
 
 \author{Hugo Heagren}
 \date{\today}
@@ -92,5 +95,30 @@ conference
 \item[{2022}] Outreach teaching for Gonville \& Caius college---lectures on
 history of philosophy of language and my own research
 \end{description}
+
+\section*{Referees}
+
+\newcounter{reftblcol}
+\begin{tabular}{@{} p{8cm} p{8cm} @{}}
+  \DTLforeach{references}{%
+    \name=name,\title=title,\position=position,\note=note,\affiliation=affiliation,\email=email%
+  }{%
+  \begin{itemize}[nosep]
+    \item \textbf{\title\ \name{\ifx\position\empty\else\ (\position)\fi}}
+    \item \note
+    \item \affiliation
+    \item \href{mailto:\email}{\email}
+  \end{itemize}
+  \stepcounter{reftblcol}
+  % if counter = 1 then align, reset counter and end
+  \ifnum\value{reftblcol}<2
+    % This is a tokenizer hack. See
+    % https://tex.stackexchange.com/a/131284/238079
+    \uppercase{&}
+  \else
+    \setcounter{reftblcol}{0} \\
+  \fi
+  }
+\end{tabular}
 
 \end{document}
