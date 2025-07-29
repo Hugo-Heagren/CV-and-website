@@ -101,10 +101,10 @@ history of philosophy of language and my own research
 \newcounter{reftblcol}
 \begin{tabular}{@{} p{8cm} p{8cm} @{}}
   \DTLforeach{references}{%
-    \name=name,\title=title,\note=note,\affiliation=affiliation,\email=email%
+    \name=name,\title=title,\position=position,\note=note,\affiliation=affiliation,\email=email%
   }{%
   \begin{itemize}[nosep]
-    \item \textbf{\title\ \name}
+    \item \textbf{\title\ \name{\ifx\position\empty\else\ (\position)\fi}}
     \item \note
     \item \affiliation
     \item \href{mailto:\email}{\email}
