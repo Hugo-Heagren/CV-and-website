@@ -21,7 +21,7 @@
 
 \JSONParseFromFile{\info}{./info.json}
 
-\DTLloaddb{references}{./references.csv}
+\DTLloaddb{referees}{./referees.csv}
 
 \author{Hugo Heagren}
 \date{\today}
@@ -100,7 +100,7 @@ history of philosophy of language and my own research
 
 \newcounter{reftblcol}
 \begin{tabular}{@{} p{8cm} p{8cm} @{}}
-  \DTLforeach{references}{%
+  \DTLforeach{referees}{%
     \name=name,\title=title,\position=position,\note=note,\affiliation=affiliation,\email=email%
   }{%
   \begin{itemize}[nosep]
