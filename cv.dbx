@@ -9,14 +9,15 @@
        {Database file 'biblatex-cv' not found}
        {The database file 'biblatex-cv' could not be found}}
 
-% * Descriptions for modules
+% * Modules
+% ** Descriptions for modules
 \DeclareDatamodelFields[type=field,datatype=literal]{description}
 
 \DeclareDatamodelEntryfields[teaching]{%
   description
 }
 
-% * Parts of Modules
+% ** Parts of Modules
 % Some modules contain several different parts, and I have taught some
 % but not all.
 \DeclareDatamodelFields[type=field,datatype=literal]{part}
@@ -25,12 +26,35 @@
   part
 }
 
-% * Roles for modules
+% ** Roles for modules
 % A list of keys, each of which is a role in a module
 \DeclareDatamodelFields[type=list,datatype=key]{role}
 
 \DeclareDatamodelEntryfields[teaching]{%
   role
+}
+
+% * Awards
+
+\DeclareDatamodelEntrytypes{award}
+
+\DeclareDatamodelEntryfields[award]{
+	date,day,endday,endmonth,endyear,month,year,
+	title,
+        note,% nomination, honourable mention, etc.
+	amount,
+	currency,
+        institution
+}
+
+\DeclareDatamodelConstraints[award]{
+	\constraint[type=mandatory]{
+		\constraintfieldsxor{
+			\constraintfield{date}
+			\constraintfield{year}
+		}
+		\constraintfield{title}
+	}
 }
 
 % * End input

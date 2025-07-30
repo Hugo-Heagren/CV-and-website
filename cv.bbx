@@ -255,6 +255,21 @@
   \usebibmacro{finentry}%
 }
 
+% ** Award
+\newbibmacro{institution+title}{%
+  \printlist{institution}%
+  \setunit{\addspace}%
+  \printfield{title}%
+}
+
+\DeclareBibliographyDriver{award}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{institution+title}%
+  \usebibmacro{note}%
+  \usebibmacro{finentry}%
+}
+
 % * Descending Date Sorting Template
 
 % Sort with reverse chronologically.
@@ -287,8 +302,9 @@
 	\ifentrytype{article}{}{\skipentry}%
 }
 
-\defbibcheck{Funding}{%
-	\ifentrytype{funding}{}{\skipentry}%
+\defbibcheck{Funding/Award}{%
+  \ifentrytype{funding}{}{%
+    \ifentrytype{award}{}{\skipentry}}%
 }
 
 % Cribbed from
