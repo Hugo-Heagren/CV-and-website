@@ -4,6 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{jsonparse}
 \usepackage{datatool}
+\usepackage{changepage}
 
 \hypersetup{
  pdfauthor={Hugo Heagren},
@@ -22,6 +23,9 @@
 \JSONParseFromFile{\info}{./info.json}
 
 \DTLloaddb{referees}{./referees.csv}
+
+\DTLloaddb[noheader=true,keys={name}]{reviews}{./reviews.csv}
+\dtlsort{name}{reviews}{\dtlicompare}
 
 \author{Hugo Heagren}
 \date{\today}
@@ -78,7 +82,6 @@
 \item[{2025}] Co-organiser for 12th International Philosophy of
 Medicine Round table \& Sowerby Anniversary Lecture
 \item[{2025}] Lead organiser for Workshop on new work in theory of reference, King's College London
-\item[{2024}] Submission review for Forum Philosophicum
 \item[{from 2024}] Volunteer with \href{https://www.philosophyinprison.com/}{Philosophy in Prison}
 \item[{from 2024}] Technical manager for the \href{https://www.philosophyandmedicine.org/}{Sowerby Philosophy and
 Medicine Project}
@@ -87,13 +90,18 @@ Medicine Project}
 \item[{from 2023}] Technical manager for the \href{https://www.ai-humanity-london.com/}{London AI and Humanity Project}
 % Pretty sure this what December of 2023
 \item[{2023}] Undergraduate workshop on philosophical writing (co-run with other graduate students)
-\item[{2023,24}] Submission review for Undergraduate Philosophy
-  Journal of Australasia
-\item[{2023}] Submission review for London Undergraduate Philosophy
-conference
 \item[{2022}] Outreach teaching for Gonville \& Caius college---lectures on
 history of philosophy of language and my own research
 \end{description}
+
+\subsection*{Submission Review}
+
+\begin{adjustwidth}{\dategutter}{}
+  \begin{reviews}
+    \DTLforeach{reviews}{\name=name}{%
+    \item\name}
+  \end{reviews}
+\end{adjustwidth}
 
 \section*{Referees}
 
