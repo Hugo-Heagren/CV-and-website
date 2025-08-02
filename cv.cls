@@ -98,3 +98,13 @@
   afterlabel={},
   label={}
 }
+
+\newlist{reviews}{itemize*}{1}
+\setlist[reviews]{
+  itemjoin={,\ },
+  afterlabel={},
+  label={},
+  labelwidth=!,
+  labelindent=!,
+  labelsep=0pt,
+}
