@@ -24,7 +24,7 @@
 
 \DTLloaddb{referees}{./referees.csv}
 
-\DTLloaddb[noheader=true,keys={name}]{reviews}{./reviews.csv}
+\DTLloaddb{reviews}{./reviews.csv}
 \dtlsort{name}{reviews}{\dtlicompare}
 
 \author{Hugo Heagren}
@@ -94,14 +94,11 @@ Medicine Project}
 history of philosophy of language and my own research
 \end{description}
 
-\subsection*{Submission Review}
+\section*{Submission Review}
 
-\begin{adjustwidth}{\dategutter}{}
-  \begin{reviews}
-    \DTLforeach{reviews}{\name=name}{%
-    \item\name}
-  \end{reviews}
-\end{adjustwidth}
+\begin{reviews}
+  \DTLforeach{reviews}{\name=name}{\item \name}
+\end{reviews}
 
 \section*{Referees}
 

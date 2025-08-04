@@ -10,6 +10,7 @@
 \RequirePackage{geometry}
 \RequirePackage{titlesec}
 \RequirePackage{titling}
+\RequirePackage{changepage}
 
 % * Layout
 \geometry{
@@ -99,8 +100,8 @@
   label={}
 }
 
-\newlist{reviews}{itemize*}{1}
-\setlist[reviews]{
+\newlist{Reviews}{itemize*}{1}
+\setlist[Reviews]{
   itemjoin={,\ },
   afterlabel={},
   label={},
@@ -108,3 +109,9 @@
   labelindent=!,
   labelsep=0pt,
 }
+
+\newenvironment{reviews}{%
+  \begin{adjustwidth}{\dategutter}{}
+    \begin{Reviews}}{%
+    \end{Reviews}
+  \end{adjustwidth}}
