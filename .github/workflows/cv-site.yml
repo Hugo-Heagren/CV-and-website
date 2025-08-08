@@ -3,6 +3,10 @@ on:
   workflow_dispatch:
   push:
     paths:
+      # Data
+      - "reviews.csv"
+      - "references.csv"
+      - "*.bib"
       # Site
       - "**.bib"
       - "**.py"
@@ -11,7 +15,6 @@ on:
       - "assets/**"
       # CV/TeX
       - "*.tex"
-      - "*.bib"
       - "*.cls"
       - "*.bbx"
       - "*.cbx"
