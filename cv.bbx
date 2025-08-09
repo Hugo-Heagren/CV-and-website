@@ -136,8 +136,10 @@
   }
 
 
-\newcommand{\invited}{\JSONParseValue{\info}{symbols.invited}}
-\newcommand{\departmental}{\JSONParseValue{\info}{symbols.departmental}}
+
+
+\newcommand{\invited}{\directlua{tex.sprint{info['symbols']['invited']}}}
+\newcommand{\departmental}{\directlua{tex.sprint{info['symbols']['departmental']}}}
 
 \newbibmacro{status}{%
   \iffieldequalstr{presentationtype}{invited}{\invited}{%

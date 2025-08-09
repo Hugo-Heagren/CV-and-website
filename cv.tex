@@ -2,9 +2,9 @@
 \usepackage{orcidlink}
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}
-\usepackage{jsonparse}
 \usepackage{datatool}
 \usepackage{changepage}
+\usepackage{luacode}
 
 \hypersetup{
  pdfauthor={Hugo Heagren},
@@ -20,12 +20,17 @@
 
 \addbibresource{./cv.bib}
 
-\JSONParseFromFile{\info}{./info.json}
+% info.json -- general data
+\begin{luacode}
+  require("lualibs.lua")
+  local f = io.open('info.json', 'r')
+  local s = f:read('*a')
+  f:close()
+  info = utilities.json.tolua(s)
+\end{luacode} 
 
+% referee data
 \DTLloaddb{referees}{./referees.csv}
-
-\DTLloaddb{reviews}{./reviews.csv}
-\dtlsort{name}{reviews}{\dtlicompare}
 
 \author{Hugo Heagren}
 \date{\today}
@@ -36,11 +41,13 @@
 \maketitle
 \nocite{*}
 
+
+
 \section*{Contact Details}
 \begin{itemize}
-\item \href{mailto:\JSONParseExpandableValue{\info}{email}}{\JSONParseExpandableValue{\info}{email}}
+\item \href{mailto:\directlua{tex.sprint{info['email']}}}{\directlua{tex.sprint{info['email']}}}
 \item \href{https://hugoheagren.com}{hugoheagren.com}
-\item \orcidlinkc{\JSONParseExpandableValue{\info}{orcid}}
+\item \orcidlinkc{\directlua{tex.sprint{info['orcid']}}}
 \end{itemize}
 
 % ** Areas
@@ -96,9 +103,9 @@ history of philosophy of language and my own research
 
 \section*{Submission Review}
 
-\begin{reviews}
-  \DTLforeach{reviews}{\name=name}{\item \name}
-\end{reviews}
+\begin{adjustwidth}{\dategutter}{}
+  \directlua{r = info['reviews']; table.sort(r); tex.print(table.concat(r,', '))}
+\end{adjustwidth}
 
 \section*{Referees}
 
