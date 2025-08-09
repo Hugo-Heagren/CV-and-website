@@ -4,7 +4,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage{datatool}
 \usepackage{changepage}
-\usepackage{luacode}
 
 \hypersetup{
  pdfauthor={Hugo Heagren},
@@ -21,13 +20,13 @@
 \addbibresource{./cv.bib}
 
 % info.json -- general data
-\begin{luacode}
+\directlua{
   require("lualibs.lua")
   local f = io.open('info.json', 'r')
   local s = f:read('*a')
   f:close()
   info = utilities.json.tolua(s)
-\end{luacode} 
+} 
 
 % referee data
 \DTLloaddb{referees}{./referees.csv}
