@@ -405,7 +405,7 @@ details[open] .abstract-label::after {
     
     .nav-item {
         /* Display vertically because mobile */
-	display: block;
+        display: block;
         width: 100%;
         text-align: right;
 	/* We don't have to select just the ones which are followed by others,
