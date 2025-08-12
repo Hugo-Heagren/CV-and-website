@@ -316,7 +316,7 @@ details[open] .abstract-label::after {
 }
 
 /* This is an attempt to conform to
-   https://info.orcid.org/documentation/integration-guide/orcid-id-display-guidelines/#h-compact-orcid-i d*/
+   https://info.orcid.org/documentation/integration-guide/orcid-id-display-guidelines/#h-compact-orcid-id */
 #orcid-logo {
     vertical-align: middle;
     height: 24px;
