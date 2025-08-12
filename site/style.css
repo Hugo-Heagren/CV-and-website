@@ -54,12 +54,6 @@ img {
     width: auto;
 }
 
-ul {
-    list-style-type: "- ";
-    margin-left: var(--default-spacing-unit);
-    padding-left: 0;
-}
-
 /* Class for bits of text which give information about other bits of
    text. (definitions titles, etc.) */
 .decoration {
@@ -188,10 +182,10 @@ dd {
 
 /* Don't add an unnecessary margin to the last element
    https://stackoverflow.com/a/19254469/14915848 */
-dd:not(:last-child), li {
+dd:not(:first-child), li {
     /* Slightly larger than the linebreak size, I think this is good for
        readability */
-    margin-bottom: 1.5ex;
+    margin-top: 1.5ex;
 }
 
 dt {
@@ -292,6 +286,53 @@ details[open] .abstract-label::after {
 
 }
 
+/* * Longer writing */
+
+.footnotes::before {
+    /* There has to be some content, otherwise it doesn't display. */
+    content:" ";
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: black;
+    margin-top: calc(2* var(--default-spacing-unit));
+    margin-bottom: calc(2* var(--default-spacing-unit));
+}
+
+/* Dynamic footnote highlighting */
+@keyframes fade-alert {
+    0% {
+	background-color: bisque;
+    }
+    100% {
+	background-color: inherit;
+    }
+}
+
+:target {
+    animation: fade-alert 3s;
+}
+
+/* ** LaTeX logo */
+
+/* https://tess.oconnor.cx/2007/08/tex-poshlet */
+.latex-logo {
+    sub, sup {
+	text-transform: uppercase;
+    }
+    sup {
+	font-size: 0.85em;
+	vertical-align: 0.15em;
+	margin-left: -0.36em;
+	margin-right: -0.15em;
+    }
+    sub {
+	vertical-align: -0.4ex;
+	margin-left: -0.25em;
+	margin-right: -0.125em;
+    }
+}
+
 /* * Licensing */
 
 /* Mostly taken from
@@ -316,7 +357,7 @@ details[open] .abstract-label::after {
 }
 
 /* This is an attempt to conform to
-   https://info.orcid.org/documentation/integration-guide/orcid-id-display-guidelines/#h-compact-orcid-i d*/
+   https://info.orcid.org/documentation/integration-guide/orcid-id-display-guidelines/#h-compact-orcid-id */
 #orcid-logo {
     vertical-align: middle;
     height: 24px;
@@ -405,7 +446,7 @@ details[open] .abstract-label::after {
     
     .nav-item {
         /* Display vertically because mobile */
-	display: block;
+        display: block;
         width: 100%;
         text-align: right;
 	/* We don't have to select just the ones which are followed by others,
@@ -430,6 +471,16 @@ details[open] .abstract-label::after {
     footer { width: 100%; }
 
     #four-oh-four { font-size: 30vw; }
+
+    ul, ol {
+	/* This 'properly' aligns the left edge of the list with the left
+           margin. See discussion here:
+           https://stackoverflow.com/a/678006/14915848 */
+	padding-left: 0px;
+        /* TODO This is a magic number in Firefox. Work out the fine tuning
+           for other browsers... */
+	margin-left: 17px;
+    }
 
 /* ** Research list  */
 
