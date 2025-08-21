@@ -313,6 +313,12 @@ details[open] .abstract-label::after {
     animation: fade-alert 3s;
 }
 
+/* Smooth scrolling! */
+:root {
+    scroll-behavior: smooth;
+}
+
+
 /* ** LaTeX logo */
 
 /* https://tess.oconnor.cx/2007/08/tex-poshlet */
