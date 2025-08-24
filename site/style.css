@@ -172,32 +172,32 @@ a {
 
 /* * Research list */
 
-.article {
-    display: flex;
+/* Proper layout. Credit G-Cyrillius
+   https://stackoverflow.com/q/79745022/14915848 */
+dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: baseline;
 }
 
 dd {
-    padding-left: var(--default-spacing-unit);
+    margin-left: var(--default-spacing-unit);
+    grid-column: 2;
 }
 
-/* Don't add an unnecessary margin to the last element
-   https://stackoverflow.com/a/19254469/14915848 */
-dd:not(:first-child), li {
-    /* Slightly larger than the linebreak size, I think this is good for
-       readability */
-    margin-top: 1.5ex;
-}
-
-dt {
-    float: left;
-    clear: left;
-    /* This (nearly) aligns the baseline of dt with that of dl. Not
-       perfect, but it'll do for now */
-    line-height: 4ex;
+/* Space between items */
+dd:not(:nth-of-type(1)), dt:not(:nth-of-type(1)), li {
+    margin-top: 15px;
 }
 
 dt.decoration {
     width: 45px;
+}
+
+/* ** Article list */
+
+.article {
+    display: flex;
 }
 
 .abstract-label, .abstract-label:after {
@@ -211,7 +211,7 @@ dt.decoration {
     cursor: pointer;
 }
 
-/* ** Collapsible abstracts */
+/* *** Collapsible abstracts */
 
 /* NOTE We 'should' use the :open pseudo class here, but it isn't as
    widely supported as the [open] attribute selector. The "/" in the
@@ -236,7 +236,7 @@ details[open] .abstract-label::after {
     hyphens: none;
 }
 
-/* ** File icons */
+/* *** File icons */
 
 .file-icon {
     display: inline-block;
