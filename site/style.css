@@ -195,7 +195,7 @@ dl.talk-list {
 /* TODO generalise this to the whole list?  */
 .box {
     display: grid;
-    grid-template-columns: auto 42px 1fr;
+    grid-template-columns: auto auto 1fr;
     align-items: baseline;
     column-gap: var(--default-spacing-unit);
 }
