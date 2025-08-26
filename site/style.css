@@ -206,6 +206,8 @@ dt.decoration {
     margin-left: 5px;
 }
 
+/* *** Collapsible abstracts */
+
 .abstract-label, .abstract-label:after {
     text-transform: uppercase;
     whitespace: preserve nowrap;
@@ -216,8 +218,6 @@ dt.decoration {
     text-decoration-thickness: 2px;
     cursor: pointer;
 }
-
-/* *** Collapsible abstracts */
 
 /* NOTE We 'should' use the :open pseudo class here, but it isn't as
    widely supported as the [open] attribute selector. The "/" in the
