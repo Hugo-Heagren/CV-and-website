@@ -183,13 +183,10 @@ dl.talk-list {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: baseline;
+    row-gap: 15px;
     dd {
         margin-left: var(--default-spacing-unit);
         grid-column-start: 2;
-    }
-    /* Space between items */
-    dd:not(:nth-of-type(1)), dt:not(:nth-of-type(1)), li {
-        margin-top: 15px;
     }
 }
 
