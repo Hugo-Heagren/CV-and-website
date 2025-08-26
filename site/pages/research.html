@@ -2,7 +2,7 @@
 {% block title %}{{ super() }} | Research{% endblock %}
 {% block content %}
     <h1>Papers</h1>
-    <dl>
+    <dl class="paper-list">
         {% for p in research | select('bibfilter', type="article") | sort(attribute="date", reverse=true) %}
             {% set link = (p.url or p.doi) %}
             <div class="article">
