@@ -174,20 +174,24 @@ a {
 
 /* Proper layout. Credit G-Cyrillius
    https://stackoverflow.com/q/79745022/14915848 */
-dl {
+dl.talk-list {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: baseline;
+    dd {
+        margin-left: var(--default-spacing-unit);
+        grid-column-start: 2;
+    }
+    /* Space between items */
+    dd:not(:nth-of-type(1)), dt:not(:nth-of-type(1)), li {
+        margin-top: 15px;
+    }
 }
 
-dd {
-    margin-left: var(--default-spacing-unit);
-    grid-column: 2;
-}
-
-/* Space between items */
-dd:not(:nth-of-type(1)), dt:not(:nth-of-type(1)), li {
-    margin-top: 15px;
+.box {
+    display: grid;
+    grid-template-columns: 45px 42px 1fr;
+    align-items: baseline;
 }
 
 dt.decoration {
@@ -197,7 +201,9 @@ dt.decoration {
 /* ** Article list */
 
 .article {
-    display: flex;
+    /* display: flex; */
+    margin-right: 0px;
+    margin-left: 5px;
 }
 
 .abstract-label, .abstract-label:after {
@@ -239,12 +245,13 @@ details[open] .abstract-label::after {
 /* *** File icons */
 
 .file-icon {
-    display: inline-block;
+    /* display: inline-block; */
     /* This is a magic number which corresponds pretty much exactly to the
        distance between the top of one line of text, and the baseline
        of the following line. */
     height: 4.5ex;
     margin-right: 5px;
+    vertical-align: top;
 }
 
 /* * Teaching eval tables */
