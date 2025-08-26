@@ -527,6 +527,12 @@ dl.talk-list {
             grid-row: 2 / 3;
         }
 
+        /* Scale icons to fit in the gutter properly */
+        .file-icon {
+            width: 100%;
+            height: auto;
+        }
+
         & dd, .article-text {
             grid-row: 1 / 3;
         }
