@@ -26,7 +26,10 @@ p {
     text-justify: initial;
     margin: 0px;
     /* All paragraphs which are preceded by another paragraph. */
-    &:has(+ p) {
+}
+
+p, li {
+    &:has(+ p, + li) {
 	margin-bottom: 1.2ex;
     }
 }
