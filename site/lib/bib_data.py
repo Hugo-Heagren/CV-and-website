@@ -83,3 +83,9 @@ class PageRange:
     def __init__(self, lower=None, upper=None):
         self.lower = lower
         self.upper = upper
+
+    def __repr__(self):
+        return f"PageRange:{self.lower}-{self.upper}"
+
+    def __str__(self):
+        return f"{self.lower}-{self.upper}"
