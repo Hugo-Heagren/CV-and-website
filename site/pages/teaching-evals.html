@@ -6,6 +6,20 @@
 {% endblock %}
 {% block title %}{{ super() }} | Teaching Evals{% endblock %}
 {% block content %}
+    {% set class_list = research | select('bibfilter', type='teaching') | selectattr("eval_data") %}
+    <nav class="toc" role="doc-toc">
+        <h2>Contents</h2>
+        <ol>
+            <li>
+                <a class="nav-item" href="#">(Top)</a>
+            </li>
+            {%- for t in class_list -%}
+                <li>
+                    <a class="nav-item" href="#{{ t.id }}">{{ t.title }}</a>
+                </li>
+            {%- endfor %}
+        </ol>
+    </nav>
     <p>
         Someone once told me that during my academic job search, I
         should make all my teaching eval data available online.
@@ -46,9 +60,9 @@
         philosophy knowledge and has someone who has never studied
         philosophy before, this is something I much appreciate.
     </blockquote>
-    {% for t in research | select('bibfilter', type='teaching') | selectattr("eval_data") %}
-        <section>
-            <h1>
+    <section>
+        {% for t in research | select('bibfilter', type='teaching') | selectattr("eval_data") %}
+            <h1 id="{{ t.id }}">
                 {{- t.title -}}
                 {%- if t.part %}: {{ t.part }}
                 {% endif -%}

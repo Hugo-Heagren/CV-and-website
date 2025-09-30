@@ -6,6 +6,33 @@ html {
     hyphens: auto;
 }
 
+.toc {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    position: fixed;
+    left: 0;
+    max-width: min(20%, 300px);
+
+    h2 {
+        font-size: normal;
+        margin-top: 0;
+    }    
+
+    ol {
+        list-style-type: none;
+        position: sticky;
+        top: 0;
+        padding: 0;
+    }
+
+    h2, ol {
+        margin-left: var(--default-spacing-unit);
+        margin-right: var(--default-spacing-unit);
+    }
+}
+
+
 /* * Variables */
 
 /* Variable is useful for calling to inside the media query later */
@@ -309,7 +336,7 @@ dl.talk-list {
 
 /* * Longer writing */
 
-.footnotes::before {
+.footnotes::before, .toc > h2:after {
     /* There has to be some content, otherwise it doesn't display. */
     content:" ";
     display: block;
