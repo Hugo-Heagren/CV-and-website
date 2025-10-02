@@ -1,42 +1,8 @@
-html {
-    margin-right: 20%;
-    margin-left: 20%;
-    font-size: 14pt;
-    font-family: georgia, serif, sans-serif;
-    hyphens: auto;
-}
-
-.toc {
-    margin-top: 0;
-    margin-bottom: 0;
-
-    position: fixed;
-    left: 0;
-    max-width: min(20%, 300px);
-
-    h2 {
-        font-size: normal;
-        margin-top: 0;
-    }    
-
-    ol {
-        list-style-type: none;
-        position: sticky;
-        top: 0;
-        padding: 0;
-    }
-
-    h2, ol {
-        margin-left: var(--default-spacing-unit);
-        margin-right: var(--default-spacing-unit);
-    }
-}
-
-
 /* * Variables */
 
 /* Variable is useful for calling to inside the media query later */
 :root {
+    --gutter-width: 20vw;
     --default-title-size: 2.5em;
     --default-spacing-unit: 10px;
 }
@@ -100,34 +66,34 @@ img {
     box-sizing: border-box;
 }
 
+html {
+    /* height: 100% ensures we fill the viewport, makes the footer stay at
+   the bottom of the viewport. This is imnportant! */
+    height: 100%;
+    font-size: 14pt;
+    font-family: georgia, serif, sans-serif;
+    hyphens: auto;
+}
+
+body {
+    display: grid;
+    grid-template-columns:
+        [left-gutter-start] var(--gutter-width)
+        [left-gutter-end main-start] auto
+        [main-end right-gutter-start] var(--gutter-width);
+    grid-column-gap: var(--default-spacing-unit);
+    grid-template-rows: [header-start] auto
+                        [header-end main-start] 1fr
+                        [main-end footer-start] auto [footer-end];
+  min-height: 100%;
+}
+
 /* Fix for minor scrolling issue */
 html, body {
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 0;
-}
-
-body {
-    /* This is so that the footer stays *right* at the bottom.*/
-    display: flex;
-    flex-direction: column;
-    /* Make the body take up the whole screen */
-    height: 100vh;
-    justify-content: space-between;
-}
-
-main {
-    display: initial;
-    /* Equivalent to:
-       flex-grow: 1;
-       flex-shrink: 0;
-       flex-basis: auto;
-
-       The effect is that the <main> element fills all the spare
-       screen between the nav/header and the footer.
-   */
-    flex: 1 0 auto;
 }
 
 header {
@@ -138,17 +104,29 @@ header {
     margin-bottom: 40px
 }
 
+/* ** Main area  */
+main {
+    grid-area: main;
+}
+
+/* Set everything in the body to be in the main area, and then other
+   rules can override this if need be. */
+body > * {
+  grid-column: main;
+}
+
+/* ** Footer */
+
 footer {
+    grid-row: footer;
     margin-top: var(--default-spacing-unit);
     margin-bottom: var(--default-spacing-unit);
     /* Positioning */
-    flex-shrink: 0;
-    /* Typography */
+    justify-self: center;
     font-size: 75%;
     text-align: center;
     hyphens: none;
     width: 40%;
-    align-self: center;
 }
 
 /* Paragraph on the right */
@@ -178,8 +156,13 @@ footer {
 }
 
 /* These are 'about right' */
-.title { font-size: var(--default-title-size); }
-.nav-bar { font-size: 1.5em; }
+.title {
+    font-size: var(--default-title-size);
+}
+
+.nav-bar {
+    font-size: 1.5em;
+}
 
 a {
     /* Ensure they're still blue after clicking */
@@ -199,6 +182,39 @@ a {
 .nav-item:not(:last-child) {
     margin-right: 20px;
 }
+
+/* *** Table of contents */
+
+nav.toc {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: var(--default-spacing-unit);
+    margin-right: var(--default-spacing-unit);
+
+    /* max-width: min(var(--rail-width), 300px); */
+
+    /* Positioning */
+    grid-column: left-gutter;
+    grid-row: main;
+    position: sticky;
+    top: 0;
+    align-self: start;
+
+    h2 {
+        font-size: normal;
+    }    
+
+    ol {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    h2, ol {
+        /* margin-left: var(--default-spacing-unit); */
+        /* margin-right: var(--default-spacing-unit); */
+    }
+}
+
 
 /* * Research list */
 

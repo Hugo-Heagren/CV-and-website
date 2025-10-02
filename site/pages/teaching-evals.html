@@ -5,7 +5,7 @@
           href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
 {% endblock %}
 {% block title %}{{ super() }} | Teaching Evals{% endblock %}
-{% block content %}
+{% block preamble %}
     {% set class_list = research | select('bibfilter', type='teaching') | selectattr("eval_data") %}
     <nav class="toc" role="doc-toc">
         <h2>Contents</h2>
@@ -20,6 +20,8 @@
             {%- endfor %}
         </ol>
     </nav>
+{% endblock %}
+{% block content %}
     <p>
         Someone once told me that during my academic job search, I
         should make all my teaching eval data available online.
