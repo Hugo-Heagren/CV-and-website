@@ -46,7 +46,8 @@
         philosophy knowledge and has someone who has never studied
         philosophy before, this is something I much appreciate.
     </blockquote>
-    {% for t in research | select('bibfilter', type='teaching') | selectattr("eval_data") %}
+    {% set class_list = research | select('bibfilter', type='teaching') | selectattr("eval_data") %}
+    {% for t in class_list %}
         <section>
             <h1>
                 {{- t.title -}}
