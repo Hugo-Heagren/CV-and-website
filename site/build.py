@@ -11,6 +11,7 @@ from lxml import etree
 import rcssmin
 import json
 from lib import bib_parser as bp
+from datatable import rbind
 
 # * Arguments
 
@@ -122,6 +123,10 @@ def html_mung(value):
 
 # Make available
 env.filters["html_mung"] = html_mung
+
+# ** Datatables
+
+env.filters["rbind"] = rbind
 
 # * Setup for sitemap
 

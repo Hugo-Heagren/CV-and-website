@@ -22,7 +22,9 @@
         each qualitative question with <em>all</em> of the comments
         quoted underneath (in their original form, without spell
         checking or other editorialising). <i>n</i> is the number of
-        students who filled out the survey.
+        students who filled out the survey. There is also a bar chart
+        of <a href="#averages">my average scores across all
+        modules</a>.
     </p>
     <p>
         Before all that, here are two comments left anonymously by
@@ -46,8 +48,32 @@
         philosophy knowledge and has someone who has never studied
         philosophy before, this is something I much appreciate.
     </blockquote>
-    {% set class_list = research | select('bibfilter', type='teaching') | selectattr("eval_data") %}
-    {% for t in class_list %}
+    <section id="averages">
+        <h1>Averages</h1>
+        {% set all_evals = research | select('bibfilter', type='teaching') | selectattr("eval_data") | map(attribute='eval_data') | rbind %}
+        <table class="charts-css bar data-spacing-5 data-outside show-heading show-labels">
+            <caption>Mean score for quantitative questions (n={{ all_evals.nrows }})</caption>
+            <caption class="table-leader">The seminar leader:</caption>
+            {% for q in all_evals.names %}
+                {% set mean = all_evals[q].mean()[0,0] %}
+                {% if mean != None %}
+                    <tr>
+                        <th scope="row">
+                            {{ eval_schema['columns']
+                            | selectattr('name', 'eq', q) 
+                            | map(attribute='shortname')
+                            | first }}
+                        </th>
+                        <td style="--size: {{ mean / 5 }}">
+                            <span class="data">{{ mean | round(1) }}</span>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </section>
+    {# Individual courses #}
+    {% for t in research | select('bibfilter', type='teaching') | selectattr("eval_data") %}
         <section>
             <h1>
                 {{- t.title -}}
