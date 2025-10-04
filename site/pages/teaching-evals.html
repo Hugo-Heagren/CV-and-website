@@ -15,7 +15,10 @@
             </li>
             {%- for t in class_list -%}
                 <li>
-                    <a class="nav-item" href="#{{ t.id }}">{{ t.title }}</a>
+                    <a class="nav-item" href="#{{ t.id }}">{{- t.title -}}
+                        {%- if t.part %}: {{ t.part }}
+                        {% endif -%}
+                    </a>
                 </li>
             {%- endfor %}
         </ol>
@@ -62,9 +65,9 @@
         philosophy knowledge and has someone who has never studied
         philosophy before, this is something I much appreciate.
     </blockquote>
-    <section>
-        {% for t in research | select('bibfilter', type='teaching') | selectattr("eval_data") %}
-            <h1 id="{{ t.id }}">
+    {% for t in research | select('bibfilter', type='teaching') | selectattr("eval_data") %}
+        <section id="{{ t.id }}">
+            <h1>
                 {{- t.title -}}
                 {%- if t.part %}: {{ t.part }}
                 {% endif -%}

@@ -77,11 +77,17 @@ html {
 
 body {
     display: grid;
+    /* Semantic naming for calculations below. We subtract the gap width
+       from the gutter width, so that the actual width of the rendered
+       gutter spaces is the same as the --gutter-width var above (even
+       with grid gaps). */
+    --gap-width: var(--default-spacing-unit);
+    --calculated-gutter-width: calc(var(--gutter-width) - var(--gap-width));
     grid-template-columns:
-        [left-gutter-start] var(--gutter-width)
+        [left-gutter-start] var(--calculated-gutter-width)
         [left-gutter-end main-start] auto
-        [main-end right-gutter-start] var(--gutter-width);
-    grid-column-gap: var(--default-spacing-unit);
+        [main-end right-gutter-start] var(--calculated-gutter-width);
+    grid-column-gap: var(--gap-width);
     grid-template-rows: [header-start] auto
                         [header-end main-start] 1fr
                         [main-end footer-start] auto [footer-end];
