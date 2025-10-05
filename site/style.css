@@ -7,58 +7,6 @@
     --default-spacing-unit: 10px;
 }
 
-/* * General styling */
-
-h2 {
-    font-size: large;
-}
-
-p {
-    text-align: justify;
-    /* This seems to work the best */
-    text-justify: initial;
-    margin: 0px;
-    /* All paragraphs which are preceded by another paragraph. */
-}
-
-p, li {
-    &:has(+ p, + li) {
-	margin-bottom: 1.2ex;
-    }
-}
-
-blockquote {
-    font-style: italic;
-    border-left: 3px solid;
-    /* Space between content and border */
-    padding-left: 0.5em;
-    hyphens: none;
-    margin: 5px;
-    &.display {
-	margin-left: 30px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-    }
-
-}
-
-/*
-   https://www.smashingmagazine.com/2020/03/setting-height-width-images-important-again/#how-css-interacts-with-element-widths-and-heights
-   */
-img {
-    height: auto;
-    width: auto;
-}
-
-/* Class for bits of text which give information about other bits of
-   text. (definitions titles, etc.) */
-.decoration {
-    display: inline-block;
-    font-weight: bold;
-    font-size: small;
-    hyphens: none;
-}
-
 /* * Structure & page Layout */
 
 * {
@@ -76,13 +24,16 @@ html {
 }
 
 body {
+    /*   */
     display: grid;
-    /* Semantic naming for calculations below. We subtract the gap width
-       from the gutter width, so that the actual width of the rendered
-       gutter spaces is the same as the --gutter-width var above (even
-       with grid gaps). */
+     /* Semantic naming for calculations below. We subtract the gap
+       width from the gutter width, so that the actual width of the
+       rendered gutter spaces is the same as the --gutter-width var
+       above (even with grid gaps). */
     --gap-width: var(--default-spacing-unit);
     --calculated-gutter-width: calc(var(--gutter-width) - var(--gap-width));
+    /* 3x3 structure. A left rail, main column and right rail; within the
+       main column a header area, content area, and then a footer area. */
     grid-template-columns:
         [left-gutter-start] var(--calculated-gutter-width)
         [left-gutter-end main-start] auto
@@ -91,7 +42,7 @@ body {
     grid-template-rows: [header-start] auto
                         [header-end main-start] 1fr
                         [main-end footer-start] auto [footer-end];
-  min-height: 100%;
+    min-height: 100%;
 }
 
 /* Fix for minor scrolling issue */
@@ -102,6 +53,7 @@ html, body {
     padding-bottom: 0;
 }
 
+/* ** Header */
 header {
     display: flex;
     justify-content: space-between;
@@ -135,25 +87,76 @@ footer {
     width: 40%;
 }
 
-/* Paragraph on the right */
-.bio {
-    margin-left: var(--default-spacing-unit);
-    float: left;
-    width: calc(50% - var(--default-spacing-unit));
- }
+/* * General styling */
 
-/* Picture on the left */
-.portrait {
-    margin-right: var(--default-spacing-unit);
-    float: left;
-    width: calc(50% - var(--default-spacing-unit));
+h2 {
+    font-size: large;
+}
+
+p {
+    text-align: justify;
+    /* This seems to work the best */
+    text-justify: initial;
+    margin: 0px;
+}
+
+p, li {
+    /* All paragraphs which are preceded by another paragraph. */
+    &:has(+ p, + li) {
+	margin-bottom: 1.2ex;
+    }
+}
+
+a {
+    /* Ensure they're still blue after clicking */
+    color: blue;
+    text-decoration: none;
+}
+
+blockquote {
+    font-style: italic;
+    border-left: 3px solid;
+    /* Space between content and border */
+    padding-left: 0.5em;
+    hyphens: none;
+    margin: 5px;
+    &.display {
+	margin-left: 30px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+    }
+}
+
+/*
+   https://www.smashingmagazine.com/2020/03/setting-height-width-images-important-again/#how-css-interacts-with-element-widths-and-heights
+   */
+img {
+    height: auto;
+    width: auto;
+}
+
+/* Remove everything that makes it look like a button! Butchery of
+   what buttons are supposed to be like, but hey, it looks nice. */
+button {
+    content: "";
+    padding: 0;
+    box-shadow: none;
+    text-decoration: none;
+    display: inline-block;
+    background: none;
+    border: none;
+}
+
+/* Class for bits of text which give information about other bits of
+   text. (definitions titles, etc.) */
+.decoration {
+    display: inline-block;
+    font-weight: bold;
+    font-size: small;
+    hyphens: none;
 }
 
 /* * Navigation */
-
-.title, .nav-bar {
-    display: inline;
-}
 
 /* On big screens, hide the checkbox and label used for the mobile
    menu */
@@ -170,10 +173,8 @@ footer {
     font-size: 1.5em;
 }
 
-a {
-    /* Ensure they're still blue after clicking */
-    color: blue;
-    text-decoration: none;
+.title, .nav-bar {
+    display: inline;
 }
 
 .title, .nav-item {
@@ -185,19 +186,30 @@ a {
     text-decoration-thickness: 3px;
 }
 
+/* Align the nav items properly */
 .nav-item:not(:last-child) {
     margin-right: 20px;
 }
 
-/* *** Table of contents */
+/* ** Table of contents */
 
+/* Popover wrapper for navigation. On desktop, we just display
+   contents. */
+@media screen and (min-width: 900px) {
+    #toc {
+        display: contents;
+        button[popovertarget="toc"] {
+            display: none;
+        }
+    }
+}
+
+/* Desktop table of contents styling */
 nav.toc {
     margin-top: 0;
     margin-bottom: 0;
     margin-left: var(--default-spacing-unit);
     margin-right: var(--default-spacing-unit);
-
-    /* max-width: min(var(--rail-width), 300px); */
 
     /* Positioning */
     grid-column: left-gutter;
@@ -214,13 +226,23 @@ nav.toc {
         list-style-type: none;
         padding: 0;
     }
-
-    h2, ol {
-        /* margin-left: var(--default-spacing-unit); */
-        /* margin-right: var(--default-spacing-unit); */
-    }
 }
 
+/* * Front page */
+/*  Paragraph on the right */
+
+.bio {
+    margin-left: var(--default-spacing-unit);
+    float: left;
+    width: calc(50% - var(--default-spacing-unit));
+ }
+
+/* Picture on the left */
+.portrait {
+    margin-right: var(--default-spacing-unit);
+    float: left;
+    width: calc(50% - var(--default-spacing-unit));
+}
 
 /* * Research list */
 
@@ -454,6 +476,18 @@ dl.talk-list {
 
 /* ** Portrait */
 @media screen and (max-width: 900px) and (orientation: portrait) {
+
+    body {
+        --gutter-width: 0;
+        --gap-width: var(--default-spacing-unit);
+        --calculated-gutter-width: calc(var(--gutter-width) - var(--gap-width));
+        grid-template-columns:
+            [left-gutter-start] var(--calculated-gutter-width)
+            [left-gutter-end main-start] auto
+            [main-end right-gutter-start] var(--calculated-gutter-width);
+        grid-column-gap: var(--gap-width);
+    }
+
     .portrait, .bio {
 	width: 100%;
 	/* Remove previous margins */
@@ -463,18 +497,23 @@ dl.talk-list {
     .portrait {
 	margin-bottom: var(--default-spacing-unit);
     }
-
-    html {
-	margin-right: var(--default-spacing-unit);
-	margin-left: var(--default-spacing-unit);
-    }
 }
 
 /* ** Landscape */
 @media screen and (max-height: 900px) and (orientation: landscape) {
-    html {
-	margin-right: 10%;
-	margin-left: 10%;
+    body {
+        --gutter-width: 10%;
+        --gap-width: var(--default-spacing-unit);
+        --calculated-gutter-width: calc(var(--gutter-width) - var(--gap-width));
+        /* In landscape mode, we use the grid which we inherit from the
+           desktop setup to make two 'margines' (the alternative is
+           not having a grid, and setting up a different layout here,
+           which would only be more confusing) */
+        grid-template-columns:
+            [left-gutter-start] var(--calculated-gutter-width)
+            [left-gutter-end main-start] auto
+            [main-end right-gutter-start] var(--calculated-gutter-width);
+        grid-column-gap: var(--gap-width);
     }
 
     /* README!! The following rules might look a bit odd, but they are
@@ -485,13 +524,11 @@ dl.talk-list {
        full-width, then floating the portrait inside the text of the
        bio, and the recalculating the values of the margins. */
 
-    /* This *additional* 20px account for the loss of the 20px margin-left
-       in the bio (which has to have margin-left=0px, below, so that
-       the left edge of the text is flush with the left edge of the
-       picture. */
     .portrait {
 	margin-right: calc(2 * var(--default-spacing-unit));
-	margin-bottom: var(--default-spacing-unit);
+        /* This looks weird in the code, but much better than a 'correct'
+           margin when rendered. Go figure. */
+	margin-bottom: 0;
     }
     
     .bio {
@@ -514,7 +551,38 @@ dl.talk-list {
     input[id='menu']:not(:checked)+.nav-bar {
 	display: none;
     }
+
+    /* Blue the background when the TOC popover is active. */
+    ::backdrop {
+        backdrop-filter: blur(2px);
+    }
     
+    /* Button within the TOC which closes it ('x' in the top right) */
+    nav.toc button[popovertargetaction="hide"] {
+        position: absolute;
+        font-weight: bold;
+        color: black;
+        font-size: large;
+        top: 0;
+        right: 0;
+    }
+
+    /* Floating button which opens/closes TOC */
+    button[id="toc-toggle"] {
+        position: fixed;
+        bottom: var(--default-spacing-unit);
+        left: var(--default-spacing-unit);
+        left: var(--default-spacing-unit);
+        width: 60px;
+        aspect-ratio: 1 / 1;
+    }
+
+    /* The popover, when it's open */
+    div[popover].toc {
+        max-height: calc(100% - (2 * var(--default-spacing-unit)));
+        overflow: scroll;
+    }
+
     .nav-item {
         /* Display vertically because mobile */
         display: block;
