@@ -580,6 +580,7 @@ dl.talk-list {
     /* The popover, when it's open */
     div[popover].toc {
         max-height: calc(100% - (2 * var(--default-spacing-unit)));
+        max-width: calc(100% - (2 * var(--default-spacing-unit)));
         overflow: scroll;
     }
 
