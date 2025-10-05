@@ -54,6 +54,28 @@
             philosophy knowledge and has someone who has never studied
             philosophy before, this is something I much appreciate.
         </blockquote>
+        {% macro scores_table(table) -%}
+            <table class="charts-css bar data-spacing-5 data-outside show-heading show-labels">
+                <caption>Mean score for quantitative questions (n={{ table.nrows }})</caption>
+                <caption class="table-leader">The seminar leader:</caption>
+                {% for q in table.names %}
+                    {% set mean = table[q].mean()[0,0] %}
+                    {% if mean != None %}
+                        <tr>
+                            <th scope="row">
+                                {{ eval_schema['columns']
+                                | selectattr('name', 'eq', q) 
+                                | map(attribute='shortname')
+                                | first }}
+                            </th>
+                            <td style="--size: {{ mean / 5 }}">
+                                <span class="data">{{ mean | round(1) }}</span>
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        {%- endmacro %}
         <section id="averages">
             <h1>Averages</h1>
             {% set all_evals = research | select('bibfilter', type='teaching') | selectattr("eval_data") | map(attribute='eval_data') | rbind %}
@@ -67,26 +89,7 @@
                     {% endif -%}
                 </h1>
                 {% set tbl = t.eval_data %}
-                <table class="charts-css bar data-spacing-5 data-outside show-heading show-labels">
-                    <caption>Mean score for quantitative questions (n={{ tbl.nrows }})</caption>
-                    <caption class="table-leader">The seminar leader:</caption>
-                    {% for q in tbl.names %}
-                        {% set mean = tbl[q].mean()[0,0] %}
-                        {% if mean != None %}
-                            <tr>
-                                <th scope="row">
-                                    {{ eval_schema['columns']
-                                    | selectattr('name', 'eq', q) 
-                                    | map(attribute='shortname')
-                                    | first }}
-                                </th>
-                                <td style="--size: {{ mean / 5 }}">
-                                    <span class="data">{{ mean | round(1) }}</span>
-                                </td>
-                            </tr>
-                        {% endif %}
-                    {% endfor %}
-                </table>
+                {{ scores_table(tbl) }}
                 {% for q in tbl.names %}
                     {% set comments = tbl[q].to_list() | first | select('string') | reject('eq', '') | list %}
                     {% if comments | length > 0 %}
