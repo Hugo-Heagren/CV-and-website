@@ -575,6 +575,11 @@ dl.talk-list {
         left: var(--default-spacing-unit);
         width: 60px;
         aspect-ratio: 1 / 1;
+
+        /* The charts CSS interferes with this button (perhaps because it's an
+           SVG?). The small labels for each bar were shoowing above
+           it, so we adjust the z-index to stop that happening.) */
+        z-index: 1;
     }
 
     /* The popover, when it's open */
