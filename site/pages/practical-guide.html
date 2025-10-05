@@ -1,5 +1,19 @@
-{% extends 'base.html' %}
-{% block title %}{{ super() }} | Practical Advice for aspirant academics{% endblock %}
+{% extends 'long.html' %}
+{% block toc %}
+    {{ toc_item('', '(Top)') }}
+    {%- for id, title in {
+        'work': 'Work',
+        'presentations-and-papers': 'Presentations and papers',
+        'computers': 'Computers',
+        'website': 'Website',
+        'travel': 'Travel',
+        'useful-bookmarks': 'Useful Bookmarks',
+        'finally': 'Finally'
+        }.items() -%}
+        {{ toc_item(id, title) }}
+    {%- endfor %}
+    {{ toc_item('footnotes', '(Footnotes)') }}
+{% endblock %}
 {% block content %}
     {%- set LaTeX -%}
         <span class="latex-logo">L<sup>a</sup>T<sub>e</sub>X</span>
@@ -72,7 +86,7 @@
                         </ol>
                     </p>
                 </section>
-                <section>
+                <section id="work">
                     <h1>Work</h1>
                     <ul>
                         <li>
@@ -218,7 +232,7 @@
                             </li>
                         </ul>
                     </section>
-                    <section>
+                    <section id="presentations-and-papers">
                         <h1>Presentations and papers</h1>
                         <ul>
                             <li>
@@ -259,7 +273,7 @@
                             </li>
                         </ul>
                     </section>
-                    <section>
+                    <section id="computers">
                         <h1>Computers</h1>
                         <ul>
                             <li>
@@ -412,7 +426,7 @@
                                             </li>
                                         </ul>
                                     </section>
-                                    <section>
+                                    <section id="website">
                                         <h1>Website</h1>
                                         <p>
                                             At some point in your third or fourth year, setup a simple
@@ -475,7 +489,7 @@
                                                 </li>
                                             </ul>
                                         </section>
-                                        <section>
+                                        <section id="travel">
                                             <h1>Travel</h1>
                                             <ul>
                                                 <li>
@@ -504,7 +518,7 @@
                                                 </li>
                                             </ul>
                                         </section>
-                                        <section>
+                                        <section id="useful-bookmarks">
                                             <h1>Useful bookmarks</h1>
                                             <p>
                                                 List of bookmarks in my web browser I regularly use (some may
@@ -536,7 +550,7 @@
                                                 </li>
                                             </ul>
                                         </section>
-                                        <section>
+                                        <section id="finally">
                                             <h1>Finally</h1>
                                             <p>
                                                 Give back a bit to the academic community. For example, you could
@@ -554,7 +568,7 @@
                                                    role="doc-backlink">↩</a>
                                             </p>
                                         {%- endmacro %}
-                                        <section class="footnotes">
+                                        <section id="footnotes" class="footnotes">
                                             <p>[Click the ↩ to go back up to the footnote label.]</p>
                                             {% call footnotetext(1) -%}
                                                 <a href="https://tess.oconnor.cx/2007/08/tex-poshlet">Credit for

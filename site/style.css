@@ -1,17 +1,90 @@
+/* * Variables */
+
+/* Variable is useful for calling to inside the media query later */
+:root {
+    --gutter-width: 20vw;
+    --default-title-size: 2.5em;
+    --default-spacing-unit: 10px;
+}
+
+/* * Structure & page Layout */
+
+* {
+    /* https://www.w3schools.com/html/html_responsive.asp */
+    box-sizing: border-box;
+}
+
 html {
-    margin-right: 20%;
-    margin-left: 20%;
+    /* height: 100% ensures we fill the viewport, makes the footer stay at
+   the bottom of the viewport. This is imnportant! */
+    height: 100%;
     font-size: 14pt;
     font-family: georgia, serif, sans-serif;
     hyphens: auto;
 }
 
-/* * Variables */
+body {
+    /*   */
+    display: grid;
+     /* Semantic naming for calculations below. We subtract the gap
+       width from the gutter width, so that the actual width of the
+       rendered gutter spaces is the same as the --gutter-width var
+       above (even with grid gaps). */
+    --gap-width: var(--default-spacing-unit);
+    --calculated-gutter-width: calc(var(--gutter-width) - var(--gap-width));
+    /* 3x3 structure. A left rail, main column and right rail; within the
+       main column a header area, content area, and then a footer area. */
+    grid-template-columns:
+        [left-gutter-start] var(--calculated-gutter-width)
+        [left-gutter-end main-start] auto
+        [main-end right-gutter-start] var(--calculated-gutter-width);
+    grid-column-gap: var(--gap-width);
+    grid-template-rows: [header-start] auto
+                        [header-end main-start] 1fr
+                        [main-end footer-start] auto [footer-end];
+    min-height: 100%;
+}
 
-/* Variable is useful for calling to inside the media query later */
-:root {
-    --default-title-size: 2.5em;
-    --default-spacing-unit: 10px;
+/* Fix for minor scrolling issue */
+html, body {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* ** Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    margin-bottom: 40px
+}
+
+/* ** Main area  */
+main {
+    grid-area: main;
+}
+
+/* Set everything in the body to be in the main area, and then other
+   rules can override this if need be. */
+body > * {
+  grid-column: main;
+}
+
+/* ** Footer */
+
+footer {
+    grid-row: footer;
+    margin-top: var(--default-spacing-unit);
+    margin-bottom: var(--default-spacing-unit);
+    /* Positioning */
+    justify-self: center;
+    font-size: 75%;
+    text-align: center;
+    hyphens: none;
+    width: 40%;
 }
 
 /* * General styling */
@@ -25,13 +98,19 @@ p {
     /* This seems to work the best */
     text-justify: initial;
     margin: 0px;
-    /* All paragraphs which are preceded by another paragraph. */
 }
 
 p, li {
+    /* All paragraphs which are preceded by another paragraph. */
     &:has(+ p, + li) {
 	margin-bottom: 1.2ex;
     }
+}
+
+a {
+    /* Ensure they're still blue after clicking */
+    color: blue;
+    text-decoration: none;
 }
 
 blockquote {
@@ -46,7 +125,6 @@ blockquote {
 	margin-top: 20px;
 	margin-bottom: 20px;
     }
-
 }
 
 /*
@@ -55,6 +133,18 @@ blockquote {
 img {
     height: auto;
     width: auto;
+}
+
+/* Remove everything that makes it look like a button! Butchery of
+   what buttons are supposed to be like, but hey, it looks nice. */
+button {
+    content: "";
+    padding: 0;
+    box-shadow: none;
+    text-decoration: none;
+    display: inline-block;
+    background: none;
+    border: none;
 }
 
 /* Class for bits of text which give information about other bits of
@@ -66,83 +156,7 @@ img {
     hyphens: none;
 }
 
-/* * Structure & page Layout */
-
-* {
-    /* https://www.w3schools.com/html/html_responsive.asp */
-    box-sizing: border-box;
-}
-
-/* Fix for minor scrolling issue */
-html, body {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-body {
-    /* This is so that the footer stays *right* at the bottom.*/
-    display: flex;
-    flex-direction: column;
-    /* Make the body take up the whole screen */
-    height: 100vh;
-    justify-content: space-between;
-}
-
-main {
-    display: initial;
-    /* Equivalent to:
-       flex-grow: 1;
-       flex-shrink: 0;
-       flex-basis: auto;
-
-       The effect is that the <main> element fills all the spare
-       screen between the nav/header and the footer.
-   */
-    flex: 1 0 auto;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: 40px;
-    margin-bottom: 40px
-}
-
-footer {
-    margin-top: var(--default-spacing-unit);
-    margin-bottom: var(--default-spacing-unit);
-    /* Positioning */
-    flex-shrink: 0;
-    /* Typography */
-    font-size: 75%;
-    text-align: center;
-    hyphens: none;
-    width: 40%;
-    align-self: center;
-}
-
-/* Paragraph on the right */
-.bio {
-    margin-left: var(--default-spacing-unit);
-    float: left;
-    width: calc(50% - var(--default-spacing-unit));
- }
-
-/* Picture on the left */
-.portrait {
-    margin-right: var(--default-spacing-unit);
-    float: left;
-    width: calc(50% - var(--default-spacing-unit));
-}
-
 /* * Navigation */
-
-.title, .nav-bar {
-    display: inline;
-}
 
 /* On big screens, hide the checkbox and label used for the mobile
    menu */
@@ -151,13 +165,16 @@ footer {
 }
 
 /* These are 'about right' */
-.title { font-size: var(--default-title-size); }
-.nav-bar { font-size: 1.5em; }
+.title {
+    font-size: var(--default-title-size);
+}
 
-a {
-    /* Ensure they're still blue after clicking */
-    color: blue;
-    text-decoration: none;
+.nav-bar {
+    font-size: 1.5em;
+}
+
+.title, .nav-bar {
+    display: inline;
 }
 
 .title, .nav-item {
@@ -169,8 +186,62 @@ a {
     text-decoration-thickness: 3px;
 }
 
+/* Align the nav items properly */
 .nav-item:not(:last-child) {
     margin-right: 20px;
+}
+
+/* ** Table of contents */
+
+/* Popover wrapper for navigation. On desktop, we just display
+   contents. */
+@media screen and (min-width: 900px) {
+    #toc {
+        display: contents;
+        button[popovertarget="toc"] {
+            display: none;
+        }
+    }
+}
+
+/* Desktop table of contents styling */
+nav.toc {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: var(--default-spacing-unit);
+    margin-right: var(--default-spacing-unit);
+
+    /* Positioning */
+    grid-column: left-gutter;
+    grid-row: main;
+    position: sticky;
+    top: 0;
+    align-self: start;
+
+    h2 {
+        font-size: normal;
+    }    
+
+    ol {
+        list-style-type: none;
+        padding: 0;
+    }
+}
+
+/* * Front page */
+/*  Paragraph on the right */
+
+.bio {
+    margin-left: var(--default-spacing-unit);
+    float: left;
+    width: calc(50% - var(--default-spacing-unit));
+ }
+
+/* Picture on the left */
+.portrait {
+    margin-right: var(--default-spacing-unit);
+    float: left;
+    width: calc(50% - var(--default-spacing-unit));
 }
 
 /* * Research list */
@@ -309,7 +380,7 @@ dl.talk-list {
 
 /* * Longer writing */
 
-.footnotes::before {
+.footnotes::before, .toc > h2:after {
     /* There has to be some content, otherwise it doesn't display. */
     content:" ";
     display: block;
@@ -405,6 +476,18 @@ dl.talk-list {
 
 /* ** Portrait */
 @media screen and (max-width: 900px) and (orientation: portrait) {
+
+    body {
+        --gutter-width: 0;
+        --gap-width: var(--default-spacing-unit);
+        --calculated-gutter-width: calc(var(--gutter-width) - var(--gap-width));
+        grid-template-columns:
+            [left-gutter-start] var(--calculated-gutter-width)
+            [left-gutter-end main-start] auto
+            [main-end right-gutter-start] var(--calculated-gutter-width);
+        grid-column-gap: var(--gap-width);
+    }
+
     .portrait, .bio {
 	width: 100%;
 	/* Remove previous margins */
@@ -414,18 +497,23 @@ dl.talk-list {
     .portrait {
 	margin-bottom: var(--default-spacing-unit);
     }
-
-    html {
-	margin-right: var(--default-spacing-unit);
-	margin-left: var(--default-spacing-unit);
-    }
 }
 
 /* ** Landscape */
 @media screen and (max-height: 900px) and (orientation: landscape) {
-    html {
-	margin-right: 10%;
-	margin-left: 10%;
+    body {
+        --gutter-width: 10%;
+        --gap-width: var(--default-spacing-unit);
+        --calculated-gutter-width: calc(var(--gutter-width) - var(--gap-width));
+        /* In landscape mode, we use the grid which we inherit from the
+           desktop setup to make two 'margines' (the alternative is
+           not having a grid, and setting up a different layout here,
+           which would only be more confusing) */
+        grid-template-columns:
+            [left-gutter-start] var(--calculated-gutter-width)
+            [left-gutter-end main-start] auto
+            [main-end right-gutter-start] var(--calculated-gutter-width);
+        grid-column-gap: var(--gap-width);
     }
 
     /* README!! The following rules might look a bit odd, but they are
@@ -436,13 +524,11 @@ dl.talk-list {
        full-width, then floating the portrait inside the text of the
        bio, and the recalculating the values of the margins. */
 
-    /* This *additional* 20px account for the loss of the 20px margin-left
-       in the bio (which has to have margin-left=0px, below, so that
-       the left edge of the text is flush with the left edge of the
-       picture. */
     .portrait {
 	margin-right: calc(2 * var(--default-spacing-unit));
-	margin-bottom: var(--default-spacing-unit);
+        /* This looks weird in the code, but much better than a 'correct'
+           margin when rendered. Go figure. */
+	margin-bottom: 0;
     }
     
     .bio {
@@ -465,7 +551,44 @@ dl.talk-list {
     input[id='menu']:not(:checked)+.nav-bar {
 	display: none;
     }
+
+    /* Blue the background when the TOC popover is active. */
+    ::backdrop {
+        backdrop-filter: blur(2px);
+    }
     
+    /* Button within the TOC which closes it ('x' in the top right) */
+    nav.toc button[popovertargetaction="hide"] {
+        position: absolute;
+        font-weight: bold;
+        color: black;
+        font-size: large;
+        top: 0;
+        right: 0;
+    }
+
+    /* Floating button which opens/closes TOC */
+    button[id="toc-toggle"] {
+        position: fixed;
+        bottom: var(--default-spacing-unit);
+        left: var(--default-spacing-unit);
+        left: var(--default-spacing-unit);
+        width: 60px;
+        aspect-ratio: 1 / 1;
+
+        /* The charts CSS interferes with this button (perhaps because it's an
+           SVG?). The small labels for each bar were shoowing above
+           it, so we adjust the z-index to stop that happening.) */
+        z-index: 1;
+    }
+
+    /* The popover, when it's open */
+    div[popover].toc {
+        max-height: calc(100% - (2 * var(--default-spacing-unit)));
+        max-width: calc(100% - (2 * var(--default-spacing-unit)));
+        overflow: scroll;
+    }
+
     .nav-item {
         /* Display vertically because mobile */
         display: block;
