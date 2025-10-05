@@ -1,38 +1,18 @@
-{% extends 'base.html' %}
-{% block title %}{{ super() }} | Practical Advice for aspirant academics{% endblock %}
-{% block preamble %}
-    <nav class="toc" role="doc-toc">
-        <h2>Contents</h2>
-        <ol>
-            <li>
-                <a class="nav-item" href="#">(Top)</a>
-            </li>
-            <li>
-                <a class="nav-item" href="#work">Work</a>
-            </li>
-            <li>
-                <a class="nav-item" href="#presentations-and-papers">Presentations and papers</a>
-            </li>
-            <li>
-                <a class="nav-item" href="#computers">Computers</a>
-            </li>
-            <li>
-                <a class="nav-item" href="#website">Website</a>
-            </li>
-            <li>
-                <a class="nav-item" href="#travel">Travel</a>
-            </li>
-            <li>
-                <a class="nav-item" href="#useful-bookmarks">Useful bookmarks</a>
-            </li>
-            <li>
-                <a class="nav-item" href="#finally">Finally</a>
-            </li>
-            <li>
-                <a class="nav-item" href="#footnotes">(Footnotes)</a>
-            </li>
-        </ol>
-    </nav>
+{% extends 'long.html' %}
+{% block toc %}
+    {{ toc_item('', '(Top)') }}
+    {%- for id, title in {
+        'work': 'Work',
+        'presentations-and-papers': 'Presentations and papers',
+        'computers': 'Computers',
+        'website': 'Website',
+        'travel': 'Travel',
+        'useful-bookmarks': 'Useful Bookmarks',
+        'finally': 'Finally'
+        }.items() -%}
+        {{ toc_item(id, title) }}
+    {%- endfor %}
+    {{ toc_item('footnotes', '(Footnotes)') }}
 {% endblock %}
 {% block content %}
     {%- set LaTeX -%}

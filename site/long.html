@@ -1,4 +1,12 @@
 {% extends 'base.html' %}
+{% block head %}
+    <script>
+  function hidePopoverById(id) {
+      document.getElementById(id).hidePopover()
+  }
+document.getElementById('toc').hidePopover()
+    </script>
+{% endblock %}
 {% block title %}{{ super() }}{% endblock %}
 {% block preamble %}
     <div popover id="toc" class="toc">
@@ -11,9 +19,23 @@
         </nav>
     </div>
 {% endblock %}
-{% block content %}
-    <div class="warning-container">
-        <div id="four-oh-four">404!</div>
-        <div>You have wandered into Meinong's jungle. Turn back!</div>
-    </div>
+{% macro toc_item(id,title) %}
+    <li>
+        <a onclick="hidePopoverById('toc')" class="nav-item" href="#{{ id }}">{{ title }}</a>
+    </li>
+{% endmacro %}
+{% block pre_content %}
+    <button popovertarget="toc" id="toc-toggle">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+            <!-- Main 'box' -->
+            <rect height="100%" width="100%" class="burgerbox" />
+            <!-- Three white lines -->
+            <rect height="8%" width="8%" x="15" y="28" class="burgerbar" />
+            <rect height="8%" width="54%" x="30" y="28" class="burgerbar" />
+            <rect height="8%" width="8%" x="15" y="50" class="burgerbar" />
+            <rect height="8%" width="54%" x="30" y="50" class="burgerbar" />
+            <rect height="8%" width="8%" x="15" y="72" class="burgerbar" />
+            <rect height="8%" width="54%" x="30" y="72" class="burgerbar" />
+        </svg>
+    </button>
 {% endblock %}

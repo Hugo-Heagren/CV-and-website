@@ -43,6 +43,7 @@
         </header>
         {% block preamble %}{% endblock %}
         <main>
+            {% block pre_content %}{% endblock %}
             {% block content required %}{% endblock %}
         </main>
         <footer>
