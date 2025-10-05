@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}{{ super() }}{% endblock %}
+{% block preamble %}
+    <div popover id="toc" class="toc">
+        <nav class="toc" role="doc-toc">
+            <h2>Contents</h2>
+            <button popovertarget="toc" popovertargetaction="hide">✖</button>
+            <ol>
+                {% block toc %}{% endblock %}
+            </ol>
+        </nav>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="warning-container">
+        <div id="four-oh-four">404!</div>
+        <div>You have wandered into Meinong's jungle. Turn back!</div>
+    </div>
+{% endblock %}
