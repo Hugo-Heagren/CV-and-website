@@ -77,7 +77,7 @@
             </table>
         {%- endmacro %}
         <section id="averages">
-            <h1>Averages</h1>
+            <h1>Averages across all teaching</h1>
             {% set all_evals = research | select('bibfilter', type='teaching') | selectattr("eval_data") | map(attribute='eval_data') | rbind %}
             {{ scores_table(all_evals) }}
         </section>
