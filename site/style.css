@@ -131,7 +131,7 @@ p, li {
 
 a {
     /* Ensure they're still blue after clicking */
-    color: blue;
+    color: light-dark(blue,lightskyblue);
     text-decoration: none;
 }
 
@@ -296,6 +296,7 @@ dd {
         grid-column: 1 / 2;
     }
     .file-icon {
+        fill: var(--fg-color);
         grid-column: 2 / 3;
         vertical-align: top;
         /* This is a magic number which corresponds pretty much exactly to the
@@ -408,7 +409,7 @@ dl.talk-list {
     display: block;
     height: 3px;
     width: 100%;
-    background: black;
+    background: var(--fg-color);
     margin-top: calc(2* var(--default-spacing-unit));
     margin-bottom: calc(2* var(--default-spacing-unit));
 }
@@ -416,7 +417,7 @@ dl.talk-list {
 /* Dynamic footnote highlighting */
 @keyframes fade-alert {
     0% {
-	background-color: bisque;
+	background-color: var(--attention-color);
     }
     100% {
 	background-color: inherit;
@@ -465,7 +466,8 @@ dl.talk-list {
 
 .cc-image {
     height: 2.5ex;
-    vertical-align: middle;
+    vertical-align: text-bottom;
+    color: var(--fg-color);
 }
 
 
@@ -583,7 +585,7 @@ dl.talk-list {
     nav.toc button[popovertargetaction="hide"] {
         position: absolute;
         font-weight: bold;
-        color: black;
+        color: var(--fg-color);
         font-size: large;
         top: 0;
         right: 0;
@@ -728,13 +730,17 @@ dl.talk-list {
     }
 
     .burgerbox {
-	fill: inherit;
+        fill: var(--bg-color);
     }
 
-    /* This is a slightly pretentious hack, but it's very pleasing */
     .burgerbar {
-	fill: inherit;
-	filter: invert(100%);
+	fill: var(--fg-color);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .menu-toggle, #toc-toggle {
+            border: 3px solid var(--fg-color);
+        }
     }
 
 }
