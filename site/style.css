@@ -7,6 +7,28 @@
     --default-spacing-unit: 10px;
 }
 
+/* * Colour schemes */
+
+:root {
+    /* Enable light/dark mode */
+    color-scheme: light dark;
+    --fg-color: light-dark(black, #fbfbfe);
+    --bg-color: light-dark(white, #1c1b22);
+    --attention-color: light-dark(bisque, midnightblue);
+}
+
+@media (prefers-color-scheme: dark) {
+    img {
+        opacity: .75;
+    }
+}
+
+html {
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+}
+
+
 /* * Structure & page Layout */
 
 * {
@@ -651,12 +673,6 @@ dl.talk-list {
 
         & a:has(.file-icon) {
             grid-row: 2 / 3;
-        }
-
-        /* Scale icons to fit in the gutter properly */
-        .file-icon {
-            width: 100%;
-            height: auto;
         }
 
         & dd, .article-text {
