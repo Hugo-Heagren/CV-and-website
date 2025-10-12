@@ -625,9 +625,6 @@ dl.talk-list {
 	&:first-child {
 	    margin-top: 0.5em;   
 	}
-	/* HACK I feel like this should 'really' be a margin, but I can't make
-	   it work, so we're having this instead. */
-	padding-right: 20px;
     }
 
     header {
