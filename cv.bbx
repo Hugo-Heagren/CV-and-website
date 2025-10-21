@@ -69,9 +69,9 @@
 % This uses my `description' env from cv.cls
 \defbibenvironment{cv}{\begin{description}}{\end{description}}{\item[\printlabeldate]}
 
-% ** Article
+\DeclareFieldFormat[article,incollection]{title}{#1}
 
-\DeclareFieldFormat[article]{title}{#1}
+% ** Article
 
 \newbibmacro{title+url}{%
   \iffieldundef{url}%
@@ -92,6 +92,27 @@
   \setunit*{\addspace}%
   \printfield{journaltitle}%
   \setunit*{}%
+  \usebibmacro{finentry}%
+}
+
+% ** InCollection
+
+\DeclareFieldFormat{booktitle}{\mkbibitalic{#1}}
+% \DeclareNameWrapperFormat{editor}{#1}}
+
+\newbibmacro{editor+booktitle}{
+    % \printfield{booktitle}%
+  \usebibmacro{booktitle}
+    \setunit{\addspace}%
+    \usebibmacro{byeditor}%
+}
+
+\DeclareBibliographyDriver{incollection}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{title+url}%
+  \usebibmacro{editor+booktitle}%
+  \usebibmacro{note}%
   \usebibmacro{finentry}%
 }
 
@@ -291,8 +312,22 @@
 
 % * Custom Checks
 
-\defbibcheck{Article}{%
-	\ifentrytype{article}{}{\skipentry}%
+\def\publicationcheck{%
+  \ifentrytype{article}{}{%
+      \ifentrytype{incollection}{}{%
+          \skipentry}}%
+}
+
+\defbibcheck{Publication+Invited}{%
+  \iffieldequalstr{entrysubtype}{invited}{%
+      \publicationcheck}{%
+      \skipentry}%
+}
+
+\defbibcheck{Publication+Reviewed}{%
+  \iffieldequalstr{entrysubtype}{invited}{%
+      \skipentry}{%
+      \publicationcheck}%
 }
 
 \defbibcheck{Funding/Award}{%
