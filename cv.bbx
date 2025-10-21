@@ -69,6 +69,15 @@
 % This uses my `description' env from cv.cls
 \defbibenvironment{cv}{\begin{description}}{\end{description}}{\item[\printlabeldate]}
 
+\newcommand{\invited}{\directlua{tex.sprint{info['symbols']['invited']}}}
+\newcommand{\departmental}{\directlua{tex.sprint{info['symbols']['departmental']}}}
+
+% TODO Should I just use entrysubtype for this across the board?
+\newbibmacro{status}[1][entrysubtype]{%
+  \iffieldequalstr{#1}{invited}{\invited}{%
+      \iffieldequalstr{#1}{departmental}{\departmental}{}%
+    }}
+
 \DeclareFieldFormat[article,incollection]{title}{#1}
 
 % ** Article
@@ -92,6 +101,7 @@
   \setunit*{\addspace}%
   \printfield{journaltitle}%
   \setunit*{}%
+  \usebibmacro{status}
   \usebibmacro{finentry}%
 }
 
@@ -113,6 +123,8 @@
   \usebibmacro{title+url}%
   \usebibmacro{editor+booktitle}%
   \usebibmacro{note}%
+  \setunit*{}%
+  \usebibmacro{status}
   \usebibmacro{finentry}%
 }
 
@@ -155,17 +167,6 @@
         \printnames[respondee]{author}}%
       \setunit*{\addcolon\addspace}}{}%
   }
-
-
-
-
-\newcommand{\invited}{\directlua{tex.sprint{info['symbols']['invited']}}}
-\newcommand{\departmental}{\directlua{tex.sprint{info['symbols']['departmental']}}}
-
-\newbibmacro{status}{%
-  \iffieldequalstr{presentationtype}{invited}{\invited}{%
-      \iffieldequalstr{presentationtype}{departmental}{\departmental}{}%
-    }}
 
 % TODO Account for other speakers (for co-given presentations)
 \DeclareBibliographyDriver{presentation}{%
