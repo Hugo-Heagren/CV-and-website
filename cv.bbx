@@ -76,7 +76,8 @@
 \newbibmacro{status}[1][entrysubtype]{%
   \iffieldequalstr{#1}{invited}{\invited}{%
       \iffieldequalstr{#1}{departmental}{\departmental}{}%
-    }}
+      }%
+}
 
 \DeclareFieldFormat[article,incollection]{title}{#1}
 
@@ -313,22 +314,14 @@
 
 % * Custom Checks
 
-\def\publicationcheck{%
-  \ifentrytype{article}{}{%
-      \ifentrytype{incollection}{}{%
-          \skipentry}}%
-}
-
-\defbibcheck{Publication+Invited}{%
-  \iffieldequalstr{entrysubtype}{invited}{%
-      \publicationcheck}{%
-      \skipentry}%
-}
-
-\defbibcheck{Publication+Reviewed}{%
-  \iffieldequalstr{entrysubtype}{invited}{%
-      \skipentry}{%
-      \publicationcheck}%
+\defbibcheck{Publication}{%
+  \ifboolexpr{%
+      test {\ifentrytype{article}}
+      or
+      test {\ifentrytype{incollection}}
+    }%
+    {}% Pass check
+    {\skipentry}%
 }
 
 \defbibcheck{Funding/Award}{%
