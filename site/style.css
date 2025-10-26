@@ -203,7 +203,7 @@ button {
     color: inherit;
 }
 
-.nav-item:hover, .current  {
+.nav-item:hover, .current, nav.toc *:target-current {
     text-decoration-line: underline;
     text-decoration-thickness: 3px;
 }
@@ -232,6 +232,9 @@ nav.toc {
     margin-bottom: 0;
     margin-left: var(--default-spacing-unit);
     margin-right: var(--default-spacing-unit);
+
+    /* Scroll spy */
+    scroll-target-group: auto;
 
     /* Positioning */
     grid-column: left-gutter;
@@ -424,7 +427,9 @@ dl.talk-list {
     }
 }
 
-:target {
+/* The :not ensures that we don't highlight the header when we scroll
+   to the top-- semmed a bit much. */
+:target:not(#header) {
     animation: fade-alert 3s;
 }
 
