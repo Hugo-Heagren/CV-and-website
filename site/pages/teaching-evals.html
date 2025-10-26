@@ -8,7 +8,6 @@
 {% set class_list = research | select('bibfilter', type='teaching') | selectattr("eval_data") %}
 {% block title %}{{ super() }} | Teaching Evals{% endblock %}
 {% block toc %}
-    {{ toc_item('', '(Top)') }}
     {{ toc_item('averages', 'Averages across all teaching') }}
     {%- for t in class_list -%}{{ toc_item(t.id, t.title) }}{%- endfor %}
     {% endblock %}
