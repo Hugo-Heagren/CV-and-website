@@ -609,7 +609,7 @@ dl.talk-list {
         left: var(--default-spacing-unit);
         left: var(--default-spacing-unit);
         width: 60px;
-        aspect-ratio: 1 / 1;
+        height: 60px;
 
         /* The charts CSS interferes with this button (perhaps because it's an
            SVG?). The small labels for each bar were shoowing above
