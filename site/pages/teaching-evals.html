@@ -94,8 +94,8 @@
                     {% if comments | length > 0 %}
                         <h2>{{ q }}</h2>
                         {% for c in comments %}
-                            <blockquote>
-                                {{ c }}
+                            <blockquote class="no-collapse-whitespace">
+                                {{- c }}
                             </blockquote>
                         {% endfor %}
                     {% endif %}
