@@ -207,7 +207,9 @@ button {
     color: inherit;
 }
 
-.nav-item:hover, .current, nav.toc *:target-current {
+/* We use :where here to because its selector list is forgiving, and
+   not all browsers suppose :target-current. */
+:is(.nav-item:hover, .current, nav.toc *:target-current) {
     text-decoration-line: underline;
     text-decoration-thickness: 3px;
 }
