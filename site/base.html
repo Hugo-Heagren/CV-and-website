@@ -36,7 +36,7 @@
                 {% for page, name in [ ('research', 'Research'),
                     ('teaching-evals', 'Teaching Evals'),
                     ('contact', 'Contact')] %}
-                    <a class="nav-item{% if name|lower == title|lower %} current{% endif %}"
+                    <a class="nav-item{% if self._TemplateReference__context.name == ('pages/' ~ page ~ '.html') %} current{% endif %}"
                        href="./{{ page }}">{{ name }}</a>
                 {% endfor %}
             </nav>
