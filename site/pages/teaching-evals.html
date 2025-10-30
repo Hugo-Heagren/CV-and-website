@@ -9,7 +9,13 @@
 {% block title %}{{ super() }} | Teaching Evals{% endblock %}
 {% block toc %}
     {{ toc_item('averages', 'Averages across all teaching') }}
-    {%- for t in class_list -%}{{ toc_item(t.id, t.title) }}{%- endfor %}
+    {%- for t in class_list -%}
+        {%- set title -%}
+            {{- t.title -}}
+            {%- if t.part %}: {{ t.part }}
+            {%- endif -%}
+        {%- endset -%}
+        {{- toc_item(t.id, title) }}{%- endfor -%}
     {% endblock %}
     {% block content %}
         <p>
