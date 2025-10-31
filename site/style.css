@@ -435,7 +435,7 @@ dl.talk-list {
 
 /* The :not ensures that we don't highlight the header when we scroll
    to the top-- semmed a bit much. */
-:target:not(#header) {
+:target:not(#top) {
     animation: fade-alert 3s;
 }
 

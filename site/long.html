@@ -14,7 +14,7 @@ document.getElementById('toc').hidePopover()
             <h2>Contents</h2>
             <button popovertarget="toc" popovertargetaction="hide">✖</button>
             <ol>
-                {{ toc_item('header', '(Top)') }}
+                {{ toc_item('top', '(Top)') }}
                 {% block toc %}{% endblock %}
             </ol>
         </nav>
