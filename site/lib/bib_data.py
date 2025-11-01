@@ -32,11 +32,17 @@ class BibEntry(dict):
                 )
         elif key == "eval_data":
             val = self.get("eval_data")
-            data_file = self.get("file")
+            # We store multiple files by splitting them with "; ". I
+            # chose this because it's what Ebib does. It's not ideal
+            # and eventually I'll move to a proper database anyway.
+            data_file_list = self.get("file").split("; ")
             if val:
                 return val
-            elif data_file:
-                dt = datatable.fread(data_file)
+            elif data_file_list:
+                dt = datatable.Frame()
+                # Collect all the data into the table
+                for data_file in data_file_list:
+                    dt = datatable.rbind(dt, datatable.fread(data_file))
                 self.eval_data = dt
                 return dt
             else:
