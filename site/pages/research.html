@@ -55,7 +55,9 @@ refereed)</span>
             <time datetime="{{ p.date }}">{{ p.year }}</time>
         </dt>
         <dd>
-            {{ p.title }}
+            {% if p.url %}<a href={{ p.url }}>{% endif %}
+                {{ p.title }}
+                {% if p.url %}</a>{% endif %}
             <i>
                 ({{ p.eventtitle }}
                 {%- if p.institution | first %}; {{ p.institution | first -}}
