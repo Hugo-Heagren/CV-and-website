@@ -286,6 +286,27 @@
   \usebibmacro{finentry}%
 }
 
+% ** Visit
+
+\DeclareFieldFormat[visit]{entrysubtype}{Visiting\addspace#1}
+
+\newbibmacro{visittype}{%
+  \iffieldundef{entrysubtype}%
+    {\printtext{Research visit}}%
+    {\printfield{entrysubtype}}%
+}
+
+\DeclareBibliographyDriver{visit}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{visittype}%
+  \setunit{\addcomma\addspace}%
+  \usebibmacro{institution}%
+  \setunit{\\}\newblock{}
+  \usebibmacro{advisor}%
+  \usebibmacro{finentry}%
+}
+
 % * Descending Date Sorting Template
 
 % Sort with reverse chronologically.
@@ -365,6 +386,10 @@
   }{\skipentry}
 }
 \ExplSyntaxOff
+
+\defbibcheck{Visit}{%
+	\ifentrytype{visit}{}{\skipentry}%
+}
 
 % * `printbibliography' defaults
 
