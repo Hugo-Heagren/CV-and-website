@@ -57,6 +57,26 @@
 	}
 }
 
+% * Visits
+
+\DeclareDatamodelEntrytypes{visit}
+
+\DeclareDatamodelEntryfields[visit]{
+	date,day,endday,endmonth,endyear,month,year,
+	institution,
+	advisor,
+        entrysubtype% Studentship, professorship, etc.
+}
+
+\DeclareDatamodelConstraints[visit]{
+	\constraint[type=mandatory]{
+		\constraintfieldsxor{
+			\constraintfield{date}
+			\constraintfield{year}
+		}
+	}
+}
+
 % * End input
 
 \endinput
