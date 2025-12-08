@@ -7,6 +7,14 @@
   sorting=dd
 }
 
+% * Strings
+
+\NewBibliographyString{fundingfor}
+
+\DefineBibliographyStrings{english}{%
+  fundingfor = {funding for}
+}
+
 % * Custom date style
 
 % All credit to moewe: https://tex.stackexchange.com/a/717831/238079
@@ -258,16 +266,31 @@
   \mkbibparens{#1}%
 }
 
+% TODO Move me!
 \newbibmacro{note}{%
   \setunit{\addspace}%
   \printfield{note}%
 }
 
+% This is how we define the formatting for funding relations. See the
+% manual sec. 4.5.1.
+\newbibmacro{related:fundingfor}[1]{%
+  \entrydata{#1}{%
+    \usebibmacro{visittype}%
+    \setunit{\addcomma\addspace}%
+    \usebibmacro{institution}%
+  }
+}
+
+\letbibmacro{oldrelated}{related}
+\newbibmacro{related}{\mkbibparens{\usebibmacro{oldrelated}}}
+
 \DeclareBibliographyDriver{funding}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{title+funder}%
-  \usebibmacro{note}%
+  \setunit{\addspace}%
+  \usebibmacro{related}%
   \usebibmacro{finentry}%
 }
 
