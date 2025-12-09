@@ -39,6 +39,8 @@
 }
 
 @Funding{24_arts_human_small_grant,
+	relatedtype = {fundingfor},
+	related = {texas},
 	currency = {GBP},
 	amount = {1390},
 	note = {funding for visit to University of Texas at Austin},
@@ -92,8 +94,9 @@
 	timestamp = {2025-07-17 12:18:29 (BST)}
 }
 
-@Funding{26,
-	note = {funding for visit to Lund University},
+@Funding{26_global_resear_grant,
+	related = {lund},
+	relatedtype = {fundingfor},
 	currency = {GBP},
 	amount = {1800},
 	funder = {King's College London},
@@ -558,6 +561,11 @@
 	degree = {PhD Philosophy},
 	advisor = {Textor, Mark and Michaelson, Eliot and Brewer, Bill},
 	advisor+an:role = {1="Primary";2="Secondary";3="Tertiary"}
+}
+
+@Visit{lund,
+	date = {2026},
+	institution = {Lund University}
 }
 
 @Presentation{neth23_again_coher,
