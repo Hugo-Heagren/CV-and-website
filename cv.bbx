@@ -73,6 +73,7 @@
 % Useful because my style doesn't print much info.
 \renewcommand{\finentrypunct}{}
 \renewcommand{\newunitpunct}{;\addspace}
+\renewcommand{\begrelateddelim}{}
 
 % This uses my `description' env from cv.cls
 \defbibenvironment{cv}{\begin{description}}{\end{description}}{\item[\printlabeldate]}
@@ -262,13 +263,7 @@
   \printfield{title}%
 }
 
-\DeclareFieldFormat{note}{%
-  \mkbibparens{#1}%
-}
-
-% TODO Move me!
 \newbibmacro{note}{%
-  \setunit{\addspace}%
   \printfield{note}%
 }
 
@@ -277,20 +272,29 @@
 \newbibmacro{related:fundingfor}[1]{%
   \entrydata{#1}{%
     \usebibmacro{visittype}%
-    \setunit{\addcomma\addspace}%
+    \printtext{\addspace at\addspace}%
     \usebibmacro{institution}%
-  }
+  }%
 }
 
-\letbibmacro{oldrelated}{related}
-\newbibmacro{related}{\mkbibparens{\usebibmacro{oldrelated}}}
+\newbibmacro{related+note}{%
+  \ifboolexpr{%
+      test {\iffieldundef{related}}%
+      and
+      test {\iffieldundef{note}}}{}{%
+  \mkbibparens{%
+    \printfield{note}%
+    \setunit{}%
+    \usebibmacro{related}%
+  }}%
+}
 
 \DeclareBibliographyDriver{funding}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{title+funder}%
-  \setunit{\addspace}%
-  \usebibmacro{related}%
+  \newblock{\addspace}%
+  \usebibmacro{related+note}%
   \usebibmacro{finentry}%
 }
 
@@ -305,17 +309,21 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{institution+title}%
-  \usebibmacro{note}%
+  \newblock{\addspace}%
+  \usebibmacro{related+note}%
   \usebibmacro{finentry}%
 }
 
 % ** Visit
 
-\DeclareFieldFormat[visit]{entrysubtype}{Visiting\addspace#1}
+\DeclareFieldFormat[visit]{entrysubtype}{%
+  \ifcapital{\MakeCapital}{}%
+    visiting\addspace#1%
+}
 
 \newbibmacro{visittype}{%
   \iffieldundef{entrysubtype}%
-    {\printtext{Research visit}}%
+    {\printtext{\ifcapital{\MakeCapital}{}research visit}}%
     {\printfield{entrysubtype}}%
 }
 
