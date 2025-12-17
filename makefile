@@ -8,11 +8,12 @@ export BIB_XML_FILE=./cv.bltxml
 export CV_BIB_FILE=./cv.bib
 export CV_BCF_FILE=./cv.bcf
 export CV_BBL_FILE=./cv.bbl
+export CV_TEX_FILE=./cv.tex
 export BIBER_TOOL_CONF_FILE=./biber-tool.conf
 export LATEX=lualatex
 
 ${CV_BCF_FILE}:
-	${LATEX} cv.tex
+	${LATEX} ${CV_TEX_FILE}
 
 ${CV_BBL_FILE}: ${CV_BCF_FILE}
 	biber cv
@@ -37,13 +38,13 @@ ${OUT_DIR}:
 site: ${BIB_XML_FILE} ${INFO_JSON_FILE} ${OUT_DIR}
 	${PYTHON} ./site/build.py ${OUT_DIR} ${BIB_XML_FILE} ${INFO_JSON_FILE}
 
-cv.tex: ${CV_BBL_FILE} cv.bbx cv.dbx
-	${LATEX} cv.tex
-	${LATEX} cv.tex
+${CV_TEX_FILE}: ${CV_BBL_FILE} cv.bbx cv.dbx
+	${LATEX} ${CV_TEX_FILE}
+	${LATEX} ${CV_TEX_FILE}
 
 
 .PHONY: cv
-cv: cv.tex
+cv: ${CV_TEX_FILE}
 
 .PHONY: clean
 clean:
