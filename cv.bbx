@@ -283,9 +283,12 @@
       and
       test {\iffieldundef{note}}}{}{%
   \mkbibparens{%
-    \printfield{note}%
-    \setunit{}%
+    \usebibmacro{related:init}%
     \usebibmacro{related}%
+    \iffieldundef{related}{}{%
+        \setunit{;\addspace}%
+      }%
+    \printfield{note}%
   }}%
 }
 
