@@ -132,7 +132,7 @@
   \usebibmacro{begentry}%
   \usebibmacro{title+url}%
   \usebibmacro{editor+booktitle}%
-  \usebibmacro{note}%
+  \printfield[parens]{note}%
   \setunit*{}%
   \usebibmacro{status}
   \usebibmacro{finentry}%
@@ -261,10 +261,6 @@
   \printfield{funder}%
   \setunit{\addspace}%
   \printfield{title}%
-}
-
-\newbibmacro{note}{%
-  \printfield{note}%
 }
 
 % This is how we define the formatting for funding relations. See the
