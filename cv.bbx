@@ -74,6 +74,7 @@
 \renewcommand{\finentrypunct}{}
 \renewcommand{\newunitpunct}{;\addspace}
 \renewcommand{\begrelateddelim}{}
+\renewcommand\subtitlepunct{\addcolon\addspace}
 
 % This uses my `description' env from cv.cls
 \defbibenvironment{cv}{\begin{description}}{\end{description}}{\item[\printlabeldate]}
@@ -89,6 +90,20 @@
 }
 
 \DeclareFieldFormat[article,incollection]{title}{#1}
+
+\renewbibmacro{title}{%
+  \ifboolexpr{
+    test {\iffieldundef{title}}
+    and
+    test {\iffieldundef{subtitle}}
+  }
+    {}
+    {\printtext[title]{%
+       \printfield[titlecase]{title}%
+       \setunit{\subtitlepunct}%
+       \printfield{subtitle}}%
+     \newunit}%
+  }
 
 % ** Article
 
@@ -183,7 +198,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{respondeename}%
-  \printfield[title]{title}%
+  \usebibmacro{title}%
   % Using `setunit' means that we get the semantics of a new unit,
   % without printing `\newunitpunct'.
   \setunit*{\addspace}%
