@@ -56,7 +56,7 @@ refereed)</span>
         </dt>
         <dd>
             {% if p.url %}<a href={{ p.url }}>{% endif %}
-                {{ p.title }}
+                {{ p.title }}{{ ": " ~ p.subtitle if p.subtitle }}
                 {% if p.url %}</a>{% endif %}
             <i>
                 ({{ p.eventtitle }}
