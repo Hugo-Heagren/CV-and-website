@@ -84,6 +84,11 @@ class BibName:
             f"BibName(p={self.prefix} g={self.given} f={self.family} s={self.suffix})"
         )
 
+    def __str__(self):
+        return " ".join(
+            filter(None, [self.prefix, self.given, self.family, self.suffix])
+        )
+
 
 class PageRange:
     def __init__(self, lower=None, upper=None):
