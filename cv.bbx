@@ -133,20 +133,20 @@
 % ** InCollection
 
 \DeclareFieldFormat{booktitle}{\mkbibitalic{#1}}
-% \DeclareNameWrapperFormat{editor}{#1}}
-
-\newbibmacro{editor+booktitle}{
-    % \printfield{booktitle}%
-  \usebibmacro{booktitle}
-    \setunit{\addspace}%
-    \usebibmacro{byeditor}%
-}
 
 \DeclareBibliographyDriver{incollection}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{title+url}%
-  \usebibmacro{editor+booktitle}%
+  \usebibmacro{booktitle}
+  \setunit{\addspace}%
+  \ifnameundef{editor}%
+    {}
+    {\usebibmacro{bytypestrg}{editor}{editor}%
+      \setunit{\addspace}%
+      \printnames[byeditor]{editor}%
+    }%
+  \setunit{\addspace}%
   \printfield[parens]{note}%
   \setunit*{}%
   \usebibmacro{status}
