@@ -5,7 +5,7 @@
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
 {% endblock %}
-{% set class_list = research | select('bibfilter', type='teaching') | selectattr("eval_data") %}
+{% set class_list = research | selectattr('type', 'eq', 'teaching') | selectattr("eval_data") %}
 {% set title = "Teaching Evals" %}
 {% block toc %}
     {{ toc_item('averages', 'Averages across all teaching') }}
@@ -83,10 +83,10 @@
         {%- endmacro %}
         <section id="averages">
             <h1>Averages across all teaching</h1>
-            {% set all_evals = research | select('bibfilter', type='teaching') | selectattr("eval_data") | map(attribute='eval_data') | rbind %}
+            {% set all_evals = research | selectattr('type', 'eq', 'teaching') | selectattr("eval_data") | map(attribute='eval_data') | rbind %}
             {{ scores_table(all_evals) }}
         </section>
-        {% for t in research | select('bibfilter', type='teaching') | selectattr("eval_data") %}
+        {% for t in research | selectattr('type', 'eq', 'teaching') | selectattr("eval_data") %}
             <section id="{{ t.id }}">
                 <h1>
                     {{- t.title -}}

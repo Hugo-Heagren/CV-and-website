@@ -82,21 +82,6 @@ biblatex_parser = etree.XMLParser(target=bp.BibLateXMLParser(), remove_blank_tex
 env.globals["research"] = etree.parse(args.bib_xml_file, biblatex_parser)
 
 # * Jinja filters
-# ** Bib data
-
-
-def bib_filter(entry, **kwargs):
-    if len(kwargs) != 1:
-        raise ValueError("Bibfilter needs exactly one key=value pair")
-    field, test = next(iter(kwargs.items()))
-    if entry[field] == test:
-        return True
-    else:
-        return False
-
-
-env.tests["bibfilter"] = bib_filter
-
 # ** HTML Munging
 
 
