@@ -2,6 +2,8 @@
 {% set title = "Research" %}
 {% block content %}
     <h1>Papers</h1>
+    <span>({{ info.symbols.invited }} invited, otherwise
+    refereed)</span>
     <dl class="paper-list">
         {% for p in research | selectattr("type", "in", ["article", "incollection"]) | sort(attribute="date", reverse=true) %}
             {% set link = (p.url or p.doi) %}
@@ -49,6 +51,7 @@
                         {{ e }}
                     {%- endfor -%}
                 {%- endif -%}
+                {{- ' ' ~ info.symbols[p.entrysubtype] if p.entrysubtype -}}
                 {% if p.abstract %}
                     <details class="abstract">
                         <summary class="decoration abstract-label">abstract</summary>
