@@ -80,8 +80,8 @@ refereed)</span>
                 ({{ p.eventtitle }}
                 {%- if p.institution | first %}; {{ p.institution | first -}}
                 {% endif -%}
-            ){{ info.symbols[p.presentationtype] }}</i>
-        </dd>
-    {% endfor %}
-</dl>
+                )</i> {{ info.symbols[p.presentationtype] }}
+            </dd>
+        {% endfor %}
+    </dl>
 {% endblock %}
