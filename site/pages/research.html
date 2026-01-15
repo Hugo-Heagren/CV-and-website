@@ -42,16 +42,16 @@
                 {%- if p.type == 'article' %}
                     <i> {{ p.journaltitle or p.journal }}</i>
                 {%- elif p.type == 'incollection' %}
-                    In: <i>{{ p.booktitle }}</i>. Edited by
-                    {% for  e in p.editor -%}
-                        {%- if loop.index > 1 and loop.last %} and
-                        {% elif loop.index > 1 %}
-                            ,
-                        {% endif %}
-                        {{ e }}
+                    In: <i>{{ p.booktitle }}</i>. Edited by {{ " " }}
+                    {%- for e in p.editor -%}
+                        {%- if loop.index > 1 and loop.last %}{{ " and " }}
+                        {%- elif loop.index > 1 -%}
+                            {{ ", " }}
+                        {%- endif -%}
+                        {{- e -}}
                     {%- endfor -%}
                 {%- endif -%}
-                {{- ' ' ~ info.symbols[p.entrysubtype] if p.entrysubtype -}}
+                {{- '&nbsp;' ~ info.symbols[p.entrysubtype] if p.entrysubtype -}}
                 {% if p.abstract %}
                     <details class="abstract">
                         <summary class="decoration abstract-label">abstract</summary>
