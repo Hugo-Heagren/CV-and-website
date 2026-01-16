@@ -42,7 +42,7 @@
                 {%- if p.type == 'article' %}
                     <i> {{ p.journaltitle or p.journal }}</i>
                 {%- elif p.type == 'incollection' %}
-                    In: <i>{{ p.booktitle }}</i>. Edited by {{ " " }}
+                    <i>{{ p.booktitle }}</i> edited by {{ " " }}
                     {%- for e in p.editor -%}
                         {%- if loop.index > 1 and loop.last %}{{ " and " }}
                         {%- elif loop.index > 1 -%}
