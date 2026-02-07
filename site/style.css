@@ -440,8 +440,10 @@ dl.talk-list {
 }
 
 /* Smooth scrolling! */
-:root {
-    scroll-behavior: smooth;
+@media not (prefers-reduced-motion: reduce) {
+    :root {
+        scroll-behavior: smooth;
+    }
 }
 
 
