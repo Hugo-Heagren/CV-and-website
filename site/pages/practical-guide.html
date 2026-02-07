@@ -655,7 +655,7 @@
                                         </section>
                                         {% macro footnotetext(num) -%}
                                             <p id="{{ footnotetextid(num) }}" class="footnote"  role="doc-footnote">
-                                                <sup>{{ num }}</sup> {{ caller() }}
+                                                <sup>{{ num }}</sup> {{ caller() ~ "&nbsp;" -}}
                                                 <a title="Jump back to footnote {{ num }} in the text."
                                                    class="footing"
                                                    href="#{{ footnoterefid(num) }}"
