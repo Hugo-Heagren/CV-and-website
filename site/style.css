@@ -46,7 +46,6 @@ html {
 }
 
 body {
-    /*   */
     display: grid;
      /* Semantic naming for calculations below. We subtract the gap
        width from the gutter width, so that the actual width of the
