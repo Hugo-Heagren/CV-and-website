@@ -568,164 +568,155 @@
                                             just write your whole email in the normal way.
                                         </p>
                                         <p>
-                                            See also two Philosopher’s Cocoon posts with some helpful
-                                            discussion:
+                                            See also two a Philosopher’s Cocoon post with some helpful
+                                            discussion: <a href="https://philosopherscocoon.com/2015/05/27/job-market-boot-camp-part-11-how-to-cultivate-a-professional-online-presence/">job
+                                            market boot camp, part 11: how to cultivate a professional
+                                            online presence</a>.
+                                        </p>
+                                    </section>
+                                    <section id="travel">
+                                        <h1>Travel</h1>
+                                        <ul>
+                                            <li>
+                                                If you live in a city with a reasonable transport network (like
+                                                the tube in London, or the metro in New York), check if you can
+                                                get a student discount, or even better, a student-discounted
+                                                travelcard (tends to end up cheaper) if you travel around the
+                                                city a
+                                                lot. <a href="https://tfl.gov.uk/fares/free-and-discounted-travel/18-plus-student-oyster-photocard#on-this-page-6">TFL
+                                                do one for London</a> and it’s great.
+                                            </li>
+                                            <li>Get a passport if you don’t have one already!</li>
+                                            <li>
+                                                Buy a good suitcase. If you’re doing it right, you’ll use it a
+                                                lot.
+                                            </li>
+                                            <li>Buy a universal travel adaptor.</li>
+                                            <li>
+                                                Many universities offer travel insurance to all academic staff
+                                                for things like conferences and you’ll become academic staff
+                                                once you start teaching (i.e. during your PhD). Find out if
+                                                your institution offers travel insurance and if so how to sign
+                                                up for it. Note though that it tends to be fairly basic, so if
+                                                you have complex health needs or unusual risks, you might need
+                                                something extra.
+                                            </li>
+                                        </ul>
+                                    </section>
+                                    <section id="useful-bookmarks">
+                                        <h1>Useful bookmarks</h1>
+                                        <p>
+                                            List of bookmarks in my web browser I regularly use (some may
+                                            not apply to your institution):
                                         </p>
                                         <ul>
                                             <li>
-                                                <a href="https://philosopherscocoon.typepad.com/blog/2022/09/putting-together-a-good-academic-website.html">putting
-                                                together a good academic website?</a>
+                                                <a href="https://outlook.office.com/mail">outlook.office.com/mail</a>
                                             </li>
+                                            <li>PhD program handbook.</li>
                                             <li>
-                                                <a href="https://philosopherscocoon.typepad.com/blog/2015/05/job-market-boot-camp-part-11-how-to-cultivate-a-professional-online-presence.html">job
-                                                    market boot camp, part 11: how to cultivate a professional
-                                                    online presence</a>.
-                                                </li>
-                                            </ul>
+                                                Undergraduate program handbook (for when undergrads email me
+                                                asking about their course).
+                                            </li>
+                                            <li>My timetable.</li>
+                                            <li>List(s) of office hours (for faculty and for TAs)</li>
+                                            <li>List(s) of available courses/modules.</li>
+                                            <li>Library search page.{{ footnoteref(7) }}</li>
+                                            <li>PhilPapers (I use ‘pp’ as a philpapers search keyword).</li>
+                                            <li>The web printing page.</li>
+                                            <li>
+                                                My current institution’s virtual classroom/learning service
+                                                (blackboard, canvas, keats, etc.).
+                                            </li>
+                                            <li>Site where I log hours for the work I do for the university.</li>
+                                            <li>
+                                                Branding guide for my institution (internal web page with
+                                                fonts, logos, templates, etc.). This is useful for cover letters.
+                                            </li>
+                                        </ul>
+                                    </section>
+                                    <section id="finally">
+                                        <h1>Finally</h1>
+                                        <p>
+                                            Give back a bit to the academic community. For example, you could
+                                            keep notes on practical things which helped you during your time
+                                            as a graduate student and then post them to your
+                                            website <del>when</del> if you get a job.{{ footnoteref(8) }}
+                                        </p>
+                                    </section>
+                                    {% macro footnotetext(num) -%}
+                                        <p id="{{ footnotetextid(num) }}" class="footnote"  role="doc-footnote">
+                                            <sup>{{ num }}</sup> {{ caller() ~ "&nbsp;" -}}
+                                            <a title="Jump back to footnote {{ num }} in the text."
+                                               class="footing"
+                                               href="#{{ footnoterefid(num) }}"
+                                               role="doc-backlink">↩</a>
+                                        </p>
+                                    {%- endmacro %}
+                                    <section id="footnotes" class="footnotes">
+                                        <p>[Click the ↩ to go back up to the footnote label.]</p>
+                                        {% call footnotetext(1) -%}
+                                            <a href="https://tess.oconnor.cx/2007/08/tex-poshlet">Credit for
+                                            typesetting ‘{{ LaTeX }}’ in HTML.</a>
+                                        {%- endcall %}
+                                        {% call footnotetext(2) -%}
+                                            I try not to force my working practices on others, but
+                                            here’s one exception (relegated to a footnote): I recommend
+                                            keeping all your notes in <em>one</em> place, and not worrying
+                                            too much about categorising them. In an undergraduate
+                                            degree, there is a lot of structure imposed on the different
+                                            pieces of information you have to remember (one course on
+                                            ethics, another on epistemology, etc., and different folders
+                                            for each). Graduate-level and up philosophy almost never
+                                            works like this: things you learn in one class will feed
+                                            into other classes in similar and related areas, and
+                                            especially as you start presenting and publishing, similar
+                                            things will be true of your own work. Trying to artificially
+                                            segment things from the get-go eventually leads to a
+                                            situation where you want to write something down but don’t
+                                            know where to put it and have to either force into an
+                                            existing box (bad), create yet another box (worse—hard to
+                                            find everything later) or <em>not</em> write it down at all
+                                            (worst case scenario). Better to only have one box and use
+                                            that for everything. A good search function hides a
+                                            multitude of organisational sins.
+                                        {%- endcall %}
+                                        {% call footnotetext(3) -%}
+                                            For the pedantic: yes, the PDF specification ISO 32000
+                                            Section 12.6.4.15 <em>does</em> specify ways for PDFs to
+                                            include transition animations between different pages. But a
+                                            spec is only good as its (widespread) adoption and support
+                                            for these transitions is not widely implemented, especially
+                                            not in the sort of non-specialist PDF viewers often used for
+                                            presenting at conferences.
+                                        {%- endcall %}
+                                        {% call footnotetext(4) -%}
+                                            The description of the format is about 1,000 pages. Those
+                                            disbelieving of the sheer power of PDF should
+                                            watch <a href="https://www.youtube.com/watch?v=V8PYG_BPbpg">this
+                                            video</a>.
+                                        {%- endcall %}
+                                        {% call footnotetext(5) -%}
+                                            I really don’t like Adobe’s business model of selling
+                                            software as a service, so I’ve never really used Acrobat,
+                                            but I recognise that most people don’t have the time or
+                                            energy to care about such things.
+                                        {%- endcall %}
+                                        {% call footnotetext(6) -%}
+                                            For those who are
+                                            interested, <a href="https://en.wikipedia.org/wiki/Signature_block#Standard_delimiter">here’s
+                                            why</a>.
+                                        {%- endcall %}
+                                        {% call footnotetext(7) -%}
+                                            Some browsers (e.g.
+                                            <a href="https://support.mozilla.org/en-US/kb/assign-shortcuts-search-engines">Firefox</a>)
+                                            will let you setup a keyword for a search form. I use ‘lib’ for the
+                                            library, so I can type ‘lib foobar’ into my browser’s address bar
+                                            and this has the same effect as going to the library search page and
+                                            searching for ‘foobar’. I find this makes searching for things a bit
+                                            faster. {%- endcall %}
+                                            {% call footnotetext(8) -%}
+                                                And never take yourself too seriously!
+                                            {%- endcall %}
                                         </section>
-                                        <section id="travel">
-                                            <h1>Travel</h1>
-                                            <ul>
-                                                <li>
-                                                    If you live in a city with a reasonable transport network (like
-                                                    the tube in London, or the metro in New York), check if you can
-                                                    get a student discount, or even better, a student-discounted
-                                                    travelcard (tends to end up cheaper) if you travel around the
-                                                    city a
-                                                    lot. <a href="https://tfl.gov.uk/fares/free-and-discounted-travel/18-plus-student-oyster-photocard#on-this-page-6">TFL
-                                                    do one for London</a> and it’s great.
-                                                </li>
-                                                <li>Get a passport if you don’t have one already!</li>
-                                                <li>
-                                                    Buy a good suitcase. If you’re doing it right, you’ll use it a
-                                                    lot.
-                                                </li>
-                                                <li>Buy a universal travel adaptor.</li>
-                                                <li>
-                                                    Many universities offer travel insurance to all academic staff
-                                                    for things like conferences and you’ll become academic staff
-                                                    once you start teaching (i.e. during your PhD). Find out if
-                                                    your institution offers travel insurance and if so how to sign
-                                                    up for it. Note though that it tends to be fairly basic, so if
-                                                    you have complex health needs or unusual risks, you might need
-                                                    something extra.
-                                                </li>
-                                            </ul>
-                                        </section>
-                                        <section id="useful-bookmarks">
-                                            <h1>Useful bookmarks</h1>
-                                            <p>
-                                                List of bookmarks in my web browser I regularly use (some may
-                                                not apply to your institution):
-                                            </p>
-                                            <ul>
-                                                <li>
-                                                    <a href="https://outlook.office.com/mail">outlook.office.com/mail</a>
-                                                </li>
-                                                <li>PhD program handbook.</li>
-                                                <li>
-                                                    Undergraduate program handbook (for when undergrads email me
-                                                    asking about their course).
-                                                </li>
-                                                <li>My timetable.</li>
-                                                <li>List(s) of office hours (for faculty and for TAs)</li>
-                                                <li>List(s) of available courses/modules.</li>
-                                                <li>Library search page.{{ footnoteref(7) }}</li>
-                                                <li>PhilPapers (I use ‘pp’ as a philpapers search keyword).</li>
-                                                <li>The web printing page.</li>
-                                                <li>
-                                                    My current institution’s virtual classroom/learning service
-                                                    (blackboard, canvas, keats, etc.).
-                                                </li>
-                                                <li>Site where I log hours for the work I do for the university.</li>
-                                                <li>
-                                                    Branding guide for my institution (internal web page with
-                                                    fonts, logos, templates, etc.). This is useful for cover letters.
-                                                </li>
-                                            </ul>
-                                        </section>
-                                        <section id="finally">
-                                            <h1>Finally</h1>
-                                            <p>
-                                                Give back a bit to the academic community. For example, you could
-                                                keep notes on practical things which helped you during your time
-                                                as a graduate student and then post them to your
-                                                website <del>when</del> if you get a job.{{ footnoteref(8) }}
-                                            </p>
-                                        </section>
-                                        {% macro footnotetext(num) -%}
-                                            <p id="{{ footnotetextid(num) }}" class="footnote"  role="doc-footnote">
-                                                <sup>{{ num }}</sup> {{ caller() ~ "&nbsp;" -}}
-                                                <a title="Jump back to footnote {{ num }} in the text."
-                                                   class="footing"
-                                                   href="#{{ footnoterefid(num) }}"
-                                                   role="doc-backlink">↩</a>
-                                            </p>
-                                        {%- endmacro %}
-                                        <section id="footnotes" class="footnotes">
-                                            <p>[Click the ↩ to go back up to the footnote label.]</p>
-                                            {% call footnotetext(1) -%}
-                                                <a href="https://tess.oconnor.cx/2007/08/tex-poshlet">Credit for
-                                                typesetting ‘{{ LaTeX }}’ in HTML.</a>
-                                            {%- endcall %}
-                                            {% call footnotetext(2) -%}
-                                                I try not to force my working practices on others, but
-                                                here’s one exception (relegated to a footnote): I recommend
-                                                keeping all your notes in <em>one</em> place, and not worrying
-                                                too much about categorising them. In an undergraduate
-                                                degree, there is a lot of structure imposed on the different
-                                                pieces of information you have to remember (one course on
-                                                ethics, another on epistemology, etc., and different folders
-                                                for each). Graduate-level and up philosophy almost never
-                                                works like this: things you learn in one class will feed
-                                                into other classes in similar and related areas, and
-                                                especially as you start presenting and publishing, similar
-                                                things will be true of your own work. Trying to artificially
-                                                segment things from the get-go eventually leads to a
-                                                situation where you want to write something down but don’t
-                                                know where to put it and have to either force into an
-                                                existing box (bad), create yet another box (worse—hard to
-                                                find everything later) or <em>not</em> write it down at all
-                                                (worst case scenario). Better to only have one box and use
-                                                that for everything. A good search function hides a
-                                                multitude of organisational sins.
-                                            {%- endcall %}
-                                            {% call footnotetext(3) -%}
-                                                For the pedantic: yes, the PDF specification ISO 32000
-                                                Section 12.6.4.15 <em>does</em> specify ways for PDFs to
-                                                include transition animations between different pages. But a
-                                                spec is only good as its (widespread) adoption and support
-                                                for these transitions is not widely implemented, especially
-                                                not in the sort of non-specialist PDF viewers often used for
-                                                presenting at conferences.
-                                            {%- endcall %}
-                                            {% call footnotetext(4) -%}
-                                                The description of the format is about 1,000 pages. Those
-                                                disbelieving of the sheer power of PDF should
-                                                watch <a href="https://www.youtube.com/watch?v=V8PYG_BPbpg">this
-                                                video</a>.
-                                            {%- endcall %}
-                                            {% call footnotetext(5) -%}
-                                                I really don’t like Adobe’s business model of selling
-                                                software as a service, so I’ve never really used Acrobat,
-                                                but I recognise that most people don’t have the time or
-                                                energy to care about such things.
-                                            {%- endcall %}
-                                            {% call footnotetext(6) -%}
-                                                For those who are
-                                                interested, <a href="https://en.wikipedia.org/wiki/Signature_block#Standard_delimiter">here’s
-                                                why</a>.
-                                            {%- endcall %}
-                                            {% call footnotetext(7) -%}
-                                                Some browsers (e.g.
-                                                <a href="https://support.mozilla.org/en-US/kb/assign-shortcuts-search-engines">Firefox</a>)
-                                                will let you setup a keyword for a search form. I use ‘lib’ for the
-                                                library, so I can type ‘lib foobar’ into my browser’s address bar
-                                                and this has the same effect as going to the library search page and
-                                                searching for ‘foobar’. I find this makes searching for things a bit
-                                                faster. {%- endcall %}
-                                                {% call footnotetext(8) -%}
-                                                    And never take yourself too seriously!
-                                                {%- endcall %}
-                                            </section>
-                                        {% endblock %}
+                                    {% endblock %}
