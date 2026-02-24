@@ -46,6 +46,10 @@ ${CV_TEX_FILE}: ${CV_BBL_FILE} cv.bbx cv.dbx
 .PHONY: cv
 cv: ${CV_TEX_FILE}
 
+.PHONY: referees
+referees:
+	${LATEX} referees.tex
+
 .PHONY: clean
 clean:
 	rm -rf ${OUT_DIR} ${BIB_XML_FILE} ${CV_BCF_FILE} ${BIBER_TOOL_CONF_FILE} \

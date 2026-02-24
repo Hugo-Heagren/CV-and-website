@@ -1,0 +1,35 @@
+\documentclass{cv}
+
+\usepackage{datatool}
+\usepackage{hyperref}
+
+% referee data
+\DTLloaddb{referees}{./referees.csv}
+
+\title{Referees for Hugo Heagren}
+
+% Only one page, so seems a bit pointless
+\pagenumbering{gobble}
+
+\begin{document}
+
+\maketitle
+
+\vspace{8pt}
+
+\DTLforeach{referees}{%
+  \name=name,\title=title,\position=position,\note=note,\affiliation=affiliation,\email=email%
+}{%
+\begin{itemize}[nosep]%
+  \item \textbf{\title\ \name{\ifx\position\empty\else\ (\position)\fi}}
+  \item \note
+  \item \affiliation
+  \item \href{mailto:\email}{\email}
+  \end{itemize}
+  \vspace{8pt}
+}
+\end{document}
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: t
+%%% End:
