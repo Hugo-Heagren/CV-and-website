@@ -233,13 +233,10 @@
     \hasitemannotation[][role]{%
       \mkbibparens{\getitemannotation[][role]}%
     }{}% (do nothing when no annotation)
-}
+  }
 
 \DeclareNameWrapperFormat{advisor}{%
   \mkbibitalic{#1}}
-
-\renewbibmacro{advisor}{%
-  \printnames[advisor]{advisor}}
 
 \DeclareBibliographyDriver{degree}{%
   \usebibmacro{bibindex}%
@@ -248,7 +245,7 @@
   \setunit{\addcomma\addspace}%
   \usebibmacro{institution}%
   \setunit{\\}\newblock{}
-  \usebibmacro{advisor}%
+  \printnames{advisor}%
   \usebibmacro{finentry}%
 }
 
@@ -351,7 +348,7 @@
   \setunit{\addcomma\addspace}%
   \usebibmacro{institution}%
   \setunit{\\}\newblock{}
-  \usebibmacro{advisor}%
+  \printnames{advisor}%
   \usebibmacro{finentry}%
 }
 
