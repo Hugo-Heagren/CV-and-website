@@ -98,3 +98,9 @@
   afterlabel={},
   label={}
 }
+
+% * File local variables
+
+% Local Variables:
+% compile-command: "make cv"
+% End:
