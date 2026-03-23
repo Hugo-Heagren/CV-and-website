@@ -68,7 +68,10 @@
     info.symbols.departmental}} departmental, otherwise
 refereed)</span>
 <dl class="talk-list">
-    {% for p in research | selectattr("type", "eq", "presentation") | sort(attribute='date', reverse=true) %}
+    {% for p in research
+        | selectattr("type", "eq", "presentation")
+        | selectattr("entrysubtype", "ne", "response")
+        | sort(attribute='date', reverse=true) %}
         <dt class="decoration">
             <time datetime="{{ p.date }}">{{ p.year }}</time>
         </dt>
