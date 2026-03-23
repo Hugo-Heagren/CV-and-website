@@ -190,9 +190,7 @@
 
 \newbibmacro{respondeename}{%
   \iffieldequalstr{entrysubtype}{response}{%
-      \printtext{Response to%
-        \addspace%
-        \printnames[respondee]{author}}%
+      \printnames[respondee]{author}%
       \setunit*{\addcolon\addspace}}{}%
   }
 
@@ -397,8 +395,19 @@
 
 % Cribbed from
 % /usr/local/texlive/2024/texmf-dist/tex/latex/biblatex-cv/biblatex-cv.sty
+
+% Presentations other than comments
 \defbibcheck{Presentation}{%
-	\ifentrytype{presentation}{}{\skipentry}%
+  \ifentrytype{presentation}{%
+      \iffieldequalstr{entrysubtype}{response}{\skipentry}{}%
+          }{\skipentry}%
+}
+
+% Only comments
+\defbibcheck{Comment}{%
+  \ifentrytype{presentation}{%
+      \iffieldequalstr{entrysubtype}{response}{}{\skipentry}%
+          }{\skipentry}%
 }
 
 \defbibcheck{Education}{%
