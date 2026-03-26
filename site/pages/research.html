@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% set title = "Research" %}
 {% block content %}
-    <h1>Papers</h1>
+    <h2>Papers</h2>
     <span>({{ info.symbols.invited }} invited, otherwise
     refereed)</span>
     <dl class="paper-list">
@@ -63,7 +63,7 @@
     </div>
 {% endfor %}
 </dl>
-<h1>Talks</h1>
+<h2>Talks</h2>
 <span>({{ info.symbols.invited }} invited, {{
     info.symbols.departmental}} departmental, otherwise
 refereed)</span>

@@ -82,23 +82,23 @@
             </table>
         {%- endmacro %}
         <section id="averages">
-            <h1>Averages across all teaching</h1>
+            <h2>Averages across all teaching</h2>
             {% set all_evals = research | selectattr('type', 'eq', 'teaching') | selectattr("eval_data") | map(attribute='eval_data') | rbind %}
             {{ scores_table(all_evals) }}
         </section>
         {% for t in research | selectattr('type', 'eq', 'teaching') | selectattr("eval_data") %}
             <section id="{{ t.id }}">
-                <h1>
+                <h2>
                     {{- t.title -}}
                     {%- if t.part %}: {{ t.part }}
                     {% endif -%}
-                </h1>
+                </h2>
                 {% set tbl = t.eval_data %}
                 {{ scores_table(tbl) }}
                 {% for q in tbl.names %}
                     {% set comments = tbl[q].to_list() | first | select('string') | reject('eq', '') | list %}
                     {% if comments | length > 0 %}
-                        <h2>{{ q }}</h2>
+                        <h3>{{ q }}</h3>
                         {% for c in comments %}
                             <blockquote class="no-collapse-whitespace">
                                 {{- c }}
