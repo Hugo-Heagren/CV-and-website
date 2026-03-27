@@ -142,6 +142,13 @@ blockquote {
 	margin-top: 20px;
 	margin-bottom: 20px;
     }
+
+    p.attribution {
+        margin-top: var(--default-spacing-unit);
+        &::before {
+            content: " — ";
+        }
+    }
 }
 
 .no-collapse-whitespace {
