@@ -9,6 +9,13 @@
        {Database file 'biblatex-cv' not found}
        {The database file 'biblatex-cv' could not be found}}
 
+% * Presentations
+\DeclareDatamodelFields[type=field,datatype=integer]{eventnumber}
+
+\DeclareDatamodelEntryfields[presentation]{%
+  eventnumber
+}
+
 % * Modules
 % ** Descriptions for modules
 \DeclareDatamodelFields[type=field,datatype=literal]{description}

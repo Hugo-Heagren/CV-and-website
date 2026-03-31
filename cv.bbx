@@ -165,7 +165,13 @@
 	}{}%
 }
 
+\DeclareFieldFormat{eventnumber}{%
+  \mkbibordinal{#1}
+}
+
 \newbibmacro*{event}{%
+  \printfield{eventnumber}%
+  \setunit{\addspace}%
   \printfield{eventtitle}%
   \newunit%
   \printfield{eventtitleaddon}%
