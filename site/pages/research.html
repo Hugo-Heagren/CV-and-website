@@ -80,11 +80,14 @@ refereed)</span>
                 {{ p.title }}{{ ": " ~ p.subtitle if p.subtitle }}
                 {% if p.url %}</a>{% endif %}
             <i>
-                ({{ p.eventtitle }}
-                {%- if p.institution | first %}; {{ p.institution | first -}}
-                {% endif -%}
-                )</i> {{ info.symbols[p.presentationtype] }}
-            </dd>
-        {% endfor %}
-    </dl>
+                ({%- if p.eventnumber -%}
+                {{- p.eventnumber | int | ordinal  ~ ' ' -}}
+            {%- endif -%}
+            {{ p.eventtitle }}
+            {%- if p.institution | first %}; {{ p.institution | first -}}
+            {% endif -%}
+            )</i> {{ info.symbols[p.presentationtype] }}
+        </dd>
+    {% endfor %}
+</dl>
 {% endblock %}
