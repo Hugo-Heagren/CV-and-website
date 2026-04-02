@@ -242,6 +242,15 @@
 \DeclareNameWrapperFormat{advisor}{%
   \mkbibitalic{#1}}
 
+\newbibmacro{committee}{%
+  \ifnameundef{committee}{}{%
+      \mkbibitalic{%
+        \printtext{Examiners\addcolon\addspace}%
+        \printnames{committee}%
+      }%
+    }%
+  }
+
 \DeclareBibliographyDriver{degree}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -250,6 +259,10 @@
   \usebibmacro{institution}%
   \setunit{\\}\newblock{}
   \printnames{advisor}%
+  \setunit{\\}\newblock{}
+  \usebibmacro{committee}%
+  \setunit{\\}\newblock{}
+  \printfield{note}%
   \usebibmacro{finentry}%
 }
 
