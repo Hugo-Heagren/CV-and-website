@@ -1,4 +1,7 @@
-\documentclass{cv}
+\documentclass{doc}
+
+\title{Referees}
+\author{Hugo Heagren}
 
 \usepackage{datatool}
 \usepackage{hyperref}
@@ -6,16 +9,9 @@
 % referee data
 \DTLloaddb{referees}{./referees.csv}
 
-\title{Referees for Hugo Heagren}
-
-% Only one page, so seems a bit pointless
-\pagenumbering{gobble}
-
 \begin{document}
 
 \maketitle
-
-\vspace{8pt}
 
 \DTLforeach{referees}{%
   \name=name,\title=title,\position=position,\note=note,\affiliation=affiliation,\email=email%
