@@ -46,6 +46,25 @@ ${CV_TEX_FILE}: ${CV_BBL_FILE} cv.bbx cv.dbx
 .PHONY: cv
 cv: ${CV_TEX_FILE}
 
+export PUB_LIST=./list-of-publications
+export PUB_LIST_TEX_FILE=${PUB_LIST}.tex
+export PUB_LIST_BCF_FILE=${PUB_LIST}.bcf
+export PUB_LIST_BBL_FILE=${PUB_LIST}.bbl
+
+${PUB_LIST_BCF_FILE}: ${CV_BIB_FILE}
+	${LATEX} ${PUB_LIST_TEX_FILE}
+
+${PUB_LIST_BBL_FILE}: ${PUB_LIST_BCF_FILE}
+	biber ${PUB_LIST}
+
+# TODO variables for cv.{bbx,dbx}
+${PUB_LIST_TEX_FILE}: ${PUB_LIST_BBL_FILE} cv.bbx cv.dbx
+	 ${LATEX} ${PUB_LIST_TEX_FILE}
+	 ${LATEX} ${PUB_LIST_TEX_FILE}
+
+.PHONY: pub-list
+pub-list: ${PUB_LIST_TEX_FILE}
+
 .PHONY: referees
 referees:
 	${LATEX} referees.tex
