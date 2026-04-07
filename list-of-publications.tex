@@ -1,11 +1,18 @@
 \documentclass{cv}
 
-\pretitle{\begin{center}\LARGE\bfseries}
-\posttitle{\end{center}\normalfont}
-
 \author{Hugo Heagren}
 \date{\today}
 \title{List of Publications}
+
+% Styling stuff; there isn't enough for a separate .cls file to be
+% worth it.
+\renewcommand\maketitlehooka{\begin{center}\bfseries}
+\pretitle{\LARGE}
+\posttitle{\par \vskip 1 em}
+\renewcommand\maketitlehookb{\authorblock}
+\preauthor{\Large}
+\postauthor{\par \vskip 1 em}
+\renewcommand\maketitlehookd{\end{center}}
 
 \pagenumbering{gobble}
 
@@ -19,11 +26,6 @@
 \begin{document}
 \maketitle
 
-\begin{center}
-  \large%
-  Hugo Heagren
-\end{center}
-
 \nocite{*}
 
 \printbibliography[check=Publication]{}
@@ -32,4 +34,5 @@
 
 % Local Variables:
 % TeX-master: t
+% compile-command: "make pub-list"
 % End:
