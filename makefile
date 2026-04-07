@@ -8,6 +8,8 @@ export BIB_XML_FILE=./cv.bltxml
 export CV_BIB_FILE=./cv.bib
 export CV_BCF_FILE=./cv.bcf
 export CV_BBL_FILE=./cv.bbl
+export CV_BBX_FILE=./cv.bbx
+export CV_DBX_FILE=./cv.dbx
 export CV_TEX_FILE=./cv.tex
 export BIBER_TOOL_CONF_FILE=./biber-tool.conf
 export LATEX=lualatex
@@ -38,7 +40,7 @@ ${OUT_DIR}:
 site: ${BIB_XML_FILE} ${INFO_JSON_FILE} ${OUT_DIR}
 	${PYTHON} ./site/build.py ${OUT_DIR} ${BIB_XML_FILE} ${INFO_JSON_FILE}
 
-${CV_TEX_FILE}: ${CV_BBL_FILE} cv.bbx cv.dbx
+${CV_TEX_FILE}: ${CV_BBL_FILE} ${CV_BBX_FILE} ${CV_DBX_FILE}
 	${LATEX} ${CV_TEX_FILE}
 	${LATEX} ${CV_TEX_FILE}
 
@@ -57,8 +59,7 @@ ${PUB_LIST_BCF_FILE}: ${CV_BIB_FILE}
 ${PUB_LIST_BBL_FILE}: ${PUB_LIST_BCF_FILE}
 	biber ${PUB_LIST}
 
-# TODO variables for cv.{bbx,dbx}
-${PUB_LIST_TEX_FILE}: ${PUB_LIST_BBL_FILE} cv.bbx cv.dbx
+${PUB_LIST_TEX_FILE}: ${PUB_LIST_BBL_FILE} ${CV_BBX_FILE}.bbx ${CV_DBX_FILE}
 	 ${LATEX} ${PUB_LIST_TEX_FILE}
 	 ${LATEX} ${PUB_LIST_TEX_FILE}
 
