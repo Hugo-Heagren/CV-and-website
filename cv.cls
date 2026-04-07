@@ -43,6 +43,9 @@
 
 % ** Titles
 
+% This is useful for putting author info in other docs based on CV
+ \def\authorblock{\@bspreauthor \@author \@bspostauthor}
+
 %% Manually redefine titling's maketitle command to ONLY print the
 %% title (not the author or the date)
 \makeatletter
