@@ -1,0 +1,35 @@
+\documentclass{cv}
+
+\pretitle{\begin{center}\LARGE\bfseries}
+\posttitle{\end{center}\normalfont}
+
+\author{Hugo Heagren}
+\date{\today}
+\title{List of Publications}
+
+\pagenumbering{gobble}
+
+\usepackage[%
+  bibstyle=cv,
+  datamodel=cv,
+]{biblatex}
+
+\addbibresource{./cv.bib}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+  \large%
+  Hugo Heagren
+\end{center}
+
+\nocite{*}
+
+\printbibliography[check=Publication]{}
+
+\end{document}
+
+% Local Variables:
+% TeX-master: t
+% End:

@@ -7,6 +7,16 @@
   sorting=dd
 }
 
+% * Load lua stuff
+
+\directlua{
+  require("lualibs.lua")
+  local f = io.open('info.json', 'r')
+  local s = f:read('*a')
+  f:close()
+  info = utilities.json.tolua(s)
+}
+
 % * Strings
 
 \NewBibliographyString{fundingfor}
