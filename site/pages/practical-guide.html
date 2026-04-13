@@ -15,9 +15,6 @@
     {{ toc_item('footnotes', '(Footnotes)') }}
 {% endblock %}
 {% block content %}
-    {%- set LaTeX -%}
-        <span class="latex-logo">L<sup>a</sup>T<sub>e</sub>X</span>
-    {%- endset %}
     {% macro footnoterefid(num) -%}
         fnr.{{ num }}{%- endmacro %}
         {% macro footnotetextid(num) -%}
