@@ -111,9 +111,6 @@ footer {
 /* * General styling */
 
 p {
-    text-align: justify;
-    /* This seems to work the best */
-    text-justify: initial;
     margin: 0px;
 }
 
@@ -349,7 +346,6 @@ details[open] .abstract-label::after {
 }
 
 .abstract {
-    text-align: justify;
     /* On desktop the textblock is wide enough that small differences in
        tracking/kerning are not noticeable, so it's nice to just not
        have any hyphenated text. */
@@ -700,7 +696,6 @@ dl.talk-list {
     }
 
     .abstract {
-	text-align: justify;
 	/* On mobile, the text block is small enough that the kerning/tracking
            differences introduced by hyphens: none; are too much, so
            we use hyphens here.*/
