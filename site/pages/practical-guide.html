@@ -360,374 +360,391 @@
                                     </li>
                                     <li>
                                         Learn the basics of {{ LaTeX }} (if you’re a logician or a
-                                        philosopher of maths/science, learn more). Eventually, it will
-                                        be useful, and you will be glad you learned it when you did
-                                        rather than doing it on the hoof.
+                                        philosopher of maths/science, learn more). Eventually, it will be
+                                        useful, and you will be glad you learned it when you did rather
+                                        than doing it on the hoof. When I learned, I
+                                        found <a href="https://en.wikibooks.org/wiki/LaTeX">this
+                                        Wikibook</a> the best learning resource.
+                                        The <a href="https://www.overleaf.com/learn">Overleaf
+                                        documentation</a> is also good. Some other useful stuff:
                                         <ul>
                                             <li>
-                                                When I learned, I found
-                                                <a href="https://en.wikibooks.org/wiki/LaTeX">this
-                                                    Wikibook</a> the best learning resource.
-                                                    The <a href="https://www.overleaf.com/learn">Overleaf
-                                                    documentation</a> is also good.
-                                                </li>
-                                                <li>
-                                                    Personally, the most significant thing I’ve got out of {{
-                                                    LaTeX }} is its capacity to automate my referencing. Far and
-                                                    away the best tool for this
-                                                    is <a href="https://ctan.org/pkg/biblatex">Biblatex</a>.
-                                                    I <strong>strongly</strong> recommend learning how to use
-                                                    Biblatex. There's
-                                                    some <a href="https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex">Overleaf
-                                                    documentation here</a>.
-                                                </li>
-                                                <li>
-                                                    If you ever need to the count words in your
-                                                    {{ LaTeX }} project, I can also recommend
-                                                    the <a href="https://ctan.org/pkg/countwords">countwords</a>
-                                                    package, which I wrote for just this
-                                                    purpose. It can skip titles,
-                                                    bibliographies, citations, footnotes, etc.
-                                                    automatically and provides <em>exact</em>
-                                                    wordcounts (unlike many other tools, which
-                                                    give a reasonable estimate).
-                                                </li>
-                                            </ul>
+                                                Personally, the most significant thing I’ve got out of {{
+                                                LaTeX }} is its capacity to automate my referencing. Far and
+                                                away the best tool for this
+                                                is <a href="https://ctan.org/pkg/biblatex">Biblatex</a>.
+                                                I <strong>strongly</strong> recommend learning how to use
+                                                Biblatex. There's
+                                                some <a href="https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex">Overleaf
+                                                documentation here</a>.
+                                            </li>
+                                            <li>
+                                                If you use a lot of long quotations, perhaps in several
+                                                languages (e.g. in large historical projects), you may
+                                                find
+                                                the <a href="https://ctan.org/pkg/csquotes">csquotes</a>
+                                                package helpful. It can automatically style and cite
+                                                quotations according to language. You will
+                                                need <a href="https://ctan.org/pkg/polyglossia">polyglossia</a>
+                                                for working with different languages.
+                                            </li>
+                                            <li>
+                                                <a href="https://ctan.org/pkg/cleveref">cleveref</a> is
+                                                very useful for automatic cross-referencing within a
+                                                document you are writing. I made <em>extensive</em> use
+                                                of this when writing my
+                                                thesis. <a href="https://ctan.org/pkg/xref">zref</a> is
+                                                even more powerful, but even for a {{ LaTeX }} package
+                                                has quite a learning curve and is really designed for
+                                                programmers.
+                                            </li>
+                                            <li>
+                                                If you ever need to the count words in your
+                                                {{ LaTeX }} project, I can also recommend
+                                                the <a href="https://ctan.org/pkg/countwords">countwords</a>
+                                                package, which I wrote for just this
+                                                purpose. It can skip titles,
+                                                bibliographies, citations, footnotes, etc.
+                                                automatically and provides <em>exact</em>
+                                                wordcounts (unlike many other tools, which
+                                                give a reasonable estimate).
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="https://practicaltypography.com/">Matthew
+                                            Butterick’s Practical Typography</a> is an
+                                            excellent, free resource on making your
+                                            documents beautiful and readable (both of
+                                            which they should be!).
                                         </li>
                                         <li>
-                                            <a href="https://practicaltypography.com/">Matthew
-                                                Butterick’s Practical Typography</a> is an
-                                                excellent, free resource on making your
-                                                documents beautiful and readable (both of
-                                                which they should be!).
-                                            </li>
-                                            <li>
-                                                If you use {{ LaTeX }} a lot, or submit to lots of journals
-                                                which do, then every time you do so, make and keep a template
-                                                file, with all the right settings and macros, for the next time
-                                                you need to submit to that journal. By the time you are old and
-                                                grey like me, you’ll thank yourself. This is especially relevant
-                                                for people who work in logic, phil. math. and phil. sci., where
-                                                the journals often have quite strict {{ LaTeX }}-related
-                                                policies.
-                                            </li>
-                                            <li>
-                                                <p>
-                                                    Recognise, right now, that your computer (laptop, desktop
-                                                    etc.) is temporary but the data on it is not. In other
-                                                    words: during your academic career there will come a point
-                                                    (probably in the next few years) where you need to use a new
-                                                    machine, but with the same data/files on it. If you stay in
-                                                    academia this will happen <em>many</em> times. Work out how
-                                                    you manage this transition <em>in advance</em>. There are
-                                                    basically two approaches:
-                                                </p>
-                                                <ol>
-                                                    <li>
-                                                        Don’t actually keep anything on the computer itself and
-                                                        use a cloud service (Google Drive, One Drive, Dropbox
-                                                        etc.) instead. Personally I don’t recommend this. Cloud
-                                                        services are expensive for large amounts of data, often
-                                                        don’t have much flexibility, and don’t allow you to work
-                                                        on planes (early career academics spend a surprising
-                                                        amount of time on planes!). They are also generally run by
-                                                        large companies who want to steal your data.
-                                                    </li>
-                                                    <li>
-                                                        Keep everything on the computer and learn to backup and
-                                                        restore your data. This will probably be (marginally) more
-                                                        complex but I think it’s worth it.
-                                                    </li>
-                                                </ol>
-                                                <p>
-                                                    Clearly I prefer 2 to 1. But doing 1 is definitely better
-                                                    than doing neither!
-                                                </p>
-                                                <p>
-                                                    I use <a href="https://www.borgbackup.org/">Borg</a> for making
-                                                    backups, I keep them
-                                                    on <a href="https://www.borgbase.com/">BorgBase</a>, and I
-                                                    use <a href="https://vorta.borgbase.com/">Vorta</a> on my
-                                                    laptop to make the whole thing easy and automatic (so I don't
-                                                    have to backup manually). It's great.
-                                                </p>
-                                            </li>
-                                            <li>
-                                                <p>
-                                                    Write an email signature. It looks professional and your
-                                                    students may find it helpful. It should contain any relevant
-                                                    information, but don’t overdo it. As with many such things,
-                                                    the best way to judge this is to look at the signatures of
-                                                    those around you, and see which you find useful/professional
-                                                    and which you find annoying. Depending on your needs, you
-                                                    might include:
-                                                </p>
-                                                <ul>
-                                                    <li>Your pronouns.</li>
-                                                    <li>Your name (perhaps with a pronunciation guide).</li>
-                                                    <li>
-                                                        A gentle indication to students of how to address you
-                                                        (e.g. prefixing your name with ‘Dr’ or ‘Professor’, if
-                                                        this sort of thing matters to you/your institution).
-                                                    </li>
-                                                    <li>Your office hours and their location.</li>
-                                                    <li>Your website (see below).</li>
-                                                    <li>
-                                                        <strong>Brief</strong> indications of interesting
-                                                        positions you currently hold. e.g. ‘Research assistant:
-                                                        big-research-centre.com’. These really should be brief!
-                                                    </li>
-                                                </ul>
-                                                <p>
-                                                    It is (or was once) widely conventional to begin your
-                                                    signature with ‘--’ with the rest following on the next
-                                                    line.{{ footnoteref(6) }}
-                                                </p>
-                                            </li>
-                                            <li>
-                                                Smart TOC is fantastic. It's a simple
-                                                browser add-on which can display a table
-                                                of contents for any long webpage. You
-                                                can see the structure of the page,
-                                                search the table, go to different
-                                                parts, and jump forwards and backwards from your current position.
-                                                You can get it for
-                                                <a href="https://chromewebstore.google.com/detail/smart-toc/lifgeihcfpkmmlfjbailfpfhbahhibba?hl=en">Chrome</a>
-                                                or
-                                                <a href="https://addons.mozilla.org/en-GB/firefox/addon/smart_toc/">Firefox</a>.
-                                                The basic version is free and some of
-                                                the other features cost $5 for lifetime
-                                                access (there's a 30-day free trial
-                                                though).
-                                            </li>
-                                        </ul>
-                                    </section>
-                                    <section id="website">
-                                        <h2>Website</h2>
-                                        <p>
-                                            At some point in your third or fourth year, setup a simple
-                                            website with enough information about you to look professional.
-                                            Some good examples of such websites:
-                                        </p>
-                                        <ul>
-                                            <li>
-                                                <a href="https://elisewoodard.org">elisewoodard.org</a>
-                                            </li>
-                                            <li>
-                                                <a href="https://www.ashleyshaw.co.uk/">ashleyshaw.co.uk</a>
-                                            </li>
-                                            <li>
-                                                <a href="https://hugoheagren.com">hugoheagren.com</a> (me!)
-                                            </li>
-                                        </ul>
-                                        <p>Your website should:</p>
-                                        <ul>
-                                            <li>
-                                                Be at an address which is as close to your name as possible
-                                                (all the above are good examples of this).
-                                            </li>
-                                            <li>
-                                                Work equally well on desktop computers or mobile
-                                                phones/tablets (portrait <em>and</em> landscape).
-                                            </li>
-                                            <li>Make it very obvious how to contact you.</li>
-                                            <li>
-                                                List all your academic achievements, especially your
-                                                publications.
-                                            </li>
-                                            <li>Include an obvious way to download a PDF of your CV.</li>
-                                            <li>
-                                                Probably not include much else, unless there is other relevant
-                                                stuff you really want to include.
-                                            </li>
-                                        </ul>
-                                        <p>
-                                            Don’t worry too much about <em>how</em> you set it up. I wrote
-                                            mine from scratch in plain HTML, but in this I am an exception.
-                                            Using Wix, <a href="https://html5up.net/">html5up</a>, <a href="https://www.webnode.com/">webnode</a>
-                                            or a similar builder is fine so long as you are confident in how
-                                            to update the site in the future.
-                                        </p>
-                                        <p>
-                                            I strongly recommend <em>not</em> using Squarespace.
-                                        </p>
-                                        <p>
-                                            A note on <i>munging</i>. Many academic websites present email addresses in a form such as:
+                                            If you use {{ LaTeX }} a lot, or submit to lots of journals
+                                            which do, then every time you do so, make and keep a template
+                                            file, with all the right settings and macros, for the next time
+                                            you need to submit to that journal. By the time you are old and
+                                            grey like me, you’ll thank yourself. This is especially relevant
+                                            for people who work in logic, phil. math. and phil. sci., where
+                                            the journals often have quite strict {{ LaTeX }}-related
+                                            policies.
+                                        </li>
+                                        <li>
+                                            <p>
+                                                Recognise, right now, that your computer (laptop, desktop
+                                                etc.) is temporary but the data on it is not. In other
+                                                words: during your academic career there will come a point
+                                                (probably in the next few years) where you need to use a new
+                                                machine, but with the same data/files on it. If you stay in
+                                                academia this will happen <em>many</em> times. Work out how
+                                                you manage this transition <em>in advance</em>. There are
+                                                basically two approaches:
+                                            </p>
+                                            <ol>
+                                                <li>
+                                                    Don’t actually keep anything on the computer itself and
+                                                    use a cloud service (Google Drive, One Drive, Dropbox
+                                                    etc.) instead. Personally I don’t recommend this. Cloud
+                                                    services are expensive for large amounts of data, often
+                                                    don’t have much flexibility, and don’t allow you to work
+                                                    on planes (early career academics spend a surprising
+                                                    amount of time on planes!). They are also generally run by
+                                                    large companies who want to steal your data.
+                                                </li>
+                                                <li>
+                                                    Keep everything on the computer and learn to backup and
+                                                    restore your data. This will probably be (marginally) more
+                                                    complex but I think it’s worth it.
+                                                </li>
+                                            </ol>
+                                            <p>
+                                                Clearly I prefer 2 to 1. But doing 1 is definitely better
+                                                than doing neither!
+                                            </p>
+                                            <p>
+                                                I use <a href="https://www.borgbackup.org/">Borg</a> for making
+                                                backups, I keep them
+                                                on <a href="https://www.borgbase.com/">BorgBase</a>, and I
+                                                use <a href="https://vorta.borgbase.com/">Vorta</a> on my
+                                                laptop to make the whole thing easy and automatic (so I don't
+                                                have to backup manually). It's great.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p>
+                                                Write an email signature. It looks professional and your
+                                                students may find it helpful. It should contain any relevant
+                                                information, but don’t overdo it. As with many such things,
+                                                the best way to judge this is to look at the signatures of
+                                                those around you, and see which you find useful/professional
+                                                and which you find annoying. Depending on your needs, you
+                                                might include:
+                                            </p>
                                             <ul>
+                                                <li>Your pronouns.</li>
+                                                <li>Your name (perhaps with a pronunciation guide).</li>
                                                 <li>
-                                                    <code>[my first name] [dot] [my last name] [at symbol] gmail [dot] com</code>
+                                                    A gentle indication to students of how to address you
+                                                    (e.g. prefixing your name with ‘Dr’ or ‘Professor’, if
+                                                    this sort of thing matters to you/your institution).
                                                 </li>
+                                                <li>Your office hours and their location.</li>
+                                                <li>Your website (see below).</li>
                                                 <li>
-                                                    <code>john at Gmail dot com</code>
-                                                </li>
-                                                <li>
-                                                    <code>jane [actual world sign] [name of my university] .com</code>
+                                                    <strong>Brief</strong> indications of interesting
+                                                    positions you currently hold. e.g. ‘Research assistant:
+                                                    big-research-centre.com’. These really should be brief!
                                                 </li>
                                             </ul>
-                                            This is
-                                            called <a href="https://en.wikipedia.org/wiki/Address_munging">‘address
-                                            munging’</a> and is supposed to stop the address being
-                                            scraped by spam bots. It isn't very effective and makes
-                                            them difficult to copy/paste. I recommend not munging
-                                            your address. If you really want to avoid spam bots, and
-                                            have some computer chops, you should read
-                                            this <a href="https://dr0.ch/email-munging/">article on
-                                            advanced standards-compliant munging</a>,
-                                            or <a href="https://spencermortensen.com/articles/email-obfuscation/">this
-                                            one</a> (I use the ‘entities’ technique described there
-                                            on my <a href="contact">own contact page</a>). Otherwise
-                                            just write your whole email in the normal way.
-                                        </p>
-                                        <p>
-                                            See also a Philosopher’s Cocoon post with some helpful
-                                            discussion: <a href="https://philosopherscocoon.com/2015/05/27/job-market-boot-camp-part-11-how-to-cultivate-a-professional-online-presence/">job
-                                            market boot camp, part 11: how to cultivate a professional
-                                            online presence</a>.
-                                        </p>
-                                    </section>
-                                    <section id="travel">
-                                        <h2>Travel</h2>
+                                            <p>
+                                                It is (or was once) widely conventional to begin your
+                                                signature with ‘--’ with the rest following on the next
+                                                line.{{ footnoteref(6) }}
+                                            </p>
+                                        </li>
+                                        <li>
+                                            Smart TOC is fantastic. It's a simple
+                                            browser add-on which can display a table
+                                            of contents for any long webpage. You
+                                            can see the structure of the page,
+                                            search the table, go to different
+                                            parts, and jump forwards and backwards from your current position.
+                                            You can get it for
+                                            <a href="https://chromewebstore.google.com/detail/smart-toc/lifgeihcfpkmmlfjbailfpfhbahhibba?hl=en">Chrome</a>
+                                            or
+                                            <a href="https://addons.mozilla.org/en-GB/firefox/addon/smart_toc/">Firefox</a>.
+                                            The basic version is free and some of
+                                            the other features cost $5 for lifetime
+                                            access (there's a 30-day free trial
+                                            though).
+                                        </li>
+                                    </ul>
+                                </section>
+                                <section id="website">
+                                    <h2>Website</h2>
+                                    <p>
+                                        At some point in your third or fourth year, setup a simple
+                                        website with enough information about you to look professional.
+                                        Some good examples of such websites:
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <a href="https://elisewoodard.org">elisewoodard.org</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.ashleyshaw.co.uk/">ashleyshaw.co.uk</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://hugoheagren.com">hugoheagren.com</a> (me!)
+                                        </li>
+                                    </ul>
+                                    <p>Your website should:</p>
+                                    <ul>
+                                        <li>
+                                            Be at an address which is as close to your name as possible
+                                            (all the above are good examples of this).
+                                        </li>
+                                        <li>
+                                            Work equally well on desktop computers or mobile
+                                            phones/tablets (portrait <em>and</em> landscape).
+                                        </li>
+                                        <li>Make it very obvious how to contact you.</li>
+                                        <li>
+                                            List all your academic achievements, especially your
+                                            publications.
+                                        </li>
+                                        <li>Include an obvious way to download a PDF of your CV.</li>
+                                        <li>
+                                            Probably not include much else, unless there is other relevant
+                                            stuff you really want to include.
+                                        </li>
+                                    </ul>
+                                    <p>
+                                        Don’t worry too much about <em>how</em> you set it up. I wrote
+                                        mine from scratch in plain HTML, but in this I am an exception.
+                                        Using Wix, <a href="https://html5up.net/">html5up</a>, <a href="https://www.webnode.com/">webnode</a>
+                                        or a similar builder is fine so long as you are confident in how
+                                        to update the site in the future.
+                                    </p>
+                                    <p>
+                                        I strongly recommend <em>not</em> using Squarespace.
+                                    </p>
+                                    <p>
+                                        A note on <i>munging</i>. Many academic websites present email addresses in a form such as:
                                         <ul>
                                             <li>
-                                                If you live in a city with a reasonable transport network (like
-                                                the tube in London, or the metro in New York), check if you can
-                                                get a student discount, or even better, a student-discounted
-                                                travelcard (tends to end up cheaper) if you travel around the
-                                                city a
-                                                lot. <a href="https://tfl.gov.uk/fares/free-and-discounted-travel/18-plus-student-oyster-photocard#on-this-page-6">TFL
-                                                do one for London</a> and it’s great.
+                                                <code>[my first name] [dot] [my last name] [at symbol] gmail [dot] com</code>
                                             </li>
-                                            <li>Get a passport if you don’t have one already!</li>
                                             <li>
-                                                Buy a good suitcase. If you’re doing it right, you’ll use it a
-                                                lot.
+                                                <code>john at Gmail dot com</code>
                                             </li>
-                                            <li>Buy a universal travel adaptor.</li>
                                             <li>
-                                                Many universities offer travel insurance to all academic staff
-                                                for things like conferences and you’ll become academic staff
-                                                once you start teaching (i.e. during your PhD). Find out if
-                                                your institution offers travel insurance and if so how to sign
-                                                up for it. Note though that it tends to be fairly basic, so if
-                                                you have complex health needs or unusual risks, you might need
-                                                something extra.
+                                                <code>jane [actual world sign] [name of my university] .com</code>
                                             </li>
                                         </ul>
+                                        This is
+                                        called <a href="https://en.wikipedia.org/wiki/Address_munging">‘address
+                                        munging’</a> and is supposed to stop the address being
+                                        scraped by spam bots. It isn't very effective and makes
+                                        them difficult to copy/paste. I recommend not munging
+                                        your address. If you really want to avoid spam bots, and
+                                        have some computer chops, you should read
+                                        this <a href="https://dr0.ch/email-munging/">article on
+                                        advanced standards-compliant munging</a>,
+                                        or <a href="https://spencermortensen.com/articles/email-obfuscation/">this
+                                        one</a> (I use the ‘entities’ technique described there
+                                        on my <a href="contact">own contact page</a>). Otherwise
+                                        just write your whole email in the normal way.
+                                    </p>
+                                    <p>
+                                        See also a Philosopher’s Cocoon post with some helpful
+                                        discussion: <a href="https://philosopherscocoon.com/2015/05/27/job-market-boot-camp-part-11-how-to-cultivate-a-professional-online-presence/">job
+                                        market boot camp, part 11: how to cultivate a professional
+                                        online presence</a>.
+                                    </p>
+                                </section>
+                                <section id="travel">
+                                    <h2>Travel</h2>
+                                    <ul>
+                                        <li>
+                                            If you live in a city with a reasonable transport network (like
+                                            the tube in London, or the metro in New York), check if you can
+                                            get a student discount, or even better, a student-discounted
+                                            travelcard (tends to end up cheaper) if you travel around the
+                                            city a
+                                            lot. <a href="https://tfl.gov.uk/fares/free-and-discounted-travel/18-plus-student-oyster-photocard#on-this-page-6">TFL
+                                            do one for London</a> and it’s great.
+                                        </li>
+                                        <li>Get a passport if you don’t have one already!</li>
+                                        <li>
+                                            Buy a good suitcase. If you’re doing it right, you’ll use it a
+                                            lot.
+                                        </li>
+                                        <li>Buy a universal travel adaptor.</li>
+                                        <li>
+                                            Many universities offer travel insurance to all academic staff
+                                            for things like conferences and you’ll become academic staff
+                                            once you start teaching (i.e. during your PhD). Find out if
+                                            your institution offers travel insurance and if so how to sign
+                                            up for it. Note though that it tends to be fairly basic, so if
+                                            you have complex health needs or unusual risks, you might need
+                                            something extra.
+                                        </li>
+                                    </ul>
+                                </section>
+                                <section id="useful-bookmarks">
+                                    <h2>Useful bookmarks</h2>
+                                    <p>
+                                        List of bookmarks in my web browser I regularly use (some may
+                                        not apply to your institution):
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <a href="https://outlook.office.com/mail">outlook.office.com/mail</a>
+                                        </li>
+                                        <li>PhD program handbook.</li>
+                                        <li>
+                                            Undergraduate program handbook (for when undergrads email me
+                                            asking about their course).
+                                        </li>
+                                        <li>My timetable.</li>
+                                        <li>List(s) of office hours (for faculty and for TAs)</li>
+                                        <li>List(s) of available courses/modules.</li>
+                                        <li>Library search page.{{ footnoteref(7) }}</li>
+                                        <li>PhilPapers (I use ‘pp’ as a philpapers search keyword).</li>
+                                        <li>The web printing page.</li>
+                                        <li>
+                                            My current institution’s virtual classroom/learning service
+                                            (blackboard, canvas, keats, etc.).
+                                        </li>
+                                        <li>Site where I log hours for the work I do for the university.</li>
+                                        <li>
+                                            Branding guide for my institution (internal web page with
+                                            fonts, logos, templates, etc.). This is useful for cover letters.
+                                        </li>
+                                    </ul>
+                                </section>
+                                <section id="finally">
+                                    <h2>Finally</h2>
+                                    <p>
+                                        Give back a bit to the academic community. For example, you could
+                                        keep notes on practical things which helped you during your time
+                                        as a graduate student and then post them to your
+                                        website <del>when</del> if you get a job.{{ footnoteref(8) }}
+                                    </p>
+                                </section>
+                                {% macro footnotetext(num) -%}
+                                    <p id="{{ footnotetextid(num) }}" class="footnote"  role="doc-footnote">
+                                        <sup>{{ num }}</sup> {{ caller() ~ "&nbsp;" -}}
+                                        <a title="Jump back to footnote {{ num }} in the text."
+                                           class="footing"
+                                           href="#{{ footnoterefid(num) }}"
+                                           role="doc-backlink">↩</a>
+                                    </p>
+                                {%- endmacro %}
+                                <section id="footnotes" class="footnotes">
+                                    <p>[Click the ↩ to go back up to the footnote label.]</p>
+                                    {% call footnotetext(1) -%}
+                                        <a href="https://tess.oconnor.cx/2007/08/tex-poshlet">Credit for
+                                        typesetting ‘{{ LaTeX }}’ in HTML.</a>
+                                    {%- endcall %}
+                                    {% call footnotetext(2) -%}
+                                        I try not to force my working practices on others, but
+                                        here’s one exception (relegated to a footnote): I recommend
+                                        keeping all your notes in <em>one</em> place, and not worrying
+                                        too much about categorising them. In an undergraduate
+                                        degree, there is a lot of structure imposed on the different
+                                        pieces of information you have to remember (one course on
+                                        ethics, another on epistemology, etc., and different folders
+                                        for each). Graduate-level and up philosophy almost never
+                                        works like this: things you learn in one class will feed
+                                        into other classes in similar and related areas, and
+                                        especially as you start presenting and publishing, similar
+                                        things will be true of your own work. Trying to artificially
+                                        segment things from the get-go eventually leads to a
+                                        situation where you want to write something down but don’t
+                                        know where to put it and have to either force into an
+                                        existing box (bad), create yet another box (worse—hard to
+                                        find everything later) or <em>not</em> write it down at all
+                                        (worst case scenario). Better to only have one box and use
+                                        that for everything. A good search function hides a
+                                        multitude of organisational sins.
+                                    {%- endcall %}
+                                    {% call footnotetext(3) -%}
+                                        For the pedantic: yes, the PDF specification ISO 32000
+                                        Section 12.6.4.15 <em>does</em> specify ways for PDFs to
+                                        include transition animations between different pages. But a
+                                        spec is only good as its (widespread) adoption and support
+                                        for these transitions is not widely implemented, especially
+                                        not in the sort of non-specialist PDF viewers often used for
+                                        presenting at conferences.
+                                    {%- endcall %}
+                                    {% call footnotetext(4) -%}
+                                        The description of the format is about 1,000 pages. Those
+                                        disbelieving of the sheer power of PDF should
+                                        watch <a href="https://www.youtube.com/watch?v=V8PYG_BPbpg">this
+                                        video</a>.
+                                    {%- endcall %}
+                                    {% call footnotetext(5) -%}
+                                        I really don’t like Adobe’s business model of selling
+                                        software as a service, so I’ve never really used Acrobat,
+                                        but I recognise that most people don’t have the time or
+                                        energy to care about such things.
+                                    {%- endcall %}
+                                    {% call footnotetext(6) -%}
+                                        For those who are
+                                        interested, <a href="https://en.wikipedia.org/wiki/Signature_block#Standard_delimiter">here’s
+                                        why</a>.
+                                    {%- endcall %}
+                                    {% call footnotetext(7) -%}
+                                        Some browsers (e.g.
+                                        <a href="https://support.mozilla.org/en-US/kb/assign-shortcuts-search-engines">Firefox</a>)
+                                        will let you setup a keyword for a search form. I use ‘lib’ for the
+                                        library, so I can type ‘lib foobar’ into my browser’s address bar
+                                        and this has the same effect as going to the library search page and
+                                        searching for ‘foobar’. I find this makes searching for things a bit
+                                        faster. {%- endcall %}
+                                        {% call footnotetext(8) -%}
+                                            And never take yourself too seriously!
+                                        {%- endcall %}
                                     </section>
-                                    <section id="useful-bookmarks">
-                                        <h2>Useful bookmarks</h2>
-                                        <p>
-                                            List of bookmarks in my web browser I regularly use (some may
-                                            not apply to your institution):
-                                        </p>
-                                        <ul>
-                                            <li>
-                                                <a href="https://outlook.office.com/mail">outlook.office.com/mail</a>
-                                            </li>
-                                            <li>PhD program handbook.</li>
-                                            <li>
-                                                Undergraduate program handbook (for when undergrads email me
-                                                asking about their course).
-                                            </li>
-                                            <li>My timetable.</li>
-                                            <li>List(s) of office hours (for faculty and for TAs)</li>
-                                            <li>List(s) of available courses/modules.</li>
-                                            <li>Library search page.{{ footnoteref(7) }}</li>
-                                            <li>PhilPapers (I use ‘pp’ as a philpapers search keyword).</li>
-                                            <li>The web printing page.</li>
-                                            <li>
-                                                My current institution’s virtual classroom/learning service
-                                                (blackboard, canvas, keats, etc.).
-                                            </li>
-                                            <li>Site where I log hours for the work I do for the university.</li>
-                                            <li>
-                                                Branding guide for my institution (internal web page with
-                                                fonts, logos, templates, etc.). This is useful for cover letters.
-                                            </li>
-                                        </ul>
-                                    </section>
-                                    <section id="finally">
-                                        <h2>Finally</h2>
-                                        <p>
-                                            Give back a bit to the academic community. For example, you could
-                                            keep notes on practical things which helped you during your time
-                                            as a graduate student and then post them to your
-                                            website <del>when</del> if you get a job.{{ footnoteref(8) }}
-                                        </p>
-                                    </section>
-                                    {% macro footnotetext(num) -%}
-                                        <p id="{{ footnotetextid(num) }}" class="footnote"  role="doc-footnote">
-                                            <sup>{{ num }}</sup> {{ caller() ~ "&nbsp;" -}}
-                                            <a title="Jump back to footnote {{ num }} in the text."
-                                               class="footing"
-                                               href="#{{ footnoterefid(num) }}"
-                                               role="doc-backlink">↩</a>
-                                        </p>
-                                    {%- endmacro %}
-                                    <section id="footnotes" class="footnotes">
-                                        <p>[Click the ↩ to go back up to the footnote label.]</p>
-                                        {% call footnotetext(1) -%}
-                                            <a href="https://tess.oconnor.cx/2007/08/tex-poshlet">Credit for
-                                            typesetting ‘{{ LaTeX }}’ in HTML.</a>
-                                        {%- endcall %}
-                                        {% call footnotetext(2) -%}
-                                            I try not to force my working practices on others, but
-                                            here’s one exception (relegated to a footnote): I recommend
-                                            keeping all your notes in <em>one</em> place, and not worrying
-                                            too much about categorising them. In an undergraduate
-                                            degree, there is a lot of structure imposed on the different
-                                            pieces of information you have to remember (one course on
-                                            ethics, another on epistemology, etc., and different folders
-                                            for each). Graduate-level and up philosophy almost never
-                                            works like this: things you learn in one class will feed
-                                            into other classes in similar and related areas, and
-                                            especially as you start presenting and publishing, similar
-                                            things will be true of your own work. Trying to artificially
-                                            segment things from the get-go eventually leads to a
-                                            situation where you want to write something down but don’t
-                                            know where to put it and have to either force into an
-                                            existing box (bad), create yet another box (worse—hard to
-                                            find everything later) or <em>not</em> write it down at all
-                                            (worst case scenario). Better to only have one box and use
-                                            that for everything. A good search function hides a
-                                            multitude of organisational sins.
-                                        {%- endcall %}
-                                        {% call footnotetext(3) -%}
-                                            For the pedantic: yes, the PDF specification ISO 32000
-                                            Section 12.6.4.15 <em>does</em> specify ways for PDFs to
-                                            include transition animations between different pages. But a
-                                            spec is only good as its (widespread) adoption and support
-                                            for these transitions is not widely implemented, especially
-                                            not in the sort of non-specialist PDF viewers often used for
-                                            presenting at conferences.
-                                        {%- endcall %}
-                                        {% call footnotetext(4) -%}
-                                            The description of the format is about 1,000 pages. Those
-                                            disbelieving of the sheer power of PDF should
-                                            watch <a href="https://www.youtube.com/watch?v=V8PYG_BPbpg">this
-                                            video</a>.
-                                        {%- endcall %}
-                                        {% call footnotetext(5) -%}
-                                            I really don’t like Adobe’s business model of selling
-                                            software as a service, so I’ve never really used Acrobat,
-                                            but I recognise that most people don’t have the time or
-                                            energy to care about such things.
-                                        {%- endcall %}
-                                        {% call footnotetext(6) -%}
-                                            For those who are
-                                            interested, <a href="https://en.wikipedia.org/wiki/Signature_block#Standard_delimiter">here’s
-                                            why</a>.
-                                        {%- endcall %}
-                                        {% call footnotetext(7) -%}
-                                            Some browsers (e.g.
-                                            <a href="https://support.mozilla.org/en-US/kb/assign-shortcuts-search-engines">Firefox</a>)
-                                            will let you setup a keyword for a search form. I use ‘lib’ for the
-                                            library, so I can type ‘lib foobar’ into my browser’s address bar
-                                            and this has the same effect as going to the library search page and
-                                            searching for ‘foobar’. I find this makes searching for things a bit
-                                            faster. {%- endcall %}
-                                            {% call footnotetext(8) -%}
-                                                And never take yourself too seriously!
-                                            {%- endcall %}
-                                        </section>
-                                    {% endblock %}
+                                {% endblock %}
