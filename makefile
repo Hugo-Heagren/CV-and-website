@@ -48,6 +48,7 @@ ${CV_TEX_FILE}: ${CV_BBL_FILE} ${CV_BBX_FILE} ${CV_DBX_FILE}
 .PHONY: cv
 cv: ${CV_TEX_FILE}
 
+# * List of publications
 export PUB_LIST=./list-of-publications
 export PUB_LIST_TEX_FILE=${PUB_LIST}.tex
 export PUB_LIST_BCF_FILE=${PUB_LIST}.bcf
@@ -66,9 +67,17 @@ ${PUB_LIST_TEX_FILE}: ${PUB_LIST_BBL_FILE} ${CV_BBX_FILE} ${CV_DBX_FILE}
 .PHONY: pub-list
 pub-list: ${PUB_LIST_TEX_FILE}
 
+# * List of referees
+export REFEREES=./referees
+export REFEREES_CSV_FILE=${REFEREES}.csv
+export REFEREES_TEX_FILE=${REFEREES}.tex
+
+${REFEREES_TEX_FILE}: ${REFEREES_CSV_FILE}
+	${LATEX} ${REFEREES_TEX_FILE}
+
 .PHONY: referees
-referees:
-	${LATEX} referees.tex
+referees: ${REFEREES_TEX_FILE}
+
 
 .PHONY: clean
 clean:
