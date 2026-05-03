@@ -261,6 +261,9 @@
     }%
   }
 
+\DeclareFieldFormat[degree]{note}{%
+  \mkbibitalic{#1}
+
 \DeclareBibliographyDriver{degree}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
