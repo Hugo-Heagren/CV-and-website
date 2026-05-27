@@ -744,10 +744,8 @@ dl.talk-list {
 	fill: var(--fg-color);
     }
 
-    @media (prefers-color-scheme: dark) {
-        .menu-toggle, #toc-toggle {
-            border: 3px solid var(--fg-color);
-        }
+    .menu-toggle, #toc-toggle {
+        border: 3px solid var(--fg-color);
     }
 
 }
