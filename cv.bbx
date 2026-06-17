@@ -342,6 +342,18 @@
   \usebibmacro{finentry}%
 }
 
+% ** Posts
+
+\DeclareBibliographyDriver{post}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printfield{position}%
+  \setunit{\addcomma\addspace}%
+  \usebibmacro{institution}%
+  \printfield{note}%
+  \usebibmacro{finentry}%
+}
+
 % ** Award
 \newbibmacro{institution+title}{%
   \printlist{institution}%
@@ -423,6 +435,11 @@
 \defbibcheck{Funding/Award}{%
   \ifentrytype{funding}{}{%
     \ifentrytype{award}{}{\skipentry}}%
+}
+
+\defbibcheck{Post}{%
+  \ifentrytype{post}{}{%
+    \skipentry}%
 }
 
 % Cribbed from

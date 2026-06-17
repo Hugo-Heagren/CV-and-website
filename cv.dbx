@@ -9,6 +9,26 @@
        {Database file 'biblatex-cv' not found}
        {The database file 'biblatex-cv' could not be found}}
 
+% * Posts (jobs)
+
+\DeclareDatamodelEntrytypes{post}
+
+\DeclareDatamodelFields[type=field,datatype=literal]{position}
+
+\DeclareDatamodelEntryfields[post]{
+	date,day,endday,endmonth,endyear,month,year,
+	institution,
+        position,
+}
+
+\DeclareDatamodelConstraints[post]{
+	\constraint[type=mandatory]{
+          \constraintfield{date}
+          \constraintfield{institution}
+          \constraintfield{position}
+	}
+}
+
 % * Presentations
 \DeclareDatamodelFields[type=field,datatype=integer]{eventnumber}
 
