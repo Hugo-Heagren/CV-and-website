@@ -115,6 +115,20 @@
      \newunit}%
   }
 
+\AtEveryBibitem{%
+  \ifcsname c@bibcount@\thefield{entrykey}\endcsname\relax%
+  \else% Else define
+    \newcounter{bibcount@\thefield{entrykey}}%
+  \fi%
+  % Always step
+  \stepcounter{bibcount@\thefield{entrykey}}%
+}
+
+% A command which expands to the name of a counter holding the number
+% of times the current entry has been printed in the whole document so
+% far. It is 1 during the first printing, 2 during the second, etc.
+\newcommand{\bibcount}{bibcount@\thefield{entrykey}}
+
 % ** Article
 
 \newbibmacro{title+url}{%
@@ -302,7 +316,9 @@
   \usebibmacro{begentry}%
   \usebibmacro{title+part}%
   \setunit{\addspace}\newblock{}
-  \printfield{description}%
+  \ifnum\value{\bibcount}<2%
+    \printfield{description}%
+  \fi%
   \usebibmacro{finentry}%
 }
 
