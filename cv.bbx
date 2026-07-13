@@ -292,11 +292,17 @@
     }%
 }
 
+\DeclareFieldFormat[teaching]{description}{%
+  \mkbibitalic{\mkbibparens{#1}}%
+}
+
+
 \DeclareBibliographyDriver{teaching}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{title+part}%
-  \setunit{\addspace}%
+  \setunit{\addspace}\newblock{}
+  \printfield{description}%
   \usebibmacro{finentry}%
 }
 
@@ -488,6 +494,15 @@
     }
   }{\skipentry}
 }
+
+\defbibcheck{Teaching+Convener}{
+  \ifentrytype{teaching}{
+    \tl_set:Ne \l_tmpa_clist { \thelist{role} }
+    \exp_args:NV \clist_if_in:NnF \l_tmpa_clist { convener } {
+      \skipentry
+    }
+  }{\skipentry}}
+
 \ExplSyntaxOff
 
 \defbibcheck{Visit}{%
