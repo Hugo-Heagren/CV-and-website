@@ -304,19 +304,42 @@
     }%
 }
 
-\DeclareFieldFormat[teaching]{description}{%
-  \mkbibitalic{\mkbibparens{#1}}%
-}
+\DeclareNameWrapperFormat{co-conveners}{co-convened with #1}
 
+\newbibmacro{description+co-coveners}{%
+  % If at least one of description or co-conveners is defined
+  \ifboolexpr{%
+      (test {\ifnumless{\value{\bibcount}}{2}}
+       and
+       not test {\iffieldundef{description}})
+      or%
+      not test {\ifnameundef{co-conveners}}%
+      }{%
+        % In italics and parenthesis.
+        \mkbibitalic{%
+          \mkbibparens{%
+            % If description is defined, and this is the first time we
+            % are printing this item, then print the description.
+            \ifboolexpr{%
+                test {\ifnumless{\value{\bibcount}}{2}}
+                and
+                not test {\iffieldundef{description}}
+              }{%
+              \printfield{description}%
+              \setunit{\addsemicolon\addspace}%
+            }{}%
+            % Print the co-conveners names, if there are any.
+            \printnames{co-conveners}%
+          }}%
+      }{}%
+    }
 
 \DeclareBibliographyDriver{teaching}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{title+part}%
-  \setunit{\addspace}\newblock{}
-  \ifnum\value{\bibcount}<2%
-    \printfield{description}%
-  \fi%
+  \newblock{\addspace}%
+  \usebibmacro{description+co-coveners}%
   \usebibmacro{finentry}%
 }
 

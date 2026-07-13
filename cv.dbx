@@ -37,6 +37,13 @@
 }
 
 % * Modules
+% ** Co-conveners for modules
+\DeclareDatamodelFields[type=list,datatype=name]{co-conveners}
+
+\DeclareDatamodelEntryfields[teaching]{%
+  co-conveners
+}
+
 % ** Descriptions for modules
 \DeclareDatamodelFields[type=field,datatype=literal]{description}
 
