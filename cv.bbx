@@ -71,9 +71,9 @@
 % I have a rough print date in the .bib file (e.g. just the year)
 \DeclareLabeldate{%
   \field{pubstate}
+  \field{origdate}
   \field{date}
   \field{eventdate}
-  \field{origdate}
   \field{urldate}
   \literal{nodate}
 }
@@ -448,16 +448,19 @@
   % Year
   \sort[direction=descending]{
     \field{sortyear}
+    \field{origyear}
     \field{year}
     \literal{9999}
   }
   % Month
   \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{origmonth}
     \field[padside=left,padwidth=2,padchar=0]{month}
     \literal{12}
   }
   % Day
   \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{origday}
     \field[padside=left,padwidth=2,padchar=0]{day}
     \literal{31}
   }
