@@ -478,9 +478,16 @@
     {\skipentry}%
 }
 
-\defbibcheck{Funding/Award}{%
-  \ifentrytype{funding}{}{%
-    \ifentrytype{award}{}{\skipentry}}%
+\defbibcheck{MajorFunding/Award}{%
+  \ifentrytype{funding}{
+      \ifnumgreater{\thefield{amount}}{9000}{}{\skipentry}
+      }{\skipentry} 
+}
+
+\defbibcheck{MinorFunding/Award}{%
+  \ifentrytype{funding}{
+      \ifnumgreater{\thefield{amount}}{9000}{\skipentry}{}
+      }{\ifentrytype{award}{}{\skipentry}}
 }
 
 \defbibcheck{Post}{%
